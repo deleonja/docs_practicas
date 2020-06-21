@@ -1,0 +1,281 @@
+\documentclass[11pt, spanish, letterpage]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm}
+%\pagestyle{plain}
+\setlength{\parskip}{\baselineskip}%espacio entre parrafos
+\setlength{\parindent}{0mm}
+\usepackage{graphicx}
+%\usepackage{setspace}
+\usepackage{tabulary}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{wrapfig}% para colocar figuras en diferentes posiciones
+\usepackage{bbold}
+
+\usepackage{fancybox}
+\usepackage{colortbl}
+\usepackage{amsbsy}
+
+
+\usepackage{lipsum}
+\usepackage{babel}
+\usepackage{multirow}
+\usepackage{array}
+
+\usepackage[]{lineno}  \linenumbers
+\setlength\linenumbersep{3pt}
+
+\renewcommand{\baselinestretch}{1} % interlinado
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+\date{}
+\spanishdecimal{.}
+\usepackage{multicol}%para escribir en muchas columnas
+%para que no corte palabras
+\usepackage[none]{hyphenat}
+\usepackage{times}
+%\onehalfspacing
+
+\usepackage{hyperref}
+%\usepackage{biblatex}
+
+%---ejercicios, problemas -teoremas
+%---Problemas encerrados-Bonitos
+\usepackage[framemethod=tikz]{mdframed}
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\newcounter{problem}[section]
+\newenvironment{problem}[1][]{%
+%\stepcounter{problem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+	\tikz[baseline=(current bounding box.east),outer sep=0pt]
+	\node[anchor=east,rectangle,fill=brown!50]
+{\strut Problema~\theproblem};}}
+
+}%
+{\mdfsetup{%
+frametitle={%
+	\tikz[baseline=(current bounding box.east),outer sep=0pt]
+	\node[anchor=east,rectangle,fill=brown!50]
+{\strut Problema ~\theproblem:~#1};}}%
+
+}%
+\mdfsetup{innertopmargin=5pt,linecolor=black!50,%
+	linewidth=2pt,topline=true,
+	frametitleaboveskip=\dimexpr-\ht\strutbox\relax,}
+	
+\begin{mdframed}[]\relax%
+}{\end{mdframed}}
+
+\newenvironment{solution}% environment name
+{\colorbox{gray}{~~\textbf{\textcolor{white}{Solución:}}~~}~~}%
+{}
+%-----end------------
+
+%\newtheorem{example}{Ejemplo}[chapter]
+%\newtheorem{ejercicio}{Ejercicio}[chapter]
+%%---
+\newcommand{\Ev}{\mathbf{E}}
+\newcommand{\rv}{\mathbf{r}}
+\newcommand{\ru}{\hat{\rv}}
+\newcommand{\zu}{\hat{\mathbf{z}}}
+\usepackage{tabulary}
+%---paquetes para fisica
+\usepackage{physics}%facilita la escritura de operadores usados en fisica
+%-paquete para unidades en el sistema internacional
+\usepackage[load=prefix, load=abbr, load=physical]{siunitx}
+\newunit{\gram}{g }%gramos
+\newunit{\velocity}{ \metre / \Sec }%unidades de velocidad sistema internacional
+\newunit{\acceleration}{ \metre / \Sec^2 }%unidades de aceleracion sistema internacional
+\newunit{\entropy}{ \joule / \kelvin }%unidades de entropia sisteme internacional
+%--definiendo constantes fisicas en el SI
+\newcommand{\accgravity}{9.8 \metre / \Sec^2}
+%---diferencial inexacta
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\oddsidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 8.5in
+
+\begin{document}
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1                                  
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here                             
+
+\center % Centre everything on the page                                                                                                       
+
+%------------------------------------------------                                                                                             
+%       Title                                                                                                                                 
+%------------------------------------------------                                                                                             
+	
+\HRule\\[0.6cm]
+
+{\huge\bfseries Estudio de canales cuánticos que borran componentes arbitrarias de la matriz de densidad $\boldsymbol{\rho}$ de un sistema de $\mathbf{n}$ qubits}\\[0.5cm] % Title of your document                                                 
+
+\HRule\\[2cm]
+
+%------------------------------------------------                                                                                             
+%       Author(s)                                                                                                                             
+%------------------------------------------------                                                                                             
+
+
+\Large{\textbf{José Alfredo de León Garrido}}\\ [2cm] % Your name                                                                                          
+
+%------------------------------------------------                                                                                             
+%       Headings                                                                                                                              
+%------------------------------------------------                                                                                             
+
+\textsc{\LARGE Universidad de San Carlos de Guatemala\\ Escuela de Ciencias Físicas y Matemáticas\\ Licenciatura en Física}\\[2cm]
+
+\textsc{\huge Anteproyecto}\\
+\textsc{\Large Año de prácticas}\\[2cm]
+
+\textsc{\Large Supervisado por: \textbf{Dr. Carlos Pineda (IF-UNAM) y\\M.Sc. Juan Diego Chang (ICFM-USAC)}}
+                                                                                                      
+
+%------------------------------------------------                                                                                             
+%       Date                                                                                                                                  
+%------------------------------------------------                                                                                             
+\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+\vfill\vfill\vfill
+
+{\large 13 de enero 2020} % Date, change the \today to a set date if you want to be precise                                                              
+
+%------------------------------------------------                                                                                             
+%       Logo                                                                                                                                  
+%------------------------------------------------                                                                                             
+
+%\vfill\vfill                                                                                                                                 
+%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx packag\                                                                                                                                                  
+
+%----------------------------------------------------------------------------------------                                                     
+
+\vfill % Push the date up 1/4 of the remaining page                                                                                           
+
+\end{titlepage}
+
+\section{Descripción general de la Institución}
+\subsection{Instituto de Ciencias Físicas y Matemáticas - Universidad de San Carlos de Guatemala (ICFM-USAC)}
+El Instituto de Investigación de Ciencias Físicas y Matemáticas (ICFM-USAC) es la unidad de la Escuela de Ciencias Físicas y Matemáticas de la Universidad de San Carlos (ECFM-USAC) que promueve y realiza estudios avanzados en áreas científicas, fundamentales y aplicadas, de las ciencias físicas y matemáticas. El ICFM-USAC se proyecta como una plataforma regional de excelencia dedicada a la investigación y difusión del conocimiento en física y matemática. Las principales líneas de trabajo del ICFM-USAC son:
+\begin{itemize}
+	\item La investigación en ciencia básica y aplicada.
+	\item La promoción de la investigación en ciencia básica y aplicada en el ámbito universitario.
+	\item La difusión y divulgación del conocimiento generado por la investigación en ciencias físicas y matemáticas. 
+	\item La actualización de programas académicos de ciencias físicas y matemáticas.
+\end{itemize}
+
+\subsection{Instituto de Física - Universidad Nacional Autónoma de México (IFUNAM)}
+Creado en 1938, el Instituto de Física (IFUNAM) ha crecido y madurado como institución académica para convertirse en uno de los centros de investigación en física más importantes de México con un sólido prestigio internacional. En el IFUNAM se realiza una parte muy significativa de la investigación en física que se lleva a cabo en México, y se cultivan la docencia y formación de recursos humanos como actividades fundamentales.
+
+El Instituto de Física ha jugado una papel fundamental en el desarrollo de la física en México, lo cual se refleja la calidad de sus aportaciones científicas y en la publicación de cerca de 6100 artículos, la mayoría en revistas de circulación internacional, además de otros múltiples productos de investigación. Como resultado de lo anterior, sus académicos han obtenido un gran número de premios y distinciones.
+
+En el IFUNAM se desarrolla investigación de frontera en una amplia gama de temas que abarcan la totalidad de las escalas observadas en el universo: desde las diminutas escalas del microcosmos hasta los amplios horizontes de la cosmología. Las líneas de investigación del IFUNAM son:
+\begin{itemize}
+	\item Altas Energías, Física Nuclear, Astropartículas y Cosmología
+	\item Óptica y Física Cuántica
+	\item Nanociencias y Materia Condensada
+	\item Física Aplicada y temas interdisciplinarios
+\end{itemize}
+
+
+\section{Descripción del grupo de trabajo}
+\subsection{Grupo de Información y Óptica Cuántica (GIOC-UNAM)}
+El grupo de Información y Óptica Cuántica de la Universidad Nacional Autónoma de México (GOIC-UNAM) está compuesto por investigadores y estudiantes de IIMAS-UNAM, ICN-UNAM y IF-UNAM. 
+
+Desde su fundación, GIOC empezó como una serie de reuniones regulares con doble propósito: presentar los avances principales de investigacion tanto al grupo como también a la comunidad internacional, y entender los aspectos básicos de la mecánica cuántica y de la óptica cuántica en un nivel de posgrado. 
+
+Las líneas de investigación en las que trabaja el grupo son:
+\begin{itemize}
+	\item Sistemas de espín
+	\item Matrices aleatorias en información cuántica
+	\item Markovianidad en sistemas cuánticos
+	\item Información cuántica relativista
+	\item Dinámica de rango
+\end{itemize}
+
+\section{Descripción General del Proyecto}
+El proyecto consiste en estudiar y describir analíticamente los mapeos completamente positivos que preservan la traza que borran componentes de la matriz de densidad $\rho$ de un sistema de $n$ qubits. Para ello, son necesarios conocimientos previos de álgebra lineal y sistemas cuánticos abiertos. Los conceptos de álgebra lineal permitirán describir los postulados de la mecánica cuántica con el lenguaje de la matriz de densidad. Y todo esto, a su vez, será necesario para estudiar la descripción de la dinámica de los sistemas cuánticos abiertos, tipo de nuestro sistema de interés.
+
+\subsection{Qubits}
+Un bit cuántico, conocido también como \textit{qubit}, es la unidad fundamental de información de la computación e información cuántica, de la misma manera que el bit lo es para la computación e información clásica. Un qubit es un sistema cuántico de dos niveles que está descrito por una matriz de densidad $\rho$ que actúa sobre el espacio de Hilbert $\mathcal{H}$ del espacio de estados del sistema. La matriz $\rho$ debe ser de traza unitaria, hermítica y positiva semidefinida para describir a un sistema físico \cite{nielsen_chuang_2011}. 
+
+Para un sistema de $n$ qubits el espacio de Hilbert $\mathcal{H}_{\text{total}}$ se construye a partir del producto tensorial de los espacios de Hilbert de cada uno de los qubits en el sistema, $\mathcal{H}_{\text{total}}=\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \ldots \otimes \mathcal{H}_n$. Así, la matriz de densidad $\rho$ debe ser un operador que actúe sobre este espacio total. 
+
+\subsection{El espacio de las matrices de densidad: $\boldsymbol{\mathcal{HM}}$}
+El conjunto de las matrices de densidad se denota $\mathcal{M}^{\qty(n)}$. Este es un conjunto convexo que se encuentra dentro del espacio vectorial de las matrices Hermíticas y sus estados puros son matrices de densidad que obedecen la ecuación $\rho ^2=\rho$. La razón por la que considera este conjunto convexo es que es conveniente seleccionar un espacio vectorial que también es un álgebra \cite{bengtsson_zyczkowski_2017}. 
+
+\subsection{Operaciones cuánticas}
+Para describir la evolución de los sistemas cuánticos abiertos se utiliza el formalismo de los canales cuánticos. Este formalismo tiene la ventaja de describir adecuadamente cambios de estado discretos, es decir, transformaciones entre un estado inicial $\rho$ y un estado final $\rho '$ sin referencia explícita al paso del tiempo \cite{nielsen_chuang_2011}. El objetivo es entender el análogo cuántico de los mapeos estocásticos clásicos, para así entender de una mejor manera la estructura del espacio de estados \cite{bengtsson_zyczkowski_2017}. 
+
+
+\section{Objetivos}
+\subsection{Objetivo General}
+\begin{itemize}
+	\item Estudiar los mapeos CP que preservan la traza que borran componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$ qubits. 	
+\end{itemize}
+
+\subsection{Objetivos específicos}
+\begin{itemize}
+	\item Estudiar el formalismo de las operaciones cuánticas para describir la dinámica de los sistemas cuánticos abiertos.  
+	\item Estudiar los mapeos completamente positivos que mantienen invariante la traza.  
+	\item Construir numéricamente la representación matricial de los mapeos que borran componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$ qubits. 
+	\item Formular una descripción analítica de los mapeos que borran componentes arbirtrarias de la matriz de densidad $\rho$ de un sistema de $n$ qubits.
+\end{itemize}
+
+\section{Justificación del Proyecto}
+El estudio de los sistemas cuánticos abiertos juega una pieza fundamental en la teoría de la Información Cuántica. También contribuye al conocimiento que se está produciendo en el camino a la implementación de las computadoras cuánticas, sobre las cuáles hay muchas expectativas puestas por la comunidad científica. Por otro lado, el estudio de los mapeos CP que preservan la traza de nuestro interés también revelan nuevos resultados producto de la mecánica cuántica.   
+
+Como en cualquier otra área de investigación se debe considerar los conocimientos de matemática y física que son necesarios para dar solución al problema de estudio. El estudio de los sistemas cuánticos abiertos requiere de conocimientos de álgebra lineal, mecánica cuántica con el lenguaje de la matriz de densidad y las operaciones cuánticas para describir la dinámica de este tipo de sistemas cuánticos.
+
+El estudio de este problema permite tener una aproximación a la experiencia de investigación en Mecánica Cuántica. Así también, los conocimientos que se requiere aprender previo a la resolución del problema en cuestión son fundamentales en el área de Información Cuántica, y en la ECFM la Licenciatura en Física no cuenta con ningún curso de Información Cuántica. Es por ello, que este trabajo de prácticas será de mucho beneficio para continuar esta área de investigación en el futuro.  
+
+\section{Metodología}
+La metodología del proyecto consiste primero en estudiar los temas de interés, según los conocimientos mencionados antes, de las referencias \cite{bengtsson_zyczkowski_2017} y \cite{nielsen_chuang_2011}. Se leerá el material detenidamente de tal manera que se consiga una comprensión completa de los conceptos. Tras la lectura se realizan los ejercicios sugeridos en las bibliografías. 
+
+Después de obtener los conocimientos teóricos necesarios se llevará a cabo una implementación computacional para construir numéricamente los mapeos CP que preservan la traza de esstudio y así dilucidar el camino a una descripción analítica de ellos. 
+
+\newpage
+
+\section{Cronograma}
+\begin{center}
+	\begingroup
+	\setlength{\tabcolsep}{10pt} % Default value: 6pt
+	\renewcommand{\arraystretch}{1.2} % Default value: 1
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+                \hline
+                \textbf{Tareas} & \textbf{Enero} & \textbf{Febrero} & \textbf{Marzo} & \textbf{Abril} & \textbf{Mayo} & \textbf{Junio} \\ \hline
+                Tarea 1 & \cellcolor[gray]{0.5} &  &  &  &  &	\\ \hline
+                Tarea 2 & \cellcolor[gray]{0.5} & & & & &	\\ \hline
+                Tarea 3 & \cellcolor[gray]{0.5} & & & & &	\\ \hline
+                Tarea 4 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
+                Tarea 5 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
+                Tarea 6 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
+                Tarea 7 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
+                Tarea 8 & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} &	\\ \hline
+				Tarea 9 & & & & & & \cellcolor[gray]{0.5}	\\ \hline
+        \end{tabular}
+    \endgroup
+\end{center}
+
+\begin{itemize}
+	\item \textbf{Tarea 1:} Repasar los conceptos de álgebra lineal que se ocupan en la mecánica cuántica y los postulados de la mecánica cuántica con el lenguaje de la matriz de densidad.
+	\item \textbf{Tarea 2:} Estudiar los conceptos básicos de del formalismo de las operaciones cuánticas para describir la dinámica de los sistemas cuánticos abiertos.
+	\item \textbf{Tarea 3:} Estudiar los conceptos básicos de las medidas de distancia en la teoría de procesamiento de información cuántica. 
+	\item \textbf{Tarea 4:} Estudiar la estructura y propiedades del espacio de las matrices de densidad $\mathcal{M}^{(n)}$.
+	\item \textbf{Tarea 5:} Estudiar los conceptos de purificación de estados cuánticos mixtos.
+	\item \textbf{Tarea 6:} Estudiar, con un el rigor matemático apropiado, las propiedades de las operaciones cuánticas. 
+	\item \textbf{Tarea 7:} Estudiar, reproducir y entender los mapeos que borran componentes de la matriz de densidad $\rho$ de 1 qubit.
+	\item \textbf{Tarea 8:} Construir numéricamente los mapeos que borran componentes de la matriz de densidad $\rho$ de sistemas con dos o más qubits.
+	\item \textbf{Tarea 9:} Elaboración del informe final. 
+\end{itemize}
+
+\bibliographystyle{abbrv}
+\bibliography{references}
+
+\end{document}
