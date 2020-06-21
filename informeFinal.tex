@@ -1,0 +1,208 @@
+\documentclass[12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{authblk} % para la manipulación de autores y afiliación
+\usepackage[pdftex]{hyperref}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{bbold}
+\usepackage{physics}
+
+
+\usepackage[]{lineno}  \linenumbers
+\setlength\linenumbersep{3pt}
+
+%\usepackage{hyperref}
+%\usepackage{commath}
+\decimalpoint
+\renewcommand{\tablename}{Tabla}
+\oddsidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 8.5in
+
+%<stdio.h>
+
+\begin{document}
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1                                  
+\newcommand{\HRule}{\rule{\linewidth}{0.6mm}} % Defines a new command for horizontal lines, change thickness here                             
+
+\center % Centre everything on the page                                                                                                       
+
+%------------------------------------------------                                                                                             
+%       Title                                                                                                                                 
+%------------------------------------------------                                                                                             
+
+\HRule\\[0.4cm]
+
+{\LARGE\bfseries Estudio de canales cuánticos que borran\\
+				 componentes arbitrarias de la matriz densidad $\boldsymbol{\rho}$\\
+				 de un sistema de $\mathbf{n}$ qubits}\\[0.4cm] % Title of your document                                                 
+
+\HRule\\[2cm]
+
+%------------------------------------------------                                                                                             
+%       Author(s)                                                                                                                             
+%------------------------------------------------                                                                                             
+
+
+\Large{\textbf{José Alfredo de León Garrido}}\\[2cm]
+
+%------------------------------------------------                                                                                             
+%       Headings                                                                                                                              
+%------------------------------------------------                                                                                             
+
+\textsc{\Large Universidad de San Carlos de Guatemala\\
+		Escuela de Ciencias Físicas y Matemáticas\\
+		Licenciatura en Física}\\[2cm]
+
+\textsc{{\Large\bfseries Informe final}}\\
+\textsc{\large Año de prácticas}\\[2cm]
+
+\textsc{\large Supervisado por:\\
+		\textbf{Dr. Carlos Pineda (IF-UNAM) y\\
+		M.Sc. Juan Diego Chang (ICFM-USAC)}}
+
+
+%------------------------------------------------                                                                                             
+%       Date                                                                                                                                  
+%------------------------------------------------                                                                                             
+\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+\vfill\vfill\vfill
+
+{\large 13 de enero 2020} % Date, change the \today to a set date if you want to be precise                                                              
+
+%------------------------------------------------                                                                                             
+%       Logo                                                                                                                                  
+%------------------------------------------------                                                                                             
+
+%\vfill\vfill                                                                                                                                 
+%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx packag\                                                                                                                                                  
+
+%----------------------------------------------------------------------------------------                                                     
+
+\vfill % Push the date up 1/4 of the remaining page  
+\end{titlepage}
+
+\newtheorem{definition}{Definición}[section]
+
+\newtheorem{teorema}{Teorema}[section]
+
+\newtheorem{property}{Propiedad}[section]
+
+\section*{Objetivo General}
+
+
+
+\section*{Objetivos Específicos}
+
+
+\section*{Introducción}
+
+
+\section*{Justificación}
+
+
+\chapter{La matriz densidad}
+Una formulación alternativa de la mecánica cuántica es posible utilizando la herramienta de
+la matriz densidad. Esta es una formulación alternativa al enfoque de los vectores de estado,
+pero es matemáticamente equivalente y, de hecho, más conveniente para cierto tipo de problemas
+en mecánica cuántica. 
+
+\section{Ensambles de estados cuánticos}
+El lenguaje de la matriz densidad permite describir sistemas cuánticos cuyos estados no son 
+conocidos por completo. Supongamos que un sistema cuántico se encuentra en uno de los estados 
+$\{\ket{\psi _i}\}$, con respectivas probabilidades $p_i$. Llamamos al conjunto $\{p_i, 
+\ket{\psi _i} \}$ un ensamble de estados puros. La matriz densidad para dicho sistema está 
+definida como
+\begin{equation}
+	\rho \equiv \sum _i p_i\dyad{\psi_i}{\psi_i}.
+	\label{eq:rho_def}
+\end{equation}
+
+Todos los postulados de la mecánica cuántica pueden ser reformulados en el lenguaje de la matriz
+densidad. Los mismos resultados se obtienen si se utiliza el lenguaje de la matriz densidad o el
+lenguaje del vector de estado. Sin embargo, dependiendo el problema uno de los lenguajes será más
+conveniente y práctico de utilizar que el otro. 
+
+Un sistema cuántico cuyo estado $\ket{\psi}$ es completamente conocido se dice que se encuentra en
+un estado puro. De cualquier otra manera, $\rho$ se encuentra en un estado mixto; se dice que está
+en una mezcla de distintos estados puros en el ensamble para $\rho$. \newpage
+
+\section{Propiedades generales de la matriz densidad}
+Es útil y conveniente dar una descripción de la matriz densidad que no esté basado en el vector de
+estado. La matriz densidad está caracterizada por el siguiente teorema: 
+\begin{teorema}
+Un operador $\rho$ es la matriz densidad asociada a un ensamble $\{p_i, \ket{\psi _i} \}$ si y
+sólo si comple con las siguientes condiciones:
+\begin{enumerate}
+\item $\rho$ tiene traza unitaria.
+\item $\rho$ es una matriz positiva semidefinida. 
+\end{enumerate}	
+\end{teorema}
+
+Este teorema permite caracterizar la matriz densidad de manera intrínsica a la matriz misma. Con 
+esta definición es posible reformular los postulados de la mecánica cuántica con el lenguaje de 
+la matriz densidad. 
+\begin{itemize}
+	\item \textbf{Postulado 1:} Cualquier sistema físico tiene asociado un espacio vectorial complejo
+								con producto interno que se conoce como el espacio de estados del
+								sistema. El sistema está completamente descrito por su operador densidad,
+								que es un operador positivo $\rho$ con traza unitaria, que actúa sobre 
+								el espacio de estados del sistema. Si un sistema cuántico se encuentra
+								en el estado $\rho _i$ con probabilidad $p_i$, entonces el operador densidad
+								del sistema es $\sum p_i\rho_i$.
+	\item \textbf{Postulado 2:} La evolución de un sistema cuántico cerrado está descrita por una transformación
+								unitaria. Es decir, el estado $\rho$ del sistema en el tiempo $t_1$ está 
+								relacionado al estado $\rho'$ del sistema en el tiempo $t_2$ por un operador
+								unitario $U$ que depende sólo de los tiempos $t_1$ y $t_2$,
+								\begin{equation}
+								\rho'=U\rho U^{\dagger}.
+								\label{eq:postulate1}
+								\end{equation}
+	\item \textbf{Postulado 3:} Las mediciones cuánticas están descritas por un conjunto $\{M_m\}$ de 
+								operadores de medición. Estos son operadores que actúan sobre el espacio 
+								de estados del sistema que se mide. El índice $m$ se refiere a los resultados
+								de las mediciones que puedan ocurrir en el experimento. Si el estado del sistema
+								cuántico es $\rho$ inmediatamente antes de la medición, entonces la probabilidad
+								de medir el resultado $m$ está dado por
+								\begin{equation}
+								p(m)=\tr \qty(M_m^{\dagger}M_m\rho),
+								\label{eq:postulate2_prob}
+								\end{equation}						
+								y el estado del sistema después de la medición es
+								\begin{equation}
+								\rho'=\frac{M_m\rho M_m^{\dagger}}{\tr \qty(M_m^{\dagger}M_m\rho)}.
+								\label{eq:postulate2_rhoPrime}
+								\end{equation}	
+								Los operadores de medición satisfacen la ecuación 
+								\begin{equation}
+								\sum _m M_m^{\dagger}M_m=\mathbb{1}.
+								\label{eq:postulate2_completeness}
+								\end{equation}
+	\item \textbf{Postulado 4:} El espacio de estados de un sistema físico compuesto es el producto tensorial 
+								de los espacios de estado de los sistemas físicos que componen al sistema total.
+								Además, si los sistemas están enumerados de 1 hasta $n$, y el $i$-ésimo sistema
+								está preparado en el estado $\rho_i$, entonces el estado del sistema total es
+								$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$.
+\end{itemize}
+
+\chapter{Conclusiones y trabajo futuro}
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{references}
+
+\end{document}
