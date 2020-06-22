@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[12pt]{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -140,7 +141,7 @@ Un sistema cuántico cuyo estado $\ket{\psi}$ es completamente conocido se dice 
 un estado puro. De cualquier otra manera, $\rho$ se encuentra en un estado mixto; se dice que está
 en una mezcla de distintos estados puros en el ensamble para $\rho$. \newpage
 
-\section{Propiedades generales de la matriz densidad}
+\section{Definición de $\boldsymbol{\rho}$ independiente del vector de estado}
 Es útil y conveniente dar una descripción de la matriz densidad que no esté basado en el vector de
 estado. La matriz densidad está caracterizada por el siguiente teorema: 
 \begin{teorema}
@@ -152,51 +153,152 @@ sólo si comple con las siguientes condiciones:
 \end{enumerate}	
 \end{teorema}
 
-Este teorema permite caracterizar la matriz densidad de manera intrínsica a la matriz misma. Con 
-esta definición es posible reformular los postulados de la mecánica cuántica con el lenguaje de 
+Este teorema permite caracterizar la matriz densidad de manera intrínsica a la matriz misma. El 
+conjunto de las matrices densidad será denotado como $\mathcal{M}^{(n)}$. Este es un conjunto convexo
+que se encuentra dentro del espacio vectorial de las matrices Hermíticas y sus estados putos son 
+matrices de densidad que satisfacen la ecuación $\rho^2=\rho$. Es decir, las estados puros forman 
+un espacio proyectivo complejo. 
+
+\section{Postulados de la mecánica cuántica}
+Con esta definición es posible reformular los postulados de la mecánica cuántica con el lenguaje de 
 la matriz densidad. 
 \begin{itemize}
 	\item \textbf{Postulado 1:} Cualquier sistema físico tiene asociado un espacio vectorial complejo
-								con producto interno que se conoce como el espacio de estados del
-								sistema. El sistema está completamente descrito por su operador densidad,
-								que es un operador positivo $\rho$ con traza unitaria, que actúa sobre 
-								el espacio de estados del sistema. Si un sistema cuántico se encuentra
-								en el estado $\rho _i$ con probabilidad $p_i$, entonces el operador densidad
-								del sistema es $\sum p_i\rho_i$.
+	con producto interno que se conoce como el espacio de estados del
+	sistema. El sistema está completamente descrito por su operador densidad,
+	que es un operador positivo $\rho$ con traza unitaria, que actúa sobre 
+	el espacio de estados del sistema. Si un sistema cuántico se encuentra
+	en el estado $\rho _i$ con probabilidad $p_i$, entonces el operador densidad
+	del sistema es $\sum p_i\rho_i$.
 	\item \textbf{Postulado 2:} La evolución de un sistema cuántico cerrado está descrita por una transformación
-								unitaria. Es decir, el estado $\rho$ del sistema en el tiempo $t_1$ está 
-								relacionado al estado $\rho'$ del sistema en el tiempo $t_2$ por un operador
-								unitario $U$ que depende sólo de los tiempos $t_1$ y $t_2$,
-								\begin{equation}
-								\rho'=U\rho U^{\dagger}.
-								\label{eq:postulate1}
-								\end{equation}
+	unitaria. Es decir, el estado $\rho$ del sistema en el tiempo $t_1$ está 
+	relacionado al estado $\rho'$ del sistema en el tiempo $t_2$ por un operador
+	unitario $U$ que depende sólo de los tiempos $t_1$ y $t_2$,
+	\begin{equation}
+	\rho'=U\rho U^{\dagger}.
+	\label{eq:postulate1}
+	\end{equation}
 	\item \textbf{Postulado 3:} Las mediciones cuánticas están descritas por un conjunto $\{M_m\}$ de 
-								operadores de medición. Estos son operadores que actúan sobre el espacio 
-								de estados del sistema que se mide. El índice $m$ se refiere a los resultados
-								de las mediciones que puedan ocurrir en el experimento. Si el estado del sistema
-								cuántico es $\rho$ inmediatamente antes de la medición, entonces la probabilidad
-								de medir el resultado $m$ está dado por
-								\begin{equation}
-								p(m)=\tr \qty(M_m^{\dagger}M_m\rho),
-								\label{eq:postulate2_prob}
-								\end{equation}						
-								y el estado del sistema después de la medición es
-								\begin{equation}
-								\rho'=\frac{M_m\rho M_m^{\dagger}}{\tr \qty(M_m^{\dagger}M_m\rho)}.
-								\label{eq:postulate2_rhoPrime}
-								\end{equation}	
-								Los operadores de medición satisfacen la ecuación 
-								\begin{equation}
-								\sum _m M_m^{\dagger}M_m=\mathbb{1}.
-								\label{eq:postulate2_completeness}
-								\end{equation}
+	operadores de medición. Estos son operadores que actúan sobre el espacio 
+	de estados del sistema que se mide. El índice $m$ se refiere a los resultados
+	de las mediciones que puedan ocurrir en el experimento. Si el estado del sistema
+	cuántico es $\rho$ inmediatamente antes de la medición, entonces la probabilidad
+	de medir el resultado $m$ está dado por
+	\begin{equation}
+	p(m)=\tr \qty(M_m^{\dagger}M_m\rho),
+	\label{eq:postulate2_prob}
+	\end{equation}						
+	y el estado del sistema después de la medición es
+	\begin{equation}
+	\rho'=\frac{M_m\rho M_m^{\dagger}}{\tr \qty(M_m^{\dagger}M_m\rho)}.
+	\label{eq:postulate2_rhoPrime}
+	\end{equation}	
+	Los operadores de medición satisfacen la ecuación 
+	\begin{equation}
+	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
+	\label{eq:postulate2_completeness}
+	\end{equation}
 	\item \textbf{Postulado 4:} El espacio de estados de un sistema físico compuesto es el producto tensorial 
-								de los espacios de estado de los sistemas físicos que componen al sistema total.
-								Además, si los sistemas están enumerados de 1 hasta $n$, y el $i$-ésimo sistema
-								está preparado en el estado $\rho_i$, entonces el estado del sistema total es
-								$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$.
+	de los espacios de estado de los sistemas físicos que componen al sistema total.
+	Además, si los sistemas están enumerados de 1 hasta $n$, y el $i$-ésimo sistema
+	está preparado en el estado $\rho_i$, entonces el estado del sistema total es
+	$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$.
 \end{itemize}
+
+\section{El espacio de Hilbert-Schmidt}
+Partiendo de un de un espacio de Hilbert $\mathcal{H}$ complejo de dimensión $n$ existe un espacio de 
+Hilbert dual $\mathcal{H}^*$ que se define como el espacio de las transformaciones lineales de $\mathcal{H}$
+al campo de los números complejo $\mathbb{C}$. Otro espacio de interés es el espacio de los operadores 
+lineales que actúan sobre $\mathcal{H}$. Este espacio está equipado con el producto interno
+\begin{equation}
+\langle A,B\rangle=c\Tr \qty(A^{\dagger}B),
+\label{eq:HS_innerP}
+\end{equation}
+donde $c\in \mathbb{R}$ establece una escala. A este espacio se le conoce como el espacio de
+Hilbert-Schmidt $\mathcal{HS}$. Dado un espacio de Hilbert $\mathcal{H}$ uno siempre cuenta también
+con el espacio complejo de $n^2$ dimensiones $\mathcal{HS}$, también conocido como el álgebra de las 
+matrices complejas.
+
+Un operador $A$ puede diagonalizarse por un cambio de base unitario si y sólo si $A$ es normal, es decir,
+si y sólo si $\comm{A}{A^{\dagger}}=0$. Cualquier operador normal se puede escribir de la forma
+\begin{equation}
+A=\sum _i=1^rz_i\dyad{e_i}{e_i},
+\end{equation} 
+donde la suma va sobre los proyectores ortogonales que corresponden a los $r$ eigenvalores $z_i$ que
+son distintos de cero. Los eigenvectores $\ket{e_i}$ generan al subespacio lineal que se conoce como
+el rango del operador $A$. Además, los eigenvectores con eigenvalor cero forman al subespacio que se
+conoce como el kernel de $A$. Por consiguiente, el espacio de Hilbert se puede escribir como suma
+directa de estos dos subespacios. 
+
+El espacio vectorial $\mathcal{HM}$ de los operadores Hermíticos es un subespacio real de $n^2$ dimensiones
+del espacio $\mathcal{HS}$. $\mathcal{HM}$ también se puede pensar como el álgebra de Lie de $U(n)$. El 
+
+
+
+\begin{teorema}
+Los conjuntos $\ket{\overset{\sim}{\psi}_i}$ y $\ket{\overset{\sim}{\phi}_j}$ generan la misma matriz densidad si
+y sólo si 
+\begin{equation}
+\ket{\overset{\sim}{\psi}_i}=\sum u_{ij}\ket{\overset{\sim}{\phi}_j},
+\end{equation}
+donde $u_{ij}$ es una matriz unitaria de números complejos.
+\end{teorema}
+
+La matriz densidad también es una herramienta útil para describir subsistemas de sistemas cuánticos compuestos.
+Tal descripción es proporcionada por la matriz densidad reducida. 
+
+Supongamos que el estado de dos sistemas $A$ y $B$ está descrito por la matriz $\rho ^{AB}$. La matriz densidad del
+sistema $A$ se define como
+\begin{equation}
+\rho ^A=\Tr _B\qty(\rho ^{AB}),
+\label{eq:reduced_DM}
+\end{equation}
+donde la operación $\Tr _B$ es la traza parcial sobre el sistema $B$. La traza parcial se define como
+\begin{equation}
+\Tr _B\qty(\dyad{a_1}{a_2}\otimes \dyad{b_1}{b_2}) \equiv \dyad{a_1}{a_2}\Tr \qty(\dyad{b_1}{b_2}),
+\end{equation}
+donde $\ket{a_1}$ y $\ket{a_2}$ son dos vectores cualquiera en el espacio de estados de $A$ y $\ket{b_1}$ y $\ket{b_2}$
+son dos vectores cualquiera en el espacio de estados de $B$. 
+
+
+\section{Estados mixtos}
+
+\section{Transformaciones unitarias}
+
+\section{El espacio de las matrices densidad como un conjunto convexo}
+
+\chapter{Purificación de estados mixtos}
+
+\section{Productos tensoriales y reducción de estados}
+
+\section{Descomposición de Schmidt}
+
+\section{Purificación de estados}
+
+\chapter{Operaciones cuánticas}
+
+\section{Ejemplos de operaciones cuánticas}
+
+\section{Mediciones y POVM's}
+
+\section{Matrix reshaping y reshuffling}
+
+\section{Mapeos positivos y completamente positivos}
+
+\section{Representaciones del entorno}
+
+\section{Mapeos de un qubit}
+
+
+
+\chapter{Mapeos que borran componentes arbitrarias de $\boldsymbol{\rho}$}
+
+
+
+\chapter{Método numérico}
+
+
+\chapter{El caso de 2 qubits}
 
 \chapter{Conclusiones y trabajo futuro}
 
