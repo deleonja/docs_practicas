@@ -1,1 +1,4 @@
+anteproyecto.pdf :: 
+
+
 -include ~/makefile
