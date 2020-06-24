@@ -22,6 +22,7 @@
 \usepackage{amsbsy}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\FXRegisterAuthor{ja}{aja}{\color{orange}JA}
 
 \usepackage{lipsum}
 \usepackage{babel}
@@ -159,17 +160,17 @@ frametitle={%
 
 \end{titlepage} % }}}
 \section{Descripción general de la Institución} % {{{
-\subsection{Instituto de Ciencias Físicas y Matemáticas - Universidad de San Carlos de Guatemala (ICFM-USAC)}  % {{{
+\subsection{Instituto de Investigación de Ciencias Físicas y Matemáticas -
+	Universidad de San Carlos de Guatemala (ICFM-USAC)}  % {{{
 \cpnote{Creo que esta mal el titulo, falta Investigación}
 
-El Instituto de Investigación de Ciencias
-Físicas y Matemáticas (ICFM-USAC) es la unidad de la Escuela de Ciencias
-Físicas y Matemáticas de la Universidad de San Carlos (ECFM-USAC) que promueve
-y realiza estudios avanzados en áreas científicas, fundamentales y aplicadas,
-de las ciencias físicas y matemáticas. El ICFM-USAC se proyecta como una
-plataforma regional de excelencia dedicada a la investigación y difusión del
-conocimiento en física y matemática. Las principales líneas de trabajo del
-ICFM-USAC son:
+El Instituto de Investigación de Ciencias Físicas y Matemáticas (ICFM-USAC) es
+la unidad de la Escuela de Ciencias Físicas y Matemáticas de la Universidad de
+San Carlos (ECFM-USAC) que promueve y realiza estudios avanzados en áreas 
+científicas, fundamentales y aplicadas, de las ciencias físicas y matemáticas.
+El ICFM-USAC se proyecta como una plataforma regional de excelencia dedicada a
+la investigación y difusión del conocimiento en física y matemática. Las 
+principales líneas de trabajo del ICFM-USAC son:
 \begin{itemize}
 	\item La investigación en ciencia básica y aplicada.
 	\item La promoción de la investigación en ciencia básica y aplicada en el ámbito universitario.
@@ -179,6 +180,7 @@ ICFM-USAC son:
 % }}}
 \subsection{Instituto de Física - Universidad Nacional Autónoma de México (IFUNAM)} % {{{
 \cpnote{De donde sacaste esta inforamcion?}
+\janote{De \href{https://www.fisica.unam.mx/es/historia.php}{aquí.}}
 Creado en 1938, el Instituto de Física (IFUNAM) ha crecido y madurado como
 institución académica para convertirse en uno de los centros de investigación
 en física más importantes de México con un sólido prestigio internacional. En
@@ -197,10 +199,10 @@ En el IFUNAM se desarrolla investigación de frontera en una amplia gama de
 temas que abarcan la totalidad de las escalas observadas en el universo: desde
 las diminutas escalas del microcosmos hasta los amplios horizontes de la
 cosmología. Las líneas de investigación del IFUNAM son: \begin{itemize}
-	\item Altas Energías, Física Nuclear, Astropartículas y Cosmología
-	\item Óptica y Física Cuántica
-	\item Nanociencias y Materia Condensada
-	\item Física Aplicada y temas interdisciplinarios
+	\item Física de altas energías, física nuclear, astropartículas y cosmología.
+	\item Óptica y física cuántica.
+	\item Nanociencias y materia condensada.
+	\item Física aplicada y temas interdisciplinarios.
 \end{itemize}
 \cpnote{Pienso que tienes mal el uso de mayusculas en los items anteriores}
 
@@ -208,6 +210,19 @@ cosmología. Las líneas de investigación del IFUNAM son: \begin{itemize}
 % }}}
 \section{Descripción del grupo de trabajo} % {{{
 \cpnote{Creo que te falta describir el trabajo de Juan Diego} 
+El proyecto es dirigido por el Dr. Carlos Pineda y el M.Sc. Juan Diego Chang
+como parte del proyecto... \janote{tal vez agregar aquí este trabajo parte de
+qué proyecto es. Creo que tú sabes mejor, Carlos. }
+
+\subsection{M.Sc. Juan Diego Chang}
+El profesor Chang es egresado de la licenciatura en Física de la Universidad
+del Valle de Guatemala. Posteriormente realizó estudios de maestría en la 
+Universidad Cergy-Pontoise, en Francia, en donde realizó estudios de física
+matemática en sistemas integrables. Actualmente trabaja como profesor
+e investigador en la Escuela de Ciencias Físicas y Matemáticas de la
+Universidad de San Carlos de Guatemala. Su intereses de investigación se 
+centran en la modelación matemática de fenómenos sociales y biológicos. 
+
 \subsection{Grupo de Información y Óptica Cuántica (GIOC-UNAM)}
 El grupo de Información y Óptica Cuántica de la Universidad Nacional Autónoma
 de México (GOIC-UNAM) está compuesto por investigadores y estudiantes de
@@ -228,9 +243,11 @@ Las líneas de investigación en las que trabaja el grupo son:
 \end{itemize}
 % }}}
 \section{Descripción General del Proyecto} % {{{
-El proyecto consiste en estudiar y describir analíticamente los mapeos
-completamente positivos que preservan la traza que borran componentes de la
-matriz de densidad $\rho$ de un sistema de $n$ qubits\cpnote{Yo diria que 
+El proyecto consiste en estudiar mapeos que preservan la traza y borran componentes
+de la matriz densidad $\rho$ de un sistema de $n$ qubits, así como también estudiar
+la completa positividad de los mismos y así determinar que son mapeos físicos, es 
+decir, que son mapeos que transforman estados cuánticos válidos, incluso aquellos 
+estados entrelazados, en estados cuánticos válidos. \cpnote{Yo diria que 
 mas trata de estiar mapeos que conservan traza y borran correlaciones y luego 
 determinar si son mapeos físicos, que implica que el mapeo se completamente positivo. 
 quiza puedes poner que estos son los que transforman estados, incluso enlazados
