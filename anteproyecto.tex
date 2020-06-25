@@ -242,18 +242,21 @@ Las líneas de investigación en las que trabaja el grupo son:
 	\item Dinámica de rango
 \end{itemize}
 % }}}
-\section{Descripción General del Proyecto} % {{{
-El proyecto consiste en estudiar mapeos que preservan la traza y borran componentes
-de la matriz densidad $\rho$ de un sistema de $n$ qubits, así como también estudiar
-la completa positividad de los mismos y así determinar que son mapeos físicos, es 
-decir, que son mapeos que transforman estados cuánticos válidos, incluso aquellos 
-estados entrelazados, en estados cuánticos válidos. \cpnote{Corregir
-redaccion}. Para ello, son necesarios conocimientos previos de álgebra lineal y
-sistemas cuánticos
-abiertos. Los conceptos de álgebra lineal permitirán describir los postulados
-de la mecánica cuántica con el lenguaje de la matriz de densidad. Y todo esto,
-a su vez, será necesario para estudiar la descripción de la dinámica de los
-sistemas cuánticos abiertos, tipo de nuestro sistema de interés.
+\section{Descripción General del Proyecto} 
+El proyecto consiste en estudiar y entender un tipo de mapeos lineales, que actúan
+sobre matrices de densidad $\rho$ de un sistema de qubits, que preservan la traza y
+borran componentes de $\rho$. Además, se desea entender la condición de completa
+positividad de las transformaciones lineales que actúan sobre estados cuánticos y 
+verificar qué subconjunto de los mapeos de nuestro interés cumplen con esta condición.
+Esta condición asegura que estados cuánticos físicos sean transformados en estados 
+cuánticos físicos. \cpnote{Corregir redaccion}. \janote{Hecho.}
+
+Para el estudio de este problema son necesarios conocimientos específicos del álgebra lineal, 
+así como de los fundamentos de la descripción de los sistemas cuánticos abiertos. Los conceptos
+de álgebra lineal adecuados permiten  escribir los postulados de la mecánica cuántica utilizando
+el lenguaje de la matriz de densidad. A su vez, esta formulación establece los conceptos 
+fundamentales para describir la dinámica de los sistemas cuánticos abiertos, el tipo de
+sistemas que son de interés en el problema de este proyecto.
 
 \subsection{Qubits} % {{{
 Un bit cuántico, conocido también como \textit{qubit}, es la unidad fundamental
@@ -266,35 +269,47 @@ semidefinida para describir a un sistema físico \cite{nielsen_chuang_2011}.
 
 Para un sistema de $n$ qubits el espacio de Hilbert
 $\mathcal{H}_{\text{total}}$ se construye a partir del producto tensorial de
-los espacios de Hilbert de cada uno de los qubits en el sistema,
-$\mathcal{H}_{\text{total}}=\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \ldots
-\otimes \mathcal{H}_n$. Así, la matriz de densidad $\rho$ debe ser un operador
-que actúe sobre este espacio total. 
-\cpnote{Te propondria reemplaar esa ecuacion por una ecuacion que haga el
+los espacios de Hilbert de cada uno de los qubits que componen al sistema, es
+decir $\mathcal{H}_{\text{total}}=\qty(\mathbb{C}^2)^{\otimes n}$. Así, la 
+matriz de densidad $\rho$ debe ser un operador que actúe sobre el espacio
+$\mathcal{H}_{\text{total}}$. \cpnote{Te propondria reemplaar esa ecuacion por una ecuacion que haga el
 producto tensorial de $n$ espacios, todos C2}
-% }}}
-\subsection{El espacio de las matrices de densidad: $\boldsymbol{\mathcal{HM}}$} % {{{
+
+
+\subsection{El espacio de las matrices de densidad}
 \cpnote{Repite este parrafo. esta hecho a la carrera}
-El conjunto de las matrices de densidad se denota $\mathcal{M}^{\qty(n)}$. Este
-es un conjunto convexo que se encuentra dentro del espacio vectorial de las
-matrices Hermíticas y sus estados puros son matrices de densidad que obedecen
-la ecuación $\rho ^2=\rho$. La razón por la que considera este conjunto convexo
-es que es conveniente seleccionar un espacio vectorial que también es un
-álgebra \cite{bengtsson_zyczkowski_2017}. 
-% }}}
-\subsection{Operaciones cuánticas} % {{{
-Para describir la evolución de los sistemas cuánticos abiertos se utiliza el
-formalismo de los canales cuánticos. Este formalismo tiene la ventaja de
-describir adecuadamente cambios de estado discretos, es decir, transformaciones
-entre un estado inicial $\rho$ y un estado final $\rho '$ sin referencia
-explícita al paso del tiempo \cite{nielsen_chuang_2011}. El objetivo es
-entender el análogo cuántico de los mapeos estocásticos clásicos, para así
-entender de una mejor manera la estructura del espacio de estados
-\cite{bengtsson_zyczkowski_2017}. 
-\cpnote{Quitaria esa ultima frase}
-% }}}
-% }}}
-\section{Objetivos} % {{{
+El conjunto de las matrices de densidad es un conjunto convexo que se encuentra 
+dentro del espacio vectorial de las matrices Hermíticas. La razón para
+considerar a este conjunto convexo como el espacio de estados de un sistema
+físico es que existen ventajas al considerar vectores que también son
+matrices \cite{bengtsson_zyczkowski_2017}. 
+
+Por ello, será importante estudiar el espacio de Hilbert-Schmidt y algunas de 
+sus propiedades. Así también, se debe estudiar de qué manera conviene 
+escribir la matriz de densidad de tal manera que se consiga una mejor 
+descripción del estado cuántico. Finalmente, es de nuestro interés estudiar
+el tipo de transformaciones que actúan sobre las matrices de densidad tales 
+que preservan la estructura convexa del espacio.
+
+\subsection{Operaciones cuánticas} 
+El tipo de sistemas cuánticos que son de interés para este proyecto,
+sistemas de qubbits, son sistemas que no se consideran aislados. Es decir,
+son sistemas que podrían interactuar con otros sistemas que no sean el 
+objeto de estudio. A este tipo de sistemas se les conoce como sistemas 
+cuánticos abiertos. Para estudiar esta clase de sistemas se requiere estudiar
+el formalismo de las operaciones cuánticas que permite describir la 
+dinámica de los sistemas cuánticos abiertos. Este formalismo permite 
+describir adecuadamente los cambios discretos de estado, es decir, 
+transformaciones entre un estado inicial $\rho$ y un estado final $\rho'$
+sin referencia explícita al paso del tiempo \cite{nielsen_chuang_2011}.
+
+En especial, será necesario entender la condición de completa positividad (CP
+por sus siglas en inglés) con la que estas transformaciones que actúan sobre 
+matrices de densidad deben de cumplir para ser mapeos físicos.  
+
+\cpnote{Quitaria esa ultima frase} \janote{Mejor reescribí toda la subsección.}
+
+\section{Objetivos}
 \cpnote{Refina porfa los objetivos específicos}
 \subsection{Objetivo General}
 \begin{itemize}
@@ -302,14 +317,23 @@ entender de una mejor manera la estructura del espacio de estados
 componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$
 qubits. 	
 \cpnote{No has definido mapas CP. Una ecuación quiza sea apropiada al caso}
+\janote{Ahora lo definí en el último párrafo de la subsección 3.3, es suficiente o
+es necesaria una ecuación?}
 \end{itemize}
 
 \subsection{Objetivos específicos}
 \begin{itemize}
-	\item Estudiar el formalismo de las operaciones cuánticas para describir la dinámica de los sistemas cuánticos abiertos.  
-	\item Estudiar los mapeos completamente positivos que mantienen invariante la traza.  
-	\item Construir numéricamente la representación matricial de los mapeos que borran componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$ qubits. 
-	\item Formular una descripción analítica de los mapeos que borran componentes arbirtrarias de la matriz de densidad $\rho$ de un sistema de $n$ qubits.
+\item Entender el concepto y las propiedades de la matriz de densidad.
+\item Entender los fundamentos de la mecánica cuántica en el lenguaje de la
+	  matriz de densidad.
+\item Entender la condición de completa positividad con la que deben cumplir 
+	  los mapeos que actúan sobre matrices de densidad para transformar estados
+      cuánticos válidos en estados válidos de sistemas cuánticos abiertos.
+\item Entender los mapeos que borran componentes de la matriz de densidad
+	  de un sistema de 1 qubit.
+\item Escribir un programa que construya de manera numérica los mapeos que 
+	  borran componentes arbitrarias de la matriz de densidad de un sistema
+	  de $n$ qubits.
 \end{itemize}
 
 % }}}
@@ -336,6 +360,8 @@ fundamentales en el área de Información Cuántica, y en la ECFM la Licenciatur
 en Física no cuenta con ningún curso de Información Cuántica. Es por ello, que
 este trabajo de prácticas será de mucho beneficio para continuar esta área de
 investigación en el futuro.  
+
+Haciendo una prueba. Hola qué pex. 
 
 % }}}
 \section{Metodología}% {{{
