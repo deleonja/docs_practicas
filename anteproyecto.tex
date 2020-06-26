@@ -242,21 +242,22 @@ Las líneas de investigación en las que trabaja el grupo son:
 	\item Dinámica de rango
 \end{itemize}
 % }}}
-\section{Descripción General del Proyecto} 
+\section{Descripción General del Proyecto}  % {{{
 El proyecto consiste en estudiar y entender un tipo de mapeos lineales, que actúan
 sobre matrices de densidad $\rho$ de un sistema de qubits, que preservan la traza y
 borran componentes de $\rho$. Además, se desea entender la condición de completa
 positividad de las transformaciones lineales que actúan sobre estados cuánticos y 
 verificar qué subconjunto de los mapeos de nuestro interés cumplen con esta condición.
 Esta condición asegura que estados cuánticos físicos sean transformados en estados 
-cuánticos físicos. \cpnote{Corregir redaccion}. \janote{Hecho.}
+cuánticos físicos. 
 
-Para el estudio de este problema son necesarios conocimientos específicos del álgebra lineal, 
-así como de los fundamentos de la descripción de los sistemas cuánticos abiertos. Los conceptos
-de álgebra lineal adecuados permiten  escribir los postulados de la mecánica cuántica utilizando
-el lenguaje de la matriz de densidad. A su vez, esta formulación establece los conceptos 
-fundamentales para describir la dinámica de los sistemas cuánticos abiertos, el tipo de
-sistemas que son de interés en el problema de este proyecto.
+Para el estudio de este problema son necesarios conocimientos específicos del
+álgebra lineal, así como de los fundamentos de la descripción de los sistemas
+cuánticos abiertos. Los conceptos de álgebra lineal adecuados permiten
+escribir los postulados de la mecánica cuántica utilizando el lenguaje de la
+matriz de densidad. A su vez, esta formulación establece los conceptos
+fundamentales para describir la dinámica de los sistemas cuánticos abiertos, el
+tipo de sistemas que son de interés en el problema de este proyecto.
 
 \subsection{Qubits} % {{{
 Un bit cuántico, conocido también como \textit{qubit}, es la unidad fundamental
@@ -272,17 +273,16 @@ $\mathcal{H}_{\text{total}}$ se construye a partir del producto tensorial de
 los espacios de Hilbert de cada uno de los qubits que componen al sistema, es
 decir $\mathcal{H}_{\text{total}}=\qty(\mathbb{C}^2)^{\otimes n}$. Así, la 
 matriz de densidad $\rho$ debe ser un operador que actúe sobre el espacio
-$\mathcal{H}_{\text{total}}$. \cpnote{Te propondria reemplaar esa ecuacion por una ecuacion que haga el
-producto tensorial de $n$ espacios, todos C2}
+$\mathcal{H}_{\text{total}}$. 
 
-
-\subsection{El espacio de las matrices de densidad}
-\cpnote{Repite este parrafo. esta hecho a la carrera}
+% }}}
+\subsection{El espacio de las matrices de densidad} % {{{
 El conjunto de las matrices de densidad es un conjunto convexo que se encuentra 
 dentro del espacio vectorial de las matrices Hermíticas. La razón para
 considerar a este conjunto convexo como el espacio de estados de un sistema
 físico es que existen ventajas al considerar vectores que también son
 matrices \cite{bengtsson_zyczkowski_2017}. 
+\cpnote{No entiendo esa ultima frase}.
 
 Por ello, será importante estudiar el espacio de Hilbert-Schmidt y algunas de 
 sus propiedades. Así también, se debe estudiar de qué manera conviene 
@@ -290,10 +290,12 @@ escribir la matriz de densidad de tal manera que se consiga una mejor
 descripción del estado cuántico. Finalmente, es de nuestro interés estudiar
 el tipo de transformaciones que actúan sobre las matrices de densidad tales 
 que preservan la estructura convexa del espacio.
-
-\subsection{Operaciones cuánticas} 
+% }}}
+\subsection{Operaciones cuánticas}  % {{{
+\cpnote{Usas la palabra sistemas de manera inconsistente. Si quieres plaitcamos
+alternativas. Refina}
 El tipo de sistemas cuánticos que son de interés para este proyecto,
-sistemas de qubbits, son sistemas que no se consideran aislados. Es decir,
+sistemas de qubits, son sistemas que no se consideran aislados. Es decir,
 son sistemas que podrían interactuar con otros sistemas que no sean el 
 objeto de estudio. A este tipo de sistemas se les conoce como sistemas 
 cuánticos abiertos. Para estudiar esta clase de sistemas se requiere estudiar
@@ -302,24 +304,19 @@ dinámica de los sistemas cuánticos abiertos. Este formalismo permite
 describir adecuadamente los cambios discretos de estado, es decir, 
 transformaciones entre un estado inicial $\rho$ y un estado final $\rho'$
 sin referencia explícita al paso del tiempo \cite{nielsen_chuang_2011}.
-
 En especial, será necesario entender la condición de completa positividad (CP
 por sus siglas en inglés) con la que estas transformaciones que actúan sobre 
 matrices de densidad deben de cumplir para ser mapeos físicos.  
 
-\cpnote{Quitaria esa ultima frase} \janote{Mejor reescribí toda la subsección.}
+% }}}
+% }}}
 
 \section{Objetivos}
 \cpnote{Refina porfa los objetivos específicos}
 \subsection{Objetivo General}
-\begin{itemize}
-	\item Estudiar los mapeos CP  que preservan la traza que borran
+Identificar los mapeos CP  que preservan la traza que borran
 componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$
 qubits. 	
-\cpnote{No has definido mapas CP. Una ecuación quiza sea apropiada al caso}
-\janote{Ahora lo definí en el último párrafo de la subsección 3.3, es suficiente o
-es necesaria una ecuación?}
-\end{itemize}
 
 \subsection{Objetivos específicos}
 \begin{itemize}
@@ -331,15 +328,19 @@ es necesaria una ecuación?}
       cuánticos válidos en estados válidos de sistemas cuánticos abiertos.
 \item Entender los mapeos que borran componentes de la matriz de densidad
 	  de un sistema de 1 qubit.
-\item Escribir un programa que construya de manera numérica los mapeos que 
-	  borran componentes arbitrarias de la matriz de densidad de un sistema
-	  de $n$ qubits.
+\item Escribir un programa que construya de manera numérica los mapeos que
+borran componentes arbitrarias de la matriz de densidad de un sistema de $n$
+qubits.
+\cpnote{Falta el item que te dice que vas a hacer algo para discriminar los mapas
+que si son buenos y los que no.}
 \end{itemize}
 
 % }}}
 \section{Justificación del Proyecto}% {{{
-El estudio de los sistemas cuánticos abiertos juega una pieza fundamental en la
-teoría de la Información Cuántica. También contribuye al conocimiento que se
+El estudio de los sistemas cuánticos abiertos juega \cpnote{un papel. Se ve que te falto 
+una pasada mas a la redaccion} una pieza fundamental en la teoría de la
+Información Cuántica \cpnote{Porqupe mayusculas? Le paro y dale una iterada mas
+porfa}. También contribuye al conocimiento que se
 está produciendo en el camino a la implementación de las computadoras
 cuánticas, sobre las cuáles hay muchas expectativas puestas por la comunidad
 científica. Por otro lado, el estudio de los mapeos CP que preservan la traza
