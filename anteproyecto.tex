@@ -278,40 +278,43 @@ $\mathcal{H}_{\text{total}}$.
 % }}}
 \subsection{El espacio de las matrices de densidad} % {{{
 El conjunto de las matrices de densidad es un conjunto convexo que se encuentra 
-dentro del espacio vectorial de las matrices Hermíticas. La razón para
-considerar a este conjunto convexo como el espacio de estados de un sistema
-físico es que existen ventajas al considerar vectores que también son
-matrices \cite{bengtsson_zyczkowski_2017}. 
-\cpnote{No entiendo esa ultima frase}.
-
-Por ello, será importante estudiar el espacio de Hilbert-Schmidt y algunas de 
-sus propiedades. Así también, se debe estudiar de qué manera conviene 
+dentro del espacio vectorial de las matrices Hermíticas.  
+\cpnote{No entiendo esa ultima frase} \janote{La había copiado textualmente del 
+Geometry of Quantum States, pero quizás sonaba hasta redundante.}
+Por ello, es necesario estudiar el espacio de Hilbert-Schmidt y algunas de 
+sus propiedades. Habiendo conocido la estructura del espacio en el que viven las
+matrices de densidad se deberá estudiar una manera conveniente de
 escribir la matriz de densidad de tal manera que se consiga una mejor 
 descripción del estado cuántico. Finalmente, es de nuestro interés estudiar
 el tipo de transformaciones que actúan sobre las matrices de densidad tales 
 que preservan la estructura convexa del espacio.
 % }}}
-\subsection{Operaciones cuánticas}  % {{{
+\subsection{Canales cuánticos}\janote{Cambié a 'canales cuánticos' porque Wikipedia
+menciona que 'operaciones cuánticas' se refiere a mapeos CP que no aumentan la 
+traza y canales cuánticos a mapeos CPTP.}  % {{{
 \cpnote{Usas la palabra sistemas de manera inconsistente. Si quieres plaitcamos
 alternativas. Refina}
-El tipo de sistemas cuánticos que son de interés para este proyecto,
-sistemas de qubits, son sistemas que no se consideran aislados. Es decir,
-son sistemas que podrían interactuar con otros sistemas que no sean el 
-objeto de estudio. A este tipo de sistemas se les conoce como sistemas 
-cuánticos abiertos. Para estudiar esta clase de sistemas se requiere estudiar
-el formalismo de las operaciones cuánticas que permite describir la 
-dinámica de los sistemas cuánticos abiertos. Este formalismo permite 
-describir adecuadamente los cambios discretos de estado, es decir, 
-transformaciones entre un estado inicial $\rho$ y un estado final $\rho'$
+
+Para este proyecto son de interés los sistemas cuánticos abiertos. Estos son aquellos
+que interactúan con un sistema cuántico externo. Son importantes objetos de estudio
+ya que, en la práctica, no existen sistemas cuánticos que estén completamente aislados
+de su entorno.  A diferencia de los sistemas cuánticos cerrados, la dinámica de los
+sistemas abiertos no está descrita por operadores unitarios. Sin embargo, el objeto de 
+estudio de este proyecto son sistemas abiertos cuya dinámica puede describirse
+utilizando el formalismo de los canales cuánticos. 
+
+Este formalismo permite describir adecuadamente los cambios discretos de estado,
+es decir, transformaciones entre un estado inicial $\rho$ y un estado final $\rho'$
 sin referencia explícita al paso del tiempo \cite{nielsen_chuang_2011}.
 En especial, será necesario entender la condición de completa positividad (CP
 por sus siglas en inglés) con la que estas transformaciones que actúan sobre 
-matrices de densidad deben de cumplir para ser mapeos físicos.  
+matrices de densidad deben de cumplir para ser mapeos físicos. Para ello se 
+hace necesario estudiar el teorema de Choi, que establece una condición equivalente
+de la completa positividad. 
 
 % }}}
 % }}}
 \section{Objetivos} % {{{
-\cpnote{Refina porfa los objetivos específicos}
 \subsection{Objetivo General}
 Identificar los mapeos CP  que preservan la traza que borran
 componentes arbitrarias de la matriz de densidad $\rho$ de un sistema de $n$
@@ -319,97 +322,99 @@ qubits.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
-\item Entender el concepto y las propiedades de la matriz de densidad.
-\item Entender los fundamentos de la mecánica cuántica en el lenguaje de la
-	  matriz de densidad.
+\item Entender la definición y propiedades de la matriz de densidad, así como
+	  los fundamentos de la mecánica cuántica utilizando este lenguaje.
 \item Entender la condición de completa positividad con la que deben cumplir 
-	  los mapeos que actúan sobre matrices de densidad para transformar estados
-      cuánticos válidos en estados válidos de sistemas cuánticos abiertos.
+	  los mapeos que actúan sobre matrices de densidad para asegurar que estos 
+	  transforman estados cuánticos válidos en estados válidos de sistemas 
+	  cuánticos abiertos.
 \item Entender los mapeos que borran componentes de la matriz de densidad
 	  de un sistema de 1 qubit.
-\item Escribir un programa que construya de manera numérica los mapeos que
+\item Escribir un programa que construya de numéricamente los mapeos que
 	  borran componentes arbitrarias de la matriz de densidad de un sistema 
-	  de $n$ qubits y, además, que verifique la completa positividad de estos
-	  mapeos para discriminar los mapeos no físicos. 
+	  de $n$ qubits.
 \cpnote{Falta el item que te dice que vas a hacer algo para discriminar los mapas
-que si son buenos y los que no.}
+que si son buenos y los que no.} 
+\item Discriminar numéricamente los mapeos no físicos del conjunto de mapeos
+	  que borran componentes de la matriz de densidad verificando 
+	  la condición de completa positividad mediante el uso del teorema de Choi.
+\janote{Ya que enuncio aquí al teorema de Choi agregué un enunciado al último
+párrafo de la sección 3.3} 
 \end{itemize}
 
 % }}}
 \section{Justificación del Proyecto}% {{{
-El estudio de los sistemas cuánticos abiertos juega \cpnote{un papel. Se ve que te falto 
-una pasada mas a la redaccion} una pieza fundamental en la teoría de la
-Información Cuántica \cpnote{Porqupe mayusculas? Le paro y dale una iterada mas
-porfa}. También contribuye al conocimiento que se
-está produciendo en el camino a la implementación de las computadoras
-cuánticas, sobre las cuáles hay muchas expectativas puestas por la comunidad
-científica. Por otro lado, el estudio de los mapeos CP que preservan la traza
-de nuestro interés también revelan nuevos resultados producto de la mecánica
-cuántica.   
+\cpnote{un papel. Se ve que te falto una pasada mas a la redaccion} 
+\janote{Qué terrible lo que había escrito en esta sección. Lo redacté todo de nuevo.}
 
-Como en cualquier otra área de investigación se debe considerar los
-conocimientos de matemática y física que son necesarios para dar solución al
-problema de estudio. El estudio de los sistemas cuánticos abiertos requiere de
-conocimientos de álgebra lineal, mecánica cuántica con el lenguaje de la matriz
-de densidad y las operaciones cuánticas para describir la dinámica de este tipo
-de sistemas cuánticos.
+Estudiar los conceptos de matriz de densidad y mapeos completamente
+positivos que preservan la traza constituye una herramienta que permite 
+entender la teoría cuántica desde un punto de vista distinto al que se estudia
+en los cursos de licenciatura y, al mismo tiempo, comprender los fundamentos 
+para estudiar sistemas cuánticos abiertos. 
 
-El estudio de este problema permite tener una aproximación a la experiencia de
-investigación en Mecánica Cuántica. Así también, los conocimientos que se
-requiere aprender previo a la resolución del problema en cuestión son
-fundamentales en el área de Información Cuántica, y en la ECFM la Licenciatura
-en Física no cuenta con ningún curso de Información Cuántica. Es por ello, que
-este trabajo de prácticas será de mucho beneficio para continuar esta área de
-investigación en el futuro.  
+Por otra parte, este proyecto ofrece la oportunidad de poner en práctica habilidades
+computacionales aprendidas en cursos de licenciatura, así como de 
+aprender nuevas habilidades que sean necesarias para cumplir con los objetivos
+de este trabajo. La adquisición de este tipo de habilidades son de provecho para la formación 
+profesional en diversas áreas de investigación en física. 
 
-Haciendo una prueba. Hola qué pex. 
+En fin, este proyecto es importante para estudiar los fundamentos teóricos
+de un área de investigación importante en información cuántica. 
+Por otro lado, este proyecto servirá como un preludio para un futuro trabajo de
+tesis de graduación y un proyecto de investigación, cuya experiencia a adquirir durante
+dicho proyecto complementaría la formación de un estudiante de licenciatura.  
 
 % }}}
 \section{Metodología}% {{{
-La metodología del proyecto consiste primero en estudiar los temas de interés,
-según los conocimientos mencionados antes, de las referencias
-\cite{bengtsson_zyczkowski_2017} y \cite{nielsen_chuang_2011}. Se leerá el
-material detenidamente de tal manera que se consiga una comprensión completa de
-los conceptos. Tras la lectura se realizan los ejercicios sugeridos en las
-bibliografías. 
-
-Después de obtener los conocimientos teóricos necesarios se llevará a cabo una
-implementación computacional para construir numéricamente los mapeos CP que
-preservan la traza de esstudio y así dilucidar el camino a una descripción
-analítica de ellos. 
+La metodología del proyecto consiste en estudiar primero los conceptos 
+necesarios para luego abordar el problema que se ha planteado para este
+trabajo. Por consiguiente, se estudiarán capítulos seleccionados de
+las referencias \cite{bengtsson_zyczkowski_2017} y \cite{nielsen_chuang_2011},
+haciendo un resumen de los conceptos más importantes y realizando los
+ejercicios sugeridos en la bibliografía. Luego, se realizará una 
+implementación computacional para construir los mapeos que borran componentes
+de la matriz de densidad de un sistema de $n$ qubits y, también, para
+verificar cuáles de estos mapeos son canales cuánticos. 
 % }}}
+
 \newpage
+
 \section{Cronograma} % {{{
 \begin{center}
-	\begingroup
-	\setlength{\tabcolsep}{10pt} % Default value: 6pt
-	\renewcommand{\arraystretch}{1.2} % Default value: 1
-        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-                \hline
-                \textbf{Tareas} & \textbf{Enero} & \textbf{Febrero} & \textbf{Marzo} & \textbf{Abril} & \textbf{Mayo} & \textbf{Junio} \\ \hline
-                Tarea 1 & \cellcolor[gray]{0.5} &  &  &  &  &	\\ \hline
-                Tarea 2 & \cellcolor[gray]{0.5} & & & & &	\\ \hline
-                Tarea 3 & \cellcolor[gray]{0.5} & & & & &	\\ \hline
-                Tarea 4 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
-                Tarea 5 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
-                Tarea 6 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
-                Tarea 7 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
-                Tarea 8 & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} &	\\ \hline
-				Tarea 9 & & & & & & \cellcolor[gray]{0.5}	\\ \hline
-        \end{tabular}
-    \endgroup
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.2} % Default value: 1
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Tareas} & \textbf{Enero} & \textbf{Febrero} & \textbf{Marzo} & \textbf{Abril} & \textbf{Mayo} & \textbf{Junio} \\ \hline
+Tarea 1 & \cellcolor[gray]{0.5} &  &  &  &  &	\\ \hline
+Tarea 2 & \cellcolor[gray]{0.5} & & & & &	\\ \hline
+Tarea 3 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
+Tarea 4 & & \cellcolor[gray]{0.5} & & & &	\\ \hline
+Tarea 5 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
+Tarea 6 & & & \cellcolor[gray]{0.5} & & &	\\ \hline
+Tarea 7 & & & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} & \cellcolor[gray]{0.5} &	\\ \hline
+Tarea 8 & & & & & & \cellcolor[gray]{0.5}	\\ \hline
+\end{tabular}
+\endgroup
 \end{center}
 
 \begin{itemize}
-	\item \textbf{Tarea 1:} Repasar los conceptos de álgebra lineal que se ocupan en la mecánica cuántica y los postulados de la mecánica cuántica con el lenguaje de la matriz de densidad.
-	\item \textbf{Tarea 2:} Estudiar los conceptos básicos de del formalismo de las operaciones cuánticas para describir la dinámica de los sistemas cuánticos abiertos.
-	\item \textbf{Tarea 3:} Estudiar los conceptos básicos de las medidas de distancia en la teoría de procesamiento de información cuántica. 
-	\item \textbf{Tarea 4:} Estudiar la estructura y propiedades del espacio de las matrices de densidad $\mathcal{M}^{(n)}$.
-	\item \textbf{Tarea 5:} Estudiar los conceptos de purificación de estados cuánticos mixtos.
-	\item \textbf{Tarea 6:} Estudiar, con un el rigor matemático apropiado, las propiedades de las operaciones cuánticas. 
-	\item \textbf{Tarea 7:} Estudiar, reproducir y entender los mapeos que borran componentes de la matriz de densidad $\rho$ de 1 qubit.
-	\item \textbf{Tarea 8:} Construir numéricamente los mapeos que borran componentes de la matriz de densidad $\rho$ de sistemas con dos o más qubits.
-	\item \textbf{Tarea 9:} Elaboración del informe final. 
+	\item \textbf{Tarea 1:} Repasar los conceptos de álgebra lineal que se ocupan
+	en la mecánica cuántica y estudiar los postulados de la mecánica cuántica 
+	utilizando el lenguaje de la matriz de densidad.
+	\item \textbf{Tarea 2:} Estudiar los conceptos básicos del formalismo de las
+	operaciones cuánticas.
+	\item \textbf{Tarea 3:} Estudiar el espacio de las matrices de densidad.
+	\item \textbf{Tarea 4:} Estudiar sobre la purificación de estados cuánticos mixtos.
+	\item \textbf{Tarea 5:} Estudiar sobre las condiciones de positividad y completa
+	positividad de las operaciones cuánticas.
+	\item \textbf{Tarea 6:} Estudiar, reproducir y entender los mapeos que borran 
+	componentes de la matriz de densidad de 1 qubit.
+	\item \textbf{Tarea 7:} Escribir un programa que construya numéricamente los mapeos
+	que borran componentesde la matriz de densidad de sistemas de $n$ qubits.
+	\item \textbf{Tarea 8:} Elaboración del informe final. 
 \end{itemize}
 % }}}
 \bibliographystyle{abbrv}
