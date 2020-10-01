@@ -1,4 +1,4 @@
-\documentclass[11pt]{report}
+\documentclass[11pt,dvipsnames]{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -13,6 +13,7 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{float}
+\usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage{bbold}
@@ -22,6 +23,12 @@
 % Theorems, proofs, etc
 \usepackage{amsthm}
 
+\usepackage{fancybox}
+\usepackage{colortbl}
+\usepackage{amsbsy}
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\FXRegisterAuthor{ja}{aja}{\color{RedViolet}JA}
 
 \usepackage[]{lineno}  \linenumbers
 \setlength\linenumbersep{3pt}
@@ -308,7 +315,11 @@ $\mathcal{H}_A$, y $\ket{b_1}$ y $\ket{b_2}$ cualesquiera dos vectores
 en $\mathcal{H}_B$. Además de la condición \eqref{eq:part_trace-def} se
 requiere que la operación de traza parcial sea lineal.
 
-\section{El espacio de las matrices de densidad}
+
+\section{El espacio de las matrices de densidad} 
+\janote{Luego de que me dijiste que no mate con este trabajo la tesis
+me parece que esta sección podría estar de más y guardarla para la tesis. 
+Igual lo dejo para que de una vez lo puedas ver.}
 \section{El espacio de Hilbert-Schmidt}
 A un espacio de Hilbert $\mathcal{H}$ complejo de dimensión $N$
 le acompaña su espacio dual $\mathcal{H}^*$,
