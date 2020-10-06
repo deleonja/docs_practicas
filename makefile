@@ -1,4 +1,4 @@
-informeFinal.pdf ::
+informeFinal.pdf :: matriz_densidad.tex operaciones_cuanticas.tex
 
 
 anteproyecto.pdf :: 
