@@ -1,3 +1,6 @@
+informeFinal.pdf ::
+
+
 anteproyecto.pdf :: 
 
 
