@@ -47,6 +47,8 @@
 \newcommand{\Pb}[1]{\bra{\psi_{#1}}}
 \newcommand{\pk}{\ket{\psi}}
 \newcommand{\M}{\mathcal{M}^{(N)}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Erho}{\mathcal{E}(\rho)}
 
 
 \begin{document}
@@ -400,18 +402,189 @@ a estados puros. Por ejemplo, para $N=2$ los estados puros forman una
 esfera. Los únicos mapeos afines que preservan la esfera son las rotaciones.
 
 
-
-\chapter{Purificación de estados mixtos}
-
-\section{Productos tensoriales y reducción de estados}
-
-\section{Descomposición de Schmidt}
-
-\section{Purificación de estados}
-
-
-
 \chapter{Operaciones cuánticas}
+
+Adoptando la descripción de estados cuánticos en términos de la matriz de 
+densidad $\rho$ podemos describir la dinámica de ellos como
+\begin{align*}
+	\rho '=\mathcal{E} (\rho).
+\end{align*}
+El mapeo $\mathcal{E}$ define a una operación cuántica. Esta es la 
+representación matemática de la evolución dinámica que ocurre como
+resultado de un proceso físico, $\rho$ es el estado inicial del 
+sistema y $\mathcal{E}(\rho)$ el estado final.
+
+Una manera natural de describir la dinámica de un sistema cuántico
+abierto es considerarlo que resulta de la interacción del sistema
+de interés, el sistema principal, y un entorno, que juntos forman
+un sistema cuántico cerrado. En general, el estado final 
+del sistema $\E (\rho)$ no está relacionado al estado inicial
+mediante una transformación unitaria. Vamos a asumir que
+el estado del sistema completo se encuentra en un estado
+producto, $\rho \otimes \sigma$, donde $\sigma$ es el 
+estado en el que se encuentra el entorno. Luego de la
+transformación $U$ el sistema ya no interactúa con el 
+entorno y por ello realizamos una operación de traza parcial sobre 
+el entorno para obtener el estado reducido del sistema principal:
+\begin{align}
+	\E (\rho) = \Tr _{env}\qty[U \qty(\rho \otimes \sigma)U^{\dagger}].
+	\label{eq:PTraceE(rho)}
+\end{align}
+Esta definición de operación cuántica puede tener problemas
+de generalidad dado que se hizo la suposición de que el 
+estado inicial del sistema total era un estado producto. En 
+general este no es el caso, sin embargo el formalismo de las 
+operaciones cuánticas describe también la dinámica cuántica
+de sistemas que no se encuentran inicialmente en un estado
+producto.
+
+Una definición más apropiada de las operaciones cuánticas es
+definirlo como la clase de mapeos que surgen como resultado de
+los siguientes procesos: algún sistema inicial se prepara en un
+estado cuántico desconocido $\rho$ y luego se pone en contacto
+con otros estados preparados en estados estándar, permitiendo 
+la interacción mediante alguna evolución unitaria y luego
+se desecha alguna parte del sistema total, dejando así 
+sólo al sistema final en algún estado $\rho'$. En conclusión, 
+una operación cuántica $\E$ es un mapeo de $\rho$ a $\rho'$.
+
+\section{Representación de suma de operadores}
+Las operaciones cuánticas se pueden representar de una manera
+conocida como la representación de operadores de suma. Esta
+representación es reescribir la ecuación \eqref{eq:PTraceE(rho)}
+en término de operadores que actúan sobre el sistema de Hilbert
+principal. EL resultado está motivado por el siguiente cálculo. 
+Supongamos que $\ket{e_k}$ es una base ortonormal para el
+espacio de estados del entorno y sea $\sigma = \dyad{e_0}{e_0}$
+el estado inicial del entorno. No hay perdida de generalidad si 
+asumimos que el entorno comienza en un estado producto. De 
+esta manera, la ecuación \eqref{eq:PTraceE(rho)} se convierte en
+\begin{align*}
+	\E (\rho) &= \sum _k \bra{e_k}U\qty[\rho \otimes \dyad{e_0}{e_0}]U^{\dagger}
+	\ket{e_0} \\
+						&= \sum _k E_k\rho E_k^{\dagger},
+\end{align*}
+donde $E_k\equiv \matrixel{e_k}{U}{e_k}$ es un operador que actúa
+sobre el espacio de estados del sistema principal. Los operadores
+$E_k$ se conocen como elementos de operación para la operación 
+cuántica $\E$. 
+
+\begin{align*}
+	1 &= \Tr \qty(\Erho) \\
+		&= \Tr \qty(\sum _k E_k\rho E_k^{\dagger}) \\
+		&= \Tr \qty(\sum _k E_k^{\dagger}E_k \rho),
+\end{align*}
+esto se debe cumplir para cualquier $\rho$, entonces 
+\begin{align}
+	\sum _k E_k^{\dagger}E_k = \mathbb{1}.
+\end{align}
+Esta ecuación la satisfacen las operaciones cuánticas que preservan
+la traza. No obstante, también existen operaciones cuánticas que 
+no preservan la traza, las cuales $\sum _kE_k^{\dagger}E_k\leq \mathbb{1}$,
+pero describen procesos en los que información extra sobre lo que ocurrió
+en el proceso se obtiene por medición. 
+
+La representación en operadores de suma es importante porque ofrece
+una manera intrínseca de caracterizar la dinámica del sistema principal. 
+Este formalismo describe la dinámica del sistema principal sin hacerse
+necesario considerar de manera explícita las propiedades del entorno. 
+Esto provee de implicaciones teóricas considerables. 
+
+\subsection{Enfoque axiomático}
+Ahora vamos a adoptar una ruta distinta para las operaciones cuánticas
+en la que vamos a intentar enunciar axiomas motivados físicamente que
+esperamos que cumplan las operaciones cuánticas. Esta ruta es por supuesto
+más abstracta que la anterior, pero es esta misma abstracción lo que hace
+este enfoque muy poderoso.
+
+Para proceder con este enfoque vamos a definir a las operaciones 
+cuánticas de acuerdo con un conjunto de axiomas justificados en
+bases físicas. Luego, vamos a probar que un mapeo $\E$ satisface
+estos axiomas si y sólo si tiene una representación de operadores
+de suma. De esta manera se provee del puente teórico entre 
+la formulación axiomática y la formulación motivada físicamente.
+
+Vamos definir una operación cuántica $\E$ como un mapeo del conjunto
+de los operadores de densidad del espacio de entrada $Q_1$ al 
+conjunto de los operadores de densidad del espacio de salida $Q_2$,
+con las siguientes tres propiedades axiomáticas:
+\begin{description}
+	\item[A1] \label{axiom1}
+	$\Tr \qty[\E (\rho)]$ es la probabilidad de que un proceso
+	representado por $\E$ suceda, cuando $\rho$ es el estado inicial. 
+	De esa manera, $0\leq \Tr \qty[\E (\rho)]\leq 1$ para cualquier
+	estado $\rho$.
+	\item[A2] $\E$ es un mapeo lineal convexo sobre el conjunto de las 
+	matrices de densidad. Es decir que, para un conjunto
+	de probabilidades $\{ p_i\}$,
+	\begin{align}
+		\E \qty(\sum _i p_i\rho_i) = \sum _i p_i \E \qty(\rho_i).
+		\label{eq:qtmOp-a2}
+	\end{align}
+	\item[A3] $\E$ es un mapeo completamente positivo. Es decir, si $\E$ 
+	mapea operadores de densidad del sistema $Q_1$ en operadores de
+	densidad del sistema $Q_2$, entonces $\E (A)$ debe de ser positivo
+	para cualquier operador $A$. Además, si se introduce un sistema
+	extra $R$ de dimensión arbitraria, debe ser cierto que $\qty(
+	\mathbb{1}\otimes \E)(A)$ es un operador positivo para cualquier
+	operador $A$ sobre el sistema combinado $RQ_1$, donde $\mathbb{1}$
+	denota el mapeo de la identidad sobre el sistema $R$.
+\end{description}
+
+Una operación cuántica física es aquella que satisface el 
+requisito de que las probabilidades nunca suman más de 1,
+$\Tr \qty[\E (\rho)]\leq 1$.
+
+La segunda propiedad proviene de un requisito físico sobre las
+operaciones cuánticas. Supongamos que la entrada $\rho$ de la 
+operación cuántica se obtiene aleatoriamente seleccionando un 
+estado del ensamble $\qty{ p_i,\rho_i}$ de estados cuánticos, 
+es decir que $\rho = \sum_i p_i\rho_i$. Entonces se espera que
+el estado resultante, $\E (\rho)/\Tr \qty[\E (\rho)] =
+\E (\rho)/p\qty(\E)$ corresponda a una selección aleatoria del
+ensamble $\qty{p\qty(i\vert\E), \E (\rho)/\Tr \qty[\E (\rho)]}$,
+donde $p\qty(i\vert\E)$ es la probabilidad de que el estado
+preparado fuese $\rho_i$, dado que el proceso representado por
+$\E$ ocurrió. De esa manera, se debe querir que
+\begin{align}
+	\E (\rho) = p\qty(\E)\sum _i p\qty(i\vert \E)\frac{\E (\rho)}
+	{\Tr \qty[\E (\rho)]},
+	\label{eq:e(rho)-bayes}
+\end{align}
+donde $p\qty(\E)=\Tr \qty[\E (\rho)]$ is la probabilidad de que 
+el proceso descrito por $\E$ suceda en alguna entrada de $\rho$.
+Por la regla de Bayes,
+\begin{align}
+	p\qty(i\vert \E)=p\qty(\E \vert i) \frac{p_i}{p\qty(\E)}
+	=\frac{\Tr \qty[\E (\rho)]p_i}{p\qty(\E)},
+\end{align}
+de manera que \eqref{eq:e(rho)-bayes} se reduce a \eqref{eq:qtmOp-a2}.
+
+La tercera propiedad se origina de que no sólo $\E (\rho)$ debe ser
+una matriz de densidad válida tanto cuánto $\rho$ sea válida, pero 
+además, si $\rho _{RQ}$ es la matriz de densidad de un sistema 
+de dos partes $R$ y $Q$, si $\E$ actúa sólamente sobre $Q$, 
+entonces $\E(\rho_{RQ})$ debe ser también una matriz de densidad 
+válida del sistema completo. Supongamos que introducimos un sistema 
+$R$ finito dimensional. Sea $\mathbb{1}$ el mapeo identidad sobre
+el sistema $R$. Entonces el mapeo $\mathbb{1}\otimes \E$ debe
+enviar operadores positivos hacia operadores positivos.
+
+El siguiente teorema establece la equivalencia entre este enfoque 
+axiomático y los modelos de sistema-entorno y la representación
+de operadores de suma con el que se comenzó
+la discusión de las operaciones cuánticas:
+\begin{teorema}
+	El mapeo $\E$ satisface los axiomas \textbf{A1}, \textbf{A2} y 
+	\textbf{A3} si y sólo si
+	\begin{align}
+		\E(\rho) = \sum _i E_i\rho E_i^{\dagger},
+	\end{align}
+	para algún conjunto de operadores $\qty{E_i}$ que mapean el espacio
+	de Hilbert de entrada hacia el espacio de Hilbert de salida, y
+	$\sum _kE_k^{\dagger}E_k\leq \mathbb{1}$.
+\end{teorema}
+
 
 \section{Ejemplos de operaciones cuánticas}
 
