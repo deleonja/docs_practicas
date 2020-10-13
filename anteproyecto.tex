@@ -29,8 +29,8 @@
 \usepackage{multirow}
 \usepackage{array}
 
-\usepackage[]{lineno}  \linenumbers
-\setlength\linenumbersep{3pt}
+\usepackage[]{lineno}  %\linenumbers
+%\setlength\linenumbersep{3pt}
 
 \renewcommand{\baselinestretch}{1} % interlinado
 \addto\shorthandsspanish{\spanishdeactivate{~<>}}
@@ -116,7 +116,8 @@ frametitle={%
 	
 \HRule\\[0.6cm]
 
-{\huge\bfseries Estudio de canales cuánticos que borran componentes arbitrarias de la matriz de densidad $\boldsymbol{\rho}$ de un sistema de $\mathbf{n}$ qubits}\\[0.5cm] % Title of your document                                                 
+{\huge\bfseries Estudio de mapeos proyectivos en sistemas\\
+de varios qubits}\\[0.5cm] % Title of your document                                                 
 
 \HRule\\[2cm]
 
@@ -242,6 +243,8 @@ Las líneas de investigación en las que trabaja el grupo son:
 	\item Dinámica de rango
 \end{itemize}
 % }}}
+
+\newpage
 \section{Descripción General del Proyecto}  % {{{
 El proyecto consiste en estudiar y entender un tipo de mapeos lineales, que actúan
 sobre matrices de densidad $\rho$ de un sistema de qubits, que preservan la traza y
@@ -279,8 +282,8 @@ $\mathcal{H}_{\text{total}}$.
 \subsection{El espacio de las matrices de densidad} % {{{
 El conjunto de las matrices de densidad es un conjunto convexo que se encuentra 
 dentro del espacio vectorial de las matrices Hermíticas.  
-\cpnote{No entiendo esa ultima frase} \janote{La había copiado textualmente del 
-Geometry of Quantum States, pero quizás sonaba hasta redundante.}
+%\cpnote{No entiendo esa ultima frase} \janote{La había copiado textualmente del 
+%Geometry of Quantum States, pero quizás sonaba hasta redundante.}
 Por ello, es necesario estudiar el espacio de Hilbert-Schmidt y algunas de 
 sus propiedades. Habiendo conocido la estructura del espacio en el que viven las
 matrices de densidad se deberá estudiar una manera conveniente de
@@ -289,11 +292,12 @@ descripción del estado cuántico. Finalmente, es de nuestro interés estudiar
 el tipo de transformaciones que actúan sobre las matrices de densidad tales 
 que preservan la estructura convexa del espacio.
 % }}}
-\subsection{Canales cuánticos}\janote{Cambié a 'canales cuánticos' porque Wikipedia
-menciona que 'operaciones cuánticas' se refiere a mapeos CP que no aumentan la 
-traza y canales cuánticos a mapeos CPTP.}  % {{{
-\cpnote{Usas la palabra sistemas de manera inconsistente. Si quieres plaitcamos
-alternativas. Refina}
+\newpage
+\subsection{Canales cuánticos}%\janote{Cambié a 'canales cuánticos' porque Wikipedia
+%menciona que 'operaciones cuánticas' se refiere a mapeos CP que no aumentan la 
+%traza y canales cuánticos a mapeos CPTP.}  % {{{
+%\cpnote{Usas la palabra sistemas de manera inconsistente. Si quieres plaitcamos
+%alternativas. Refina}
 
 Para este proyecto son de interés los sistemas cuánticos abiertos. Estos son aquellos
 que interactúan con un sistema cuántico externo. Son importantes objetos de estudio
@@ -333,19 +337,19 @@ qubits.
 \item Escribir un programa que construya de numéricamente los mapeos que
 	  borran componentes arbitrarias de la matriz de densidad de un sistema 
 	  de $n$ qubits.
-\cpnote{Falta el item que te dice que vas a hacer algo para discriminar los mapas
-que si son buenos y los que no.} 
+%\cpnote{Falta el item que te dice que vas a hacer algo para discriminar los mapas
+%que si son buenos y los que no.} 
 \item Discriminar numéricamente los mapeos no físicos del conjunto de mapeos
 	  que borran componentes de la matriz de densidad verificando 
 	  la condición de completa positividad mediante el uso del teorema de Choi.
-\janote{Ya que enuncio aquí al teorema de Choi agregué un enunciado al último
-párrafo de la sección 3.3} 
+%\janote{Ya que enuncio aquí al teorema de Choi agregué un enunciado al último
+%párrafo de la sección 3.3} 
 \end{itemize}
 
 % }}}
 \section{Justificación del Proyecto}% {{{
-\cpnote{un papel. Se ve que te falto una pasada mas a la redaccion} 
-\janote{Qué terrible lo que había escrito en esta sección. Lo redacté todo de nuevo.}
+%\cpnote{un papel. Se ve que te falto una pasada mas a la redaccion} 
+%\janote{Qué terrible lo que había escrito en esta sección. Lo redacté todo de nuevo.}
 
 Estudiar los conceptos de matriz de densidad y mapeos completamente
 positivos que preservan la traza constituye una herramienta que permite 

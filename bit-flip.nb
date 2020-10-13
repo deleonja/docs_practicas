@@ -1,0 +1,393 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15139,        385]
+NotebookOptionsPosition[     14478,        366]
+NotebookOutlinePosition[     14870,        382]
+CellTagsIndexPosition[     14827,        379]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.810235350748818*^9, 
+  3.8102353525799227`*^9}},ExpressionUUID->"9fd34ad1-6625-4023-af37-\
+aafe82005ec6"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Scale", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{"Orange", ",", "\[IndentingNewLine]", 
+            RowBox[{"Specularity", "[", "20", "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Opacity", "[", "0.4", "]"}], ",", "\[IndentingNewLine]", 
+            
+            RowBox[{"Sphere", "[", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"1", "-", 
+             RowBox[{"2", "p"}]}], ",", "1", ",", 
+            RowBox[{"1", "-", 
+             RowBox[{"2", "p"}]}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Black", ",", 
+         RowBox[{"Arrowheads", "[", "0.08", "]"}], ",", 
+         RowBox[{"Arrow", "[", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", 
+                RowBox[{"1", "-", 
+                 RowBox[{"2", "p"}]}]}], "}"}]}], "}"}], ",", "0.01"}], "]"}],
+           "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "0"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*TemplateBox[{\"0\"},\"Ket\"]\)\>\"", ",", "Large", ",",
+              "Black", ",", 
+             RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0.1", ",", "0", ",", "1.1"}], "}"}]}], "]"}]}], "]"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "1"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*TemplateBox[{\"1\"},\"Ket\"]\)\>\"", ",", "Large", ",",
+              "Black", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", 
+             RowBox[{"-", "1.1"}]}], "}"}]}], "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", 
+         RowBox[{"Arrowheads", "[", "0.08", "]"}], ",", 
+         RowBox[{"Arrow", "[", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"1", "-", 
+                 RowBox[{"2", "p"}]}], ",", "0", ",", "0"}], "}"}]}], "}"}], 
+            ",", "0.01"}], "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "0"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \
+\"+\", TemplateBox[{\"1\"},\"Ket\"]}], SqrtBox[\"2\"]]\)\>\"", ",", "Large", 
+             ",", "Blue", ",", 
+             RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1.1", ",", "0", ",", "0"}], "}"}]}], "]"}]}], "]"}], ",",
+        "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "1"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \
+\"-\", TemplateBox[{\"1\"},\"Ket\"]}], SqrtBox[\"2\"]]\)\>\"", ",", "Large", 
+             ",", "Blue", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1.1"}], ",", "0", ",", "0"}], "}"}]}], "]"}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Arrowheads", "[", "0.08", "]"}], ",", 
+         RowBox[{"Arrow", "[", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"-", "2"}], "+", 
+                  RowBox[{"4", "p"}]}], 
+                 SqrtBox["5"]], ",", "0", ",", 
+                FractionBox[
+                 RowBox[{"1", "-", 
+                  RowBox[{"2", "p"}]}], 
+                 SqrtBox["5"]]}], "}"}]}], "}"}], ",", "0.01"}], "]"}], 
+          "]"}]}], "}"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "0"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*FractionBox[RowBox[{RowBox[{\"2\", \
+TemplateBox[{\"0\"},\"Ket\"]}], \"-\", TemplateBox[{\"1\"},\"Ket\"]}], \
+SqrtBox[\"5\"]]\)\>\"", ",", "Large", ",", "Red", ",", 
+             RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox["2.3", 
+               SqrtBox["5"]]}], ",", "0", ",", 
+             FractionBox["1.3", 
+              SqrtBox["5"]]}], "}"}]}], "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p", "\[Equal]", "1"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \
+\"+\", RowBox[{RowBox[{\"(\", RowBox[{\"1\", \"+\", \"i\"}], \")\"}], \
+TemplateBox[{\"1\"},\"Ket\"]}]}], SqrtBox[\"5\"]]\)\>\"", ",", "Large", ",", 
+             "Red", ",", 
+             RowBox[{"FontFamily", "->", "\"\<Times\>\""}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             FractionBox["2.3", 
+              SqrtBox["5"]], ",", "0", ",", 
+             RowBox[{"-", 
+              FractionBox["1.3", 
+               SqrtBox["5"]]}]}], "}"}]}], "]"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Purple", ",", 
+         RowBox[{"Arrowheads", "[", "0.08", "]"}], ",", 
+         RowBox[{"Arrow", "[", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+            "0.01"}], "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \"+\", \
+RowBox[{\"i\", TemplateBox[{\"1\"},\"Ket\"]}]}], SqrtBox[\"2\"]]\)\>\"", ",", 
+           "Large", ",", "Purple", ",", 
+           RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1.1", ",", "0"}], "}"}]}], "]"}]}], 
+      "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesStyle", "\[Rule]", "Thick"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Ticks", "\[Rule]", "None"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", "Full"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"LabelStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Bold", ",", " ", "Large", ",", "Black"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AxesStyle", "\[Rule]", "Large"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[8]:=",ExpressionUUID->"5877738b-346e-477b-b286-48062a640daf"],
+
+Cell[CellGroupData[{
+
+Cell[" Canal inversor de bit", "Title",
+ CellChangeTimes->{{3.809905427982586*^9, 
+  3.809905435712859*^9}},ExpressionUUID->"5f36714c-faba-4d5c-80aa-\
+d808a934bb87"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p$$ = 0.458, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`p$$], 0, 1}}, Typeset`size$$ = {788., {392., 396.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`p$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[{{
+          Scale[{Orange, 
+            Specularity[20], 
+            Opacity[0.4], 
+            Sphere[]}, {1 - 2 $CellContext`p$$, 1, 1 - 2 $CellContext`p$$}, {
+           0, 0, 0}]}, {Black, 
+          Arrowheads[0.08], 
+          Arrow[
+           Tube[{{0, 0, 0}, {0, 0, 1 - 2 $CellContext`p$$}}, 0.01]]}, 
+         If[$CellContext`p$$ == 0, 
+          Text[
+           Style[
+           "\!\(\*TemplateBox[{\"0\"},\"Ket\"]\)", Large, Black, FontFamily -> 
+            "Times"], {0.1, 0, 1.1}]], 
+         If[$CellContext`p$$ == 1, 
+          Text[
+           Style[
+           "\!\(\*TemplateBox[{\"1\"},\"Ket\"]\)", Large, Black, FontFamily -> 
+            "Times"], {0, 0, -1.1}]], {Blue, 
+          Arrowheads[0.08], 
+          Arrow[
+           Tube[{{0, 0, 0}, {1 - 2 $CellContext`p$$, 0, 0}}, 0.01]]}, 
+         If[$CellContext`p$$ == 0, 
+          Text[
+           Style[
+           "\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \"+\", \
+TemplateBox[{\"1\"},\"Ket\"]}], SqrtBox[\"2\"]]\)", Large, Blue, FontFamily -> 
+            "Times"], {1.1, 0, 0}]], 
+         If[$CellContext`p$$ == 1, 
+          Text[
+           Style[
+           
+           "\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \"-\", \
+TemplateBox[{\"1\"},\"Ket\"]}], SqrtBox[\"2\"]]\)", Large, Blue, FontFamily -> 
+            "Times"], {-1.1, 0, 0}]], {Red, 
+          Arrowheads[0.08], 
+          Arrow[
+           
+           Tube[{{0, 0, 
+             0}, {(-2 + 4 $CellContext`p$$)/Sqrt[5], 
+              0, (1 - 2 $CellContext`p$$)/Sqrt[5]}}, 0.01]]}, 
+         If[$CellContext`p$$ == 0, 
+          Text[
+           Style[
+           "\!\(\*FractionBox[RowBox[{RowBox[{\"2\", \
+TemplateBox[{\"0\"},\"Ket\"]}], \"-\", TemplateBox[{\"1\"},\"Ket\"]}], \
+SqrtBox[\"5\"]]\)", Large, Red, FontFamily -> "Times"], {-(2.3/Sqrt[5]), 0, 
+            1.3/Sqrt[5]}]], 
+         If[$CellContext`p$$ == 1, 
+          Text[
+           Style[
+           "\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \"+\", \
+RowBox[{RowBox[{\"(\", RowBox[{\"1\", \"+\", \"i\"}], \")\"}], \
+TemplateBox[{\"1\"},\"Ket\"]}]}], SqrtBox[\"5\"]]\)", Large, Red, FontFamily -> 
+            "Times"], {2.3/Sqrt[5], 0, -(1.3/Sqrt[5])}]], {Purple, 
+          Arrowheads[0.08], 
+          Arrow[
+           Tube[{{0, 0, 0}, {0, 1, 0}}, 0.01]]}, 
+         Text[
+          Style[
+          "\!\(\*FractionBox[RowBox[{TemplateBox[{\"0\"},\"Ket\"], \"+\", \
+RowBox[{\"i\", TemplateBox[{\"1\"},\"Ket\"]}]}], SqrtBox[\"2\"]]\)", Large, 
+           Purple, FontFamily -> "Times"], {0, 1.1, 0}]}, 
+        AxesOrigin -> {0, 0, 0}, AxesStyle -> Thick, Ticks -> None, Boxed -> 
+        False, ImageSize -> Full, Axes -> True, 
+        AxesLabel -> {$CellContext`x, $CellContext`y, $CellContext`z}, 
+        LabelStyle -> Directive[Bold, Large, Black], 
+        PlotRange -> {{-1, 1}, {-1, 1}, {-1, 1}}, AxesStyle -> Large], 
+      "Specifications" :> {{$CellContext`p$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{835., {448., 454.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.809905420908765*^9, 3.809906075567259*^9, 
+  3.81023282519983*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"2b65fdd7-aa26-48e1-9af8-07d20f71f129"]
+}, Open  ]]
+},
+WindowSize->{960, 1043},
+WindowMargins->{{Automatic, -960}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"73255779-4b34-4143-ac0a-432079474093"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 154, 3, 30, "Input",ExpressionUUID->"9fd34ad1-6625-4023-af37-aafe82005ec6"],
+Cell[715, 25, 9082, 229, 789, "Input",ExpressionUUID->"5877738b-346e-477b-b286-48062a640daf"],
+Cell[CellGroupData[{
+Cell[9822, 258, 165, 3, 98, "Title",ExpressionUUID->"5f36714c-faba-4d5c-80aa-d808a934bb87"],
+Cell[9990, 263, 4472, 100, 921, "Output",ExpressionUUID->"2b65fdd7-aa26-48e1-9af8-07d20f71f129"]
+}, Open  ]]
+}
+]
+*)
+
