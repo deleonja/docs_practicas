@@ -118,9 +118,9 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 	\end{align*}
 	por consiguiente $\rho$ es una matriz positiva semidefinida. \cpnote{Acá ya
  termino la prueba, te toca cortar la demostración en el texto.} Por el 
-	contrario \cpnote{No quieres decir por el contrario, sino quiza algo como, supongamos que $\rho$ es una matriz que satisface las condiciones
+	contrario \cpnote{No quieres decir por el contrario, sino quiza algo como ``de manera inversa'' }, supongamos que $\rho$ es una matriz que satisface las condiciones
 	de traza unitaria y positividad. Dado que $\rho$ es positiva, entonces
-	tiene descomposición espectral 
+	tiene descomposición espectral  \cpnote{cita}
 	\begin{align*}
 		\rho = \sum _k \lambda _k \dyad{k}{k},
 	\end{align*}
@@ -129,7 +129,7 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 	\lambda _k = 1$. Por consiguiente, un sistema en el estado $\ket{k}$ con 
 	probabilidad $\lambda_k$ tendrá una matriz de densidad $\rho$. Dicho 
 	de otro modo, el ensamble de estados $\{ p_k,\ket{k}\}$ da lugar a la matriz
-	de densidad $\rho$.
+	de densidad $\rho$. \cpnote{Acá no es $p_k$ sino $\lambda_k$}.
 \end{proof}
 % }}}
 \section{Revisión de los postulados de la Mecánica Cuántica} % {{{
@@ -144,6 +144,8 @@ de la siguiente manera.
 	el espacio de estados del sistema. Si un sistema cuántico se encuentra
 	en el estado $\rho _i$ con probabilidad $p_i$, entonces la matriz de
 	densidad del sistema es $\sum p_i\rho_i$.
+\cpnote{Veo problemático usar las $\rho_i$ para definir rho. Quiza lo dejaria
+sin esa ultima frase.}
 	\item[] \textbf{Postulado 2.} La evolución de un sistema cuántico cerrado está descrita por una transformación
 	unitaria. Es decir, el estado $\rho$ del sistema en el tiempo $t_1$ está 
 	relacionado con el estado $\rho'$ del sistema en el tiempo $t_2$ por un operador
@@ -152,7 +154,8 @@ de la siguiente manera.
 	\rho'=U\rho U^{\dagger}.
 	\label{eq:postulate1}
 	\end{equation}
-	\item[] \textbf{Postulado 3.} Las mediciones cuánticas están descritas por un conjunto de 
+	\item[] \textbf{Postulado 3.} Las mediciones cuánticas están descritas
+por un conjunto de 
 	operadores de medición $\{M_m\}$. Estos son operadores que actúan sobre el espacio 
 	de estados del sistema que se mide. El índice $m$ se refiere a los resultados
 	de las mediciones que puedan ocurrir en el experimento. Si el estado del sistema
@@ -172,11 +175,15 @@ de la siguiente manera.
 	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
 	\label{eq:postulate2_completeness}
 	\end{equation}
+\cpnote{Quizá por acá también citaría y mencionaría la relación con las
+mediciones de von Neumann}
 	\item[] \textbf{Postulado 4.} El espacio de estados de un sistema físico compuesto es el producto tensorial 
 	de los espacios de estado de los sistemas físicos que componen al sistema total.
 	Además, si los sistemas están enumerados de 1 hasta $n$, y el $i$-ésimo sistema
 	está preparado en el estado $\rho_i$, entonces el estado del sistema total es
-	$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$.
+	$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$. \cpnote{Veo problemas acá. 
+Por ejemplo, si dos qubits están en un estado de Bell, cada qubit está en el estado 
+máximamente mixto, pero el estado global no es el producto tensorial de estos estados.}
 \end{itemize}
 % }}}
 \section{El operador de densidad reducido} % {{{
