@@ -1,4 +1,5 @@
 \chapter{La matriz de densidad} % {{{
+% Intro {{{
 Una formulación alternativa, pero equivalente, a la del vector de estado 
 de la mecánica cuántica es posible con el lenguaje de la matriz de densidad\cpnote{cita}. 
 La preferencia por la matriz de densidad se centra en que provee la descripción
@@ -7,8 +8,8 @@ también, mezclas estadísticas\cpnote{No se lo que quieres decir en esta
 frase.}. La matriz de densidad se puede concebir \cpnote{Por que esta palabra?}
 a partir de la descripción de un ensamble de estados, sin embargo, es
 importante desarrollar una caracterización intrínseca \cpnote{Por qué esta
-palabra?} de la misma. 
-
+palabra?} de la misma.  
+% }}}
 \section{Ensambles de estados cuánticos} % {{{
 Supongamos que un sistema cuántico se encuentra en cada uno de los estados 
 $\ket{\psi _i}$ con probabilidades $p_i$, respectivamente. El conjunto 
@@ -43,7 +44,12 @@ la matriz de densidad, específicamente para un estado mixto. Sin
 embargo, si ahora consideramos el ensamble $\{ \frac{1}{3}, \ket{0};
 \frac{2}{3}, \ket{1} \}$ notemos que \eqref{eq:rho-calc-ex} también es la
 matriz de densidad que describe este ensamble. Esto muestra que a más de un
-estado mixto le puede corresponder la misma matriz de densidad.\newline
+estado mixto \cpnote{Los estados mixtos son matrices de densidad. Quizá lo que
+quieres decir es que a mas de un ensamble le puede\ldots} le puede corresponder la misma matriz de densidad.\cpnote{En el
+codigo tienes un newline. No se para que lo tengas. Si quieres avisar explícitamente
+que viene un parrafo puede poner el comando ``par'', pero creo que es equivalente
+a una linea en blanco. El newline puede causar problemas. Lo comento por ahora.}
+%  \newline
 
 Supongamos que la evolución de un sistema cuántico cerrado se describe por
 un operador unitario $U$. Si el sistema inicialmente se encuentra en alguno
@@ -67,6 +73,8 @@ entonces la probabilidad de obtener el resultado $m$ es
 	&=\sum _k \matrixel{k}{M_m^{\dagger}M_m}{\psii}\braket{\psii}{k}\\
 	&=\Tr \qty(M_m^{\dagger}M_m\dyad{\psii}{\psii}).
 \end{align}
+\cpnote{Aun no dices como es la formula para obtener el valor $i$ para la
+matriz de densidad. }
 
 %Un sistema cuántico cuyo estado $\ket{\psi}$ es completamente conocido se dice que se encuentra en
 %un estado puro. De cualquier otra manera, $\rho$ se encuentra en un estado mixto; se dice que está
@@ -78,6 +86,10 @@ descripción de una mezcla estadística de estados. Sin embargo, la matriz
 de densidad es un concepto más general e independiente de los ensambles de
 estados. Por ello, la matriz de densidad está caracterizada por el siguiente
 teorema.  
+\cpnote{Está rara tu linea de pensamiento. Quieres hacer una definición independiente
+del ensamble, pero usas las propiedades de ensamble para probar lo que dices. 
+Creo que tu cabeza esta como en un nudo acá. Piensa que quieres decir, si quieres 
+lo platicamos, y despues si lo escribes.}
 \begin{teorema}[\textbf{Caracterización de la matriz de densidad}]
 Un operador $\rho$ es la matriz de densidad asociada a algún ensamble 
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
@@ -104,8 +116,9 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 		&=\sum _i p_i \abs{\braket{\phi}{\psii}}^2\\
 		&\geq 0,
 	\end{align*}
-	por consiguiente $\rho$ es una matriz positiva semidefinida. Por el 
-	contrario, supongamos que $\rho$ es una matriz que satisface las condiciones
+	por consiguiente $\rho$ es una matriz positiva semidefinida. \cpnote{Acá ya
+ termino la prueba, te toca cortar la demostración en el texto.} Por el 
+	contrario \cpnote{No quieres decir por el contrario, sino quiza algo como, supongamos que $\rho$ es una matriz que satisface las condiciones
 	de traza unitaria y positividad. Dado que $\rho$ es positiva, entonces
 	tiene descomposición espectral 
 	\begin{align*}
