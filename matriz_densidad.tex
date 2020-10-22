@@ -33,24 +33,23 @@ de un sistema cuántico compuesto: el operador de densidad reducido.
 
 \section{Ensambles de estados cuánticos} % {{{
 En esta sección vamos a definir al operador de densidad asociado a 
-un ensamble de estados y luego presentaremos cómo describir la dinámica
-y la medición de los estados de un sistema cuántico utilizando 
+un ensamble de estados y luego expondremos cómo describir la dinámica
+y medición de los estados de un sistema cuántico utilizando 
 su operador de densidad, 
-de manera que esto motivará un camino hacia la reformulación
-de todos los postulados de la mecánica cuántica.
+de manera que esto motivará un camino hacia la formulación
+de todos los postulados de la mecánica cuántica utilizando el
+lenguaje que introduciremos en esta primera sección.
 
 Para introducir la definición del operador de densidad presentamos la 
-motivación expuesta por Sakurai \cite{sakurai_napolitano_2017}.
+motivación que exponen Sakurai y Napolitano \cite{sakurai_napolitano_2017}.
 Consideremos un sistema cuántico que se encuentra en alguno de los estados 
-$\Pk{i}$ con probabilidad $p_i$. El conjunto de todos los estados
+$\Pk{i}$ con probabilidad $p_i$. El conjunto de todos los posibles estados
 conforman un ensamble de estados del sistema. Supongamos que realizamos 
-una medición de algún observable $A$ sobre el ensamble. Podríamos 
-preguntarnos cuál es el valor promedio de $A$ cuando se 
-reproduce un número muy grande de mediciones \cite{sakurai_napolitano_2017}. 
-Esto está dado por el valor promedio del ensamble de $A$, es decir
-f
-fasdfajsd
-
+una medición de algún observable $\Lambda$ sobre el ensamble. Podríamos 
+preguntarnos cuál es el valor promedio de $\Lambda$ cuando se 
+reproduce un número muy grande de mediciones. 
+Es decir, la cantidad en la que estamos interesado es el 
+valor promedio $\expval{\Lambda}$ del ensamble, es decir
 \begin{align}
 	\expval{A} &= \sum_i p_i \matrixel{\psii}{A}{\psii} \\
 	&= \sum_i p_i \matrixel{\psii}{A}{\psii} \\
@@ -63,29 +62,30 @@ espacio de Hilbert del sistema,
 	&= \sum _j\sum _k \qty(\sum_ip_i \braket{\phi_k}{\psii}
 	\braket{\psii}{\phi_j})	\matrixel{\phi_j}{A}{\phi_k}.
 \end{align}
-Esto motiva la definición del operador de densidad $\rho$ 
-de la siguiente manera
+Este es un buen momento para introducir la definición 
+del operador de densidad $\rho$ como \cite{nielsen_chuang_2011}, \cite{sakurai_napolitano_2017}
 \begin{equation}
 	\rho \equiv \sum _i p_i\dyad{\psi_i}{\psi_i}.
 	\label{eq:rho_def}
 \end{equation}
-Los elementos de la matriz $\rho$ tienen la forma 
+Notemos que los elementos del operador de densidad son
 \begin{align}
 	\matrixel{\phi_k}{\rho}{\phi_j} = 
 	\sum_ip_i \braket{\phi_k}{\psii}\braket{\psii}{\phi_j},
 \end{align}
-de manera que el operador de densidad contiene toda la información 
-física que se puede obtener de un ensamble de estados.
+de manera podemos ver que el operador de densidad contiene 
+toda la información física que se puede obtener de un ensamble de estados.
 
 Dos ensambles de estados distintos pueden tener el mismo operador
-de densidad. Para ver esto consideremos dos ensambles distintos de 
-una partícula de espín 1$/$2. El primero que vamos a considerar es 
+de densidad. Para convencernos de esto consideremos 
+dos ensambles de estados distintos de una partícula de espín 1$/$2. 
+El primero que vamos a considerar es 
 $\qty{ p_1=1/2, \Pk{1}=1/\sqrt{3}\ket{0}+\sqrt{2/3}\ket{1};
 p_2=1/2, \Pk{1}=1/\sqrt{3}\ket{0}-\sqrt{2/3}\ket{1}}$. El operador
 de densidad asociado se calcula como
 \begin{align}
-	\rho 	&= \frac{1}{2}\dyad{\psi_1}{\psi_1} + 
-	\frac{1}{2}\dyad{\psi_2}{\psi_2} \nonumber \\
+	\rho 	&= p_1\dyad{\psi_1}{\psi_1} + 
+	p_2\dyad{\psi_2}{\psi_2} \nonumber \\
 	\rho	&= \frac{1}{2}\qty(\frac{1}{3}\dyad{0}{0} +
 					 \frac{\sqrt{2}}{3}\dyad{0}{1} + 
 					 \frac{\sqrt{2}}{3}\dyad{1}{0} +
@@ -97,124 +97,79 @@ de densidad asociado se calcula como
 	\rho	&= \frac{1}{3}\dyad{0}{0} + \frac{2}{3}\dyad{1}{1}. 
 	\label{eq:rho-calc-ex}
 \end{align}
-Ahora consideremos el ensamble $\qty{ \frac{1}{3}, \ket{0}; 
+Ahora consideremos el segundo ensamble $\qty{ \frac{1}{3}, \ket{0}; 
 \frac{2}{3}, \ket{1}}$ y notemos que el operador de densidad 
 \eqref{eq:rho-calc-ex} es también el operador de densidad asociado a
 este ensamble. En general, los autovectores y autovalores de un
 operador de densidad sólo indican uno de los muchos posibles ensambles
 que tienen asociado un operador de densidad específico. Por ello, 
-no hay razón para pensar que existe algún ensamble privilegiado.
+no hay razón para pensar que existe algún ensamble privilegiado 
+\cite{nielsen_chuang_2011}.
 
-%Este ejemplo es útil para revisar el cálculo explícito de
-%la matriz de densidad, específicamente para un estado mixto. Sin
-%embargo, si ahora consideramos el ensamble $\{ \frac{1}{3}, \ket{0};
-%\frac{2}{3}, \ket{1} \}$ notemos que \eqref{eq:rho-calc-ex} también es la
-%matriz de densidad que describe este ensamble. Esto muestra que a más de un
-%estado mixto \cpnote{Los estados mixtos son matrices de densidad. Quizá lo que
-%quieres decir es que a mas de un ensamble le puede\ldots} le puede corresponder la misma matriz de densidad.\cpnote{En el
-%codigo tienes un newline. No se para que lo tengas. Si quieres avisar explícitamente
-%que viene un parrafo puede poner el comando ``par'', pero creo que es equivalente
-%a una linea en blanco. El newline puede causar problemas. Lo comento por ahora.}
-%  \newline
-
-
-Ahora nos interesa revisar que la dinámica de un sistema cuántico
-pueda ser descrito utilizando su operador de densidad. 
-Supongamos que la evolución de un sistema 
-cerrado se describe por un operador unitario $U$. 
-Si el sistema inicialmente se encuentra en alguno de los estados 
-$\ket{\psii}$, con probabilidad $p_i$, entonces después de que
-la evolución ocurra el sistema se encontrará en el estado $U\ket{\psii}$ 
-con probabilidad $p_i$, por consiguiente la evolución del operador de densidad
-se describe mediante la siguiente ecuación
+Ahora vamos a investigar si es posible formular la dinámica de un sistema
+cuántico cerrado utilizando su operador de densidad. 
+Consideremos un sistema cerrado cuyo Hamiltoniano es $H$.
+El operador $e^{-iHt}$ describe la evolución del sistema.
+Si el estado inicial era alguno de los
+estados $\ket{\psii}$, cada uno con probabilidad $p_i$, 
+entonces después de que
+la evolución ocurra el sistema se encontrará en alguno
+de los estados $e^{-iHt}\ket{\psii}$, 
+con probabilidad $p_i$ también. 
+Por consiguiente, el operador de densidad $\rho'$ 
+asociado al estado final del sistema es
 \begin{align}
-	\rho = \sum _ip_i\dyad{\psii}{\psii}
-	\xrightarrow[]{U}
-	\sum _ip_iU\dyad{\psii}{\psii}U^{\dagger}	=
-	U\rho U^{\dagger}.
+%	\rho = \sum _ip_i\dyad{\psii}{\psii}
+%	\xrightarrow[]{e^{-iHt}}
+%	\sum _ip_iU\dyad{\psii}{\psii}U^{\dagger}	=
+%	U\rho U^{\dagger}. \\
+	\rho ' &= \sum_ip_i e^{-iHt}\Pk{i} \Pb{i}\qty(e^{-iHt})^{\dagger} \\
+	&= e^{-iHt}\qty(\sum_ip_i\rhoi)\qty(e^{-iHt})^{\dagger} \\
+	&= e^{-iHt}\rho\qty(e^{-iHt})^{\dagger}.
 \end{align}
 
-Por otro lado, las mediciones también se pueden describir con el 
-lenguaje del operador de densidad. Supongamos que se realiza una medición, 
-que se define por los operadores de medida $M_m$, del estado de un sistema. 
-Si el estado inicial del sistema era $\ket{\psii}$ antes de medirlo, 
-entonces la probabilidad de obtener el resultado $m$ al realizar
-la medición es
+Por otro lado, nos interesa también investigar si es posible formular
+las mediciones proyectivas de la mecánica cuántica usando el operador de 
+densidad. 
+Supongamos que realizamos una medición de la energía del sistema que
+consideramos anteriormente cuando este se encuentra en alguno de los 
+estados $\Pk{i}$, en cada uno con probabilidad $p_i$,
+¿cuál será el valor promedio de luego de realizar un número
+muy grande de mediciones de la energía?
 \begin{align}
-	p\qty(m|i) &= \matrixel{\psii}{M_m^{\dagger}M_m}{\psii}\\
-	&= \sum _k \braket{\psii}{k}\matrixel{k}{M_m^{\dagger}M_m}{\psii}\\
-	&=\sum _k \matrixel{k}{M_m^{\dagger}M_m}{\psii}\braket{\psii}{k}\\
-	&=\Tr \qty(M_m^{\dagger}M_m\dyad{\psii}{\psii}). \label{eq:p(mi)}
+	\expval{E} &= \sum_i p_i\matrixel{\psii}{H}{\psii} \\
+	&= \sum_i p_i\bra{\psii}\qty(\sum_j \dyad{\phi_j}{\phi_j})H\ket{\psii},
 \end{align}
-Por la ley de la probabilidad total la probabilidad de medir $m$ es
-\janote{Carlos, debería referir hacia un apéndice para explicar esta ley?}
+$\ket{\phi_j}$ una base del espacio de estados del sistema,
 \begin{align}
-	p(m) &= \sum_i p(m\vert i)p_i \\
-			 &= \sum_i \Tr \qty(M_m^{\dagger}M_m\dyad{\psii}{\psii})p_i \\
-			 &= \Tr \qty(M_m^{\dagger}M_m\sum_ip_i\dyad{\psii}{\psii}) \\
-			 &= \Tr \qty(M_m^{\dagger}M_m\rho). \label{eq:p(m)}
+	\hspace{3mm}&= \sum_j \bra{\phi_j}H\qty(\sum_i p_i \dyad{\psii}{\psii})\ket{\phi_j} \\
+	&= \Tr \qty(H\rho).
 \end{align}
-Si el estado inicial del sistema era $\Pk{i}$ antes de medirlo, 
-entonces el estado luego de obtener $m$ como resultado de la medición es
-\begin{align}
-	\ket{\psi_i^m} = \frac{M_m\Pk{i}}{\sqrt{\matrixel{\psii}{M_m^{\dagger}
-	M_m}{\psii}}}.
-\end{align}
-Por consiguiente, luego de medir $m$ se tiene un ensamble de estados
-$\ket{\psi_i^m}$ con probabilidades $p\qty(i\vert m)$. El operador
-de densidad para este ensamble es
-\begin{align}
-	\rho_m &= \sum _i p\qty(i\vert m)\dyad{\psii^m}{\psii^m}
-	\nonumber \\
-				 &= \sum _i p\qty(i\vert m)
-				 \frac{M_m\dyad{\psii}{\psii}M_m^{\dagger}}
-				 {\matrixel{\psii}{M_m^{\dagger}M_m}{\psii}}. 
-				 \label{eq:rho-after-measurement}
-\end{align}
-De la teoría de la probabilidad se sabe que
-\begin{align}
-	p\qty(i\vert m) = \frac{p(m,i)}{p(m)}=
-	\frac{p\qty(m\vert i)p_i}{p(m)},
-\end{align}
-y, sustituyendo \eqref{eq:p(mi)} y \eqref{eq:p(m)} en 
-\eqref{eq:rho-after-measurement}, el operador
-de densidad asociado al ensamble de estados 
-$\qty{\ket{\psi_i^m},p(i\vert m)}$, producto de obtener $m$ como resultado
-de la medición, es
-\begin{align}
-	\rho _m &= \sum _i p_i \frac{M_m\dyad{\psii}{\psii}M_m^{\dagger}}
-	{\Tr \qty(M_m^{\dagger}M_m\rho)} \nonumber \\
-					&= \frac{M_m\rho M_m^{\dagger}}
-	{\Tr \qty(M_m^{\dagger}M_m\rho)}.
-\end{align}
-Hasta aquí lo que hemos hecho es mostrar que los postulados de la
-mecánica cuántica de evolución unitaria de los sistemas cerrados y 
-medición se pueden reformular utilizando el operador de densidad.
-Antes de proceder a formular todos los postulados en el lenguaje del 
-operador de densidad vamos a presentar las propiedades generales
-que esta herramienta posee. 
-\cpnote{Aun no dices como es la formula para obtener el valor $i$ para la
-matriz de densidad. }
-\janote{No sé a qué haces referencia.}
+Aunque hemos mostrado cómo formular la dinámica y medición de la 
+energía considerando el Hamiltoniano de un sistema cuántico, 
+el procedimiento para formular el caso general de la dinámica
+descrita por un operador unitario y de cualquier medición 
+proyectiva es directo. De hecho, la formulación de cualquier tipo
+de medición también es posible. 
+
+Hasta aquí lo que hemos hecho es mostrar que los postulados de 
+evolución unitaria y medición de la mecánica cuántica 
+se pueden formular utilizando el operador de densidad.
+Antes de proceder con la formulación de todos los postulados en el 
+lenguaje del operador de densidad vamos a presentar las propiedades 
+generales que esta herramienta posee. 
+%\cpnote{Aun no dices como es la formula para obtener el valor $i$ para la
+%matriz de densidad. }
+%\janote{No sé a qué haces referencia.}
 
 % }}}
 
 \section{Propiedades generales del operador de densidad} % {{{
-%El operador de densidad fue introducido en la sección anterior
-%como una herramienta para describir mezclas estadísticas de estados cuánticos,
-%en esta sección vamos a iniciar presentando 
-%la caracterización del operador de densidad, de modo que
-%esto completa la formulación del nuevo formalismo de la mecánica cuántica
-%que adoptaremos en este proyecto. Es importante resaltar que este
-%formalismo es equivalente al del vector de estado. En vista de ello, 
-%vamos a concluir reformulando los postulados de la mecánica cuántica 
-%en el lenguaje del operador de densidad.
-
-En esta sección vamos a establecer una caracterización del 
-operador de densidad más abstracta que la introducida en 
+En esta sección vamos a establecer una caracterización 
+más abstracta del operador de densidad que la introducida en 
 la sección anterior y vamos a demostrar que es equivalente 
 a la definición motivada en los ensambles de estados. 
-Esto va a completar los fundamentos matemáticos
+Esto completará los fundamentos matemáticos
 sobre la que recae la formulación de la mecánica cuántica 
 utilizando el operador de densidad. 
 
@@ -223,14 +178,15 @@ utilizando el operador de densidad.
 %de densidad es un concepto más general e independiente de los ensambles de
 %estados. Por ello, la matriz de densidad está caracterizada por el siguiente
 %teorema.  
-\cpnote{Está rara tu linea de pensamiento. Quieres hacer una definición independiente
-del ensamble, pero usas las propiedades de ensamble para probar lo que dices. 
-Creo que tu cabeza esta como en un nudo acá. Piensa que quieres decir, si quieres 
-lo platicamos, y despues si lo escribes.}
-\janote{Sí. Fui a leer el Sakurai y entiendo a lo que te refieres. Por eso 
-reformulé el enfoque de este párrafo introductorio.}
+%\cpnote{Está rara tu linea de pensamiento. Quieres hacer una definición independiente
+%del ensamble, pero usas las propiedades de ensamble para probar lo que dices. 
+%Creo que tu cabeza esta como en un nudo acá. Piensa que quieres decir, si quieres 
+%lo platicamos, y despues si lo escribes.}
+%\janote{Sí. Fui a leer el Sakurai y entiendo a lo que te refieres. Por eso 
+%reformulé el enfoque de este párrafo introductorio.}
 
-Los operadores lineales que son operadores de densidad están 
+De acuerdo con Nielsen y Chuang \cite{nielsen_chuang_2011}
+los operadores lineales que son operadores de densidad están 
 caracterizados por el siguiente teorema:
 \begin{teorema}[\textbf{Caracterización del operador de densidad}]
 Un operador $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
@@ -276,7 +232,7 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
  	supongamos que $\rho$ es una matriz que satisface las condiciones
 	de traza unitaria y positividad. Dado que $\rho$ es positiva, entonces
 	tiene descomposición espectral \cite{nielsen_chuang_2011} 
-	\cpnote{cita} \janote{Listo}
+%	\cpnote{cita} \janote{Listo}
 	\begin{align*}
 		\rho = \sum _k \lambda _k \dyad{k}{k},
 	\end{align*}
@@ -289,7 +245,7 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 	%\cpnote{Acá no es $p_k$ sino $\lambda_k$}.
 \end{proof}
 
-Es útil contar con un criterio para saber si un operador de densidad 
+Es útil contar con un criterio para determinar si un operador de densidad 
 está asociado a un estado puro o mixto. Ese criterio es el siguiente:
 sea $\rho$ un operador de densidad, entonces
 $\Tr \qty(\rho^2)\leq 1$, donde la igualdad se satisface únicamente
@@ -313,7 +269,8 @@ para estados puros.
 Ahora que hemos establecido las características generales del 
 operador de densidad vamos a exponer la formulación
 de  los postulados de la mecánica cuántica en el lenguaje del 
-operador de densidad.
+operador de densidad presentada por 
+Nielsen y Chuang \cite{nielsen_chuang_2011}.
 \begin{itemize}
 	\item[] \textbf{Postulado 1.} Un sistema físico tiene asociado un espacio vectorial complejo
 	con producto interno que se conoce como el espacio de Hilbert $\hi$ del
@@ -323,9 +280,9 @@ operador de densidad.
 %	Si un sistema cuántico se encuentra
 %	en el estado $\rho _i$ con probabilidad $p_i$, entonces la matriz de
 %	densidad del sistema es $\sum p_i\rho_i$.
-\cpnote{Veo problemático usar las $\rho_i$ para definir rho. Quiza lo dejaria
-sin esa ultima frase.}
-\janote{De acuerdo.}
+%\cpnote{Veo problemático usar las $\rho_i$ para definir rho. Quiza lo dejaria
+%sin esa ultima frase.}
+%\janote{De acuerdo.}
 	\item[] \textbf{Postulado 2.} La evolución de un sistema cuántico cerrado está descrita por una transformación
 	unitaria. Es decir, el estado $\rho$ del sistema en un tiempo $t_1$ está 
 	relacionado con el estado $\rho'$ del sistema en un tiempo $t_2$ por un operador
@@ -355,26 +312,30 @@ por un conjunto de
 	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
 	\label{eq:postulate2_completeness}
 	\end{equation}
-\cpnote{Quizá por acá también citaría y mencionaría la relación con las
-mediciones de von Neumann}
-\janote{Listo.}
-	Un caso especial de este postulado es el de las mediciones proyectivas.
+%\cpnote{Quizá por acá también citaría y mencionaría la relación con las
+%mediciones de von Neumann}
+	Este postulado confirma lo que en la sección anterior aseguramos
+	de que la formulación de cualquier medición proyectiva utilizando el 
+	operador de densidad es posible. Debemos notar que las mediciones
+	proyectivas son un caso especial de las mediciones enunciadas en
+	este postulado.
 	Una medición proyectiva está descrita por un observable
-	$A$, que es un operador Hermítico que actúa sobre $\hi$. $A$ tiene una
-	descomposición espectral 
+	$\Omega$, que es un operador Hermítico que actúa sobre $\hi$. 
+	$\Omega$ tiene una descomposición espectral \cite{nielsen_chuang_2011}
 	\begin{align}
-		A = \sum _a \lambda_aP_a,
+		\Omega = \sum _i \lambda_iP_i,
 	\end{align}
-	donde $P_a$ es el proyector al autoespacio de $A$ con autovalor $\lambda_a$.
+	donde $P_i$ es el proyector al autoespacio de $\Omega$ 
+	con autovalor $\lambda_i$.
 	De acuerdo con este postulado si el sistema se encuentra en el estado
-	$\rho$, la probabilidad de medir $\lambda_a$ es
+	$\rho$, la probabilidad de medir $\lambda_i$ es
 	\begin{align}
-		p(a) = \Tr \qty(P_a^{\dagger}P_a\rho) = \Tr \qty(P_a\rho).
+		p(i) = \Tr \qty(P_i^{\dagger}P_i\rho) = \Tr \qty(P_i\rho).
 	\end{align}
-	Dado que se midió $\lambda_a$ el estado del sistema inmediatamente 
+	Además, dado que se midió $\lambda_i$ el estado del sistema inmediatamente 
 	luego de realizar la medición es 
 	\begin{align}
-		\rho'&=\frac{P_a\rho P_a}{\Tr \qty(P_a \rho)}.
+		\rho'&=\frac{P_i\rho P_i}{\Tr \qty(P_i \rho)}.
 	\end{align}
 	\item[] \textbf{Postulado 4.} El espacio de Hilbert de un sistema físico 
 	compuesto es el producto tensorial de los espacios de Hilbert 
@@ -383,135 +344,189 @@ mediciones de von Neumann}
 	\begin{align}
 		\hi_{\txt{total}} = \hi_1\ten \hi_2 \ten \ldots \ten \hi_N.
 	\end{align}
-%	\h{Además, si los sistemas están enumerados de 1 hasta $n$, y el 
-%	$i$-ésimo sistema	se prepara en el estado $\rho_i$, 
-%	entonces el estado del sistema total 
-%	$\rho_1\otimes\rho_2\otimes\cdots\otimes\rho_n$.}
 	Los estados del sistema compuesto están descritos por matrices de 
 $N\times N$ Hermíticas, positivas y de traza unitaria que actúan 
 sobre el espacio de Hilbert del sistema total.
-\cpnote{Veo problemas acá. 
-Por ejemplo, si dos qubits están en un estado de Bell, cada qubit está en el estado 
-máximamente mixto, pero el estado global no es el producto tensorial de estos estados.}
-\janote{Entiendo. Estoy dejando fuera los estados no factorizables. Redacté
-de nuevo este postulado.}
 \end{itemize}
 
-Es nueva formulación de la mecánica cuántica nos permite describir
+Esta formulación de la mecánica cuántica nos permite 
 dos cosas que no sería posible utilizando la formulación del 
 vector de estado:
-sistemas cuánticos cuyos estados son mixtos y
-subsistemas individuales de un sistema cuántico compuesto, como lo veremos
+1. describir sistemas cuánticos cuyos estados son mezclas estadísticas y
+2. describir estados de subsistemas individuales que forman parte de 
+un sistema cuántico compuesto, como lo veremos
 en la siguiente sección. 
 
 % }}}
 \section{El operador de densidad reducido} % {{{
 Una de las aplicaciones más relevantes del operador de densidad es  
-la de una herramienta que permite
-describir subsistemas individuales de un sistema
+la de proporcionar una herramienta que permite
+describir estados individuales de subsistemas que componen a un sistema
 cuántico compuesto: el operador de
-densidad reducido. Es indispensable en el 
+densidad reducido. Esta herramienta es indispensable en el 
 análisis de sistemas cuánticos compuestos. Esta sección la 
-dedicamos a presentar la definición de esta herramienta
-y justificar el uso de la traza parcial como única operación
-para definir al operador de densidad reducido.
+dedicamos a presentar la definición del operador de densidad reducido
+y justificar el uso de la traza parcial en la definición del mismo.
 
-Supongamos que existen dos sistemas $A$ y $B$, cuyo estado está 
-descrito por el operador de densidad $\rho^{AB}$. El
-operador de densidad reducido para el sistema $A$ se define como
+A continuación vamos a seguir la motivación del operador 
+de densidad reducido expuesta por Chandra \cite{chandra2013quantum}. 
+Supongamos que existen dos subsistemas $A$ y $B$, cuyo estado del 
+sistema total está 
+descrito por el operador de densidad $\rho^{AB}$. Supongamos que 
+$\ket{\psi_i}$ es una base del subsistema $A$ y $\ket{\phi_j}$ es
+una base del subsistema $B$. Por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
+es una base del espacio total. Un elemento de matriz particular 
+del operador de densidad del sistema total $\rho^{AB}$ está dado por
 \begin{align}
-	\rho^A \equiv \Tr _B\qty(\rho^{AB}),
+	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}.
+\end{align}
+Supongamos que un observable $\Lambda_A$ actúa únicamente sobre el 
+subsistema $A$.
+%, por consiguiente
+%\begin{align}
+%\bra{\psi_i}\ten\bra{\phi_j}\Lambda_A\ket{\psi_k}\ten\ket{\phi_l}&=
+%\matrixel{\psi_i}{\Lambda_A}{\psi_k}\braket{\phi_j}{\phi_l}\\
+%	&=\matrixel{\psi_i}{\Lambda_A}{\psi_k}\delta _{jl}.
+%\end{align}
+Calculemos ahora el valor promedio de $\Lambda_A$, es decir
+$\Tr\qty(\rho^{AB}\Lambda_A)$
+\begin{align}
+	\Tr \qty(\rho^{AB}\Lambda_A) &= \sum _{i,j} 
+	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\Lambda_A\ket{\psi_i}\ten\ket{\phi_j} \\
+	&= \sum _{i,j} 
+	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}
+	\qty(\sum _{k,l} \qty(\ket{\psi_k}\ten\ket{\phi_l})
+	\qty(\bra{\psi_k}\ten\bra{\phi_l}))
+	\Lambda_A\ket{\psi_i}\ten\ket{\phi_j},
+\end{align}
+donde $\ket{\psi_k}\ten\ket{\phi_l}$ es otra base distinta 
+del sistema total $AB$,
+\begin{align}
+	&= \sum _{i,j,k,l} 
+	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}
+	\matrixel{\psi_k}{\Lambda_A}{\psi_i}\delta _{lj} \\
+	&= \sum _{i,j,k} 
+	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_j}
+	\matrixel{\psi_k}{\Lambda_A}{\psi_i}. \label{eq:almost-reducedRho}
+\end{align}
+Para poder continuar vamos a definir al operador de densidad
+reducido $\rho^A$ para el subsistema $A$ con la siguiente ecuación
+\cite{chandra2013quantum}
+\begin{align}
+	\matrixel{\psi_i}{\rho^A}{\psi_k} = 
+	\sum _j \bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_j}.
+	\label{eq:reducedRho-def1}
+\end{align}
+Con esta definición ahora podemos retomar  \eqref{eq:almost-reducedRho},
+sustituir la ecuación anterior y tenemos
+\begin{align}
+	\Tr \qty(\rho^{AB}\Lambda_A)&= \sum _{i,k}
+	\matrixel{\psi_i}{\rho^A}{\psi_k} \matrixel{\psi_k}{\Lambda_A}{\psi_i}\\
+	&= \sum_i \matrixel{\psi_i}{\rho^A\Lambda_A}{\psi_i}\\
+	&= \Tr \qty(\rho^A\Lambda_A). \label{eq:reduced-works}
+\end{align}
+%Notemos entonces que para obtener la información física de un observable
+%que actúa sobre un subsistema que forma parte de un sistema compuesto
+%se introdujo la herramienta del operador de densidad reducido. De hecho,
+Este resultado muestra que el operador de densidad reducido 
+contiene toda la información física accesible de un susbsistema individual.
+
+Por otro lado, si retomamos la ecuación \eqref{eq:reducedRho-def1},
+en donde definimos al operador de densidad reducido $\rho^A$, podemos
+introducir la operación de traza parcial de la siguiente manera
+\begin{align}
+	\matrixel{\psi_i}{\rho^A}{\psi_k} &= 
+	\sum _j \bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_j}\\
+	&=\matrixel{\psi_i}{\Tr_B\qty(\rho^{AB})}{\psi_k},
 	\label{eq:partialTrace-def}
 \end{align}
-donde $\Tr_B$ es un mapeo de operadores que se conoce como
-la traza parcial sobre el sistema $B$. La traza parcial
-se define como 
+donde $\Tr_B$ es la traza parcial sobre el sistema $B$. La traza parcial
+se define como \cite{nielsen_chuang_2011}
 \begin{align}
-	\Tr_B (\dyad{a_1}{a_2}\otimes \dyad{b_1}{b_2})
+	\Tr_B (\dyad{\psi_i}{\psi_j}\otimes \dyad{\phi_k}{\phi_l})
 	\equiv
-	\dyad{a_1}{a_2}\Tr \qty(\dyad{b_1}{b_2}),
+	\dyad{\psi_i}{\psi_j}\Tr \qty(\dyad{\phi_k}{\phi_l}),
 	\label{eq:part_trace-def}
 \end{align}
-donde $\ket{a_1}$ y $\ket{a_2}$ son cualesquiera dos vectores en
-$\mathcal{H}_A$, y $\ket{b_1}$ y $\ket{b_2}$ cualesquiera dos vectores
-en $\mathcal{H}_B$. La definición de traza parcial, establecida
-en \eqref{eq:part_trace-def}, se completa requiriendo que sea 
-una operación lineal.
+donde $\ket{\psi_i}$ y $\ket{\phi_j}$ son cualesquiera dos vectores en
+$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente. Es sencillo probar
+que, ya que la traza es una operación lineal, la traza parcial también 
+lo es.
 
-\cpnote{Me gustaría que entendieras la motivación física de esta definición.
-Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
-el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
-discutimos. }
-\janote{Muy bien. A continuación:}
+%\cpnote{Me gustaría que entendieras la motivación física de esta definición.
+%Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
+%el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
+%discutimos. }
+%\janote{Muy bien. A continuación:}
 
-La razón por la que se utiliza la traza parcial para definir al operador
-de densidad reducido es porque
-es la única operación que describe correctamente 
-las mediciones de los observables sobre subsistemas que forman parte de un
-sistema compuesto. A continuación exponemos la justificación.
-
-Supongamos que $M$ es un observable sobre el sistema $A$ y que
-contamos con un aparato de medición que es capaz de realizar mediciones
-de $M$. Sea $\tilde{M}$ el observable para la misma medición, pero 
-es el operador que actúa sobre el sistema compuesto $AB$. 
-Notemos que si el sistema
-$AB$ se prepara en el estado $\ket{m}\otimes \ket{\psi}$, donde $\ket{m}$
-es un autoestado de $M$ con autovalor $m$, y $\ket{\psi}$ es 
-cualquier estado de $B$, entonces el aparato de medición 
-debe obtener $m$ como resultado de la medición con probabilidad igual a uno.
-De manera que, si $P_m$ es el proyector hacia el autoespacio $m$ del
-observable $M$, entonces el proyector correspondiente para $\tilde{M}$
-es $P_m\otimes \mathbb{1}_B$. Por consiguiente tenemos
-\begin{align}
-	\tilde{M} = \sum_m mP_m\otimes \mathbb{1}_B=M\otimes \mathbb{1}_B.
-\end{align}
-Lo que sigue es probar que la traza parcial da correctamente las 
-mediciones estadísticas para observaciones realizadas sobre una 
-parte del sistema. Supongamos que se realiza una medición sobre
-el sistema $A$ descrito por el observable $M$. Para tener 
-consistencia física se requiere que cualquier asociación de un estado,
-$\rho^A$, al sistema $A$, debe tener la propiedad de que los promedios
-en la medición sean los mismo calculados a través de $\rho^A$ o $\rho^{AB}$,
-del estado del subsistema o del estado del sistema completo;
-es decir que (recordemos que la probabilidad de una medición 
-se describe mediante la ecuación \eqref{eq:postulate2_prob}
-y que los proyectores satisfacen $P^2=P$)
-\begin{align}
-	\Tr \qty(M\rho^A) = \Tr \qty(\tilde{M}\rho^{AB}) = 
-	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}].
-	\label{eq:partial-trace}
-\end{align}
-Notemos que esta ecuación se satisface con la definición
-\eqref{eq:partialTrace-def}
-\begin{align}
-	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}] 
-	&= \sum_{i,j} \bra{i}\ten\bra{j}	\qty(M\ten \sum_k\dyad{k}{k})
-	\rho^{AB}
-	\ket{i}\ten\ket{j} \nonumber \\
-	&= \sum_{i,j,k} \bra{i}\braket{j}{k}M\matrixel{k}{\rho^{AB}}{j}\ket{i}
-  \nonumber \\
-	&= \sum_{i} \bra{i}M\sum_j \matrixel{j}{\rho^{AB}}{j}\ket{i} \nonumber \\
-	&= \sum_i \bra{i}M\Tr_B\qty(\rho^{AB})\ket{i} \nonumber \\
-	&= \Tr\qty(M \rho^A).
-\end{align}
-De hecho, la tracia parcial es la única función que tiene esta propiedad.
-Para verificarlo supongamos que $f$ es un mapeo de operadores de 
-densidad que actúan sobre el sistema AB hacia operadores de densidad 
-que actúan sobre A, tal que 
-\begin{align}
-	\Tr \qty(Mf\qty(\rho^{AB})) = \Tr \qty[\qty(M\ten \1)\rho^{AB}]
-\end{align}
-para cualquier observable $M$. Sea $M_i$ una base ortonormal de operadores
-del espacio de los operadores Hermíticos con respecto del producto interno
-de Hilbert-Schmidt $\qty(X,Y)\equiv \Tr\qty(XY)$. Entonces escribiendo
-$f\qty(\rho ^{AB})$ en esta base
-\begin{align}
-	f\qty(\rho^{AB}) 
-	&= \sum_i \Tr\qty[M_if\qty(\rho^{AB})]M_i \\
-	&= \sum_i \Tr\qty[\qty(M_i\ten \1)\rho^{AB}]M_i.
-\end{align}
-Por consiguiente, el único mapeo $f$ que satisface esta condición
-es la traza parcial, determinada en \eqref{eq:partial-trace}.
+%La razón por la que se utiliza la traza parcial para definir al operador
+%de densidad reducido es porque
+%es la única operación que describe correctamente 
+%las mediciones de los observables sobre subsistemas que forman parte de un
+%sistema compuesto. A continuación exponemos la justificación.
+%
+%Supongamos que $M$ es un observable sobre el sistema $A$ y que
+%contamos con un aparato de medición que es capaz de realizar mediciones
+%de $M$. Sea $\tilde{M}$ el observable para la misma medición, pero 
+%es el operador que actúa sobre el sistema compuesto $AB$. 
+%Notemos que si el sistema
+%$AB$ se prepara en el estado $\ket{m}\otimes \ket{\psi}$, donde $\ket{m}$
+%es un autoestado de $M$ con autovalor $m$, y $\ket{\psi}$ es 
+%cualquier estado de $B$, entonces el aparato de medición 
+%debe obtener $m$ como resultado de la medición con probabilidad igual a uno.
+%De manera que, si $P_m$ es el proyector hacia el autoespacio $m$ del
+%observable $M$, entonces el proyector correspondiente para $\tilde{M}$
+%es $P_m\otimes \mathbb{1}_B$. Por consiguiente tenemos
+%\begin{align}
+%	\tilde{M} = \sum_m mP_m\otimes \mathbb{1}_B=M\otimes \mathbb{1}_B.
+%\end{align}
+%Lo que sigue es probar que la traza parcial da correctamente las 
+%mediciones estadísticas para observaciones realizadas sobre una 
+%parte del sistema. Supongamos que se realiza una medición sobre
+%el sistema $A$ descrito por el observable $M$. Para tener 
+%consistencia física se requiere que cualquier asociación de un estado,
+%$\rho^A$, al sistema $A$, debe tener la propiedad de que los promedios
+%en la medición sean los mismo calculados a través de $\rho^A$ o $\rho^{AB}$,
+%del estado del subsistema o del estado del sistema completo;
+%es decir que (recordemos que la probabilidad de una medición 
+%se describe mediante la ecuación \eqref{eq:postulate2_prob}
+%y que los proyectores satisfacen $P^2=P$)
+%\begin{align}
+%	\Tr \qty(M\rho^A) = \Tr \qty(\tilde{M}\rho^{AB}) = 
+%	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}].
+%	\label{eq:partial-trace}
+%\end{align}
+%Notemos que esta ecuación se satisface con la definición
+%\eqref{eq:partialTrace-def}
+%\begin{align}
+%	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}] 
+%	&= \sum_{i,j} \bra{i}\ten\bra{j}	\qty(M\ten \sum_k\dyad{k}{k})
+%	\rho^{AB}
+%	\ket{i}\ten\ket{j} \nonumber \\
+%	&= \sum_{i,j,k} \bra{i}\braket{j}{k}M\matrixel{k}{\rho^{AB}}{j}\ket{i}
+%  \nonumber \\
+%	&= \sum_{i} \bra{i}M\sum_j \matrixel{j}{\rho^{AB}}{j}\ket{i} \nonumber \\
+%	&= \sum_i \bra{i}M\Tr_B\qty(\rho^{AB})\ket{i} \nonumber \\
+%	&= \Tr\qty(M \rho^A).
+%\end{align}
+%De hecho, la tracia parcial es la única función que tiene esta propiedad.
+%Para verificarlo supongamos que $f$ es un mapeo de operadores de 
+%densidad que actúan sobre el sistema AB hacia operadores de densidad 
+%que actúan sobre A, tal que 
+%\begin{align}
+%	\Tr \qty(Mf\qty(\rho^{AB})) = \Tr \qty[\qty(M\ten \1)\rho^{AB}]
+%\end{align}
+%para cualquier observable $M$. Sea $M_i$ una base ortonormal de operadores
+%del espacio de los operadores Hermíticos con respecto del producto interno
+%de Hilbert-Schmidt $\qty(X,Y)\equiv \Tr\qty(XY)$. Entonces escribiendo
+%$f\qty(\rho ^{AB})$ en esta base
+%\begin{align}
+%	f\qty(\rho^{AB}) 
+%	&= \sum_i \Tr\qty[M_if\qty(\rho^{AB})]M_i \\
+%	&= \sum_i \Tr\qty[\qty(M_i\ten \1)\rho^{AB}]M_i.
+%\end{align}
+%Por consiguiente, el único mapeo $f$ que satisface esta condición
+%es la traza parcial, determinada en \eqref{eq:partial-trace}.
 
 Antes de concluir revisaremos un ejemplo del cálculo del 
 operador de densidad reducido que evidencia una de las
@@ -534,12 +549,14 @@ Haciendo la traza parcial sobre el qubit 2 se tiene
 			 	 &= \frac{\dyad{0}{0} + \dyad{1}{1}}{2} \\
 			 	 &= \frac{\mathbb{1}}{2}.
 \end{align}
-Notemos entonces que el estado del qubit 1 se encuentra en un estado mixto
-$\qty(\Tr \qty(\mathbb{1}/2)<1)$, 
-es decir un estado del cual no contamos con la mayor información 
-sobre el qubit 1. 
-Aunque el estado del sistema compuesto es un estado puro el estado
-del primero, y también del segundo qubit, es un estado mixto. 
+Notemos que el qubit 1 se encuentra en un estado mixto
+$\qty(\Tr \qty(\mathbb{1}/2)^2<1)$. De hecho, si hiciéramos la 
+traza parcial sobre el qubit 1 llegaríamos al mismo estado del qubit 2.
+Es decir, aunque contamos con la información completa del estado 
+de los dos qubits como sistema compuesto, tenemos incompleta la 
+información del estado individual de cualquiera de los dos qubits
+en el sistema. Esta es una de las consecuencias del entrelazamiento
+cuántico.
 
 Con el operador de densidad reducido hemos completado
 el marco teórico del lenguaje del operador de densidad necesario
@@ -550,7 +567,7 @@ estados cuánticos, luego presentamos las características
 del operador de densidad y la reformulación de los postulados 
 de la mecánica cuántica.
 Finalmente, concluimos introduciendo el operador de densidad reducido y
-justificando el uso de la operación de traza parcial. Ahora, dirigimos
+motivando el uso de la operación de traza parcial. Ahora, dirigimos
 nuestra atención hacia la descripción de la dinámica de los estados
 de sistemas cuánticos abiertos, el tipo de sistemas que son de interés
 para este proyecto.
