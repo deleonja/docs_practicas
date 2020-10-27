@@ -225,14 +225,14 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 		&\geq 0,
 	\end{align*}
 	por consiguiente $\rho$ es una matriz positiva semidefinida. 
-	%\cpnote{Acá ya termino la prueba, te toca cortar la demostración en el texto.} 
+	\cpnote{Acá ya termino la prueba, te toca cortar la demostración en el texto.} 
  	
  	De manera inversa,
- 	%\cpnote{No quieres decir por el contrario, sino quiza algo como ``de manera inversa'' }
+ 	\cpnote{No quieres decir por el contrario, sino quiza algo como ``de manera inversa'' }
  	supongamos que $\rho$ es una matriz que satisface las condiciones
 	de traza unitaria y positividad. Dado que $\rho$ es positiva, entonces
 	tiene descomposición espectral \cite{nielsen_chuang_2011} 
-%	\cpnote{cita} \janote{Listo}
+	\cpnote{cita} \janote{Listo}
 	\begin{align*}
 		\rho = \sum _k \lambda _k \dyad{k}{k},
 	\end{align*}
@@ -312,8 +312,8 @@ por un conjunto de
 	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
 	\label{eq:postulate2_completeness}
 	\end{equation}
-%\cpnote{Quizá por acá también citaría y mencionaría la relación con las
-%mediciones de von Neumann}
+\cpnote{Quizá por acá también citaría y mencionaría la relación con las
+mediciones de von Neumann}
 	Este postulado confirma lo que en la sección anterior aseguramos
 	de que la formulación de cualquier medición proyectiva utilizando el 
 	operador de densidad es posible. Debemos notar que las mediciones
@@ -381,14 +381,7 @@ del operador de densidad del sistema total $\rho^{AB}$ está dado por
 	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}.
 \end{align}
 Supongamos que un observable $\Lambda_A$ actúa únicamente sobre el 
-subsistema $A$.
-%, por consiguiente
-%\begin{align}
-%\bra{\psi_i}\ten\bra{\phi_j}\Lambda_A\ket{\psi_k}\ten\ket{\phi_l}&=
-%\matrixel{\psi_i}{\Lambda_A}{\psi_k}\braket{\phi_j}{\phi_l}\\
-%	&=\matrixel{\psi_i}{\Lambda_A}{\psi_k}\delta _{jl}.
-%\end{align}
-Calculemos ahora el valor promedio de $\Lambda_A$, es decir
+subsistema $A$. Calculemos ahora el valor promedio de $\Lambda_A$, es decir
 $\Tr\qty(\rho^{AB}\Lambda_A)$
 \begin{align}
 	\Tr \qty(\rho^{AB}\Lambda_A) &= \sum _{i,j} 
@@ -425,9 +418,6 @@ sustituir la ecuación anterior y tenemos
 	&= \sum_i \matrixel{\psi_i}{\rho^A\Lambda_A}{\psi_i}\\
 	&= \Tr \qty(\rho^A\Lambda_A). \label{eq:reduced-works}
 \end{align}
-%Notemos entonces que para obtener la información física de un observable
-%que actúa sobre un subsistema que forma parte de un sistema compuesto
-%se introdujo la herramienta del operador de densidad reducido. De hecho,
 Este resultado muestra que el operador de densidad reducido 
 contiene toda la información física accesible de un susbsistema individual.
 
@@ -453,80 +443,11 @@ $\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente. Es sencillo probar
 que, ya que la traza es una operación lineal, la traza parcial también 
 lo es.
 
-%\cpnote{Me gustaría que entendieras la motivación física de esta definición.
-%Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
-%el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
-%discutimos. }
+\cpnote{Me gustaría que entendieras la motivación física de esta definición.
+Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
+el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
+discutimos. }
 %\janote{Muy bien. A continuación:}
-
-%La razón por la que se utiliza la traza parcial para definir al operador
-%de densidad reducido es porque
-%es la única operación que describe correctamente 
-%las mediciones de los observables sobre subsistemas que forman parte de un
-%sistema compuesto. A continuación exponemos la justificación.
-%
-%Supongamos que $M$ es un observable sobre el sistema $A$ y que
-%contamos con un aparato de medición que es capaz de realizar mediciones
-%de $M$. Sea $\tilde{M}$ el observable para la misma medición, pero 
-%es el operador que actúa sobre el sistema compuesto $AB$. 
-%Notemos que si el sistema
-%$AB$ se prepara en el estado $\ket{m}\otimes \ket{\psi}$, donde $\ket{m}$
-%es un autoestado de $M$ con autovalor $m$, y $\ket{\psi}$ es 
-%cualquier estado de $B$, entonces el aparato de medición 
-%debe obtener $m$ como resultado de la medición con probabilidad igual a uno.
-%De manera que, si $P_m$ es el proyector hacia el autoespacio $m$ del
-%observable $M$, entonces el proyector correspondiente para $\tilde{M}$
-%es $P_m\otimes \mathbb{1}_B$. Por consiguiente tenemos
-%\begin{align}
-%	\tilde{M} = \sum_m mP_m\otimes \mathbb{1}_B=M\otimes \mathbb{1}_B.
-%\end{align}
-%Lo que sigue es probar que la traza parcial da correctamente las 
-%mediciones estadísticas para observaciones realizadas sobre una 
-%parte del sistema. Supongamos que se realiza una medición sobre
-%el sistema $A$ descrito por el observable $M$. Para tener 
-%consistencia física se requiere que cualquier asociación de un estado,
-%$\rho^A$, al sistema $A$, debe tener la propiedad de que los promedios
-%en la medición sean los mismo calculados a través de $\rho^A$ o $\rho^{AB}$,
-%del estado del subsistema o del estado del sistema completo;
-%es decir que (recordemos que la probabilidad de una medición 
-%se describe mediante la ecuación \eqref{eq:postulate2_prob}
-%y que los proyectores satisfacen $P^2=P$)
-%\begin{align}
-%	\Tr \qty(M\rho^A) = \Tr \qty(\tilde{M}\rho^{AB}) = 
-%	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}].
-%	\label{eq:partial-trace}
-%\end{align}
-%Notemos que esta ecuación se satisface con la definición
-%\eqref{eq:partialTrace-def}
-%\begin{align}
-%	\Tr \qty[\qty(M\otimes\mathbb{1}_B)\rho^{AB}] 
-%	&= \sum_{i,j} \bra{i}\ten\bra{j}	\qty(M\ten \sum_k\dyad{k}{k})
-%	\rho^{AB}
-%	\ket{i}\ten\ket{j} \nonumber \\
-%	&= \sum_{i,j,k} \bra{i}\braket{j}{k}M\matrixel{k}{\rho^{AB}}{j}\ket{i}
-%  \nonumber \\
-%	&= \sum_{i} \bra{i}M\sum_j \matrixel{j}{\rho^{AB}}{j}\ket{i} \nonumber \\
-%	&= \sum_i \bra{i}M\Tr_B\qty(\rho^{AB})\ket{i} \nonumber \\
-%	&= \Tr\qty(M \rho^A).
-%\end{align}
-%De hecho, la tracia parcial es la única función que tiene esta propiedad.
-%Para verificarlo supongamos que $f$ es un mapeo de operadores de 
-%densidad que actúan sobre el sistema AB hacia operadores de densidad 
-%que actúan sobre A, tal que 
-%\begin{align}
-%	\Tr \qty(Mf\qty(\rho^{AB})) = \Tr \qty[\qty(M\ten \1)\rho^{AB}]
-%\end{align}
-%para cualquier observable $M$. Sea $M_i$ una base ortonormal de operadores
-%del espacio de los operadores Hermíticos con respecto del producto interno
-%de Hilbert-Schmidt $\qty(X,Y)\equiv \Tr\qty(XY)$. Entonces escribiendo
-%$f\qty(\rho ^{AB})$ en esta base
-%\begin{align}
-%	f\qty(\rho^{AB}) 
-%	&= \sum_i \Tr\qty[M_if\qty(\rho^{AB})]M_i \\
-%	&= \sum_i \Tr\qty[\qty(M_i\ten \1)\rho^{AB}]M_i.
-%\end{align}
-%Por consiguiente, el único mapeo $f$ que satisface esta condición
-%es la traza parcial, determinada en \eqref{eq:partial-trace}.
 
 Antes de concluir revisaremos un ejemplo del cálculo del 
 operador de densidad reducido que evidencia una de las
