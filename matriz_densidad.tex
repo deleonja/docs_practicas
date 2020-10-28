@@ -1,10 +1,7 @@
 \chapter{El operador de densidad} % {{{
-\janote{\h{Por favor}, lee lo que está en la sección 1
-inmediatamente después de la línea 47. 
-También agregué las líneas 81 a 85 (demostración mía).
-Por último, lee completo la sección del operador de 
-densidad reducido}
-
+\janote{\h{Por favor}, lee lo que está en la sección 1 inmediatamente después
+de la línea 47.  También agregué las líneas 81 a 85 (demostración mía).  Por
+último, lee completo la sección del operador de densidad reducido}
 % Intro {{{
 La mecánica cuántica es una teoría fundamental de la física que
 proporciona la descripción más adecuada y completa de las propiedades
@@ -12,7 +9,8 @@ físicas de la naturaleza en la escala atómica y de las partículas
 subatómicas \cite{feynman1965feyman}. 
 El operador de densidad es una herramienta
 que hace posible formular la mecánica cuántica en un lenguaje
-que puede considerar de manera unificada incertezas cuánticas, 
+que puede considerar de manera unificada incertezas 
+cuánticas, 
 presentes aún cuando el estado de un sistema se conoce 
 por completo, e incertezas clásicas, 
 debidas a falta de conocimiento \cite{sakurai_napolitano_2017}.
@@ -25,18 +23,8 @@ lenguaje. Finalmente, en la última sección, presentaremos una aplicación
 del operador de densidad para describir subsistemas individuales 
 de un sistema cuántico compuesto: el operador de densidad reducido.
 
-%Una formulación alternativa, pero equivalente, a la del vector de estado 
-%de la mecánica cuántica es posible con el lenguaje de la matriz de densidad\cpnote{cita}. 
-%La preferencia por la matriz de densidad se centra en que provee la descripción
-%más general de un estado cuántico ya que contempla los llamados estados puros y,
-%también, mezclas estadísticas\cpnote{No se lo que quieres decir en esta
-%frase.}. La matriz de densidad se puede concebir \cpnote{Por que esta palabra?}
-%a partir de la descripción de un ensamble de estados, sin embargo, es
-%importante desarrollar una caracterización intrínseca \cpnote{Por qué esta
-%palabra?} de la misma.  
 
 % }}}
-
 \section{Ensambles de estados cuánticos} % {{{
 En esta sección vamos a definir al operador de densidad asociado a 
 un ensamble de estados y luego expondremos cómo describir la dinámica
@@ -146,7 +134,7 @@ muy grande de mediciones de la energía?
 	\expval{E} &= \sum_i p_i\matrixel{\psii}{H}{\psii} \\
 	&= \sum_i p_i\bra{\psii}\qty(\sum_j \dyad{\phi_j}{\phi_j})H\ket{\psii},
 \end{align}
-$\ket{\phi_j}$ una base del espacio de estados del sistema,
+$\ket{\phi_j}$ una base \cpnote{ortonormal} del espacio de estados del sistema,
 \begin{align}
 	\hspace{3mm}&= \sum_j \bra{\phi_j}H\qty(\sum_i p_i \dyad{\psii}{\psii})\ket{\phi_j} \\
 	&= \Tr \qty(H\rho).
@@ -164,12 +152,8 @@ se pueden formular utilizando el operador de densidad.
 Antes de proceder con la formulación de todos los postulados en el 
 lenguaje del operador de densidad vamos a presentar las propiedades 
 generales que esta herramienta posee. 
-%\cpnote{Aun no dices como es la formula para obtener el valor $i$ para la
-%matriz de densidad. }
-%\janote{No sé a qué haces referencia.}
 
 % }}}
-
 \section{Propiedades generales del operador de densidad} % {{{
 En esta sección vamos a establecer una caracterización 
 más abstracta del operador de densidad que la introducida en 
@@ -178,18 +162,6 @@ a la definición motivada en los ensambles de estados.
 Esto completará los fundamentos matemáticos
 sobre la que recae la formulación de la mecánica cuántica 
 utilizando el operador de densidad. 
-
-%Intuitivamente, es útil definir a la matriz de densidad a partir de la 
-%descripción de una mezcla estadística de estados. Sin embargo, la matriz 
-%de densidad es un concepto más general e independiente de los ensambles de
-%estados. Por ello, la matriz de densidad está caracterizada por el siguiente
-%teorema.  
-%\cpnote{Está rara tu linea de pensamiento. Quieres hacer una definición independiente
-%del ensamble, pero usas las propiedades de ensamble para probar lo que dices. 
-%Creo que tu cabeza esta como en un nudo acá. Piensa que quieres decir, si quieres 
-%lo platicamos, y despues si lo escribes.}
-%\janote{Sí. Fui a leer el Sakurai y entiendo a lo que te refieres. Por eso 
-%reformulé el enfoque de este párrafo introductorio.}
 
 De acuerdo con Nielsen y Chuang \cite{nielsen_chuang_2011}
 los operadores lineales que son operadores de densidad están 
@@ -231,14 +203,11 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 		&\geq 0,
 	\end{align*}
 	por consiguiente $\rho$ es una matriz positiva semidefinida. 
-	\cpnote{Acá ya termino la prueba, te toca cortar la demostración en el texto.} 
  	
  	De manera inversa,
- 	\cpnote{No quieres decir por el contrario, sino quiza algo como ``de manera inversa'' }
  	supongamos que $\rho$ es una matriz que satisface las condiciones
 	de traza unitaria y positividad. Dado que $\rho$ es positiva, entonces
 	tiene descomposición espectral \cite{nielsen_chuang_2011} 
-	\cpnote{cita} \janote{Listo}
 	\begin{align*}
 		\rho = \sum _k \lambda _k \dyad{k}{k},
 	\end{align*}
@@ -248,7 +217,6 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 	probabilidad $\lambda_k$ tendrá un operador de densidad $\rho$. Dicho 
 	de otro modo, el ensamble de estados $\{ \lambda_k,\ket{k}\}$ 
 	da lugar a la matriz de densidad $\rho$. 
-	%\cpnote{Acá no es $p_k$ sino $\lambda_k$}.
 \end{proof}
 
 Es útil contar con un criterio para determinar si un operador de densidad 
@@ -318,8 +286,6 @@ por un conjunto de
 	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
 	\label{eq:postulate2_completeness}
 	\end{equation}
-\cpnote{Quizá por acá también citaría y mencionaría la relación con las
-mediciones de von Neumann}
 	Este postulado confirma lo que en la sección anterior aseguramos
 	de que la formulación de cualquier medición proyectiva utilizando el 
 	operador de densidad es posible. Debemos notar que las mediciones
@@ -367,7 +333,7 @@ en la siguiente sección.
 \section{El operador de densidad reducido} % {{{
 Una de las aplicaciones más relevantes del operador de densidad es  
 la de proporcionar una herramienta que permite
-describir estados individuales de subsistemas que componen a un sistema
+describir estados de subsistemas que componen a un sistema
 cuántico compuesto: el operador de
 densidad reducido. Esta herramienta es indispensable en el 
 análisis de sistemas cuánticos compuestos. Esta sección la 
@@ -379,8 +345,11 @@ de densidad reducido expuesta por Chandra \cite{chandra2013quantum}.
 Supongamos que existen dos subsistemas $A$ y $B$, cuyo estado del 
 sistema total está 
 descrito por el operador de densidad $\rho^{AB}$. Supongamos que 
-$\ket{\psi_i}$ es una base del subsistema $A$ y $\ket{\phi_j}$ es
-una base del subsistema $B$. Por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
+$\ket{\psi_i}$ es una base \cpnote{Anotación tecnica importante: hay diferencia 
+entre bases, bases ortogonales y bases ortornmales. Ya te corregí una, pero creo que no fue 
+typo porque acá repites la omisión. Dime si conoces la diferencia y por ahi busca el termino ``base''
+en el documento e incluye ``ortonormal'' cuanod sea apropiado.} del subsistema $A$ y $\ket{\phi_j}$ es
+una base del subsistema $B$, por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
 es una base del espacio total. Un elemento de matriz particular 
 del operador de densidad del sistema total $\rho^{AB}$ está dado por
 \begin{align}
@@ -398,7 +367,8 @@ $\Tr\qty(\rho^{AB}\Lambda_A)$
 	\qty(\bra{\psi_k}\ten\bra{\phi_l}))
 	\Lambda_A\ket{\psi_i}\ten\ket{\phi_j},
 \end{align}
-donde $\ket{\psi_k}\ten\ket{\phi_l}$ es otra base distinta 
+donde $\ket{\psi_k}\ten\ket{\phi_l}$ es otra base distinta \cpnote{yo croe que es la misma\ldots de hecho 
+se llama de la misma manera}
 del sistema total $AB$,
 \begin{align}
 	&= \sum _{i,j,k,l} 
@@ -425,7 +395,7 @@ sustituir la ecuación anterior y tenemos
 	&= \Tr \qty(\rho^A\Lambda_A). \label{eq:reduced-works}
 \end{align}
 Este resultado muestra que el operador de densidad reducido 
-contiene toda la información física accesible de un susbsistema individual.
+contiene toda la información física accesible de un subsistema individual.
 
 Por otro lado, si retomamos la ecuación \eqref{eq:reducedRho-def1},
 en donde definimos al operador de densidad reducido $\rho^A$, podemos
@@ -445,7 +415,13 @@ se define como \cite{nielsen_chuang_2011}
 	\label{eq:part_trace-def}
 \end{align}
 donde $\ket{\psi_i}$ y $\ket{\phi_j}$ son cualesquiera dos vectores en
-$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente. Es sencillo probar
+$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente\cpnote{Ya los usaste como 
+base ortonormal. Sugeriria usar otros. Mas aún, dado que 
+$\Tr \qty(\dyad{\phi_k}{\phi_l}) = \matrixel{\psi_i}{}{\psi_k}$, 
+puedes escribir $\Tr_B (\dyad{\psi_i}{\psi_j}\otimes \dyad{\phi_k}{\phi_l})=
+\dyad{\psi_i}{\psi_j} \matrixel{\psi_i}{}{\psi_k}$ y segun yo, es mas bonito, pero bueno, 
+es tu informe!}
+. Es sencillo probar
 que, ya que la traza es una operación lineal, la traza parcial también 
 lo es.
 

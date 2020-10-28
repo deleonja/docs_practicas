@@ -57,8 +57,31 @@
 \newcommand{\h}[1]{\colorbox{Yellow}{#1}}
 \newcommand{\hi}{\mathcal{H}}
 \newcommand{\txt}[1]{\text{#1}}
-\newcommand{\here}{\h{\hspace{15cm}}}
+\newcommand{\here}{\h{\hspace{15cm}} }
 \newcommand{\rhoi}{\dyad{\psii}{\psii}}
+
+
+% Para que funcione mejor la numeración {{{
+% https://tex.stackexchange.com/questions/43648/why-doesnt-lineno-number-a-paragraph-when-it-is-followed-by-an-align-equation
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+% }}}
+
 
 % }}}
 \begin{document}
