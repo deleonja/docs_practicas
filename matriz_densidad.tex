@@ -50,14 +50,15 @@ valor promedio $\expval{\Lambda}$ del ensamble, es decir
 	&= \sum_ip_i \sum _j\sum _k
 	\bra{\psii}\dyad{\phi_j}{\phi_j}A\dyad{\phi_k}{\phi_k}\Pk{i},
 \end{align}
-donde $\ket{\phi_j}$ y $\ket{\phi_k}$ son dos bases distintas del
+donde $\ket{\phi_j}$ y $\ket{\phi_k}$ son dos bases ortonormales distintas del
 espacio de Hilbert del sistema,
 \begin{align}
 	&= \sum _j\sum _k \qty(\sum_ip_i \braket{\phi_k}{\psii}
 	\braket{\psii}{\phi_j})	\matrixel{\phi_j}{A}{\phi_k}.
 \end{align}
 Este es un buen momento para introducir la definición 
-del operador de densidad $\rho$ como \cite{nielsen_chuang_2011}, \cite{sakurai_napolitano_2017}
+del operador de densidad $\rho$ como \cite{nielsen_chuang_2011}, 
+\cite{sakurai_napolitano_2017}
 \begin{equation}
 	\rho \equiv \sum _i p_i\dyad{\psi_i}{\psi_i}.
 	\label{eq:rho_def}
@@ -134,7 +135,9 @@ muy grande de mediciones de la energía?
 	\expval{E} &= \sum_i p_i\matrixel{\psii}{H}{\psii} \\
 	&= \sum_i p_i\bra{\psii}\qty(\sum_j \dyad{\phi_j}{\phi_j})H\ket{\psii},
 \end{align}
-$\ket{\phi_j}$ una base \cpnote{ortonormal} del espacio de estados del sistema,
+$\ket{\phi_j}$ una base ortonormal
+\cpnote{ortonormal} \janote{Listo}
+del espacio de estados del sistema,
 \begin{align}
 	\hspace{3mm}&= \sum_j \bra{\phi_j}H\qty(\sum_i p_i \dyad{\psii}{\psii})\ket{\phi_j} \\
 	&= \Tr \qty(H\rho).
@@ -345,12 +348,21 @@ de densidad reducido expuesta por Chandra \cite{chandra2013quantum}.
 Supongamos que existen dos subsistemas $A$ y $B$, cuyo estado del 
 sistema total está 
 descrito por el operador de densidad $\rho^{AB}$. Supongamos que 
-$\ket{\psi_i}$ es una base \cpnote{Anotación tecnica importante: hay diferencia 
+$\ket{\psi_i}$ es una base ortonormal 
+\cpnote{Anotación tecnica importante: hay diferencia 
 entre bases, bases ortogonales y bases ortornmales. Ya te corregí una, pero creo que no fue 
 typo porque acá repites la omisión. Dime si conoces la diferencia y por ahi busca el termino ``base''
-en el documento e incluye ``ortonormal'' cuanod sea apropiado.} del subsistema $A$ y $\ket{\phi_j}$ es
-una base del subsistema $B$, por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
-es una base del espacio total. Un elemento de matriz particular 
+en el documento e incluye ``ortonormal'' cuanod sea apropiado.} 
+\janote{Sí veo el problema de no utilizar el apellido `ortonormal'. Luego de 
+que enuncio el uso de una `base' utilizo 
+la relación de ortonomalidad ($\braket{\psi_i}{\psi_k}=\delta_{ij}$)
+en mis deducciones. Esta relación es propia de una base
+ortonormal. Para una base (a secas) eso no tiene por qué cumplirse.
+De hecho, en general no se cumple.}
+del subsistema $A$ y $\ket{\phi_j}$ es
+una base ortonormal del subsistema $B$, 
+por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
+es una base ortonormal del espacio total. Un elemento de matriz particular 
 del operador de densidad del sistema total $\rho^{AB}$ está dado por
 \begin{align}
 	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}.
@@ -368,7 +380,9 @@ $\Tr\qty(\rho^{AB}\Lambda_A)$
 	\Lambda_A\ket{\psi_i}\ten\ket{\phi_j},
 \end{align}
 donde $\ket{\psi_k}\ten\ket{\phi_l}$ es otra base distinta \cpnote{yo croe que es la misma\ldots de hecho 
-se llama de la misma manera}
+se llama de la misma manera} \janote{Tienes razón. Dicho eso, hasta hace
+bulto esta línea entonces. Yo la quitaría y que el álgebra continúe de 
+corrido.}
 del sistema total $AB$,
 \begin{align}
 	&= \sum _{i,j,k,l} 
@@ -409,27 +423,43 @@ introducir la operación de traza parcial de la siguiente manera
 donde $\Tr_B$ es la traza parcial sobre el sistema $B$. La traza parcial
 se define como \cite{nielsen_chuang_2011}
 \begin{align}
-	\Tr_B (\dyad{\psi_i}{\psi_j}\otimes \dyad{\phi_k}{\phi_l})
+	\Tr_B (\dyad{\alpha_i}{\alpha_j}\otimes \dyad{\beta_k}{\beta_l})
 	\equiv
-	\dyad{\psi_i}{\psi_j}\Tr \qty(\dyad{\phi_k}{\phi_l}),
+	\dyad{\alpha_i}{\alpha_j}\braket{\beta_k}{\beta_l},
 	\label{eq:part_trace-def}
 \end{align}
-donde $\ket{\psi_i}$ y $\ket{\phi_j}$ son cualesquiera dos vectores en
-$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente\cpnote{Ya los usaste como 
+donde $\ket{\alpha_i}$ y $\ket{\beta_j}$ son cualesquiera dos vectores
+ortonormales en
+$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente
+\cpnote{Ya los usaste como 
 base ortonormal. Sugeriria usar otros. Mas aún, dado que 
 $\Tr \qty(\dyad{\phi_k}{\phi_l}) = \matrixel{\psi_i}{}{\psi_k}$, 
 puedes escribir $\Tr_B (\dyad{\psi_i}{\psi_j}\otimes \dyad{\phi_k}{\phi_l})=
 \dyad{\psi_i}{\psi_j} \matrixel{\psi_i}{}{\psi_k}$ y segun yo, es mas bonito, pero bueno, 
 es tu informe!}
+\janote{Me parece bien tu sugerencia. Funcionan los nuevos kets?}
 . Es sencillo probar
 que, ya que la traza es una operación lineal, la traza parcial también 
-lo es.
+lo es. 
+\janote{En vista de lo que discuto a tu último comentario agrego 
+el siguiente enunciado:}
+Además, debe notarse en la deducción que se presentó para motivar 
+al operador de densidad recudido, 
+que la ecuación \eqref{eq:reducedRho-def1} evidencia 
+el uso de la traza parcial, definida en \eqref{eq:part_trace-def}, 
+como la única operación que da lugar al operador de densidad reducido. 
 
 \cpnote{Me gustaría que entendieras la motivación física de esta definición.
 Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
 el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
-discutimos. }
-%\janote{Muy bien. A continuación:}
+discutimos.}
+\janote{Voy a asumir que te refieres al uso de la traza parcial como 
+\textbf{única}
+operación para 
+definir al operador de densidad reducido. Si es así, estoy confundido 
+porque la ecuación \eqref{eq:reducedRho-def1} ya lo evidencia. Sin embargo,
+no lo menciono por ninguna parte en palabras. Por ello agrego un enunciado
+más al párrafo anterior a estos comentarios.}
 
 Antes de concluir revisaremos un ejemplo del cálculo del 
 operador de densidad reducido que evidencia una de las
