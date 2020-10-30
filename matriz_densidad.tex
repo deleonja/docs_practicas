@@ -1,7 +1,4 @@
 \chapter{El operador de densidad} % {{{
-\janote{\h{Por favor}, lee lo que está en la sección 1 inmediatamente después
-de la línea 47.  También agregué las líneas 81 a 85 (demostración mía).  Por
-último, lee completo la sección del operador de densidad reducido}
 % Intro {{{
 La mecánica cuántica es una teoría fundamental de la física que
 proporciona la descripción más adecuada y completa de las propiedades
@@ -135,9 +132,7 @@ muy grande de mediciones de la energía?
 	\expval{E} &= \sum_i p_i\matrixel{\psii}{H}{\psii} \\
 	&= \sum_i p_i\bra{\psii}\qty(\sum_j \dyad{\phi_j}{\phi_j})H\ket{\psii},
 \end{align}
-$\ket{\phi_j}$ una base ortonormal
-\cpnote{ortonormal} \janote{Listo}
-del espacio de estados del sistema,
+$\ket{\phi_j}$ una base ortonormal del espacio de estados del sistema,
 \begin{align}
 	\hspace{3mm}&= \sum_j \bra{\phi_j}H\qty(\sum_i p_i \dyad{\psii}{\psii})\ket{\phi_j} \\
 	&= \Tr \qty(H\rho).
@@ -257,9 +252,6 @@ Nielsen y Chuang \cite{nielsen_chuang_2011}.
 %	Si un sistema cuántico se encuentra
 %	en el estado $\rho _i$ con probabilidad $p_i$, entonces la matriz de
 %	densidad del sistema es $\sum p_i\rho_i$.
-%\cpnote{Veo problemático usar las $\rho_i$ para definir rho. Quiza lo dejaria
-%sin esa ultima frase.}
-%\janote{De acuerdo.}
 	\item[] \textbf{Postulado 2.} La evolución de un sistema cuántico cerrado está descrita por una transformación
 	unitaria. Es decir, el estado $\rho$ del sistema en un tiempo $t_1$ está 
 	relacionado con el estado $\rho'$ del sistema en un tiempo $t_2$ por un operador
@@ -349,16 +341,6 @@ Supongamos que existen dos subsistemas $A$ y $B$, cuyo estado del
 sistema total está 
 descrito por el operador de densidad $\rho^{AB}$. Supongamos que 
 $\ket{\psi_i}$ es una base ortonormal 
-\cpnote{Anotación tecnica importante: hay diferencia 
-entre bases, bases ortogonales y bases ortornmales. Ya te corregí una, pero creo que no fue 
-typo porque acá repites la omisión. Dime si conoces la diferencia y por ahi busca el termino ``base''
-en el documento e incluye ``ortonormal'' cuanod sea apropiado.} 
-\janote{Sí veo el problema de no utilizar el apellido `ortonormal'. Luego de 
-que enuncio el uso de una `base' utilizo 
-la relación de ortonomalidad ($\braket{\psi_i}{\psi_k}=\delta_{ij}$)
-en mis deducciones. Esta relación es propia de una base
-ortonormal. Para una base (a secas) eso no tiene por qué cumplirse.
-De hecho, en general no se cumple.}
 del subsistema $A$ y $\ket{\phi_j}$ es
 una base ortonormal del subsistema $B$, 
 por lo cual $\ket{\psi_i}\ten \ket{\phi_j}$
@@ -377,14 +359,7 @@ $\Tr\qty(\rho^{AB}\Lambda_A)$
 	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}
 	\qty(\sum _{k,l} \qty(\ket{\psi_k}\ten\ket{\phi_l})
 	\qty(\bra{\psi_k}\ten\bra{\phi_l}))
-	\Lambda_A\ket{\psi_i}\ten\ket{\phi_j},
-\end{align}
-donde $\ket{\psi_k}\ten\ket{\phi_l}$ es otra base distinta \cpnote{yo croe que es la misma\ldots de hecho 
-se llama de la misma manera} \janote{Tienes razón. Dicho eso, hasta hace
-bulto esta línea entonces. Yo la quitaría y que el álgebra continúe de 
-corrido.}
-del sistema total $AB$,
-\begin{align}
+	\Lambda_A\ket{\psi_i}\ten\ket{\phi_j}\\
 	&= \sum _{i,j,k,l} 
 	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}
 	\matrixel{\psi_k}{\Lambda_A}{\psi_i}\delta _{lj} \\
@@ -430,36 +405,14 @@ se define como \cite{nielsen_chuang_2011}
 \end{align}
 donde $\ket{\alpha_i}$ y $\ket{\beta_j}$ son cualesquiera dos vectores
 ortonormales en
-$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente
-\cpnote{Ya los usaste como 
-base ortonormal. Sugeriria usar otros. Mas aún, dado que 
-$\Tr \qty(\dyad{\phi_k}{\phi_l}) = \matrixel{\psi_i}{}{\psi_k}$, 
-puedes escribir $\Tr_B (\dyad{\psi_i}{\psi_j}\otimes \dyad{\phi_k}{\phi_l})=
-\dyad{\psi_i}{\psi_j} \matrixel{\psi_i}{}{\psi_k}$ y segun yo, es mas bonito, pero bueno, 
-es tu informe!}
-\janote{Me parece bien tu sugerencia. Funcionan los nuevos kets?}
-. Es sencillo probar
+$\mathcal{H}_A$, y $\mathcal{H}_B$, respectivamente. Es sencillo probar
 que, ya que la traza es una operación lineal, la traza parcial también 
 lo es. 
-\janote{En vista de lo que discuto a tu último comentario agrego 
-el siguiente enunciado:}
 Además, debe notarse en la deducción que se presentó para motivar 
 al operador de densidad recudido, 
 que la ecuación \eqref{eq:reducedRho-def1} evidencia 
 el uso de la traza parcial, definida en \eqref{eq:part_trace-def}, 
 como la única operación que da lugar al operador de densidad reducido. 
-
-\cpnote{Me gustaría que entendieras la motivación física de esta definición.
-Revisa el box del libro de Chuang, entiendelo, y escribe no la prueba pero si
-el resultado fundamentental que muestran ahi. Si no lo entiendes, lo
-discutimos.}
-\janote{Voy a asumir que te refieres al uso de la traza parcial como 
-\textbf{única}
-operación para 
-definir al operador de densidad reducido. Si es así, estoy confundido 
-porque la ecuación \eqref{eq:reducedRho-def1} ya lo evidencia. Sin embargo,
-no lo menciono por ninguna parte en palabras. Por ello agrego un enunciado
-más al párrafo anterior a estos comentarios.}
 
 Antes de concluir revisaremos un ejemplo del cálculo del 
 operador de densidad reducido que evidencia una de las
