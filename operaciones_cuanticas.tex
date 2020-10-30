@@ -181,8 +181,17 @@
 %	$\sum _kE_k^{\dagger}E_k\leq \mathbb{1}$.
 %\end{teorema}
 
-
+- Introducción hablando de que las operaciones cuánticas sirven 
+para describir la dinámica de los sistemas abiertos y una guía al 
+lector de qué se viene en este cap. Enfatizar en que el truco es 
+considerar como 'nuevo sistema cerrado' al sistema extendido
 \section{Mapeos completamente positivos}
+- Introducir la transformación de la matriz de densidad $\rho$ y hablar
+de que $\E$ transforma estados en estados.
+\begin{align}
+	\rho' = \E (\rho)
+\end{align} 
+
 - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
 en un disco: presentar que el mapeo extendido para 2 qubits
 aplicado al estado máximamente entrelazado resulta en una matriz 
@@ -190,12 +199,46 @@ no positiva (algo que no es estado).
 
 - Definición de CP del Geometry of Quantum States.
 
--
+- Concluir con que las operaciones que estudiamos deben ser CPTP.
+
+
+\section{Superoperadores}
+\janote{Propongo agregar esta sección por la línea que quiero seguir 
+durante todo el capítulo. Además que si menciono la representación en 
+suma de operadores, por qué no la de superoperadores?  es la que he 
+usado para la parte numérica}
+
+- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+
+- Hablar de los mapeos que actúan sobre $\rho$ como un vector columna 
+
+- Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
+ de Choi es positiva semidefinida entonces la operación cuántica es CP
+ 
+- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
 
 \section{Representación de suma de operadores}
+- Enunciar la representación en operadores de suma partiendo de un 
+estado que se acopla con algún entorno
+y llegar a las condiciones para ser CPTP y empezar a conectarlo
+con la sección anterior. 
+
+- Invocar el ejemplo del canal de la sección anterior, pero en su 
+representación de operadores de suma. Aquí quiero hacer la conexión 
+entre esta y la sección anterior mostrando que los operadores 
+de Kraus son los autovectores de la matriz de Choi. 
+
+- Comparar la representacion de suma de operadores y superoperadores
+
 
 \section{Canales cuánticos de 1 qubit}
+- Hablar de que se gana intuición pensando en la acción de un canal de 1
+qubit como la manera en que deforma la esfera de Bloch
 
+- Ejemplos: phase-flip channel, depolarizing y amplitude damping 
+
+- De los ejemplos hablar sobre canales unitales? Breve. (es que nuestros
+canales son unitales)
 
 % }}}
 
