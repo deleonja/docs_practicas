@@ -191,18 +191,112 @@ pero si consideramos al sistema total (principal+entorno) ese es cerrado.
 \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
 mejor lo voy a quitar}}
 \section{Mapeos completamente positivos}
-- Introducir la transformación de la matriz de densidad $\rho$ y hablar
-de que $\E$ transforma estados en estados.
+%- Introducir la transformación de la matriz de densidad $\rho$ y hablar
+%de que $\E$ transforma estados en estados.
+Los estados cuánticos se transforman como \cite{nielsen_chuang_2011}
 \begin{align}
-	\rho' = \E (\rho)
+\rho' = \E (\rho)
+\label{eq:E(rho)},
 \end{align} 
+donde $\E$ es una operación cuántica. En el capítulo anterior hemos 
+establecido dos ejemplos de operaciones cuánticas, la evolución unitaria 
+y medición, para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
+$\E(\rho)=M\rho M^{\dagger}$. Una operación cuántica proporciona
+una descripción discreta del cambio dinámico que un estado cuántico 
+que atraviesa de un proceso físico; $\rho$ es el estado inicial y $\E (\rho)$ es el 
+estado final que resulta del proceso. Una operación cuántica $\E$ es
+una transformación que mapea matrices de densidad en matrices 
+de densidad \cite{bengtsson_zyczkowski_2017}. ¿Será eso
+suficiente para asegurar que $\E$ representa una operación física? En esta 
+sección veremos que no.  Para que $\E$ sea una operación física 
+debe satisface adicionalmente la condición de completa positividad. Para 
+motivar la \textit{necesidad} de esta condición consideremos la operación 
+que deforma la esfera de Bloch en un disco sobre el plano $XY$. Es decir,
+\begin{align}
+\frac{1}{2}\mqty(1+r_z&r_x-ir_y\\r_x+ir_y&1-r_z) &\longrightarrow
+\frac{1}{2}\mqty(1&r_x-ir_y\\r_x+ir_y&1)
+\end{align}
+%\left(
+%\begin{array}{cccc}
+%(1+z_1)(1+z_2) & 0 & 0 & (x_1-iy_1)(x_2-iy_2) \\
+%0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 \\
+%(x_1+iy_1)(x_2+iy_2) & 0 & 0 &(1-z_1)(1-z_2)\\
+%\end{array}
+%\right) &\longrightarrow
+%\left(
+%\begin{array}{cccc}
+%1+z_2 & 0 & 0 & (x_1-iy_1)(x_2-iy_2) \\
+%0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 \\
+%(x_1+iy_1)(x_2+iy_2) & 0 & 0 &1-z_2\\
+%\end{array}
+%\right)\\
+%1-\sqrt{\text{x}_1^2 \text{x2}^2+\text{x1}^2 
+%    \text{y2}^2+\text{x2}^2 \text{y1}^2+\text{y1}^2 \text{y2}^2+\text{z2}^2}
+%\end{align}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.4\textwidth}
+\centering
+\includegraphics[width=5cm]
+{/home/jadeleon/Documents/docs_practicas/img-congreso/bloch.png}
+\end{minipage}
+$\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics[width=6cm]
+{/home/jadeleon/Documents/docs_practicas/img-congreso/DiskXY}
+\end{minipage}
+\caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+\end{figure}
+
+\begin{align}
+\rho&=\sum _{i,j}r_{ij}\sigma_i\otimes\sigma_j
+\end{align}
+
+$r_{00}=1/4$, $r_{03}=r_{30}=0$ y $r_{33}=1/4$
+\begin{align}
+%\rho^{\phi}&=
+\mqty( 
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+)
+%\E\otimes\1\qty(\rho^{\phi})&=
+\stackrel{\E_{z}\otimes\1}{\longrightarrow}
+\mqty( 
+\frac{1}{4} & 0 & 0 & \frac{1}{2} \\
+0 & \frac{1}{4} & 0 & 0 \\
+0 & 0 & \frac{1}{4} & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{4} \\
+).
+\end{align}
+Uno de los autovalores de $\E\otimes\1\qty(\rho^{\phi})$ es $-1/4$, por
+lo cual no es una matriz de densidad. Lo que acabamos de mostrar es que
+el mapeo que deforma la esfera de Bloch a un disco sobre el plano $XY$ 
+cuando actúa sobre el estado máximamente entrelazado de un sistema 
+de 2 qubits da como resultado un estado que no es físico. Por consiguiente, 
+este ejemplo hace evidente que una operación cuántica represente
+la evolución física de los estados cuánticos no es suficiente que sea
+un mapeo afín de matrices de densidad, sino también se requiere 
+que la operación en un espacio extendido siga siendo un mapeo afín. 
+Esta condición se conoce como completa positividad y discutiremos
+a continuación la definición de ella.   
 
 - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
 en un disco: presentar que el mapeo extendido para 2 qubits
 aplicado al estado máximamente entrelazado resulta en una matriz 
 no positiva (algo que no es estado).
 
-- Definición de CP del Geometry of Quantum States.
+%- Definición de CP del Geometry of Quantum States.
+Una operación $\E$ se dice que es completamente positiva
+si y sólo si, para cualquier extensión dimensional arbitraria $K$ tal que 
+$\hi_N \rightarrow \hi_N \otimes \hi_K$,
+el operador $\E\otimes\1$ es positivo semidefinido 
+\cite{bengtsson_zyczkowski_2017}.
 
 - Concluir con que las operaciones que estudiamos deben ser CPTP.
 
@@ -213,7 +307,31 @@ durante todo el capítulo. Además que si menciono la representación en
 suma de operadores, por qué no la de superoperadores?  es la que he 
 usado para la parte numérica}
 
-- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+%- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+Consideremos una matriz rectangular $A$ de dimensión $M\times N$.
+La matriz puede ser reordenada colocando sus elementos de matriz en 
+orden lexicográfico en un vector $\vec{a}$ con $MN$ entradas, es decir
+\begin{align}
+a_k=A_{ij}, 
+\end{align}
+donde $k=\qty(i-1)N+j$, con $i=,1,\ldots,M$ y $j=1,\ldots,N$.
+
+La transformación de \textit{reshuffle} de una matriz consiste 
+en reordenar cada fila de la matriz en submatrices y colocarlas en 
+orden lexicográfico bloque por bloque. Veamos un ejemplo a continuación
+\begin{align}
+\mqty(
+A_{00}&A_{01}&A_{02}&A_{03}\\
+A_{10}&A_{11}&A_{12}&A_{13}\\
+A_{20}&A_{21}&A_{22}&A_{23}\\
+A_{30}&A_{31}&A_{32}&A_{33})
+\stackrel{R}{\longrightarrow}
+\mqty(
+A_{00}&A_{01}&A_{10}&A_{11}\\
+A_{02}&A_{03}&A_{12}&A_{13}\\
+A_{20}&A_{21}&A_{30}&A_{31}\\
+A_{22}&A_{23}&A_{32}&A_{33}).
+\end{align}
 
 - Hablar de los mapeos que actúan sobre $\rho$ como un vector columna 
 
