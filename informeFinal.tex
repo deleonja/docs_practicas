@@ -24,17 +24,21 @@
 % Theorems, proofs, etc
 \usepackage{amsthm}
 
+\definecolor{mycolor}{RGB}{255,50,0}
+
 \usepackage{fancybox}
 \usepackage{colortbl}
 \usepackage{amsbsy}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
-\FXRegisterAuthor{ja}{aja}{\color{RedViolet}JA}
+\FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+
 
 \usepackage[]{lineno}  \linenumbers
 \setlength\linenumbersep{3pt}
 
-
+\newcommand{\fref}[1]{fig.~\ref{#1}}  \newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Table~\ref{#1}}
 
 %\usepackage{hyperref}
 %\usepackage{commath}
@@ -158,7 +162,8 @@
 
 \input{matriz_densidad}
 \input{operaciones_cuanticas}
-\chapter{Mapeos que borran componentes arbitrarias de $\boldsymbol{\rho}$}
+\chapter{Mapeos que borran componentes arbitrarias de 
+    $\boldsymbol{\rho}$}
 \chapter{Método numérico}
 \chapter{El caso de 2 qubits}
 \chapter{Conclusiones y trabajo futuro}

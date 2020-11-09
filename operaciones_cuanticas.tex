@@ -191,51 +191,83 @@ pero si consideramos al sistema total (principal+entorno) ese es cerrado.
 \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
 mejor lo voy a quitar}}
 \section{Mapeos completamente positivos}
-%- Introducir la transformación de la matriz de densidad $\rho$ y hablar
-%de que $\E$ transforma estados en estados.
-Los estados cuánticos se transforman como \cite{nielsen_chuang_2011}
+%\janote{
+%Introducir la transformación de la matriz de densidad $\rho$ y hablar
+%de que $\E$ transforma estados en estados.}
+%
+%\janote{
+%    - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
+%    en un disco: presentar que el mapeo extendido para 2 qubits
+%    aplicado al estado máximamente entrelazado resulta en una matriz 
+%    no positiva (algo que no es estado).}
+
+La completa positividad es una condición que deben satisfacer las operaciones
+cuánticas para representar una evolución física 
+\cite{bengtsson_zyczkowski_2017}. Esta condición es
+intrínseca de la dinámica de los sistemas cuánticos abiertos, dada la 
+posibilidad de un sistema cuántico a interaccionar con su entorno. A
+continuación, vamos a presentar un ejemplo que justificará la condición
+de completa positividad de las operaciones cuánticas y, seguidamente,
+vamos a finalizar con la definición precisa de esta condición.
+
+En el formalismo de las operaciones cuánticas, un estado cuántico
+descrito por su operador de densidad $\rho$
+se transforma según la ecuación \cite{nielsen_chuang_2011}
+%\janote{Arreglar, muy de putazo escupo la transformación}
 \begin{align}
 \rho' = \E (\rho)
 \label{eq:E(rho)},
 \end{align} 
-donde $\E$ es una operación cuántica. En el capítulo anterior hemos 
+donde $\E$ es una operación cuántica que representa alguna evolución 
+física y $\rho'$ es el estado que resulta de la evolución. 
+En el capítulo anterior hemos 
 establecido dos ejemplos de operaciones cuánticas, la evolución unitaria 
-y medición, para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
-$\E(\rho)=M\rho M^{\dagger}$. Una operación cuántica proporciona
+y la medición del estado de un sistema, 
+para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
+$\E(\rho)=M\rho M^{\dagger}$, respectivamente. 
+Una operación cuántica proporciona
 una descripción discreta del cambio dinámico que un estado cuántico 
-que atraviesa de un proceso físico; $\rho$ es el estado inicial y $\E (\rho)$ es el 
-estado final que resulta del proceso. Una operación cuántica $\E$ es
-una transformación que mapea matrices de densidad en matrices 
-de densidad \cite{bengtsson_zyczkowski_2017}. ¿Será eso
-suficiente para asegurar que $\E$ representa una operación física? En esta 
-sección veremos que no.  Para que $\E$ sea una operación física 
-debe satisface adicionalmente la condición de completa positividad. Para 
-motivar la \textit{necesidad} de esta condición consideremos la operación 
-que deforma la esfera de Bloch en un disco sobre el plano $XY$. Es decir,
-\begin{align}
-\frac{1}{2}\mqty(1+r_z&r_x-ir_y\\r_x+ir_y&1-r_z) &\longrightarrow
-\frac{1}{2}\mqty(1&r_x-ir_y\\r_x+ir_y&1)
-\end{align}
-%\left(
-%\begin{array}{cccc}
-%(1+z_1)(1+z_2) & 0 & 0 & (x_1-iy_1)(x_2-iy_2) \\
-%0 & 0 & 0 & 0 \\
-%0 & 0 & 0 & 0 \\
-%(x_1+iy_1)(x_2+iy_2) & 0 & 0 &(1-z_1)(1-z_2)\\
-%\end{array}
-%\right) &\longrightarrow
-%\left(
-%\begin{array}{cccc}
-%1+z_2 & 0 & 0 & (x_1-iy_1)(x_2-iy_2) \\
-%0 & 0 & 0 & 0 \\
-%0 & 0 & 0 & 0 \\
-%(x_1+iy_1)(x_2+iy_2) & 0 & 0 &1-z_2\\
-%\end{array}
-%\right)\\
-%1-\sqrt{\text{x}_1^2 \text{x2}^2+\text{x1}^2 
-%    \text{y2}^2+\text{x2}^2 \text{y1}^2+\text{y1}^2 \text{y2}^2+\text{z2}^2}
-%\end{align}
+atraviesa durante un proceso físico. Una operación cuántica $\E$ es
+una transformación lineal que mapea matrices de densidad en matrices 
+de densidad \cite{bengtsson_zyczkowski_2017}. Surge entonces la siguiente
+pergunte, ¿ser un mapeo afín es
+suficiente para asegurar que $\E$ representa una operación física?
+A continuación veremos que no.  Para que $\E$ sea una operación física 
+debe ser un mapeo afín de operadores de densidad 
+y satisfacer la condición de completa positividad. Esta condición
+adicional surge como consecuencia del acoplo que el sistema de estudio
+pueda tener con un entorno del cual podríamos o no tener acceso a sus
+grados de libertad.
 
+
+Veamos a continuación un ejemplo de una operación que actúa sobre 
+un sistema de 1 qubit; y luego, al considerar la misma operación, pero en 
+el espacio extendido de 2 qubits, sobre
+el estado máximamente entrelazado, 
+el resultado de la operación será algo que no es un estado cuántico. 
+De esta manera, quedará claro la razón para exigir la condición de 
+completa positividad para que una operación cuántica 
+represente a un proceso físico.
+Consideremos un 1 qubit, un sistema cuántico
+de dos niveles, cuya matriz de densidad se puede representar como
+\cite{nielsen_chuang_2011}
+\begin{align}
+\rho=\frac{\1+\vec{r}\cdot\vec{\sigma}}{2},
+\label{eq:DM-1q}
+\end{align}
+donde $\vec{\sigma}$ es un vector con las matrices de Pauli 
+en sus entradas y $\vec{r}$
+el vector de Bloch ($\abs{\vec{r}}\leq1$). Esta representación
+de la matriz de densidad nos permite asociar a cada punto en la 
+esfera unitaria con un estado de 1 qubit, como se muestra en la parte
+izquierda de \Fref{fig:qtm-op-motivation}. Los estados puros se corresponden
+con puntos en la superficie de la esfera y los estados mixtos 
+con puntos en el interior, incluyendo al origen.
+Ahora consideremos la operación $\E_z$ que deforma la bola de Bloch a un 
+disco sobre el plano XY, como se muestra en la \Fref{fig:qtm-op-motivation}. 
+La acción de la operación $\E_z$ sobre una matriz de densidad
+de la forma \eqref{eq:DM-1q} es transformar al vector de Bloch $\vec{r}$
+como $\qty(r_1,r_2,r_3)\mapsto\qty(r_1,r_2,0)$.
 \begin{figure}[H]
 \centering
 \begin{minipage}{.4\textwidth}
@@ -250,15 +282,47 @@ $\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
 {img-congreso/DiskXY}
 \end{minipage}
 \caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+\label{fig:qtm-op-motivation}
 \end{figure}
-
+Por otro lado, el estado máximente entralazado $\rho^{\phi}$ de 
+un sistema de 2 qubits es \cite{bengtsson_zyczkowski_2017}
 \begin{align}
-\rho&=\sum _{i,j}r_{ij}\sigma_i\otimes\sigma_j
+\rho^{\phi}&=
+\mqty( 
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+).
+\label{eq:DM-2q-MaxE}
 \end{align}
-
-$r_{00}=1/4$, $r_{03}=r_{30}=0$ y $r_{33}=1/4$
+Siguiendo la representación de la matriz de densidad de 1 qubit,
+la matriz de densidad de 2 qubits se puede escribir como
 \begin{align}
-%\rho^{\phi}&=
+\rho&=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
+\label{eq:DM-2q}
+\end{align}
+donde $\sigma_0=\1$ y $\vec{r}$ es un vector de 16 entradas que contiene
+la información física local de cada qubit y las correlaciones del sistema.
+%\janote{por qué se iguala?}
+Se igualan \eqref{eq:DM-2q-MaxE} y \eqref{eq:DM-2q} para encontrar
+el estado máximamente entrelazado en la representación de \eqref{eq:DM-2q}. 
+Se obtiene que $r_{00}=r_{11}=r_{33}=1$, $r_{22}=-1$, y el resto de 
+componentes en $\vec{r}$ son iguales a cero. 
+
+Ahora consideremos la operación $\E_z\otimes\1$ que borra
+la componente en $z$ del primer qubit y deja invariante 
+al segundo qubit. La acción de esta operación es equivalente 
+a transformar el vector $\vec{r}$ de $\rho^{\phi}$, en la representación
+de \eqref{eq:DM-2q}, como
+\begin{align}
+\qty(1,0,0,0,0,1,0,0,0,0,-1,0,0,0,0,1)
+\longmapsto
+\qty(1,0,0,0,0,1,0,0,0,0,-1,0,0,0,0,0).
+\end{align}
+Por consiguiente, la matriz de densidad $\rho^{\phi}$ se transforma 
+ante la operación $\E_z\otimes\1$ como
+\begin{align}
 \mqty( 
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
 0 & 0 & 0 & 0 \\
@@ -266,7 +330,7 @@ $r_{00}=1/4$, $r_{03}=r_{30}=0$ y $r_{33}=1/4$
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
 )
 %\E\otimes\1\qty(\rho^{\phi})&=
-\stackrel{\E_{z}\otimes\1}{\longrightarrow}
+\stackrel{\E_{z}\otimes\1}{\longmapsto}
 \mqty( 
 \frac{1}{4} & 0 & 0 & \frac{1}{2} \\
 0 & \frac{1}{4} & 0 & 0 \\
@@ -274,31 +338,45 @@ $r_{00}=1/4$, $r_{03}=r_{30}=0$ y $r_{33}=1/4$
 \frac{1}{2} & 0 & 0 & \frac{1}{4} \\
 ).
 \end{align}
-Uno de los autovalores de $\E\otimes\1\qty(\rho^{\phi})$ es $-1/4$, por
-lo cual no es una matriz de densidad. Lo que acabamos de mostrar es que
-el mapeo que deforma la esfera de Bloch a un disco sobre el plano $XY$ 
-cuando actúa sobre el estado máximamente entrelazado de un sistema 
-de 2 qubits da como resultado un estado que no es físico. Por consiguiente, 
-este ejemplo hace evidente que una operación cuántica represente
-la evolución física de los estados cuánticos no es suficiente que sea
-un mapeo afín de matrices de densidad, sino también se requiere 
-que la operación en un espacio extendido siga siendo un mapeo afín. 
-Esta condición se conoce como completa positividad y discutiremos
-a continuación la definición de ella.   
+La matriz $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un autovalor igual a $-1/4$.
+Por consiguiente, $\E_z\otimes\1\qty(\rho^{\phi})$ no es una matriz 
+de densidad. Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
+no describe a algún estado físico de un sistema de 2 qubits.
+En resumen, hemos probado que la operación $\E_z$ que deforma la bola 
+de Bloch a un disco sobre el plano $XY$, cuando se considera su 
+extensión sobre el espacio de 2 qubits $\E_z\otimes\1$ y se aplica al
+estado máximamente entrelazado da como resultado un estado no físico. 
+En consecuencia, $\E_z$ no representa ninguna evolución física. Este 
+resultado deja en evidencia que una operación cuántica debe ser 
+un mapeo afín de estados cuánticos, de un sistema que se compone del
+sistema principal y otro secundario, sin importar la dimensión del
+espacio secundario.
 
-- Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
-en un disco: presentar que el mapeo extendido para 2 qubits
-aplicado al estado máximamente entrelazado resulta en una matriz 
-no positiva (algo que no es estado).
+%\janote{- Definición de CP del Geometry of Quantum States.}
 
-%- Definición de CP del Geometry of Quantum States.
-Una operación $\E$ se dice que es completamente positiva
-si y sólo si, para cualquier extensión dimensional arbitraria $K$ tal que 
+Revisemos ahora la definición formal de completa positividad.
+Una operación $\E$ se dice que es completamente positiva (CP)
+si y sólo si, para cualquier extensión dimensional arbitraria $K$ 
+del espacio de Hilbert, tal que 
 $\hi_N \rightarrow \hi_N \otimes \hi_K$,
-el operador $\E\otimes\1$ es positivo semidefinido 
-\cite{bengtsson_zyczkowski_2017}.
+el operador $\E\otimes\1_K$ es positivo semidefinido 
+\cite{bengtsson_zyczkowski_2017}. Esta es la última condición 
+necesaria de imponer sobre las operaciones cuánticas para 
+que sean transformaciones de estados físicos. 
 
-- Concluir con que las operaciones que estudiamos deben ser CPTP.
+%\janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.}
+
+En conclusión, una operación cuántica es una mapeo afín de 
+operadores de densidad que es completamente positivo. 
+En la literatura se suele hacer una diferencia entre operaciones cuánticas
+y canales cuánticos \cite{weedbrook2012gaussian}, el término operaciones 
+cuánticas se utiliza para operaciones que, en general, disminuyen la traza 
+del operador de densidad, y canales cuánticos es exclusivo para operaciones 
+que preservan la traza del operador de densitad (operaciones CPTP). En 
+este proyecto estamos interesados en estudiar las operaciones CPTP. 
+En las siguientes dos secciones vamos a presentar dos representaciones
+distintas de las operaciones CPTP. 
+
 
 
 \section{Superoperadores}
@@ -333,13 +411,16 @@ A_{20}&A_{21}&A_{30}&A_{31}\\
 A_{22}&A_{23}&A_{32}&A_{33}).
 \end{align}
 
-- Hablar de los mapeos que actúan sobre $\rho$ como un vector columna 
+\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
 
+\janote{
 - Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
  de Choi es positiva semidefinida entonces la operación cuántica es CP
- 
-- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
+}
 
+\janote{
+- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
+}
 \section{Representación de suma de operadores}
 - Enunciar la representación en operadores de suma partiendo de un 
 estado que se acopla con algún entorno
