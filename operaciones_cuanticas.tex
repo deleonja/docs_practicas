@@ -540,24 +540,172 @@ La matriz $\E_z^R$ tiene un autovalor $-1/2$, por lo cual $\E_z$ no es CP y,
 por consiguiente, tampoco un canal cuántico. Hemos llegado a la misma 
 conclusión que en la sección pasada, pero utilizando la representación 
 de superoperador de $\E_z$.
-\section{Representación de suma de operadores}
+
+\janote{Otro ejemplo, pero ahora sí de un canal}
+
+Antes de acabar la sección será útil desarrollar un ejemplo más 
+de una operación sobre un sistema de 1 qubit que sí es CP. Este 
+ejemplo servirá para obtener familiaridad con la representación de 
+los superoperadores y para hacer la conexión con 
+la forma de Kraus de las operaciones CP, la otra representación de
+las operaciones cuánticas que discutiremos en este capítulo.
+
+Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch de 
+un sistema de 1 qubit al eje $y$, como se muestra en la \Fref{fig:QC-ex2}.
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=5cm]
+        {img-congreso/bloch.png}
+    \end{minipage}
+    $\stackrel{\E_{xz}\otimes\1 \vspace{1cm}}{\longmapsto}$
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=6cm]
+        {img-congreso/lineY}
+    \end{minipage}
+    \caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+    \label{fig:QC-ex2}
+\end{figure}
+La transformación de los estados de 1 qubit en la esfera de Bloch 
+representada en la \Fref{fig:QC-ex2} está descrita por la siguiente ecuación
+\begin{align}
+\mqty(
+\begin{array}{cccc}
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+0 & \frac{1}{2} & -\frac{1}{2} & 0 \\
+0 & -\frac{1}{2} & \frac{1}{2} & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+\end{array}
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+=
+\frac{1}{2}
+\mqty(
+1\\-ir_y\\ir_y\\1
+),
+\label{eq:QC-ex2-SR}
+\end{align}
+donde la matriz es la representación como superoperador de $\E_{xz}$. 
+Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP, debemos 
+aplicar el procedimiento de \textit{reshuffle} y verificar si $\E_{xz}^R$
+es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$. Por tanto, 
+$\E_{xz}$ es CP y, porque además preserva la traza del operador
+de densidad de 1 qubit, es un canal cuántico.
+
+En resumen, la representación en superoperador de una operación cuántica
+está basada en reordenar la matriz de densidad $\rho$ de un sistema como 
+un vector columna y considerar la transformación que actúa sobre el nuevo
+vector $\vec{\rho}$. Por otro lado, el procedimiento de \textit{reshuffle} 
+nos proporciona una manera de calcular la matriz de Choi de una operación $\E$,
+que junto con el teorema de Choi, determinan la correspondencia entre
+la positividad de la matriz de Choi y la completa positividad de $\E$. 
+
+\section{Forma de Kraus}
 - Enunciar la representación en operadores de suma partiendo de un 
 estado que se acopla con algún entorno
 y llegar a las condiciones para ser CPTP y empezar a conectarlo
 con la sección anterior. \cpnote{No sabes si hay alguna motivacion que no sea
 con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
-\janote{Podría utilizar el segundo item de este cap. como motivación. Creo
-que esto sí lo usamos. David revisó unas cosas así (o mencionó que quería
-hacerlo)}
+\janote{De acuerdo. Voy a omitir la motivación con el entorno.}
 
+\janote{
 - Invocar el ejemplo del canal de la sección anterior, pero en su 
 representación de operadores de suma. Aquí quiero hacer la conexión 
 entre esta y la sección anterior mostrando que los operadores 
-de Kraus son los autovectores de la matriz de Choi. 
+de Kraus son los autovectores de la matriz de Choi.}
 
-- Comparar la representacion de suma de operadores y superoperadores
+Retomemos el ejemplo del canal cuántico $\E_{xz}$ que aparece en 
+\eqref{eq:QC-ex2-SR}. Calculamos los autovectores de la matriz de 
+Choi del canal, es decir $\E_{xz}^R$. Recordemos que $\E_{xz}^R=\E_{xz}$.
+Los autovalores son $\lambda_{1,2,3,4}=1,1,0,0$ y sus respectivos 
+autovectores son
+\begin{align}
+\ket{E_{1,2,3,4}}=
+\mqty(\frac{1}{2},0,0,\frac{1}{2})^T,
+\mqty(0,-\frac{1}{2},\frac{1}{2},0)^T,
+\mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
+\mqty(0,\frac{1}{2},\frac{1}{2},0)^T.
+\end{align}
+Tomemos $\ket{E_1}$ y $\ket{E_2}$, que son los únicos autovectores
+con autovalores distintos de cero, reordenemos los vectores 
+en las matrices $E_1$ y $E_2$ de dimensión $2\times2$ 
+y hagamos la siguiente operación sobre la matriz de densidad 
+de 1 qubit de la forma \eqref{eq:DM-1q}
+\begin{align}
+\sum_{i=1}^2E_i\rho E_i^{\dagger}=&
+\mqty(
+\frac{1}{2} & 0\\
+0 & \frac{1}{2}
+)´
+\mqty(
+\frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
+\frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
+)
+\mqty(
+\frac{1}{2} & 0\\
+0 & \frac{1}{2}
+)^{\dagger}
++
+\mqty(
+0 & -\frac{1}{2}\\
+\frac{1}{2} & 0
+)´
+\mqty(
+\frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
+\frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
+)
+\mqty(
+0 & -\frac{1}{2}\\
+\frac{1}{2} & 0
+)^{\dagger}&
+\nonumber\\
+=&
+\frac{1}{2}´
+\mqty(
+1 & -ir_y\\
+ir_y & 1
+)
+\label{eq:QC-ex2-KR}
+\end{align}
+Esta es conocida como la forma de \textit{Kraus} de los mapeos CP.
+Los operadores $E_i$ se conocen como los operadores de \textit{Kraus}, 
+que no nos olvidemos son los autovectores de la matriz de Choi. En general,
+se dice que un mapeo es completamente positivo si y sólo si es de la forma
+\cite{bengtsson_zyczkowski_2017}
+\begin{align}
+\rho \rightarrow \rho'=\sum_iE_i\rho E_i^{\dagger},
+\label{eq:kraus-def}
+\end{align}
+donde los operadores de Kraus pueden ser hasta $N^2$ 
+\cite{nielsen_chuang_2011}, la dimensión 
+del espacio de los operadores lineales que actúan sobre el espacio de
+Hilbert del sistema de dimensión $N$. Se dice que la operación cuántica
+$\E$ preserva la traza (operación CPTP) si y sólo los operadores de Kraus 
+satisfacen la condición \cite{bengtsson_zyczkowski_2017}
+\begin{align}
+\sum_iE_i^{\dagger}E_i=\1.
+\label{eq:kraus-tp-cond}
+\end{align}
+En resumen, las ecuaciones \eqref{eq:kraus-def} y \eqref{eq:kraus-tp-cond}
+nos dan las condiciones que debe satisfacer las operaciones CPTP en la 
+forma de Kraus. 
 
+\janote{
+- Comparar la representacion de suma de operadores y superoperadores}
 
+Las ecuaciones \eqref{eq:QC-ex2-SR} y \eqref{eq:QC-ex2-KR} representan
+en dos formas distintas la acción del mismo canal cuántico  
+sobre el estado de un sistema de 1 qubit.
+
+\janote{No me parece necesario entrar en detalle con la forma de Kraus.
+Quizás las demostraciones y más detalle se pueden guardar para la tesis.
+Espero haber logrado dar una buena motivación de la CP y haber conectado
+bien la forma de Kraus con la de superoperadores con los ejemplos.}
 \section{Canales cuánticos de 1 qubit}
 - Hablar de que se gana intuición pensando en la acción de un canal de 1
 qubit como la manera en que deforma la esfera de Bloch
