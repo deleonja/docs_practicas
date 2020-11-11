@@ -1,6 +1,4 @@
 \chapter{Operaciones cuánticas} % {{{
-\ccnote{prueba}
-\janote{Ahora aquí va mi prueba}
 %Adoptando la descripción de estados cuánticos en términos de la matriz de 
 %densidad $\rho$ podemos describir la dinámica de ellos como
 %\begin{align*}
@@ -386,30 +384,90 @@ durante todo el capítulo. Además que si menciono la representación en
 suma de operadores, por qué no la de superoperadores?  es la que he 
 usado para la parte numérica}
 
+Una forma de representar a las operaciones cuánticas es con 
+superoperadores. Un superoperador es una transformación lineal
+que actúa sobre el espacio vectorial de los operadores lineales 
+\cite{preskill1998lecture}. Iniciaremos esta sección discutiendo algunas
+transformaciones algebraicas sobre matrices e introduciremos 
+una notación de cuatro índices para trabajar en un espacio de Hilbert 
+compuesto por dos partes. En la segunda parte vamos a presentar 
+las condiciones que debe satisfacer un superoperador para ser un 
+canal cuántico. 
+
 %- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
 Consideremos una matriz rectangular $A$ de dimensión $M\times N$.
-La matriz puede ser reordenada colocando sus elementos de matriz en 
-orden lexicográfico en un vector $\vec{a}$ con $MN$ entradas, es decir
+La matriz puede reordenarse colocando sus elementos de matriz en 
+orden lexicográfico en un vector $\vec{a}$ con $MN$ elementos, es decir
 \begin{align}
 a_k=A_{ij}, 
 \end{align}
-donde $k=\qty(i-1)N+j$, con $i=,1,\ldots,M$ y $j=1,\ldots,N$.
+donde $k=\qty(i-1)N+j$, con $i=,1,\ldots,M$ y $j=1,\ldots,N$. De
+esta manera podemos asociar matrices con vectores. 
 
-La transformación de \textit{reshuffle} de una matriz consiste 
-en reordenar cada fila de la matriz en submatrices y colocarlas en 
-orden lexicográfico bloque por bloque. Veamos un ejemplo a continuación
+Ahora discutamos sobre la transformación de \textit{reshuffle}. Después
+veremos que será útil para evaluar la condición de completa positividad de
+una operación cuántica.
+La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
+consiste en reordenar cada fila de $B$, con $MN$ elementos, 
+en submatrices de dimensión $M\times N$ y colocarlas en 
+orden lexicográfico bloque por bloque. Veamos un ejemplo del 
+\textit{reshuffle} de una matriz $B$ de $4\times 4$, en la que 
+cada fila se reordena en una submatriz de $2\times 2$
 \begin{align}
+B=
 \mqty(
-A_{00}&A_{01}&A_{02}&A_{03}\\
-A_{10}&A_{11}&A_{12}&A_{13}\\
-A_{20}&A_{21}&A_{22}&A_{23}\\
-A_{30}&A_{31}&A_{32}&A_{33})
+B_{00}&B_{01}&B_{02}&B_{03}\\
+B_{10}&B_{11}&B_{12}&B_{13}\\
+B_{20}&B_{21}&B_{22}&B_{23}\\
+B_{30}&B_{31}&B_{32}&B_{33})
 \stackrel{R}{\longrightarrow}
 \mqty(
-A_{00}&A_{01}&A_{10}&A_{11}\\
-A_{02}&A_{03}&A_{12}&A_{13}\\
-A_{20}&A_{21}&A_{30}&A_{31}\\
-A_{22}&A_{23}&A_{32}&A_{33}).
+B_{00}&B_{01}&B_{10}&B_{11}\\
+B_{02}&B_{03}&B_{12}&B_{13}\\
+B_{20}&B_{21}&B_{30}&B_{31}\\
+B_{22}&B_{23}&B_{32}&B_{33})
+=B^R.
+\label{eq:reshuffle}
+\end{align}
+
+Es conveniente introducir la siguiente notación de cuatro índices 
+para poder establecer las condiciones que debe satisfacer una operación 
+$\E$ para ser un canal cuántico. Supongamos que $U$ es un operador 
+que actúa sobre un espacio de Hilbert de la forma $\hi=\hi_M\otimes\hi_N$.
+Sea $\ket{i}$ una base ortonormal de $\hi_M$ y $\ket{\mu}$ una base
+ortonormal de $\hi_N$. Nótese el uso de letras latinas para los índices del
+primer subsistema y letras griegas para los índices del segundo.
+El producto tensorial $\ket{i}\otimes\ket{\mu}$
+proporciona una base del espacio compuesto. Por lo tanto, un 
+elemento de matriz $U_\ind{m\mu}{n\nu}$ es 
+\begin{align}
+U_\ind{m\mu}{n\nu}=\matrixel{i\otimes \mu}{U}{j\otimes \nu}.
+\end{align}
+
+Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
+de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
+elementos. Por consiguiente, la representación matricial de un 
+superoperador $\E$ que actúa sobre el vector $\rho$ 
+debe ser una matriz de dimensión $N^2\times N^2$. Dado que 
+$\E$ es una matriz cuadrada, sus elementos se pueden etiquetar 
+utilizando la notación de cuatro índices. En un momento veremos
+el uso de la matriz $\E^R$ que resulta de aplicar el \textit{reshuffle}
+a $\E$.
+
+Cualquier operación $\E$ para ser un canal cuántico debe transformar 
+operadores de densidad en operadores de densidad. Es decir, la imagen 
+$\rho'$ del operador de densidad $\rho$ debe ser Hermítica, de traza
+unitaria y positiva semidefinida. Esto establece 3 condiciones equivalentes
+que la operación $\E$ debe satisfacer:
+\begin{align}
+\txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
+    && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
+    \label{eq:H-condition}\\
+\txt{(ii)}&&\Tr(\rho')=1
+    &&\Leftrightarrow&&  \E_\ind{mm}{n\nu}=\delta_{n\nu},\\     
+\txt{(iii)}&&\rho'\geq1
+    &&\Leftrightarrow&&  \E_\ind{m\mu}{n\nu}\rho_{n\nu}\geq0.
+    \label{eq:positivity-condition}
 \end{align}
 
 \janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
@@ -419,9 +477,69 @@ A_{22}&A_{23}&A_{32}&A_{33}).
  de Choi es positiva semidefinida entonces la operación cuántica es CP
 }
 
+Como discutimos en la sección anterior, se requiere que $\E$ sea 
+completamente positiva además de ser un mapeo afín de operadores de 
+densidad. Para evaluar la completa positividad de $\E$ en su representación
+de superoperador se introduce la matriz de Choi $D_{\E}$ que se define como
+\cite{bengtsson_zyczkowski_2017}
+\begin{align}
+D_{\E}=\E^{R}
+\end{align}
+A continuación, el teorema de Choi \cite{bengtsson_zyczkowski_2017} 
+establece si $\E$ es CP según su matriz de Choi $D_{\E}$.
+\begin{teorema}
+Una transformación lineal $\E$ es completamente positiva si y sólo si 
+su matriz de Choi asociada $D_{\E}$ es positiva semidefinida.
+\end{teorema}
+Este teorema nos proporciona de una herramienta útil para determinar
+si una transformación lineal es CP. El procedimiento es 
+directo dada la representación matricial del superoperador $\E$. Se 
+aplica el \textit{reshuffle} para encontrar la matriz de Choi $D_{\E}$
+y se evalúa si la matriz es positiva semidefinida. Si lo es, entonces
+$\E$ es CP. Si además $\E$ cumple con las condiciones establecidas de
+\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, entonces
+es un canal cuántico.
+
 \janote{
 - Concluir con un ejemplo de un canal nuestro sobre 1 qubit
 }
+
+Para concluir, repasemos el ejemplo de la operación $\E_z$ sobre 1 qubit
+ilustrada en la \Fref{fig:qtm-op-motivation}. La ecuación \eqref{eq:E(rho)}, 
+escribiendo a $\E_z$ en su representación de superoperador y $\rho$ en 
+\eqref{eq:DM-1q} como un vector
+\begin{align}
+\mqty(
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+=
+\frac{1}{2}´
+\mqty(
+1\\r_x-ir_y\\r_x+ir_y\\1
+)
+\end{align}
+Al calcular la matriz de Choi $\E_z^{R}$, siguiendo el procedimiento
+en \eqref{eq:DM-1q}, se tiene
+\begin{align}
+\E_z^R=
+\mqty(
+\frac{1}{2} & 0 & 0 & 1 \\
+0 & \frac{1}{2} & 0 & 0 \\
+0 & 0 & \frac{1}{2} & 0 \\
+1 & 0 & 0 & \frac{1}{2} 
+).
+\end{align}
+La matriz $\E_z^R$ tiene un autovalor $-1/2$, por lo cual $\E_z$ no es CP y,
+por consiguiente, tampoco un canal cuántico. Hemos llegado a la misma 
+conclusión que en la sección pasada, pero utilizando la representación 
+de superoperador de $\E_z$.
 \section{Representación de suma de operadores}
 - Enunciar la representación en operadores de suma partiendo de un 
 estado que se acopla con algún entorno
