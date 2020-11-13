@@ -220,7 +220,7 @@ se transforma según la ecuación \cite{nielsen_chuang_2011}
 donde $\E$ es una operación cuántica que representa alguna evolución 
 física y $\rho'$ es el estado que resulta de la evolución. 
 En el capítulo anterior hemos 
-establecido dos ejemplos de operaciones cuánticas, la evolución unitaria 
+establecido dos ejemplos de operaciones cuánticas: la evolución unitaria 
 y la medición del estado de un sistema, 
 para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
 $\E(\rho)=M\rho M^{\dagger}$, respectivamente. 
@@ -229,8 +229,8 @@ una descripción discreta del cambio dinámico que un estado cuántico
 atraviesa durante un proceso físico. Una operación cuántica $\E$ es
 una transformación lineal que mapea matrices de densidad en matrices 
 de densidad \cite{bengtsson_zyczkowski_2017}. Surge entonces la siguiente
-pergunte, ¿ser un mapeo afín es
-suficiente para asegurar que $\E$ representa una operación física?
+pregunta, ¿ser un mapeo afín es
+suficiente para asegurar que $\E$ representa una operación física? \ccnote{¿qué es un mapeo afín?}
 A continuación veremos que no.  Para que $\E$ sea una operación física 
 debe ser un mapeo afín de operadores de densidad 
 y satisfacer la condición de completa positividad. Esta condición
@@ -243,8 +243,8 @@ Veamos a continuación un ejemplo de una operación que actúa sobre
 un sistema de 1 qubit; y luego, al considerar la misma operación, pero en 
 el espacio extendido de 2 qubits, sobre
 el estado máximamente entrelazado, 
-el resultado de la operación será algo que no es un estado cuántico. 
-De esta manera, quedará claro la razón para exigir la condición de 
+el resultado de la operación será algo que no es un estado cuántico. \ccnote{Aquí hay muchas comas, podés reescribir para que la frase esté más clara}
+De esta manera, quedará clara la razón para exigir la condición de 
 completa positividad para que una operación cuántica 
 represente a un proceso físico.
 Consideremos un 1 qubit, un sistema cuántico
@@ -339,7 +339,7 @@ ante la operación $\E_z\otimes\1$ como
 \end{align}
 La matriz $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un autovalor igual a $-1/4$.
 Por consiguiente, $\E_z\otimes\1\qty(\rho^{\phi})$ no es una matriz 
-de densidad. Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
+de densidad. \ccnote{¿qué tiene que ver el autovalor con que no sea matriz de densidad?} Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
 no describe a algún estado físico de un sistema de 2 qubits.
 En resumen, hemos probado que la operación $\E_z$ que deforma la bola 
 de Bloch a un disco sobre el plano $XY$, cuando se considera su 
@@ -405,7 +405,7 @@ un vector columna, por lo cual es necesario estudiar alguna transformación
 lineal que reordene una matriz en un vector columna, y viceversa.
 Consideremos una matriz rectangular $A$ de dimensión $M\times N$.
 La matriz puede reordenarse colocando sus elementos de matriz en 
-orden lexicográfico en un vector $\vec{a}$ con $MN$ elementos, es decir
+orden lexicográfico \ccnote{qué elegancia la de francia} en un vector $\vec{a}$ con $MN$ elementos, es decir
 \begin{align}
 a_k=A_{ij}, 
 \label{eq:matrix-to-vector}
@@ -555,7 +555,7 @@ Se calcula la matriz de Choi $\E_z^{R}$, siguiendo la ecuación
 \end{align}
 La matriz $\E_z^R$ tiene un autovalor $-1/2$, por ello $\E_z$ no es CP y,
 por consiguiente, no es un canal cuántico. Nótese que hemos llegado a la misma 
-conclusión de la sección pasada sobre la CP, pero utilizando la representación 
+conclusión de la sección anterior sobre la CP, pero utilizando la representación 
 de superoperador de $\E_z$.
 
 \janote{Otro ejemplo, pero ahora sí de un canal}
@@ -608,8 +608,7 @@ según la operación $\E_{xz}$ está descrita por la siguiente ecuación
 \end{align}
 donde la matriz es el superoperador $\E_{xz}$. 
 Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP debemos 
-determinar $\E_{xz}^R$ y verificar si es
-es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$, por lo tanto, 
+determinar $\E_{xz}^R$ y verificar si es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$, por lo tanto, 
 $\E_{xz}$ es CP y, porque además satisface las condiciones
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, es un canal cuántico.
 
