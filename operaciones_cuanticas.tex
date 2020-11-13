@@ -384,29 +384,41 @@ durante todo el capítulo. Además que si menciono la representación en
 suma de operadores, por qué no la de superoperadores?  es la que he 
 usado para la parte numérica}
 
-Una forma de representar a las operaciones cuánticas es con 
+Una forma de representar a las operaciones cuánticas es la forma de 
 superoperadores. Un superoperador es una transformación lineal
 que actúa sobre el espacio vectorial de los operadores lineales 
 \cite{preskill1998lecture}. Iniciaremos esta sección discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
 una notación de cuatro índices para trabajar en un espacio de Hilbert 
-compuesto por dos partes. En la segunda parte vamos a presentar 
+compuesto por dos subsistemas. Luego, vamos a presentar 
 las condiciones que debe satisfacer un superoperador para ser un 
-canal cuántico. 
+canal cuántico. Por último vamos a presentar dos ejemplos de operaciones
+lineales que actúan sobre el operador de densidad de 1 qubit. En el primer 
+ejemplo vamos a retomar la operación discutida en la sección anterior y, 
+utilizando su representación de superoperador, vamos a mostrar que no es CP. 
+En el segundo discutiremos una operación CP sobre la esfera de Bloch. 
 
 %- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+En la forma de superoperadores de las operaciones cuánticas se 
+considera que el superoperador actúa sobre
+un vector columna, por lo cual es necesario estudiar alguna transformación
+lineal que reordene una matriz en un vector columna, y viceversa.
 Consideremos una matriz rectangular $A$ de dimensión $M\times N$.
 La matriz puede reordenarse colocando sus elementos de matriz en 
 orden lexicográfico en un vector $\vec{a}$ con $MN$ elementos, es decir
 \begin{align}
 a_k=A_{ij}, 
+\label{eq:matrix-to-vector}
 \end{align}
 donde $k=\qty(i-1)N+j$, con $i=,1,\ldots,M$ y $j=1,\ldots,N$. De
-esta manera podemos asociar matrices con vectores. 
+esta manera, es posible reordenar a la matriz de densidad como un 
+vector columna. Ante esta transformación los elementos de matriz no se 
+modifican, por lo cual la información física contenida en una matriz 
+de densidad tampoco se altera.
 
-Ahora discutamos sobre la transformación de \textit{reshuffle}. Después
-veremos que será útil para evaluar la condición de completa positividad de
-una operación cuántica.
+Para determinar si una operación lineal, en su forma de superoperador, es CP 
+se evalúa la positividad semidefinida del superoperador
+reordenado según el procedimiento de \textit{reshuffle}.
 La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
 consiste en reordenar cada fila de $B$, con $MN$ elementos, 
 en submatrices de dimensión $M\times N$ y colocarlas en 
@@ -429,36 +441,41 @@ B_{22}&B_{23}&B_{32}&B_{33})
 =B^R.
 \label{eq:reshuffle}
 \end{align}
+Más adelante veremos que la matriz del superoperador 
+reordenada según el \textit{reshuffle} se define como la matriz de Choi
+de la operación lineal.
 
-Es conveniente introducir la siguiente notación de cuatro índices 
-para poder establecer las condiciones que debe satisfacer una operación 
-$\E$ para ser un canal cuántico. Supongamos que $U$ es un operador 
-que actúa sobre un espacio de Hilbert de la forma $\hi=\hi_M\otimes\hi_N$.
+Para establecer las condiciones que una operación en su
+representación de superoperador debe cumplir para ser un mapeo afín de
+operadores de densidad es útil introducir la siguiente notación de cuatro índices. 
+Supongamos que $U$ es un operador que actúa sobre un espacio de Hilbert 
+compuesto de la forma $\hi=\hi_M\otimes\hi_N$.
 Sea $\ket{i}$ una base ortonormal de $\hi_M$ y $\ket{\mu}$ una base
 ortonormal de $\hi_N$. Nótese el uso de letras latinas para los índices del
 primer subsistema y letras griegas para los índices del segundo.
 El producto tensorial $\ket{i}\otimes\ket{\mu}$
-proporciona una base del espacio compuesto. Por lo tanto, un 
-elemento de matriz $U_\ind{m\mu}{n\nu}$ es 
+es una base del espacio compuesto $\hi$. Por lo tanto, un 
+elemento de matriz de $U$, utilizando cuatro índices, es
 \begin{align}
 U_\ind{m\mu}{n\nu}=\matrixel{i\otimes \mu}{U}{j\otimes \nu}.
+\label{eq:4indices}
 \end{align}
+\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
 
 Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
 de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
 elementos. Por consiguiente, la representación matricial de un 
-superoperador $\E$ que actúa sobre el vector $\rho$ 
-debe ser una matriz de dimensión $N^2\times N^2$. Dado que 
-$\E$ es una matriz cuadrada, sus elementos se pueden etiquetar 
-utilizando la notación de cuatro índices. En un momento veremos
-el uso de la matriz $\E^R$ que resulta de aplicar el \textit{reshuffle}
-a $\E$.
+superoperador $\E$ que actúa sobre un operador de densidad vectorizado $\vec{\rho}$ 
+debe ser de dimensión $N^2\times N^2$. Los elementos de matriz de
+$\E$ pueden etiquetarse utilizando cuatro índices como en \eqref{eq:4indices}
+haciendo cualquier partición en dos del sistema total.
 
-Cualquier operación $\E$ para ser un canal cuántico debe transformar 
-operadores de densidad en operadores de densidad. Es decir, la imagen 
-$\rho'$ del operador de densidad $\rho$ debe ser Hermítica, de traza
-unitaria y positiva semidefinida. Esto establece 3 condiciones equivalentes
-que la operación $\E$ debe satisfacer:
+Una operación $\E$ que sea candidato a canal cuántico debe transformar 
+operadores de densidad en operadores de densidad. Esto quiere decir que
+la imagen $\rho'$ del operador de densidad debe ser Hermítica, 
+de traza unitaria y positiva semidefinida. 
+Cada una de estas condiciones sobre $\rho'$ impone una condición 
+sobre el superoperador $\E$:
 \begin{align}
 \txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
@@ -470,44 +487,44 @@ que la operación $\E$ debe satisfacer:
     \label{eq:positivity-condition}
 \end{align}
 
-\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
 
 \janote{
 - Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
  de Choi es positiva semidefinida entonces la operación cuántica es CP
 }
 
-Como discutimos en la sección anterior, se requiere que $\E$ sea 
-completamente positiva además de ser un mapeo afín de operadores de 
-densidad. Para evaluar la completa positividad de $\E$ en su representación
-de superoperador se introduce la matriz de Choi $D_{\E}$ que se define como
+Según lo que discutimos en la sección anterior estas condiciones
+no son suficientes para que $\E$ sea un canal cuántico; adicionalmente 
+$\E$ debe ser CP. Para evaluar la completa positividad del superoperador $\E$ 
+vamos a definir la matriz de Choi $D_{\E}$ como 
 \cite{bengtsson_zyczkowski_2017}
 \begin{align}
-D_{\E}=\E^{R}
+D_{\E}=\E^{R}.
 \end{align}
-A continuación, el teorema de Choi \cite{bengtsson_zyczkowski_2017} 
-establece si $\E$ es CP según su matriz de Choi $D_{\E}$.
+La matriz de Choi de $\E$ es la matriz que resulta del \textit{reshuffle}
+de $\E$. Con la matriz de Choi $D_{\E}$ definida vamos a enunciar 
+el teorema de Choi \cite{bengtsson_zyczkowski_2017} que
+establece si $\E$ es CP evaluando la positividad semidefinida de $D_{\E}$.
 \begin{teorema}
 Una transformación lineal $\E$ es completamente positiva si y sólo si 
 su matriz de Choi asociada $D_{\E}$ es positiva semidefinida.
 \end{teorema}
-Este teorema nos proporciona de una herramienta útil para determinar
-si una transformación lineal es CP. El procedimiento es 
-directo dada la representación matricial del superoperador $\E$. Se 
-aplica el \textit{reshuffle} para encontrar la matriz de Choi $D_{\E}$
-y se evalúa si la matriz es positiva semidefinida. Si lo es, entonces
-$\E$ es CP. Si además $\E$ cumple con las condiciones establecidas de
-\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, entonces
-es un canal cuántico.
+Este teorema completa las herramientas para establecer el procedimiento 
+para evaluar si un superoperador $\E$ es un canal cuántico. 
+Dado que $\E$ cumple con las condiciones establecidas en
+\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, la positividad
+de la matriz de Choi $D_{\E}$ determina si la operación es un canal cuántico.
 
 \janote{
 - Concluir con un ejemplo de un canal nuestro sobre 1 qubit
 }
 
-Para concluir, repasemos el ejemplo de la operación $\E_z$ sobre 1 qubit
-ilustrada en la \Fref{fig:qtm-op-motivation}. La ecuación \eqref{eq:E(rho)}, 
-escribiendo a $\E_z$ en su representación de superoperador y $\rho$ en 
-\eqref{eq:DM-1q} como un vector
+Retomemos el ejemplo de la operación $\E_z$ sobre 1 qubit de la sección anterior
+que se ilustra en la \Fref{fig:qtm-op-motivation}. La ecuación \eqref{eq:E(rho)}
+de la transformación del operador de densidad por un canal cuántico, 
+considerando al superoperador $\E_z$ y a la matriz de densidad 
+$\rho$ de 1 qubit, en \eqref{eq:DM-1q}, como un vector según la ecuación 
+\eqref{eq:matrix-to-vector}, es 
 \begin{align}
 \mqty(
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
@@ -525,8 +542,8 @@ escribiendo a $\E_z$ en su representación de superoperador y $\rho$ en
 1\\r_x-ir_y\\r_x+ir_y\\1
 )
 \end{align}
-Al calcular la matriz de Choi $\E_z^{R}$, siguiendo el procedimiento
-en \eqref{eq:DM-1q}, se tiene
+Se calcula la matriz de Choi $\E_z^{R}$, siguiendo la ecuación
+\eqref{eq:DM-1q},
 \begin{align}
 \E_z^R=
 \mqty(
@@ -536,19 +553,18 @@ en \eqref{eq:DM-1q}, se tiene
 1 & 0 & 0 & \frac{1}{2} 
 ).
 \end{align}
-La matriz $\E_z^R$ tiene un autovalor $-1/2$, por lo cual $\E_z$ no es CP y,
-por consiguiente, tampoco un canal cuántico. Hemos llegado a la misma 
-conclusión que en la sección pasada, pero utilizando la representación 
+La matriz $\E_z^R$ tiene un autovalor $-1/2$, por ello $\E_z$ no es CP y,
+por consiguiente, no es un canal cuántico. Nótese que hemos llegado a la misma 
+conclusión de la sección pasada sobre la CP, pero utilizando la representación 
 de superoperador de $\E_z$.
 
 \janote{Otro ejemplo, pero ahora sí de un canal}
 
-Antes de acabar la sección será útil desarrollar un ejemplo más 
-de una operación sobre un sistema de 1 qubit que sí es CP. Este 
-ejemplo servirá para obtener familiaridad con la representación de 
+Para concluir la sección será útil desarrollar un ejemplo más 
+de una operación CP sobre un sistema de 1 qubit. Este 
+ejemplo servirá para proporcionar más familiaridad con la representación de 
 los superoperadores y para hacer la conexión con 
-la forma de Kraus de las operaciones CP, la otra representación de
-las operaciones cuánticas que discutiremos en este capítulo.
+la forma de Kraus de las operaciones CP en la siguiente sección.
 
 Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch de 
 un sistema de 1 qubit al eje $y$, como se muestra en la \Fref{fig:QC-ex2}.
@@ -569,7 +585,7 @@ un sistema de 1 qubit al eje $y$, como se muestra en la \Fref{fig:QC-ex2}.
     \label{fig:QC-ex2}
 \end{figure}
 La transformación de los estados de 1 qubit en la esfera de Bloch 
-representada en la \Fref{fig:QC-ex2} está descrita por la siguiente ecuación
+según la operación $\E_{xz}$ está descrita por la siguiente ecuación
 \begin{align}
 \mqty(
 \begin{array}{cccc}
@@ -590,20 +606,27 @@ representada en la \Fref{fig:QC-ex2} está descrita por la siguiente ecuación
 ),
 \label{eq:QC-ex2-SR}
 \end{align}
-donde la matriz es la representación como superoperador de $\E_{xz}$. 
-Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP, debemos 
-aplicar el procedimiento de \textit{reshuffle} y verificar si $\E_{xz}^R$
-es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$. Por tanto, 
-$\E_{xz}$ es CP y, porque además preserva la traza del operador
-de densidad de 1 qubit, es un canal cuántico.
+donde la matriz es el superoperador $\E_{xz}$. 
+Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP debemos 
+determinar $\E_{xz}^R$ y verificar si es
+es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$, por lo tanto, 
+$\E_{xz}$ es CP y, porque además satisface las condiciones
+\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, es un canal cuántico.
 
 En resumen, la representación en superoperador de una operación cuántica
-está basada en reordenar la matriz de densidad $\rho$ de un sistema como 
+se trata de reordenar la matriz de densidad $\rho$ como 
 un vector columna y considerar la transformación que actúa sobre el nuevo
-vector $\vec{\rho}$. Por otro lado, el procedimiento de \textit{reshuffle} 
-nos proporciona una manera de calcular la matriz de Choi de una operación $\E$,
-que junto con el teorema de Choi, determinan la correspondencia entre
-la positividad de la matriz de Choi y la completa positividad de $\E$. 
+vector $\vec{\rho}$. Si un operación $\E$ satisface las condiciones
+\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, entonces
+es un mapeo afín de matrices de densidad.
+Por otro lado, el procedimiento de \textit{reshuffle} 
+nos proporciona un procedimiento para calcular la matriz de Choi de una 
+operación $\E$. Seguidamente, el teorema de Choi establece que si 
+la matriz de Choi es positiva semidefinida, entonces $\E$ es CP. 
+De esta manera, hemos establecido las herramientas para evaluar 
+si una operación en su forma de superoperador es un canal cuántico.
+En la siguiente sección discutiremos otra forma de representar a las operaciones
+cuánticas.
 
 \section{Forma de Kraus}
 - Enunciar la representación en operadores de suma partiendo de un 
@@ -613,35 +636,68 @@ con la sección anterior. \cpnote{No sabes si hay alguna motivacion que no sea
 con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
 \janote{De acuerdo. Voy a omitir la motivación con el entorno.}
 
+\janote{Intro:}
+Las operaciones cuánticas tienen otra representación distinta a la de 
+los superoperadores que se conoce como la forma de Kraus. La diferencia
+principal entre ambas representaciones es que la forma de los superoperadores
+considera operadores que actúan sobre el espacio de los operadores lineales, y
+la forma de Kraus considera operadores que actúan sobre el espacio de 
+Hilbert del sistema. Vamos a iniciar retomando el segundo ejemplo de la sección 
+anterior en el cual se consideró la operación $\E_{xz}$, representada
+en la \ref{}, para presentar la forma de Kraus de ese canal cuántico y 
+al mismo tiempo hacer la conexión entre la representación de superoperadores
+y de la forma de Kraus. Para concluir vamos a exponer las condiciones 
+de la forma de Kraus para representar a un canal cuántico.
+
 \janote{
 - Invocar el ejemplo del canal de la sección anterior, pero en su 
 representación de operadores de suma. Aquí quiero hacer la conexión 
 entre esta y la sección anterior mostrando que los operadores 
 de Kraus son los autovectores de la matriz de Choi.}
 
-Retomemos el ejemplo del canal cuántico $\E_{xz}$ que aparece en 
-\eqref{eq:QC-ex2-SR}. Calculamos los autovectores de la matriz de 
-Choi del canal, es decir $\E_{xz}^R$. Recordemos que $\E_{xz}^R=\E_{xz}$.
-Los autovalores son $\lambda_{1,2,3,4}=1,1,0,0$ y sus respectivos 
-autovectores son
+Regresemos al segundo ejemplo del canal cuántico $\E_{xz}$ que consideramos 
+en la seccción anterior. El canal $\E_{xz}$ deforma la esfera de Bloch
+a una línea sobre el eje $y$, como se muestra en la \Fref{}. 
+Recordemos que la matriz en \eqref{eq:QC-ex2-SR} es el canal cuántico
+y a la vez su matriz de Choi ($\E_{xz}^R=\E_{xz}$). 
+Consideremos los autovectores $\ket{E_{1,2,3,4}}$ de la matriz de Choi
 \begin{align}
 \ket{E_{1,2,3,4}}=
 \mqty(\frac{1}{2},0,0,\frac{1}{2})^T,
 \mqty(0,-\frac{1}{2},\frac{1}{2},0)^T,
 \mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
-\mqty(0,\frac{1}{2},\frac{1}{2},0)^T.
+\mqty(0,\frac{1}{2},\frac{1}{2},0)^T;
 \end{align}
-Tomemos $\ket{E_1}$ y $\ket{E_2}$, que son los únicos autovectores
-con autovalores distintos de cero, reordenemos los vectores 
-en las matrices $E_1$ y $E_2$ de dimensión $2\times2$ 
-y hagamos la siguiente operación sobre la matriz de densidad 
-de 1 qubit de la forma \eqref{eq:DM-1q}
+cuyos autovalores son $\lambda_{1,2,3,4}=1,1,0,0$, respectivamente.
+Tomemos a $\ket{E_1}$ y $\ket{E_2}$, los únicos autovectores
+con autovalores distintos de cero, y los reordenamos en 
+las matrices $E_1$ y $E_2$, de dimensión $2\times2$, siguiendo 
+el procedimiento inverso de \eqref{eq:matrix-to-vector}
 \begin{align}
-\sum_{i=1}^2E_i\rho E_i^{\dagger}=&
+E_1&=
 \mqty(
 \frac{1}{2} & 0\\
 0 & \frac{1}{2}
-)´
+)
+&
+E_2&=
+\mqty(
+0 & -\frac{1}{2}\\
+\frac{1}{2} & 0
+).
+\end{align}
+Ahora hagamos la siguiente operación
+\begin{align}
+\sum_{i=1}^2E_i\rho E_i^{\dagger}=\rho',
+\label{eq:almost-Kraus}
+\end{align}
+con $\rho$ la matriz de densidad de 1 qubit en \eqref{eq:DM-1q}, entonces
+\begin{align}
+\rho'=&
+\mqty(
+\frac{1}{2} & 0\\
+0 & \frac{1}{2}
+)
 \mqty(
 \frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
 \frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
@@ -649,7 +705,7 @@ de 1 qubit de la forma \eqref{eq:DM-1q}
 \mqty(
 \frac{1}{2} & 0\\
 0 & \frac{1}{2}
-)^{\dagger}
+)
 +
 \mqty(
 0 & -\frac{1}{2}\\
@@ -660,47 +716,59 @@ de 1 qubit de la forma \eqref{eq:DM-1q}
 \frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
 )
 \mqty(
-0 & -\frac{1}{2}\\
-\frac{1}{2} & 0
-)^{\dagger}&
+0 & \frac{1}{2}\\
+-\frac{1}{2} & 0
+)&
 \nonumber\\
-=&
+\rho'=&
 \frac{1}{2}´
 \mqty(
 1 & -ir_y\\
 ir_y & 1
-)
+).
 \label{eq:QC-ex2-KR}
 \end{align}
-Esta es conocida como la forma de \textit{Kraus} de los mapeos CP.
-Los operadores $E_i$ se conocen como los operadores de \textit{Kraus}, 
-que no nos olvidemos son los autovectores de la matriz de Choi. En general,
+Este resultado es el mismo que obtuvimos en la ecuación \eqref{eq:QC-ex2-SR},
+pero llegamos a él considerando los operadores $E_1$ y $E_2$ que actúan
+sobre el espacio de Hilbert de un sistema de 1 qubit.
+La ecuación \eqref{eq:almost-Kraus} se conoce 
+como la forma de \textit{Kraus} de los mapeos CP.
+Los autovectores de la matriz de Choi reordenados como matrices son los 
+operadores de Kraus. En general,
 se dice que un mapeo es completamente positivo si y sólo si es de la forma
 \cite{bengtsson_zyczkowski_2017}
 \begin{align}
 \rho \rightarrow \rho'=\sum_iE_i\rho E_i^{\dagger},
 \label{eq:kraus-def}
 \end{align}
-donde los operadores de Kraus pueden ser hasta $N^2$ 
-\cite{nielsen_chuang_2011}, la dimensión 
+donde los operadores de Kraus linealmente independientes 
+pueden ser hasta $N^2$ \cite{nielsen_chuang_2011}, igual a la dimensión 
 del espacio de los operadores lineales que actúan sobre el espacio de
-Hilbert del sistema de dimensión $N$. Se dice que la operación cuántica
-$\E$ preserva la traza (operación CPTP) si y sólo los operadores de Kraus 
-satisfacen la condición \cite{bengtsson_zyczkowski_2017}
+Hilbert de un sistema de dimensión $N$. Se dice que una operación cuántica
+$\E$ de la forma \eqref{eq:kraus-def} preserva la traza (operación CPTP) 
+si y sólo los operadores de Kraus satisfacen la condición 
+\cite{bengtsson_zyczkowski_2017}
 \begin{align}
 \sum_iE_i^{\dagger}E_i=\1.
 \label{eq:kraus-tp-cond}
 \end{align}
 En resumen, las ecuaciones \eqref{eq:kraus-def} y \eqref{eq:kraus-tp-cond}
-nos dan las condiciones que debe satisfacer las operaciones CPTP en la 
+establecen las condiciones que deben satisfacer las operaciones CPTP en la 
 forma de Kraus. 
 
 \janote{
 - Comparar la representacion de suma de operadores y superoperadores}
 
-Las ecuaciones \eqref{eq:QC-ex2-SR} y \eqref{eq:QC-ex2-KR} representan
-en dos formas distintas la acción del mismo canal cuántico  
-sobre el estado de un sistema de 1 qubit.
+%Las ecuaciones \eqref{eq:QC-ex2-SR} y \eqref{eq:QC-ex2-KR} representan
+%en dos formas distintas la acción del mismo canal cuántico  
+%sobre el estado de un sistema de 1 qubit.
+Hasta ahora hemos mostrado dos formas distintas de representar una 
+operación cuántica, la representación de superoperadores y de la forma 
+de Kraus. Ambas representaciones equivalentes. Una operación 
+cuántica puede representarse de cualquiera de las dos formas. Dependiendo
+el enfoque de un problema se hace más conveniente una representación 
+o la otra. Más adelante veremos que para el objetivo de este proyecto
+la representación de superoperadores será más útil. 
 
 \janote{No me parece necesario entrar en detalle con la forma de Kraus.
 Quizás las demostraciones y más detalle se pueden guardar para la tesis.
