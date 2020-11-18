@@ -10,16 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11433,        270]
-NotebookOptionsPosition[     10535,        245]
-NotebookOutlinePosition[     11125,        265]
-CellTagsIndexPosition[     11082,        262]
+NotebookDataLength[      9234,        220]
+NotebookOptionsPosition[      8465,        198]
+NotebookOutlinePosition[      9056,        218]
+CellTagsIndexPosition[      9013,        215]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"Manipulate", "[", 
   RowBox[{
@@ -114,49 +112,6 @@ Cell[BoxData[
    3.8145737959930563`*^9}},
  CellLabel->"In[1]:=",ExpressionUUID->"11a733fd-2c79-4dd9-a92d-4e3bcf8b3152"],
 
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`p$$ = 0, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`p$$], 0, 1}}, Typeset`size$$ = {360., {178., 182.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`p$$ = 0}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Graphics3D[{
-         Scale[{
-           Sphere[]}, {1 - 2 $CellContext`p$$, 1, 1 - 2 $CellContext`p$$}, {0,
-           0, 0}]}, AxesOrigin -> {0, 0, 0}, AxesStyle -> Thick, Ticks -> 
-        None, Boxed -> False, Axes -> True, 
-        AxesLabel -> {$CellContext`x, $CellContext`y, $CellContext`z}, 
-        LabelStyle -> Directive[Bold, Large, Black], 
-        PlotRange -> {{-1, 1}, {-1, 1}, {-1, 1}}, AxesStyle -> Large], 
-      "Specifications" :> {{$CellContext`p$$, 0, 1}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{407., {222., 228.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.814564223512265*^9, 3.814564253125263*^9}, 
-   3.814573797921678*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"a6afccdd-aaac-4e28-b0cd-474b3f4537dc"]
-}, Open  ]],
-
 Cell[CellGroupData[{
 
 Cell[BoxData[
@@ -166,11 +121,7 @@ Cell[BoxData[
     RowBox[{"Ellipsoid", "[", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"0", ",", "0", ",", 
-        RowBox[{"\[Gamma]", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"2", "p"}], "-", "1"}], ")"}]}]}], "}"}], ",", 
+       RowBox[{"0", ",", "0", ",", "\[Gamma]"}], "}"}], ",", 
       RowBox[{"{", 
        RowBox[{
         SqrtBox[
@@ -213,8 +164,9 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"p", "\[Rule]", "0.9"}], ",", 
     RowBox[{"\[Gamma]", "\[Rule]", "0.8"}]}], "}"}]}]], "Input",
- CellChangeTimes->{{3.814573837588644*^9, 3.814573945650975*^9}},
- CellLabel->"In[10]:=",ExpressionUUID->"efb5b8e8-8551-4246-8a39-403c8f953026"],
+ CellChangeTimes->{{3.814573837588644*^9, 3.814573945650975*^9}, {
+  3.814649419815958*^9, 3.8146494379132433`*^9}},
+ CellLabel->"In[45]:=",ExpressionUUID->"efb5b8e8-8551-4246-8a39-403c8f953026"],
 
 Cell[BoxData[
  Graphics3DBox[
@@ -222,9 +174,9 @@ Cell[BoxData[
    GeometricTransformation3DBox[
     SphereBox[{0, 0, 
      0}], {{{0.44721359549995787`, 0, 0}, {0, 0.44721359549995787`, 0}, {
-      0, 0, 0.19999999999999996`}}, {0, 0, 0.6400000000000001}}],
-   Ellipsoid[{0, 0, 0.6400000000000001}, {0.44721359549995787`, 
-    0.44721359549995787`, 0.19999999999999996`}]],
+      0, 0, 0.19999999999999996`}}, {0, 0, 0.8}}],
+   Ellipsoid[{0, 0, 0.8}, {0.44721359549995787`, 0.44721359549995787`, 
+    0.19999999999999996`}]],
   Axes->True,
   AxesLabel->{
     FormBox["x", TraditionalForm], 
@@ -239,12 +191,13 @@ Cell[BoxData[
   Ticks->None,
   ViewPoint->{1.3, -2.4, 2.},
   ViewVertical->{0., 0., 1.}]], "Output",
- CellChangeTimes->{{3.8145739317210083`*^9, 3.814573945926929*^9}},
- CellLabel->"Out[10]=",ExpressionUUID->"867af7fe-5d0f-4087-b3fc-4288d96335f2"]
+ CellChangeTimes->{{3.8145739317210083`*^9, 3.814573945926929*^9}, {
+  3.814649421949067*^9, 3.8146494381872187`*^9}},
+ CellLabel->"Out[45]=",ExpressionUUID->"4d3d704f-74c4-4fe4-abba-47a6613193bb"]
 }, Open  ]]
 },
 WindowSize->{970, 951},
-WindowMargins->{{123, Automatic}, {0, Automatic}},
+WindowMargins->{{213, Automatic}, {36, Automatic}},
 TaggingRules->{
  "PresenterSettings" -> {"Dialogs" -> {}}, 
   "SlideshowSettings" -> {"Toolbar" -> True}, "TryRealOnly" -> False},
@@ -264,13 +217,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 4973, 92, 251, "Input",ExpressionUUID->"11a733fd-2c79-4dd9-a92d-4e3bcf8b3152"],
 Cell[CellGroupData[{
-Cell[580, 22, 4973, 92, 251, "Input",ExpressionUUID->"11a733fd-2c79-4dd9-a92d-4e3bcf8b3152"],
-Cell[5556, 116, 1993, 40, 469, "Output",ExpressionUUID->"a6afccdd-aaac-4e28-b0cd-474b3f4537dc"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[7586, 161, 2027, 55, 247, "Input",ExpressionUUID->"efb5b8e8-8551-4246-8a39-403c8f953026"],
-Cell[9616, 218, 903, 24, 408, "Output",ExpressionUUID->"867af7fe-5d0f-4087-b3fc-4288d96335f2"]
+Cell[5556, 116, 1966, 52, 247, "Input",ExpressionUUID->"efb5b8e8-8551-4246-8a39-403c8f953026"],
+Cell[7525, 170, 924, 25, 408, "Output",ExpressionUUID->"4d3d704f-74c4-4fe4-abba-47a6613193bb"]
 }, Open  ]]
 }
 ]

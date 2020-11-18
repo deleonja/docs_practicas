@@ -1,194 +1,17 @@
 \chapter{Operaciones cuánticas} % {{{
-%Adoptando la descripción de estados cuánticos en términos de la matriz de 
-%densidad $\rho$ podemos describir la dinámica de ellos como
-%\begin{align*}
-%	\rho '=\mathcal{E} (\rho).
-%\end{align*}
-%El mapeo $\mathcal{E}$ define a una operación cuántica. Esta es la 
-%representación matemática de la evolución dinámica que ocurre como
-%resultado de un proceso físico, $\rho$ es el estado inicial del 
-%sistema y $\mathcal{E}(\rho)$ el estado final.
-%
-%Una manera natural de describir la dinámica de un sistema cuántico
-%abierto es considerarlo que resulta de la interacción del sistema
-%de interés, el sistema principal, y un entorno, que juntos forman
-%un sistema cuántico cerrado. En general, el estado final 
-%del sistema $\E (\rho)$ no está relacionado al estado inicial
-%mediante una transformación unitaria. Vamos a asumir que
-%el estado del sistema completo se encuentra en un estado
-%producto, $\rho \otimes \sigma$, donde $\sigma$ es el 
-%estado en el que se encuentra el entorno. Luego de la
-%transformación $U$ el sistema ya no interactúa con el 
-%entorno y por ello realizamos una operación de traza parcial sobre 
-%el entorno para obtener el estado reducido del sistema principal:
-%\begin{align}
-%	\E (\rho) = \Tr _{env}\qty[U \qty(\rho \otimes \sigma)U^{\dagger}].
-%	\label{eq:PTraceE(rho)}
-%\end{align}
-%Esta definición de operación cuántica puede tener problemas
-%de generalidad dado que se hizo la suposición de que el 
-%estado inicial del sistema total era un estado producto. En 
-%general este no es el caso, sin embargo el formalismo de las 
-%operaciones cuánticas describe también la dinámica cuántica
-%de sistemas que no se encuentran inicialmente en un estado
-%producto.
-%
-%Una definición más apropiada de las operaciones cuánticas es
-%definirlo como la clase de mapeos que surgen como resultado de
-%los siguientes procesos: algún sistema inicial se prepara en un
-%estado cuántico desconocido $\rho$ y luego se pone en contacto
-%con otros estados preparados en estados estándar, permitiendo 
-%la interacción mediante alguna evolución unitaria y luego
-%se desecha alguna parte del sistema total, dejando así 
-%sólo al sistema final en algún estado $\rho'$. En conclusión, 
-%una operación cuántica $\E$ es un mapeo de $\rho$ a $\rho'$.
-%
-%\section{Representación de suma de operadores}
-%Las operaciones cuánticas se pueden representar de una manera
-%conocida como la representación de operadores de suma. Esta
-%representación es reescribir la ecuación \eqref{eq:PTraceE(rho)}
-%en término de operadores que actúan sobre el sistema de Hilbert
-%principal. EL resultado está motivado por el siguiente cálculo. 
-%Supongamos que $\ket{e_k}$ es una base ortonormal para el
-%espacio de estados del entorno y sea $\sigma = \dyad{e_0}{e_0}$
-%el estado inicial del entorno. No hay perdida de generalidad si 
-%asumimos que el entorno comienza en un estado producto. De 
-%esta manera, la ecuación \eqref{eq:PTraceE(rho)} se convierte en
-%\begin{align*}
-%	\E (\rho) &= \sum _k \bra{e_k}U\qty[\rho \otimes \dyad{e_0}{e_0}]U^{\dagger}
-%	\ket{e_0} \\
-%						&= \sum _k E_k\rho E_k^{\dagger},
-%\end{align*}
-%donde $E_k\equiv \matrixel{e_k}{U}{e_k}$ es un operador que actúa
-%sobre el espacio de estados del sistema principal. Los operadores
-%$E_k$ se conocen como elementos de operación para la operación 
-%cuántica $\E$. 
-%
-%\begin{align*}
-%	1 &= \Tr \qty(\Erho) \\
-%		&= \Tr \qty(\sum _k E_k\rho E_k^{\dagger}) \\
-%		&= \Tr \qty(\sum _k E_k^{\dagger}E_k \rho),
-%\end{align*}
-%esto se debe cumplir para cualquier $\rho$, entonces 
-%\begin{align}
-%	\sum _k E_k^{\dagger}E_k = \mathbb{1}.
-%\end{align}
-%Esta ecuación la satisfacen las operaciones cuánticas que preservan
-%la traza. No obstante, también existen operaciones cuánticas que 
-%no preservan la traza, las cuales $\sum _kE_k^{\dagger}E_k\leq \mathbb{1}$,
-%pero describen procesos en los que información extra sobre lo que ocurrió
-%en el proceso se obtiene por medición. 
-%
-%La representación en operadores de suma es importante porque ofrece
-%una manera intrínseca de caracterizar la dinámica del sistema principal. 
-%Este formalismo describe la dinámica del sistema principal sin hacerse
-%necesario considerar de manera explícita las propiedades del entorno. 
-%Esto provee de implicaciones teóricas considerables. 
-%
-%\subsection{Enfoque axiomático}
-%Ahora vamos a adoptar una ruta distinta para las operaciones cuánticas
-%en la que vamos a intentar enunciar axiomas motivados físicamente que
-%esperamos que cumplan las operaciones cuánticas. Esta ruta es por supuesto
-%más abstracta que la anterior, pero es esta misma abstracción lo que hace
-%este enfoque muy poderoso.
-%
-%Para proceder con este enfoque vamos a definir a las operaciones 
-%cuánticas de acuerdo con un conjunto de axiomas justificados en
-%bases físicas. Luego, vamos a probar que un mapeo $\E$ satisface
-%estos axiomas si y sólo si tiene una representación de operadores
-%de suma. De esta manera se provee del puente teórico entre 
-%la formulación axiomática y la formulación motivada físicamente.
-%
-%Vamos definir una operación cuántica $\E$ como un mapeo del conjunto
-%de los operadores de densidad del espacio de entrada $Q_1$ al 
-%conjunto de los operadores de densidad del espacio de salida $Q_2$,
-%con las siguientes tres propiedades axiomáticas:
-%\begin{description}
-%	\item[A1] \label{axiom1}
-%	$\Tr \qty[\E (\rho)]$ es la probabilidad de que un proceso
-%	representado por $\E$ suceda, cuando $\rho$ es el estado inicial. 
-%	De esa manera, $0\leq \Tr \qty[\E (\rho)]\leq 1$ para cualquier
-%	estado $\rho$.
-%	\item[A2] $\E$ es un mapeo lineal convexo sobre el conjunto de las 
-%	matrices de densidad. Es decir que, para un conjunto
-%	de probabilidades $\{ p_i\}$,
-%	\begin{align}
-%		\E \qty(\sum _i p_i\rho_i) = \sum _i p_i \E \qty(\rho_i).
-%		\label{eq:qtmOp-a2}
-%	\end{align}
-%	\item[A3] $\E$ es un mapeo completamente positivo. Es decir, si $\E$ 
-%	mapea operadores de densidad del sistema $Q_1$ en operadores de
-%	densidad del sistema $Q_2$, entonces $\E (A)$ debe de ser positivo
-%	para cualquier operador $A$. Además, si se introduce un sistema
-%	extra $R$ de dimensión arbitraria, debe ser cierto que $\qty(
-%	\mathbb{1}\otimes \E)(A)$ es un operador positivo para cualquier
-%	operador $A$ sobre el sistema combinado $RQ_1$, donde $\mathbb{1}$
-%	denota el mapeo de la identidad sobre el sistema $R$.
-%\end{description}
-%
-%Una operación cuántica física es aquella que satisface el 
-%requisito de que las probabilidades nunca suman más de 1,
-%$\Tr \qty[\E (\rho)]\leq 1$.
-%
-%La segunda propiedad proviene de un requisito físico sobre las
-%operaciones cuánticas. Supongamos que la entrada $\rho$ de la 
-%operación cuántica se obtiene aleatoriamente seleccionando un 
-%estado del ensamble $\qty{ p_i,\rho_i}$ de estados cuánticos, 
-%es decir que $\rho = \sum_i p_i\rho_i$. Entonces se espera que
-%el estado resultante, $\E (\rho)/\Tr \qty[\E (\rho)] =
-%\E (\rho)/p\qty(\E)$ corresponda a una selección aleatoria del
-%ensamble $\qty{p\qty(i\vert\E), \E (\rho)/\Tr \qty[\E (\rho)]}$,
-%donde $p\qty(i\vert\E)$ es la probabilidad de que el estado
-%preparado fuese $\rho_i$, dado que el proceso representado por
-%$\E$ ocurrió. De esa manera, se debe querir que
-%\begin{align}
-%	\E (\rho) = p\qty(\E)\sum _i p\qty(i\vert \E)\frac{\E (\rho)}
-%	{\Tr \qty[\E (\rho)]},
-%	\label{eq:e(rho)-bayes}
-%\end{align}
-%donde $p\qty(\E)=\Tr \qty[\E (\rho)]$ is la probabilidad de que 
-%el proceso descrito por $\E$ suceda en alguna entrada de $\rho$.
-%Por la regla de Bayes,
-%\begin{align}
-%	p\qty(i\vert \E)=p\qty(\E \vert i) \frac{p_i}{p\qty(\E)}
-%	=\frac{\Tr \qty[\E (\rho)]p_i}{p\qty(\E)},
-%\end{align}
-%de manera que \eqref{eq:e(rho)-bayes} se reduce a \eqref{eq:qtmOp-a2}.
-%
-%La tercera propiedad se origina de que no sólo $\E (\rho)$ debe ser
-%una matriz de densidad válida tanto cuánto $\rho$ sea válida, pero 
-%además, si $\rho _{RQ}$ es la matriz de densidad de un sistema 
-%de dos partes $R$ y $Q$, si $\E$ actúa sólamente sobre $Q$, 
-%entonces $\E(\rho_{RQ})$ debe ser también una matriz de densidad 
-%válida del sistema completo. Supongamos que introducimos un sistema 
-%$R$ finito dimensional. Sea $\mathbb{1}$ el mapeo identidad sobre
-%el sistema $R$. Entonces el mapeo $\mathbb{1}\otimes \E$ debe
-%enviar operadores positivos hacia operadores positivos.
-%
-%El siguiente teorema establece la equivalencia entre este enfoque 
-%axiomático y los modelos de sistema-entorno y la representación
-%de operadores de suma con el que se comenzó
-%la discusión de las operaciones cuánticas:
-%\begin{teorema}
-%	El mapeo $\E$ satisface los axiomas \textbf{A1}, \textbf{A2} y 
-%	\textbf{A3} si y sólo si
-%	\begin{align}
-%		\E(\rho) = \sum _i E_i\rho E_i^{\dagger},
-%	\end{align}
-%	para algún conjunto de operadores $\qty{E_i}$ que mapean el espacio
-%	de Hilbert de entrada hacia el espacio de Hilbert de salida, y
-%	$\sum _kE_k^{\dagger}E_k\leq \mathbb{1}$.
-%\end{teorema}
-
+\janote{
 - Introducción hablando de que las operaciones cuánticas sirven 
 para describir la dinámica de los sistemas abiertos y una guía al 
 lector de qué se viene en este cap. Enfatizar en que el truco es 
-considerar como 'nuevo sistema cerrado' al sistema extendido
+considerar como 'nuevo sistema cerrado' al sistema extendido}
 \cpnote{No entiendo esa frase}
 \janote{Me refiero a que un sistema que interactúa con su entorno es abierto, 
 pero si consideramos al sistema total (principal+entorno) ese es cerrado.
 \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
 mejor lo voy a quitar}}
+
+
+
 \section{Mapeos completamente positivos}
 %\janote{
 %Introducir la transformación de la matriz de densidad $\rho$ y hablar
@@ -203,7 +26,7 @@ mejor lo voy a quitar}}
 La completa positividad es una condición que deben satisfacer las operaciones
 cuánticas para representar una evolución física 
 \cite{bengtsson_zyczkowski_2017}. Esta condición es
-intrínseca de la dinámica de los sistemas cuánticos abiertos, dada la 
+intrínseca de la dinámica de los sistemas cuánticos abiertos debido a la 
 posibilidad de un sistema cuántico a interaccionar con su entorno. A
 continuación, vamos a presentar un ejemplo que justificará la condición
 de completa positividad de las operaciones cuánticas y, seguidamente,
@@ -229,44 +52,54 @@ una descripción discreta del cambio dinámico que un estado cuántico
 atraviesa durante un proceso físico. Una operación cuántica $\E$ es
 una transformación lineal que mapea matrices de densidad en matrices 
 de densidad \cite{bengtsson_zyczkowski_2017}. Surge entonces la siguiente
-pregunta, ¿ser un mapeo afín es
-suficiente para asegurar que $\E$ representa una operación física? \ccnote{¿qué es un mapeo afín?}
-A continuación veremos que no.  Para que $\E$ sea una operación física 
-debe ser un mapeo afín de operadores de densidad 
-y satisfacer la condición de completa positividad. Esta condición
-adicional surge como consecuencia del acoplo que el sistema de estudio
-pueda tener con un entorno del cual podríamos o no tener acceso a sus
-grados de libertad.
+pregunta, ¿ser un mapeo afín de matrices de densidad es
+suficiente para asegurar que $\E$ representa una operación física? 
+%\ccnote{¿qué es un mapeo afín?}
+La respuesta es que no, y el resto de esta sección está dedicada
+explicar porqué y motivar la definición de completa positividad.  
+Para que $\E$ sea una evolución física la operación debe cumplir con dos
+condiciones, ser un mapeo afín de operadores de densidad 
+y satisfacer la condición de completa positividad. La segunda condición
+surge como consecuencia de la interacción de un sistema 
+con su entorno, entorno que consideraremos inaccesible durante
+el resto del capítulo.
 
 
-Veamos a continuación un ejemplo de una operación que actúa sobre 
-un sistema de 1 qubit; y luego, al considerar la misma operación, pero en 
-el espacio extendido de 2 qubits, sobre
-el estado máximamente entrelazado, 
-el resultado de la operación será algo que no es un estado cuántico. \ccnote{Aquí hay muchas comas, podés reescribir para que la frase esté más clara}
-De esta manera, quedará clara la razón para exigir la condición de 
-completa positividad para que una operación cuántica 
-represente a un proceso físico.
-Consideremos un 1 qubit, un sistema cuántico
-de dos niveles, cuya matriz de densidad se puede representar como
-\cite{nielsen_chuang_2011}
+Vamos a considerar una operación sobre el estado de un sistema de 
+1 qubit. Seguidamente, al considerar la extensión de la misma operación
+sobre el estado máximamente entrelazado de un sistema de 2 qubits 
+veremos que el estado resultante no es un estado físico
+De esa manera, se justificará la condición de completa positividad 
+de una operación cuántica para representar un proceso físico.
+
+La matriz de densidad de 1 qubit se puede escribir convenientemente
+como \cite{nielsen_chuang_2011}
 \begin{align}
 \rho=\frac{\1+\vec{r}\cdot\vec{\sigma}}{2},
 \label{eq:DM-1q}
 \end{align}
 donde $\vec{\sigma}$ es un vector con las matrices de Pauli 
 en sus entradas y $\vec{r}$
-el vector de Bloch ($\abs{\vec{r}}\leq1$). Esta representación
-de la matriz de densidad nos permite asociar a cada punto en la 
-esfera unitaria con un estado de 1 qubit, como se muestra en la parte
-izquierda de \Fref{fig:qtm-op-motivation}. Los estados puros se corresponden
+el vector de Bloch ($\abs{\vec{r}}\leq1$), vector que determina
+un punto en una esfera unitaria conocida como la esfera de Bloch. 
+Esta representación de la matriz de densidad de 1 qubit 
+permite asociar a cada punto en la 
+esfera de Bloch con un estado del sistema. En la parte
+izquierda de la \Fref{fig:qtm-op-motivation} se muestra la esfera de Bloch
+con algunos estados de 1 qubit; los estados puros se corresponden
 con puntos en la superficie de la esfera y los estados mixtos 
 con puntos en el interior, incluyendo al origen.
+
 Ahora consideremos la operación $\E_z$ que deforma la bola de Bloch a un 
-disco sobre el plano XY, como se muestra en la \Fref{fig:qtm-op-motivation}. 
+disco sobre el plano $xy$, como se muestra en la \Fref{fig:qtm-op-motivation}. 
 La acción de la operación $\E_z$ sobre una matriz de densidad
-de la forma \eqref{eq:DM-1q} es transformar al vector de Bloch $\vec{r}$
-como $\qty(r_1,r_2,r_3)\mapsto\qty(r_1,r_2,0)$.
+de la forma \eqref{eq:DM-1q} es equivalente a 
+transformar al vector de Bloch $\vec{r}$ como 
+\begin{align}
+\qty(r_1,r_2,r_3)\mapsto\qty(r_1,r_2,0),
+\label{eq:notCP}
+\end{align}
+donde los subíndices $1,2,3$ se utilizan para etiquetar a $x,y,z$.
 \begin{figure}[H]
 \centering
 \begin{minipage}{.4\textwidth}
@@ -295,32 +128,49 @@ un sistema de 2 qubits es \cite{bengtsson_zyczkowski_2017}
 ).
 \label{eq:DM-2q-MaxE}
 \end{align}
-Siguiendo la representación de la matriz de densidad de 1 qubit,
-la matriz de densidad de 2 qubits se puede escribir como
+De manera similar a \eqref{eq:DM-1q}, la matriz de densidad 
+de 2 qubits se puede escribir como
 \begin{align}
 \rho&=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \label{eq:DM-2q}
 \end{align}
-donde $\sigma_0=\1$ y $\vec{r}$ es un vector de 16 entradas que contiene
-la información física local de cada qubit y las correlaciones del sistema.
-%\janote{por qué se iguala?}
-Se igualan \eqref{eq:DM-2q-MaxE} y \eqref{eq:DM-2q} para encontrar
-el estado máximamente entrelazado en la representación de \eqref{eq:DM-2q}. 
-Se obtiene que $r_{00}=r_{11}=r_{33}=1$, $r_{22}=-1$, y el resto de 
-componentes en $\vec{r}$ son iguales a cero. 
+donde $\sigma_0=\1$ y $r$ es una matriz de $4\times4$ que contiene
+la información física del sistema. Para encontrar $\rho^{\phi}$ en la
+representación de \eqref{eq:DM-2q} se igualan 
+\eqref{eq:DM-2q-MaxE} y \eqref{eq:DM-2q} y se resuelve
+el sistema de ecuaciones para las componentes $r_{ij}$. De esa manera
+se obtiene que $r_{00}=r_{11}=r_{33}=1$, $r_{22}=-1$, y el resto de 
+entradas de $r$ son iguales a cero. 
 
-Ahora consideremos la operación $\E_z\otimes\1$ que borra
-la componente en $z$ del primer qubit y deja invariante 
-al segundo qubit. La acción de esta operación es equivalente 
-a transformar el vector $\vec{r}$ de $\rho^{\phi}$, en la representación
-de \eqref{eq:DM-2q}, como
+Con $\rho^{\phi}$ en la representación de \eqref{eq:DM-2q} ahora
+podemos estudiar la operación $\E_z\otimes\1$, la extensión 
+de la operación $\E_z$ que actúa sobre los estados de 2 qubits. 
+La operación $\E_z\otimes\1$ borra la componente en $z$ del 
+qubit 1 y deja invariante el estado individual del qubit 2, 
+es de decir que borra todos los elementos de la forma $r_{3j}$.
+Por lo tanto, la matriz $r$ de $\rho^{\phi}$ bajo la acción de la 
+operación $\E_z\otimes\1$ se transforma como
 \begin{align}
-\qty(1,0,0,0,0,1,0,0,0,0,-1,0,0,0,0,1)
+r=
+\mqty(
+1&0&0&0\\
+0&1&0&0\\
+0&0&-1&0\\
+0&0&0&1
+)
 \longmapsto
-\qty(1,0,0,0,0,1,0,0,0,0,-1,0,0,0,0,0).
+\mqty(
+1&0&0&0\\
+0&1&0&0\\
+0&0&-1&0\\
+0&0&0&0
+)
+=r'.
 \end{align}
-Por consiguiente, la matriz de densidad $\rho^{\phi}$ se transforma 
-ante la operación $\E_z\otimes\1$ como
+Con $r'$ determinado se calcula $\E_z\otimes\1\qty(\rho^{\phi})$ 
+utilizando \eqref{eq:DM-2q} y se obtiene que el estado 
+máximamente entrelazado $\rho^{\phi}$, bajo la acción de la
+operación $\E_z\otimes\1$, se transforma como
 \begin{align}
 \mqty( 
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
@@ -337,75 +187,79 @@ ante la operación $\E_z\otimes\1$ como
 \frac{1}{2} & 0 & 0 & \frac{1}{4} \\
 ).
 \end{align}
-La matriz $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un autovalor igual a $-1/4$.
+La matriz resultante $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un 
+autovalor igual a $-1/4$.
 Por consiguiente, $\E_z\otimes\1\qty(\rho^{\phi})$ no es una matriz 
-de densidad. \ccnote{¿qué tiene que ver el autovalor con que no sea matriz de densidad?} Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
-no describe a algún estado físico de un sistema de 2 qubits.
-En resumen, hemos probado que la operación $\E_z$ que deforma la bola 
-de Bloch a un disco sobre el plano $XY$, cuando se considera su 
-extensión sobre el espacio de 2 qubits $\E_z\otimes\1$ y se aplica al
-estado máximamente entrelazado da como resultado un estado no físico. 
-En consecuencia, $\E_z$ no representa ninguna evolución física. Este 
-resultado deja en evidencia que una operación cuántica debe ser 
-un mapeo afín de estados cuánticos, de un sistema que se compone del
-sistema principal y otro secundario, sin importar la dimensión del
-espacio secundario.
+de densidad porque no es positiva.  
+Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
+no describe a ningún estado físico de un sistema de 2 qubits.
+En resumen, la operación $\E_z$ aunque transforma estados positivos
+en estados positivos de 1 qubit, al considerar la extensión $\E_z\otimes\1$
+aplicado sobre un estado particular de 2 qubits el resultado es un 
+estado no válido. Por consiguiente, cualquier operación cuántica 
+debe transformar estados positivos en estados positivos,
+aún cuando el sistema principal interactúe con un sistema secundario,
+sin importar la dimensión de este. El sistema secundario podría ser
+el entorno, y es necesario que la condición de positividad de los estados
+sea independiente de la dimensión del sistema secundario ya que 
+en el laboratorio los grados de libertad del entorno son usualmente inaccesibles.
 
 %\janote{- Definición de CP del Geometry of Quantum States.}
 
-Revisemos ahora la definición formal de completa positividad.
+De manera precisa, la definición de completa positividad es la siguiente.
 Una operación $\E$ se dice que es completamente positiva (CP)
 si y sólo si, para cualquier extensión dimensional arbitraria $K$ 
 del espacio de Hilbert, tal que 
 $\hi_N \rightarrow \hi_N \otimes \hi_K$,
 el operador $\E\otimes\1_K$ es positivo semidefinido 
-\cite{bengtsson_zyczkowski_2017}. Esta es la última condición 
-necesaria de imponer sobre las operaciones cuánticas para 
-que sean transformaciones de estados físicos. 
+\cite{bengtsson_zyczkowski_2017}. Con esta definición, las condiciones 
+que debe cumplir una operación cuántica para representar una evolución física 
+están completas.
 
 %\janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.}
 
-En conclusión, una operación cuántica es una mapeo afín de 
-operadores de densidad que es completamente positivo. 
-En la literatura se suele hacer una diferencia entre operaciones cuánticas
-y canales cuánticos \cite{weedbrook2012gaussian}, el término operaciones 
-cuánticas se utiliza para operaciones que, en general, disminuyen la traza 
-del operador de densidad, y canales cuánticos es exclusivo para operaciones 
-que preservan la traza del operador de densitad (operaciones CPTP). En 
-este proyecto estamos interesados en estudiar las operaciones CPTP. 
-En las siguientes dos secciones vamos a presentar dos representaciones
-de las operaciones CPTP. 
+Una operación cuántica debe satisfacer dos condiciones: (1)
+ser un mapeo afín de matrices de densidad, y (2) ser completamente positiva. 
+En la literatura se suele utilizar el término operaciones 
+cuánticas para operaciones CP que disminuyen la traza 
+del operador de densidad, y el término canales cuánticos 
+se restringe exclusivamente para operaciones CP
+que preservan la traza del 
+operador de densitad \cite{bengtsson_zyczkowski_2017}. 
+A continuación, en las siguientes dos secciones discutiremos 
+dos formas distintas de representar a las operaciones cuánticas.
 
 
 
-\section{Superoperadores}
-\janote{Propongo agregar esta sección por la línea que quiero seguir 
-durante todo el capítulo. Además que si menciono la representación en 
-suma de operadores, por qué no la de superoperadores?  es la que he 
-usado para la parte numérica}
 
-Una forma de representar a las operaciones cuánticas es la forma de 
-superoperadores. Un superoperador es una transformación lineal
+\section{Fomar de superoperador}
+\janote{Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
+durante todo el capítulo. Además porque numéricamente es 
+la representación que usamos}
+
+Una forma de representar a una operación cuántica es en la forma de 
+superoperador. Un superoperador es una transformación lineal
 que actúa sobre el espacio vectorial de los operadores lineales 
 \cite{preskill1998lecture}. Iniciaremos esta sección discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
-una notación de cuatro índices para trabajar en un espacio de Hilbert 
-compuesto por dos subsistemas. Luego, vamos a presentar 
+una notación de cuatro índices que es útil al considerar un espacio de Hilbert 
+compuesto por dos subsistemas. Luego vamos a presentar 
 las condiciones que debe satisfacer un superoperador para ser un 
-canal cuántico. Por último vamos a presentar dos ejemplos de operaciones
-lineales que actúan sobre el operador de densidad de 1 qubit. En el primer 
+canal cuántico. Por último, vamos a presentar dos ejemplos de operaciones
+lineales que actúan sobre la matriz de densidad de 1 qubit. En el primer 
 ejemplo vamos a retomar la operación discutida en la sección anterior y, 
-utilizando su representación de superoperador, vamos a mostrar que no es CP. 
-En el segundo discutiremos una operación CP sobre la esfera de Bloch. 
+utilizando su forma de superoperador, vamos a mostrar que no es CP. 
+Por último, en el segundo ejemplo discutiremos un canal cuántico
+para familiarizar al lector con la forma de superoperador de un canal.
 
 %- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
-En la forma de superoperadores de las operaciones cuánticas se 
-considera que el superoperador actúa sobre
-un vector columna, por lo cual es necesario estudiar alguna transformación
-lineal que reordene una matriz en un vector columna, y viceversa.
+En la forma de superoperador de una operación cuántica se 
+considera que la operación actúa sobre la matriz de densidad 
+como un vector columna, por lo cual es necesario estudiar alguna transformación
+lineal que reordene a una matriz en un vector columna, y viceversa.
 Consideremos una matriz rectangular $A$ de dimensión $M\times N$.
 La matriz puede reordenarse colocando sus elementos de matriz en 
-orden lexicográfico \ccnote{qué elegancia la de francia} en un vector $\vec{a}$ con $MN$ elementos, es decir
+orden lexicográfico en un vector $\vec{a}$ con $MN$ elementos, es decir
 \begin{align}
 a_k=A_{ij}, 
 \label{eq:matrix-to-vector}
@@ -413,12 +267,12 @@ a_k=A_{ij},
 donde $k=\qty(i-1)N+j$, con $i=,1,\ldots,M$ y $j=1,\ldots,N$. De
 esta manera, es posible reordenar a la matriz de densidad como un 
 vector columna. Ante esta transformación los elementos de matriz no se 
-modifican, por lo cual la información física contenida en una matriz 
-de densidad tampoco se altera.
+modifican, por lo tanto la información física contenida en una matriz 
+de densidad es invariante al vectorizarla.
 
 Para determinar si una operación lineal, en su forma de superoperador, es CP 
-se evalúa la positividad semidefinida del superoperador
-reordenado según el procedimiento de \textit{reshuffle}.
+se debe evaluar la positividad semidefinida de la matriz del superoperador
+reordenada según un procedimiento conocido como \textit{reshuffle}.
 La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
 consiste en reordenar cada fila de $B$, con $MN$ elementos, 
 en submatrices de dimensión $M\times N$ y colocarlas en 
@@ -442,12 +296,12 @@ B_{22}&B_{23}&B_{32}&B_{33})
 \label{eq:reshuffle}
 \end{align}
 Más adelante veremos que la matriz del superoperador 
-reordenada según el \textit{reshuffle} se define como la matriz de Choi
-de la operación lineal.
+reordenada mediante el \textit{reshuffle} se define como la matriz de Choi
+de la operación.
 
-Para establecer las condiciones que una operación en su
-representación de superoperador debe cumplir para ser un mapeo afín de
-operadores de densidad es útil introducir la siguiente notación de cuatro índices. 
+Para establecer las condiciones que una operación, en su
+forma de superoperador, debe cumplir para ser un mapeo afín de
+matrices de densidad es útil introducir la siguiente notación de cuatro índices. 
 Supongamos que $U$ es un operador que actúa sobre un espacio de Hilbert 
 compuesto de la forma $\hi=\hi_M\otimes\hi_N$.
 Sea $\ket{i}$ una base ortonormal de $\hi_M$ y $\ket{\mu}$ una base
@@ -460,22 +314,22 @@ elemento de matriz de $U$, utilizando cuatro índices, es
 U_\ind{m\mu}{n\nu}=\matrixel{i\otimes \mu}{U}{j\otimes \nu}.
 \label{eq:4indices}
 \end{align}
-\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
+%\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
 
 Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
 de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
-elementos. Por consiguiente, la representación matricial de un 
-superoperador $\E$ que actúa sobre un operador de densidad vectorizado $\vec{\rho}$ 
+elementos. Por consiguiente, la matriz $\E$, en su forma de 
+superoperador que actúa sobre una matriz de densidad vectorizada $\vec{\rho}$, 
 debe ser de dimensión $N^2\times N^2$. Los elementos de matriz de
-$\E$ pueden etiquetarse utilizando cuatro índices como en \eqref{eq:4indices}
-haciendo cualquier partición en dos del sistema total.
+$\E$ pueden etiquetarse utilizando cuatro índices como en \eqref{eq:4indices},
+haciendo cualquier partición en dos del sistema de Hilbert total.
 
-Una operación $\E$ que sea candidato a canal cuántico debe transformar 
-operadores de densidad en operadores de densidad. Esto quiere decir que
-la imagen $\rho'$ del operador de densidad debe ser Hermítica, 
-de traza unitaria y positiva semidefinida. 
+Una operación $\E$ que sea candidata a canal cuántico debe transformar 
+matrices de densidad en matrices de densidad. Esto quiere decir que
+la imagen $\rho'$, de una matriz de densidad $\rho$, debe ser (i) Hermítica, 
+(ii) de traza unitaria y (iii) positiva semidefinida. 
 Cada una de estas condiciones sobre $\rho'$ impone una condición 
-sobre el superoperador $\E$:
+sobre el superoperador $\E$ \cite{bengtsson_zyczkowski_2017}:
 \begin{align}
 \txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
@@ -488,21 +342,22 @@ sobre el superoperador $\E$:
 \end{align}
 
 
-\janote{
-- Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
- de Choi es positiva semidefinida entonces la operación cuántica es CP
-}
+%\janote{
+%- Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
+% de Choi es positiva semidefinida entonces la operación cuántica es CP
+%}
 
 Según lo que discutimos en la sección anterior estas condiciones
-no son suficientes para que $\E$ sea un canal cuántico; adicionalmente 
-$\E$ debe ser CP. Para evaluar la completa positividad del superoperador $\E$ 
-vamos a definir la matriz de Choi $D_{\E}$ como 
+no son suficientes para que la operación $\E$ sea un canal cuántico; adicionalmente 
+$\E$ debe ser CP. Para evaluar la completa positividad de $\E$, en su forma 
+de superoperador, vamos a definir a la matriz de Choi $D_{\E}$ como 
 \cite{bengtsson_zyczkowski_2017}
 \begin{align}
 D_{\E}=\E^{R}.
 \end{align}
-La matriz de Choi de $\E$ es la matriz que resulta del \textit{reshuffle}
-de $\E$. Con la matriz de Choi $D_{\E}$ definida vamos a enunciar 
+Es decir, la matriz de Choi de $\E$ es la matriz que resulta del \textit{reshuffle}
+de la matriz del superoperador $\E$. 
+Con la matriz de Choi $D_{\E}$ definida vamos a enunciar 
 el teorema de Choi \cite{bengtsson_zyczkowski_2017} que
 establece si $\E$ es CP evaluando la positividad semidefinida de $D_{\E}$.
 \begin{teorema}
@@ -510,21 +365,28 @@ Una transformación lineal $\E$ es completamente positiva si y sólo si
 su matriz de Choi asociada $D_{\E}$ es positiva semidefinida.
 \end{teorema}
 Este teorema completa las herramientas para establecer el procedimiento 
-para evaluar si un superoperador $\E$ es un canal cuántico. 
-Dado que $\E$ cumple con las condiciones establecidas en
+para evaluar si $\E$ como superoperador es un canal cuántico. 
+Dado que una operación $\E$ cumple con las condiciones establecidas de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, la positividad
-de la matriz de Choi $D_{\E}$ determina si la operación es un canal cuántico.
+de la matriz de Choi $D_{\E}$ determina si la operación es 
+o no un canal cuántico.
 
-\janote{
-- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
-}
+%\janote{
+%- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
+%}
 
-Retomemos el ejemplo de la operación $\E_z$ sobre 1 qubit de la sección anterior
-que se ilustra en la \Fref{fig:qtm-op-motivation}. La ecuación \eqref{eq:E(rho)}
-de la transformación del operador de densidad por un canal cuántico, 
-considerando al superoperador $\E_z$ y a la matriz de densidad 
-$\rho$ de 1 qubit, en \eqref{eq:DM-1q}, como un vector según la ecuación 
-\eqref{eq:matrix-to-vector}, es 
+Ahora retomemos el ejemplo de la operación $\E_z$ 
+sobre 1 qubit de la sección anterior para evaluar la condición de 
+completa positividad de la operación en su forma de superoperador. 
+Recordemos que la acción de $\E_z$ sobre la 
+esfera de Bloch se ilustra en la \Fref{fig:qtm-op-motivation}.
+La expresión \eqref{eq:notCP} especifica el vector de Bloch
+de la matriz de densidad $\rho'$, imagen de $\rho$ bajo la acción de $\E_z$.
+Por lo tanto, al vectorizar $\rho$ y $\rho'$ el cálculo 
+de la matriz de superoperador $\E_z$ es directo. 
+De esa manera, la ecuación de transformación 
+de la matriz de densidad $\rho$ de un qubit, bajo la
+acción de la operación $\E_z$ en su forma de superoperador, es
 \begin{align}
 \mqty(
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
@@ -540,10 +402,10 @@ $\rho$ de 1 qubit, en \eqref{eq:DM-1q}, como un vector según la ecuación
 \frac{1}{2}
 \mqty(
 1\\r_x-ir_y\\r_x+ir_y\\1
-)
+).
 \end{align}
-Se calcula la matriz de Choi $\E_z^{R}$, siguiendo la ecuación
-\eqref{eq:DM-1q},
+Se aplica el procedimiento de \textit{reshuffle} a la matriz en la ecuación 
+anterior y se obtiene que la matriz de Choi de la operación $\E_z$ es
 \begin{align}
 \E_z^R=
 \mqty(
@@ -553,21 +415,23 @@ Se calcula la matriz de Choi $\E_z^{R}$, siguiendo la ecuación
 1 & 0 & 0 & \frac{1}{2} 
 ).
 \end{align}
-La matriz $\E_z^R$ tiene un autovalor $-1/2$, por ello $\E_z$ no es CP y,
-por consiguiente, no es un canal cuántico. Nótese que hemos llegado a la misma 
-conclusión de la sección anterior sobre la CP, pero utilizando la representación 
-de superoperador de $\E_z$.
+La matriz $\E_z^R$ tiene un autovalor $-1/2$, 
+por consiguiente $\E_z$ no es CP. 
+En la forma de superoperador de $\E_z$ hemos llegado a la misma
+conclusión de la sección anterior sobre la 
+completa positividad.
 
-\janote{Otro ejemplo, pero ahora sí de un canal}
+%\janote{Otro ejemplo, pero ahora sí de un canal}
 
-Para concluir la sección será útil desarrollar un ejemplo más 
-de una operación CP sobre un sistema de 1 qubit. Este 
-ejemplo servirá para proporcionar más familiaridad con la representación de 
-los superoperadores y para hacer la conexión con 
-la forma de Kraus de las operaciones CP en la siguiente sección.
+Para concluir la sección será útil desarrollar un ejemplo más, 
+pero ahora de una operación que sí es un canal cuántico de 1 qubit. Este 
+ejemplo servirá para proporcionar más familiaridad con la forma de 
+los superoperador y, además, para hacer la conexión con 
+la forma de Kraus de las operaciones cuánticas en la siguiente sección.
 
-Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch de 
-un sistema de 1 qubit al eje $y$, como se muestra en la \Fref{fig:QC-ex2}.
+Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch
+al eje $y$ como se muestra en la \Fref{fig:QC-ex2}. El vector de 
+Bloch de cualquier punto en la esfera se proyecta hacia el eje $y$.
 \begin{figure}[H]
     \centering
     \begin{minipage}{.4\textwidth}
@@ -584,8 +448,18 @@ un sistema de 1 qubit al eje $y$, como se muestra en la \Fref{fig:QC-ex2}.
     \caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
     \label{fig:QC-ex2}
 \end{figure}
-La transformación de los estados de 1 qubit en la esfera de Bloch 
-según la operación $\E_{xz}$ está descrita por la siguiente ecuación
+A partir de la representación geométrica de $\E_{xz}$ 
+se puede inferir que el vector de Bloch se transforma 
+como
+\begin{align}
+\qty(r_x,r_y,r_z)\mapsto\qty(0,r_y,0),
+\label{eq:Bloch-vec-mapToY}
+\end{align}
+con lo cual se determina $\rho'$ y, seguidamente,
+la matriz del superoperador $\E_{xz}$.
+Por lo tanto, la ecuación de transformación de la matriz 
+de densidad de 1 qubit, bajo la acción de $\E_{xz}$ y 
+en su forma de superoperador, es
 \begin{align}
 \mqty(
 \begin{array}{cccc}
@@ -603,28 +477,28 @@ según la operación $\E_{xz}$ está descrita por la siguiente ecuación
 \frac{1}{2}
 \mqty(
 1\\-ir_y\\ir_y\\1
-),
+).
 \label{eq:QC-ex2-SR}
 \end{align}
-donde la matriz es el superoperador $\E_{xz}$. 
-Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP debemos 
-determinar $\E_{xz}^R$ y verificar si es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$, por lo tanto, 
-$\E_{xz}$ es CP y, porque además satisface las condiciones
-\eqref{eq:H-condition} a \eqref{eq:positivity-condition}, es un canal cuántico.
-´
-En resumen, la representación en superoperador de una operación cuántica
-se trata de reordenar la matriz de densidad $\rho$ como 
-un vector columna y considerar la transformación que actúa sobre el nuevo
-vector $\vec{\rho}$. Si un operación $\E$ satisface las condiciones
+Al calcular la matriz de Choi de la operación notamos 
+que $\E_{xz}=\E_{xz}^R$ e, inmediatamente, se concluye
+que $\E_{xz}$ es completamente positiva. La operación $\E_{xz}$
+es un canal cuántico.
+
+En resumen, en la forma de superoperador de una operación cuántica $\E$
+se considera a $\E$ como una matriz que actúa sobre 
+una matriz de densidad vectorizada $\vec{\rho}$. 
+Si una operación $\E$ satisface las condiciones de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, entonces
 es un mapeo afín de matrices de densidad.
-Por otro lado, el procedimiento de \textit{reshuffle} 
-nos proporciona un procedimiento para calcular la matriz de Choi de una 
-operación $\E$. Seguidamente, el teorema de Choi establece que si 
-la matriz de Choi es positiva semidefinida, entonces $\E$ es CP. 
-De esta manera, hemos establecido las herramientas para evaluar 
+Además, el procedimiento de \textit{reshuffle} 
+proporciona una manera para calcular la matriz de Choi de
+ $\E$; y, según el teorema de Choi, si 
+la matriz de Choi es positiva semidefinida, entonces $\E$ es 
+completamente positiva. 
+Así, hemos establecido las herramientas y condiciones para evaluar 
 si una operación en su forma de superoperador es un canal cuántico.
-En la siguiente sección discutiremos otra forma de representar a las operaciones
+En la siguiente sección presentaremos la forma de Kraus de las operaciones
 cuánticas.
 
 \section{Forma de Kraus}
@@ -634,70 +508,86 @@ estado que se acopla con algún entorno
 y llegar a las condiciones para ser CPTP y empezar a conectarlo
 con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
 con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
-\janote{Entonces voy a omitir la motivación con el entorno.}
+\janote{Entonces voy a omitir la motivación con el entorno y en general
+    mencionar al entorno en la explicación.}
 
-\janote{Introducción:\\ \indent}
-Las operaciones cuánticas tienen otra representación distinta a la de 
-los superoperadores que se conoce como la forma de Kraus. La diferencia
-principal entre ambas representaciones es que la forma de los superoperadores
-considera operadores que actúan sobre el espacio de los operadores lineales, y
-la forma de Kraus considera operadores que actúan sobre el espacio de 
-Hilbert del sistema. Vamos a iniciar retomando el segundo ejemplo de la sección 
-anterior, en el cual estudiamos la operación $\E_{xz}$ cuya acción sobre la esfera
+%\janote{Introducción:\\ \indent}
+Otra forma de representar a una operación cuántica, distinta a la
+forma de superoperador de la sección anterior, es la forma de Kraus. 
+La diferencia principal entre ambas representaciones 
+es que la forma de superoperador
+representa a una operación cuántica como una matriz que 
+actúa sobre el espacio de los operadores lineales, por otro lado,
+la forma de Kraus representa a una operación cuántica 
+como operadores que actúan sobre el espacio de 
+Hilbert del sistema. Vamos a iniciar retomando el segundo 
+ejemplo de la sección anterior, en el cual estudiamos 
+el canal cuántico $\E_{xz}$, cuya acción sobre la esfera
 de Bloch se muestra en la \Fref{fig:QC-ex2}.
-Vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
-a partir de la forma de superoperador del canal cuántico.
-Después, vamos a concluir presentando las condiciones 
-de la forma de Kraus de una operación para que sea un canal cuántico.
+Luego vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
+a partir de la forma de superoperador del canal.
+Para terminar, se presentarán las condiciones 
+que debe cumplir una operación en la forma de Kraus para
+ser un canal cuántico.
 
-\janote{
-- Invocar el ejemplo del canal de la sección anterior, pero en su 
-representación de operadores de suma. Aquí quiero hacer la conexión 
-entre esta y la sección anterior mostrando que los operadores 
-de Kraus son los autovectores de la matriz de Choi.}
+%\janote{
+%- Invocar el ejemplo del canal de la sección anterior, pero en su 
+%representación de operadores de suma. Aquí quiero hacer la conexión 
+%entre esta y la sección anterior mostrando que los operadores 
+%de Kraus son los autovectores de la matriz de Choi.}
 
-Recordemos que el canal cuántico $\E_{xz}$ es una operación
-que colapsa la esfera de Bloch a una línea sobre el eje $y$, 
-como se muestra en la \Fref{fig:QC-ex2}. 
-La matriz en la ecuación \eqref{eq:QC-ex2-SR} representa al canal cuántico
-en su forma de superoperador. Notemos que su matriz de Choi $\E_{xz}^R$
-asociada es ella misma $\qty(\E_{xz}^R=\E_{xz})$. 
-Consideremos los autovectores $\ket{E_{1,2,3,4}}$ de $\E_{xz}^R$:
+Consideremos de nuevo el canal cuántico $\E_{xz}$.
+Recordemos que $\E_{xz}$ es un canal cuántico
+que colapsa la esfera de Bloch al eje $y$. 
+Vamos a calcular los autovectores y autovalores de la 
+matriz de Choi, luego al reordenar
+cada autovector como matriz y multiplicarlo por la raíz cuadrada
+del autovalor correspondiente obtendremos los llamados 
+operadores de Kraus; después, al operarlos con la matriz 
+de densidad de 1 qubit, según 
+la forma de Kraus, mostraremos que se obtiene el 
+resultado de la ecuación \eqref{eq:QC-ex2-SR}.
+
+Recordemos que la matriz de la ecuación \eqref{eq:QC-ex2-SR}
+es la matriz del superoperador de $\E_{xz}$ y, al mismo tiempo,
+la matriz de Choi del canal $(\E_{xz}=\E_{xz}^R)$.  
+Se calculan los autovectores $\ket{E_{1,2,3,4}}$ de 
+la matriz de Choi y se obtienen
 \begin{align}
 \ket{E_{1,2,3,4}}=
 \mqty(\frac{1}{2},0,0,\frac{1}{2})^T,
 \mqty(0,-\frac{1}{2},\frac{1}{2},0)^T,
 \mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
-\mqty(0,\frac{1}{2},\frac{1}{2},0)^T;
+\mqty(0,\frac{1}{2},\frac{1}{2},0)^T,
 \end{align}
 cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente.
-Si tomamos a $\ket{E_1}$ y $\ket{E_2}$, los únicos autovectores
-con autovalores distintos de cero, y los reordenamos en 
-las matrices $E_1$ y $E_2$, de dimensión $2\times2$, siguiendo 
-el procedimiento inverso de vectorización en \eqref{eq:matrix-to-vector} 
-se obtienen
+Se reordena cada autovector $\ket{E_i}$ en una matriz
+$E_i$ de $2\times2$, siguiendo el procedimiento 
+inverso de vectorización establecido en
+\eqref{eq:matrix-to-vector}, y luego se multiplica cada $E_i$ por 
+la raíz cuadrada de su autovalor respectivo. Se obtiene
 \begin{align}
-E_0&=
+E_1&=
 \frac{1}{\sqrt{2}}
 \mqty(
 1 & 0\\
 0 & 1
 ),
 &
-E_1&=
+E_2&=
 \frac{1}{\sqrt{2}}
 \mqty(
 0 & -1\\
 1 & 0
 ).
 \end{align}
-Si ahora consideramos la operación
+Ahora operamos a la matriz de densidad de 1 qubit 
+\eqref{eq:DM-1q} siguiendo la operación
 \begin{align}
-\rho'=\sum_{i=0}^1E_i\rho E_i^{\dagger},
+\rho'=\sum_{i=1}^2E_i\rho E_i^{\dagger}
 \label{eq:Kraus}
 \end{align}
-donde $\rho$ es la matriz de densidad de 1 qubit en \eqref{eq:DM-1q}, 
-entonces
+que se conoce como la forma de Kraus de una operación cuántica. Operando
 \begin{align}
 \rho'=&
 \frac{1}{2}
@@ -736,42 +626,43 @@ ir_y & 1
 ).
 \label{eq:QC-ex2-KR}
 \end{align}
-Hemos obtenido el mismo resultado, pero reordenado como matriz,
-de la ecuación \eqref{eq:QC-ex2-SR}. No obstante, las operaciones que 
-realizamos sobre la matriz de densidad fueron
-con operadores que también actúan sobre el espacio de Hilbert de 1 qubit. 
+Hemos obtenido el mismo resultado de la ecuación 
+\eqref{eq:QC-ex2-SR}, pero reordenado como matriz. 
+No obstante, los operadores $E_i$ son
+operadores que también actúan sobre el espacio de Hilbert de 1 qubit. 
 La ecuación \eqref{eq:Kraus} se conoce 
 como la forma de \textit{Kraus} de los mapeos completamente positivos
 \cite{bengtsson_zyczkowski_2017}.
-Los autovectores de la matriz de Choi de una operación cuántica $\E$ 
-reordenados como matrices se
-conocen como los operadores de Kraus $E_i$ de $\E$.
-Los operadores $E_i$ linealmente independientes 
+Los autovectores de la matriz de Choi de una operación cuántica $\E$,
+reordenados como matrices, se
+reciben el nombre de operadores de Kraus $E_i$ de la operación cuántica.
+Los operadores $E_i$ linealmente independientes  
 pueden ser hasta $N^2$ \cite{nielsen_chuang_2011}, igual a la dimensión 
 del espacio de los operadores lineales que actúan sobre un espacio de
 Hilbert de dimensión $N$. 
-Una operación cuántica $\E$ preserva la traza de la matriz de densidad 
+Finalmente, una operación cuántica $\E$ preserva la traza de la matriz de densidad 
 si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
 \cite{bengtsson_zyczkowski_2017}
 \begin{align}
 \sum_iE_i^{\dagger}E_i=\1.
 \label{eq:kraus-tp-cond}
 \end{align}
-\janote{
-- Comparar la representacion de suma de operadores y superoperadores\\ \indent}
+%\janote{
+%- Comparar la representacion de suma de operadores y superoperadores\\ \indent}
 En resumen, las ecuaciones \eqref{eq:Kraus} y \eqref{eq:kraus-tp-cond}
 caracterizan la forma de Kraus de un canal cuántico. 
 Con esto hemos mostrado dos formas distintas de representar a un 
 canal cuántico: la forma de superoperador, una matriz cuadrada
 de dimensión $N^2$, que actúa sobre una matriz de densidad vectorizada 
-con $N^2$ entradas; y la forma de Kraus, matrices de dimensión $N$
-que actúan sobre una matriz de densidad de dimensión $N$. La matriz de 
-Choi del canal cuántico proporciona una manera de conectar ambas 
+con $N^2$ entradas; y la forma de Kraus, matrices que actúan sobre
+una matriz de densidad que también pertenecen al espacio de 
+los operadores lineales que actúan sobre el espacio de Hilbert. La matriz de 
+Choi de un canal cuántico proporciona una manera de conectar ambas 
 representaciones. Por un lado, si $D_{\E}$ es la matriz de Choi de un canal 
-cuántico $\E$, entonces $D_{\E}^R$ es la representación matricial
-del canal en su forma de superoperador.
-Por otro lado, los autovectores de $D_{\E}$
-multiplicados por la raíz cuadrada de sus autovalores asociados 
+cuántico $\E$, entonces $D_{\E}^R$ es la matriz de superoperador
+del canal.
+Por otro lado, los autovectores de $D_{\E}$,
+multiplicados por la raíz cuadrada de sus autovalores asociados,
 son los operadores de Kraus del canal cuántico. 
 
 \janote{No me parece necesario entrar en detalle con la forma de Kraus.
@@ -779,42 +670,42 @@ Quizás las demostraciones y más detalle se pueden guardar para la tesis.
 Espero haber logrado dar una buena motivación de la CP y haber conectado
 bien la forma de Kraus con la de superoperadores con los ejemplos.}
 \section{Canales cuánticos de 1 qubit}
-\janote{
-- Hablar de que se gana intuición pensando en la acción de un canal de 1
-qubit como la manera en que deforma la esfera de Bloch}
-
-
-\janote{
-- Ejemplos: phase-flip channel, depolarizing y amplitude damping\\ \indent}
-Algunos ejemplos de canales cuánticos de un sistema de 1 qubit 
-pueden proporcionar intuición 
-para completar el esquema de los canales cuánticos. 
+%\janote{
+%- Hablar de que se gana intuición pensando en la acción de un canal de 1
+%qubit como la manera en que deforma la esfera de Bloch}
+%
+%
+%\janote{
+%- Ejemplos: phase-flip channel, depolarizing y amplitude damping\\ \indent}
+Mostrar algunos ejemplos de canales cuánticos de 1 qubit 
+puede proporcionar intuición 
+para completar el marco teórico de los canales cuánticos. 
 Como se presentó en los ejemplos que abordamos en las 
-secciones anteriores, los sistemas de 1 qubit ofrecen la
+secciones anteriores, para los sistemas de 1 qubit se tiene la
 herramienta geométrica de la esfera de Bloch para asociar cada 
 punto de ella con un estado del sistema. De esa manera, 
 se puede visualizar la acción de un canal cuántico como la 
 deformación de la esfera de Bloch bajo la acción del canal.
 En esta sección vamos a estudiar la acción de tres canales 
-cuánticos representativos sobre un sistema de 1 qubit. Presentaremos
-tanto la forma de superoperador como la forma de Kraus de 
+cuánticos representativos de 1 qubit, presentaremos
+la forma de superoperador, así como la forma de Kraus de 
 cada uno de los canales cuánticos.
 
-El primer ejemplo a presentar es el canal \textit{bit-phase flip} $\E_{BPF}$. 
+El primer ejemplo a presentar es el canal inversor de fase y bit $\E_{BPF}$. 
 Con probabilidad $1-p$, el canal $\E_{BPF}$ intercambia 
 los estados $\ket{0}$ y $\ket{1}$, 
 autoestados de $\sigma_z$, e intercambia la fase total
 del estado $\ket{\psi}$ del qubit. 
-Recordemos que la matriz de densidad en \eqref{eq:DM-1q} 
-las coordenadas $r_i$ en la esfera de Bloch del punto asociado al estado
-del sistema. La acción de $\E_{BPF}$ es 
+Recordemos que el vector $\vec{r}$ de la matriz de densidad en \eqref{eq:DM-1q} 
+especifica las coordenadas $r_i$ en la esfera de Bloch del punto asociado al estado
+en el que se encuentra el sistema. La acción de $\E_{BPF}$ es 
 equivalente a la siguiente transformación del vector de Bloch $\vec{r}$
 \begin{align}
 \qty(r_x,r_y,r_z)\rightarrow&\Big(\qty(1-2p)r_x,r_y,\qty(1-2p)r_z\Big).
 \label{eq:bit-phase-flip-Bloch-trans}
 \end{align}
-Geométricamente, el vector de Bloch es proyectado por el canal 
-al eje $y$ y las componentes en $x$ y $z$ son perdidas, como 
+Geométricamente, el vector de Bloch es proyectado por $\E_{BPF}$ 
+al eje $y$ y las componentes en $x$ y $z$ se pierden, como 
 se muestra en la \Fref{fig:bit-phase-flip}.
 Notemos que el ejemplo que discutimos en la sección 2.2 del 
 canal cuántico que colapsa la esfera de Bloch al eje $y$ es un caso
@@ -830,16 +721,17 @@ $\longmapsto$
     \centering
     \includegraphics[width=6cm]{images/bit-phase-flip}
 \end{minipage}
-\caption{Efecto del canal \textit{bit-phase flip} sobre la esfera de Bloch, 
+\caption{Efecto del canal inversor de fase y bit sobre la esfera de Bloch, 
 para $p=0.3$.}
 \label{fig:bit-phase-flip}
 \end{figure}
 La expresión en \eqref{eq:bit-phase-flip-Bloch-trans} nos 
 permite calcular la matriz de densidad $\rho'$ que resulta
-bajo la acción del canal \textit{bit-phase flip}. Por lo tanto, 
+bajo la acción del canal inversor de fase y bit. Por lo tanto, 
 vectorizando $\rho$, $\rho'$ y aplicando métodos elementales de
-álgebra lineal se encuentra que la ecuación de transformación de
-la matriz de densidad de 1 qubit en la forma de superoperador 
+álgebra lineal para calcular la matriz del superoperador
+se encuentra que la ecuación de transformación de
+la matriz de densidad de 1 qubit bajo la acción 
 de $\E_{BPF}$ es
 \begin{align}
 \frac{1}{2}
@@ -864,7 +756,7 @@ p & 0 & 0 & 1-p \\
 \label{eq:bpf-supero}
 \end{align}
 Para encontrar los operadores de Kraus se determinan los autovectores
-de la matriz de Choi $D_{\E_{BPF}}$ del canal \textit{bit-phase flip}. 
+de la matriz de Choi $D_{\E_{BPF}}$ del canal inversor de fase y bit. 
 Para encontrar la matriz de Choi se aplica la transformación 
 de \textit{reshuffle} a la matriz en la ecuación \eqref{eq:bpf-supero}.
 Los autovectores de $D_{\E_{BPF}}$, reordenados como matrices y
@@ -885,7 +777,7 @@ E_1&=
 \label{eq:bpf-kraus}
 \end{align}
 Así hemos encontrado la forma de superoperador y de Kraus del canal
-cuántico \textit{bit-phase flip} $\E_{BPF}$. Se puede evaluar directamente que 
+cuántico inversor de fase y bit $\E_{BPF}$. Se puede evaluar directamente que 
 tanto la matriz en \eqref{eq:bpf-supero} como los operadores $E_i$
 en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
 para ser canales cuánticos.
@@ -980,9 +872,40 @@ se visualiza como un canal cuya acción sobre la esfera de Bloch
 la deforma de tal manera que el centro geométrico no se mantiene
 en el origen de coordenadas.
 
-\janote{Generalized amplitude damping:\\ \indent}
+%\janote{Amplitude damping channel:\\ \indent}
 El último canal cuántico que vamos a estudiar es el canal de
-amortiguamiento de fase.
+amortiguamiento de fase $\E_{AF}$. La acción de $\E_{AF}$
+sobre el vector de Bloch es 
+\begin{align}
+\qty(r_x,r_y,r_z)\rightarrow&\Big(r_x\sqrt{1-\gamma},
+r_y\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_z\Big),
+\label{eq:damp-phase}
+\end{align}
+En la \Fref{fig:amp-damp} se muestra la acción del canal 
+de amortiguamiento de fase sobre la esfera de Bloch.
+El canal $\E_{AF}$ deforma la esfera de Bloch a un elipsoide
+cuyo centro geométrico no es el origen de coordenadas. 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=6cm]{images/bloch-ball}
+    \end{minipage}
+    $\longmapsto$
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=6.2cm]{images/gen-amplitude-damping}
+    \end{minipage}
+    \caption{Efecto del canal generalizado de amortiguamiento de 
+        amplitud sobre la esfera de Bloch, 
+        para $p=0.4$.}
+    \label{fig:amp-damp}
+\end{figure}
+Igual que en los ejemplos anteriores, la matriz de densidad $\rho'$
+se infiere de \eqref{eq:damp-phase} y se calcula la representación 
+matricial de $\E_{AF}$ en su forma de superoperador. De esa 
+manera, se obtiene que la ecuación de transformación de la 
+matriz de densidad es
 \begin{align}
 \mqty(
 1 & 0 & 0 & \gamma  \\
@@ -1001,43 +924,66 @@ amortiguamiento de fase.
 \sqrt{1-\gamma}\qty(x-i y)\\
 \sqrt{1-p}\qty(x+i y)\\
 1-\gamma-\qty(1-\gamma)z
-),
+).
 \end{align}
-cuyos operadores de Kraus son 
+Se calcula la matriz de Choi de $\E_{AF}$ con la transformación
+de \textit{reshuffle} y se obtienen sus autovectores multipicados
+por la raíz cuadrada de sus autovalores asociados, reordenados
+como matrices. Así, se obtiene que los operadores de Kraus 
+del canal de amortiguamiento de amplitud son
 \begin{align}
 E_0&=
 \sqrt{1-\gamma }
 \mqty(
 \frac{1}{\sqrt{1-\gamma }} & 0 \\
 0 & 1
-)&
+),&
 E_1&=
 \sqrt{\gamma }
 \mqty(
 0 & 1 \\
 0 & 0 
-)
+).
 \end{align}
 
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{.4\textwidth}
-        \centering
-        \includegraphics[width=6cm]{images/bloch-ball}
-    \end{minipage}
-    $\longmapsto$
-    \begin{minipage}{0.4\textwidth}
-        \centering
-        \includegraphics[width=6.2cm]{images/gen-amplitude-damping}
-    \end{minipage}
-    \caption{Efecto del canal generalizado de amortiguamiento de 
-        amplitud sobre la esfera de Bloch, 
-        para $p=0.4$.}
-    \label{fig:depolarizing}
-\end{figure}
-\janote{
-- De los ejemplos hablar sobre canales unitales? Breve. (es que nuestros
-canales son unitales)}
+Hemos expuesto 3 ejemplos de canales cuánticos de 1 qubit:
+el canal de inversión de fase y bit, el canal depolarizante 
+y el canal de amortiguamiento
+de amplitud. La acción de los canales cuánticos de 1 qubit 
+es más sencilla de visualizar en la representación de la esfera de Bloch
+y su deformación bajo la acción del canal. 
+El canal de inversión de fase y bit deforma la
+esfera de Bloch de tal manera que encoge las componentes $x$ y $z$ en 
+un factor $1-2p$ y deja invariante la componente
+$y$ de cada punto en la esfera, con $p$ un parámetro que indica la
+probabilidad de ocurrir una inversión de bit y fase de un estado. 
+El canal depolarizante 
+deforma todas las componentes del vector de Bloch de manera uniforme
+en un factor $1-p$, es decir que la esfera de Bloch se encoge
+continuamente hasta un punto en el origen, el estado
+de máximamente mixto de un sistema de 1 qubit. Por último, 
+el canal de amortiguamiento de amplitud deforma la esfera de Bloch
+a un elipsoide cuyo centro geométrico no coincide con el origen. Por
+ello, se dice que el canal no es unital. Los canales unitales son 
+aquellos que dejan invariante el estado máximamente mixto, 
+que en la representación de la esfera de Bloch se traduce en 
+que la acción del canal no modifica el origen de coordenadas.
 
+El formalismo de los canales cuánticos proporciona un marco 
+teórico para describir el cambio dinámico de los estados cuánticos 
+de sistemas que interactúan con su entorno. Una manera 
+más intuitiva de llamar a los canales cuánticos es mapeos 
+completamente positivos que preservan la traza, para enfatizar 
+que los canales cuánticos son mapeos afines de matrices de 
+densidad que transforman estados positivos en estados positivos,
+sin importar la naturaleza del entorno con el que el sistema podría
+interactuar. Dos formas de representar a los canales cuánticos
+se presentaron en este capítulo, la forma de superoperador y 
+la forma de Kraus, cuya conexión entre ambas representaciones
+es posible mediante la matriz de Choi del canal cuántico. 
+La preferencia por alguna representación u otra está determinada 
+por la naturaleza del problema a resolver. 
+En el siguiente capítulo veremos las ventajas de la forma de superoperador 
+de un canal cuántico en el problema de estudio de este proyecto. 
 % }}}
 
