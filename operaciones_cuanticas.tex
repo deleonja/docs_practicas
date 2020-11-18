@@ -374,7 +374,7 @@ del operador de densidad, y canales cuánticos es exclusivo para operaciones
 que preservan la traza del operador de densitad (operaciones CPTP). En 
 este proyecto estamos interesados en estudiar las operaciones CPTP. 
 En las siguientes dos secciones vamos a presentar dos representaciones
-distintas de las operaciones CPTP. 
+de las operaciones CPTP. 
 
 
 
@@ -611,7 +611,7 @@ Para comprobar si la matriz en \eqref{eq:QC-ex2-SR} es CP debemos
 determinar $\E_{xz}^R$ y verificar si es positiva semidefinida. Notemos que $\E_{xz}^R=\E_{xz}$, por lo tanto, 
 $\E_{xz}$ es CP y, porque además satisface las condiciones
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, es un canal cuántico.
-
+´
 En resumen, la representación en superoperador de una operación cuántica
 se trata de reordenar la matriz de densidad $\rho$ como 
 un vector columna y considerar la transformación que actúa sobre el nuevo
@@ -628,25 +628,27 @@ En la siguiente sección discutiremos otra forma de representar a las operacione
 cuánticas.
 
 \section{Forma de Kraus}
+\janote{
 - Enunciar la representación en operadores de suma partiendo de un 
 estado que se acopla con algún entorno
 y llegar a las condiciones para ser CPTP y empezar a conectarlo
-con la sección anterior. \cpnote{No sabes si hay alguna motivacion que no sea
+con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
 con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
-\janote{De acuerdo. Voy a omitir la motivación con el entorno.}
+\janote{Entonces voy a omitir la motivación con el entorno.}
 
-\janote{Intro:}
+\janote{Introducción:\\ \indent}
 Las operaciones cuánticas tienen otra representación distinta a la de 
 los superoperadores que se conoce como la forma de Kraus. La diferencia
 principal entre ambas representaciones es que la forma de los superoperadores
 considera operadores que actúan sobre el espacio de los operadores lineales, y
 la forma de Kraus considera operadores que actúan sobre el espacio de 
 Hilbert del sistema. Vamos a iniciar retomando el segundo ejemplo de la sección 
-anterior en el cual se consideró la operación $\E_{xz}$, representada
-en la \ref{}, para presentar la forma de Kraus de ese canal cuántico y 
-al mismo tiempo hacer la conexión entre la representación de superoperadores
-y de la forma de Kraus. Para concluir vamos a exponer las condiciones 
-de la forma de Kraus para representar a un canal cuántico.
+anterior, en el cual estudiamos la operación $\E_{xz}$ cuya acción sobre la esfera
+de Bloch se muestra en la \Fref{fig:QC-ex2}.
+Vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
+a partir de la forma de superoperador del canal cuántico.
+Después, vamos a concluir presentando las condiciones 
+de la forma de Kraus de una operación para que sea un canal cuántico.
 
 \janote{
 - Invocar el ejemplo del canal de la sección anterior, pero en su 
@@ -654,12 +656,13 @@ representación de operadores de suma. Aquí quiero hacer la conexión
 entre esta y la sección anterior mostrando que los operadores 
 de Kraus son los autovectores de la matriz de Choi.}
 
-Regresemos al segundo ejemplo del canal cuántico $\E_{xz}$ que consideramos 
-en la seccción anterior. El canal $\E_{xz}$ deforma la esfera de Bloch
-a una línea sobre el eje $y$, como se muestra en la \Fref{}. 
-Recordemos que la matriz en \eqref{eq:QC-ex2-SR} es el canal cuántico
-y a la vez su matriz de Choi ($\E_{xz}^R=\E_{xz}$). 
-Consideremos los autovectores $\ket{E_{1,2,3,4}}$ de la matriz de Choi
+Recordemos que el canal cuántico $\E_{xz}$ es una operación
+que colapsa la esfera de Bloch a una línea sobre el eje $y$, 
+como se muestra en la \Fref{fig:QC-ex2}. 
+La matriz en la ecuación \eqref{eq:QC-ex2-SR} representa al canal cuántico
+en su forma de superoperador. Notemos que su matriz de Choi $\E_{xz}^R$
+asociada es ella misma $\qty(\E_{xz}^R=\E_{xz})$. 
+Consideremos los autovectores $\ket{E_{1,2,3,4}}$ de $\E_{xz}^R$:
 \begin{align}
 \ket{E_{1,2,3,4}}=
 \mqty(\frac{1}{2},0,0,\frac{1}{2})^T,
@@ -667,56 +670,62 @@ Consideremos los autovectores $\ket{E_{1,2,3,4}}$ de la matriz de Choi
 \mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
 \mqty(0,\frac{1}{2},\frac{1}{2},0)^T;
 \end{align}
-cuyos autovalores son $\lambda_{1,2,3,4}=1,1,0,0$, respectivamente.
-Tomemos a $\ket{E_1}$ y $\ket{E_2}$, los únicos autovectores
+cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente.
+Si tomamos a $\ket{E_1}$ y $\ket{E_2}$, los únicos autovectores
 con autovalores distintos de cero, y los reordenamos en 
 las matrices $E_1$ y $E_2$, de dimensión $2\times2$, siguiendo 
-el procedimiento inverso de \eqref{eq:matrix-to-vector}
+el procedimiento inverso de vectorización en \eqref{eq:matrix-to-vector} 
+se obtienen
 \begin{align}
-E_1&=
+E_0&=
+\frac{1}{\sqrt{2}}
 \mqty(
-\frac{1}{2} & 0\\
-0 & \frac{1}{2}
-)
+1 & 0\\
+0 & 1
+),
 &
-E_2&=
+E_1&=
+\frac{1}{\sqrt{2}}
 \mqty(
-0 & -\frac{1}{2}\\
-\frac{1}{2} & 0
+0 & -1\\
+1 & 0
 ).
 \end{align}
-Ahora hagamos la siguiente operación
+Si ahora consideramos la operación
 \begin{align}
-\sum_{i=1}^2E_i\rho E_i^{\dagger}=\rho',
-\label{eq:almost-Kraus}
+\rho'=\sum_{i=0}^1E_i\rho E_i^{\dagger},
+\label{eq:Kraus}
 \end{align}
-con $\rho$ la matriz de densidad de 1 qubit en \eqref{eq:DM-1q}, entonces
+donde $\rho$ es la matriz de densidad de 1 qubit en \eqref{eq:DM-1q}, 
+entonces
 \begin{align}
 \rho'=&
+\frac{1}{2}
 \mqty(
-\frac{1}{2} & 0\\
-0 & \frac{1}{2}
+1 & 0\\
+0 & 1
 )
 \mqty(
 \frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
 \frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
 )
 \mqty(
-\frac{1}{2} & 0\\
-0 & \frac{1}{2}
+1 & 0\\
+0 & 1
 )
 +
+\frac{1}{2}
 \mqty(
-0 & -\frac{1}{2}\\
-\frac{1}{2} & 0
+0 & -1\\
+1 & 0
 )
 \mqty(
 \frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
 \frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
 )
 \mqty(
-0 & \frac{1}{2}\\
--\frac{1}{2} & 0
+0 & 1\\
+-1 & 0
 )&
 \nonumber\\
 \rho'=&
@@ -727,60 +736,308 @@ ir_y & 1
 ).
 \label{eq:QC-ex2-KR}
 \end{align}
-Este resultado es el mismo que obtuvimos en la ecuación \eqref{eq:QC-ex2-SR},
-pero llegamos a él considerando los operadores $E_1$ y $E_2$ que actúan
-sobre el espacio de Hilbert de un sistema de 1 qubit.
-La ecuación \eqref{eq:almost-Kraus} se conoce 
-como la forma de \textit{Kraus} de los mapeos CP.
-Los autovectores de la matriz de Choi reordenados como matrices son los 
-operadores de Kraus. En general,
-se dice que un mapeo es completamente positivo si y sólo si es de la forma
-\cite{bengtsson_zyczkowski_2017}
-\begin{align}
-\rho \rightarrow \rho'=\sum_iE_i\rho E_i^{\dagger},
-\label{eq:kraus-def}
-\end{align}
-donde los operadores de Kraus linealmente independientes 
+Hemos obtenido el mismo resultado, pero reordenado como matriz,
+de la ecuación \eqref{eq:QC-ex2-SR}. No obstante, las operaciones que 
+realizamos sobre la matriz de densidad fueron
+con operadores que también actúan sobre el espacio de Hilbert de 1 qubit. 
+La ecuación \eqref{eq:Kraus} se conoce 
+como la forma de \textit{Kraus} de los mapeos completamente positivos
+\cite{bengtsson_zyczkowski_2017}.
+Los autovectores de la matriz de Choi de una operación cuántica $\E$ 
+reordenados como matrices se
+conocen como los operadores de Kraus $E_i$ de $\E$.
+Los operadores $E_i$ linealmente independientes 
 pueden ser hasta $N^2$ \cite{nielsen_chuang_2011}, igual a la dimensión 
-del espacio de los operadores lineales que actúan sobre el espacio de
-Hilbert de un sistema de dimensión $N$. Se dice que una operación cuántica
-$\E$ de la forma \eqref{eq:kraus-def} preserva la traza (operación CPTP) 
-si y sólo los operadores de Kraus satisfacen la condición 
+del espacio de los operadores lineales que actúan sobre un espacio de
+Hilbert de dimensión $N$. 
+Una operación cuántica $\E$ preserva la traza de la matriz de densidad 
+si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
 \cite{bengtsson_zyczkowski_2017}
 \begin{align}
 \sum_iE_i^{\dagger}E_i=\1.
 \label{eq:kraus-tp-cond}
 \end{align}
-En resumen, las ecuaciones \eqref{eq:kraus-def} y \eqref{eq:kraus-tp-cond}
-establecen las condiciones que deben satisfacer las operaciones CPTP en la 
-forma de Kraus. 
-
 \janote{
-- Comparar la representacion de suma de operadores y superoperadores}
-
-%Las ecuaciones \eqref{eq:QC-ex2-SR} y \eqref{eq:QC-ex2-KR} representan
-%en dos formas distintas la acción del mismo canal cuántico  
-%sobre el estado de un sistema de 1 qubit.
-Hasta ahora hemos mostrado dos formas distintas de representar una 
-operación cuántica, la representación de superoperadores y de la forma 
-de Kraus. Ambas representaciones equivalentes. Una operación 
-cuántica puede representarse de cualquiera de las dos formas. Dependiendo
-el enfoque de un problema se hace más conveniente una representación 
-o la otra. Más adelante veremos que para el objetivo de este proyecto
-la representación de superoperadores será más útil. 
+- Comparar la representacion de suma de operadores y superoperadores\\ \indent}
+En resumen, las ecuaciones \eqref{eq:Kraus} y \eqref{eq:kraus-tp-cond}
+caracterizan la forma de Kraus de un canal cuántico. 
+Con esto hemos mostrado dos formas distintas de representar a un 
+canal cuántico: la forma de superoperador, una matriz cuadrada
+de dimensión $N^2$, que actúa sobre una matriz de densidad vectorizada 
+con $N^2$ entradas; y la forma de Kraus, matrices de dimensión $N$
+que actúan sobre una matriz de densidad de dimensión $N$. La matriz de 
+Choi del canal cuántico proporciona una manera de conectar ambas 
+representaciones. Por un lado, si $D_{\E}$ es la matriz de Choi de un canal 
+cuántico $\E$, entonces $D_{\E}^R$ es la representación matricial
+del canal en su forma de superoperador.
+Por otro lado, los autovectores de $D_{\E}$
+multiplicados por la raíz cuadrada de sus autovalores asociados 
+son los operadores de Kraus del canal cuántico. 
 
 \janote{No me parece necesario entrar en detalle con la forma de Kraus.
 Quizás las demostraciones y más detalle se pueden guardar para la tesis.
 Espero haber logrado dar una buena motivación de la CP y haber conectado
 bien la forma de Kraus con la de superoperadores con los ejemplos.}
 \section{Canales cuánticos de 1 qubit}
+\janote{
 - Hablar de que se gana intuición pensando en la acción de un canal de 1
-qubit como la manera en que deforma la esfera de Bloch
+qubit como la manera en que deforma la esfera de Bloch}
 
-- Ejemplos: phase-flip channel, depolarizing y amplitude damping 
 
+\janote{
+- Ejemplos: phase-flip channel, depolarizing y amplitude damping\\ \indent}
+Algunos ejemplos de canales cuánticos de un sistema de 1 qubit 
+pueden proporcionar intuición 
+para completar el esquema de los canales cuánticos. 
+Como se presentó en los ejemplos que abordamos en las 
+secciones anteriores, los sistemas de 1 qubit ofrecen la
+herramienta geométrica de la esfera de Bloch para asociar cada 
+punto de ella con un estado del sistema. De esa manera, 
+se puede visualizar la acción de un canal cuántico como la 
+deformación de la esfera de Bloch bajo la acción del canal.
+En esta sección vamos a estudiar la acción de tres canales 
+cuánticos representativos sobre un sistema de 1 qubit. Presentaremos
+tanto la forma de superoperador como la forma de Kraus de 
+cada uno de los canales cuánticos.
+
+El primer ejemplo a presentar es el canal \textit{bit-phase flip} $\E_{BPF}$. 
+Con probabilidad $1-p$, el canal $\E_{BPF}$ intercambia 
+los estados $\ket{0}$ y $\ket{1}$, 
+autoestados de $\sigma_z$, e intercambia la fase total
+del estado $\ket{\psi}$ del qubit. 
+Recordemos que la matriz de densidad en \eqref{eq:DM-1q} 
+las coordenadas $r_i$ en la esfera de Bloch del punto asociado al estado
+del sistema. La acción de $\E_{BPF}$ es 
+equivalente a la siguiente transformación del vector de Bloch $\vec{r}$
+\begin{align}
+\qty(r_x,r_y,r_z)\rightarrow&\Big(\qty(1-2p)r_x,r_y,\qty(1-2p)r_z\Big).
+\label{eq:bit-phase-flip-Bloch-trans}
+\end{align}
+Geométricamente, el vector de Bloch es proyectado por el canal 
+al eje $y$ y las componentes en $x$ y $z$ son perdidas, como 
+se muestra en la \Fref{fig:bit-phase-flip}.
+Notemos que el ejemplo que discutimos en la sección 2.2 del 
+canal cuántico que colapsa la esfera de Bloch al eje $y$ es un caso
+particular de $\E_{BPF}$ cuando $p=0.5$.
+\begin{figure}[H]
+\centering
+\begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics[width=6cm]{images/bloch-ball}
+\end{minipage}
+$\longmapsto$
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=6cm]{images/bit-phase-flip}
+\end{minipage}
+\caption{Efecto del canal \textit{bit-phase flip} sobre la esfera de Bloch, 
+para $p=0.3$.}
+\label{fig:bit-phase-flip}
+\end{figure}
+La expresión en \eqref{eq:bit-phase-flip-Bloch-trans} nos 
+permite calcular la matriz de densidad $\rho'$ que resulta
+bajo la acción del canal \textit{bit-phase flip}. Por lo tanto, 
+vectorizando $\rho$, $\rho'$ y aplicando métodos elementales de
+álgebra lineal se encuentra que la ecuación de transformación de
+la matriz de densidad de 1 qubit en la forma de superoperador 
+de $\E_{BPF}$ es
+\begin{align}
+\frac{1}{2}
+\mqty(
+1-p & 0 & 0 & p \\
+0 & 1-p & -p & 0 \\
+0 & -p & 1-p & 0 \\
+p & 0 & 0 & 1-p \\
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+=
+\frac{1}{2}
+\mqty(
+1+\qty(1-p)z\\
+\qty(1-p)x-i y\\
+\qty(1-p)x+i y\\
+1-\qty(1-p)z
+).
+\label{eq:bpf-supero}
+\end{align}
+Para encontrar los operadores de Kraus se determinan los autovectores
+de la matriz de Choi $D_{\E_{BPF}}$ del canal \textit{bit-phase flip}. 
+Para encontrar la matriz de Choi se aplica la transformación 
+de \textit{reshuffle} a la matriz en la ecuación \eqref{eq:bpf-supero}.
+Los autovectores de $D_{\E_{BPF}}$, reordenados como matrices y
+cada uno multiplicado por la raíz cuadrada de su autovalor respectivo, son
+\begin{align}
+E_0&=
+\sqrt{p}
+\mqty(
+1 & 0\\
+0 & 1
+)&
+E_1&=
+\sqrt{1-p}
+\mqty(
+0 & -1\\
+1 & 0
+).
+\label{eq:bpf-kraus}
+\end{align}
+Así hemos encontrado la forma de superoperador y de Kraus del canal
+cuántico \textit{bit-phase flip} $\E_{BPF}$. Se puede evaluar directamente que 
+tanto la matriz en \eqref{eq:bpf-supero} como los operadores $E_i$
+en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
+para ser canales cuánticos.
+
+Ahora estudiaremos el canal depolarizante $\E_{Dep}$, que se muestra
+en la \Fref{fig:depolarizing}, cuya acción sobre el 
+vector de Bloch con probabilidad $(1-p)$ es 
+\begin{align}
+\qty(r_x,r_y,r_z)\rightarrow&\Big(\qty(1-p)r_x,\qty(1-p)r_y,\qty(1-p)r_z\Big).
+\label{eq:depolarizing-bloch-vec}
+\end{align}
+Geométricamente, el canal $\E_{Dep}$ atenúa por igual todas las 
+componentes del vector de Bloch y tiene como caso límite $(p=1)$
+el mapeo de cualquier estado de 1 qubit al estado 
+de máxima ignorancia o máximamente mixto $\1/2$
+\cite{bengtsson_zyczkowski_2017}, asociado con el origen de coordenadas.
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=6cm]{images/bloch-ball}
+    \end{minipage}
+    $\longmapsto$
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=6cm]{images/depolarizing}
+    \end{minipage}
+    \caption{Efecto del canal depolarizante sobre la esfera de Bloch, 
+    para $p=0.4$.}
+    \label{fig:depolarizing}
+\end{figure}
+Repitiendo el procedimiento del ejemplo anterior para calcular 
+la ecuación de transformación de la matriz de densidad de
+1 qubit bajo la acción de $\E_{Dep}$ en su forma de 
+superoperador se encuentra que es
+\begin{align}
+\frac{1}{2}
+\mqty(
+1-\frac{p}{2} & 0 & 0 & \frac{p}{2} \\
+0 & 1-p & 0 & 0 \\
+0 & 0 & 1-p & 0 \\
+\frac{p}{2} & 0 & 0 & 1-\frac{p}{2}
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+=
+\frac{1}{2}
+\mqty(
+1+\qty(1-p)z\\
+\qty(1-p)\qty(x-i y)\\
+\qty(1-p)\qty(x+i y)\\
+1-\qty(1-p)z
+),
+\end{align}
+y calculando los autovectores y autovalores de la matriz de Choi de
+$\E_{Dep}$ se encuentra que los operadores de Kraus del 
+canal depolarizante son
+\begin{align}
+E_0&=
+\sqrt{1-\frac{3p}{4}}
+\mqty(
+1 & 0\\
+0 & 1
+),&
+E_1&=
+\frac{\sqrt{p}}{2}
+\mqty(
+-1 & 0\\
+0 & 1
+),\\
+E_2&=
+\frac{\sqrt{p}}{2}
+\mqty(
+0 & -1\\
+1 & 0
+), &
+E_3&=
+\frac{\sqrt{p}}{2}
+\mqty(
+0 & 1\\
+1 & 0
+).
+\end{align}
+Los dos ejemplos anteriores son canales cuánticos que dejan invariantes 
+el estado máximamente mixto. Es decir, $\E(\1/2)=\1/2$. Los canales que
+satisfacen esta condición se conocen como canales unitales. El 
+último ejemplo a continuación será un canal cuántico que 
+no cumple la condición de unitalidad. Geométricamente, esto
+se visualiza como un canal cuya acción sobre la esfera de Bloch
+la deforma de tal manera que el centro geométrico no se mantiene
+en el origen de coordenadas.
+
+\janote{Generalized amplitude damping:\\ \indent}
+El último canal cuántico que vamos a estudiar es el canal de
+amortiguamiento de fase.
+\begin{align}
+\mqty(
+1 & 0 & 0 & \gamma  \\
+0 & \sqrt{1-\gamma } & 0 & 0 \\
+0 & 0 & \sqrt{1-\gamma } & 0 \\
+0 & 0 & 0 & 1-\gamma
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+=
+\frac{1}{2}
+\mqty(
+1+\gamma+\qty(1-\gamma)z\\
+\sqrt{1-\gamma}\qty(x-i y)\\
+\sqrt{1-p}\qty(x+i y)\\
+1-\gamma-\qty(1-\gamma)z
+),
+\end{align}
+cuyos operadores de Kraus son 
+\begin{align}
+E_0&=
+\sqrt{1-\gamma }
+\mqty(
+\frac{1}{\sqrt{1-\gamma }} & 0 \\
+0 & 1
+)&
+E_1&=
+\sqrt{\gamma }
+\mqty(
+0 & 1 \\
+0 & 0 
+)
+\end{align}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=6cm]{images/bloch-ball}
+    \end{minipage}
+    $\longmapsto$
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=6.2cm]{images/gen-amplitude-damping}
+    \end{minipage}
+    \caption{Efecto del canal generalizado de amortiguamiento de 
+        amplitud sobre la esfera de Bloch, 
+        para $p=0.4$.}
+    \label{fig:depolarizing}
+\end{figure}
+\janote{
 - De los ejemplos hablar sobre canales unitales? Breve. (es que nuestros
-canales son unitales)
+canales son unitales)}
 
 % }}}
 
