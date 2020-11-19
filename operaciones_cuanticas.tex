@@ -1,4 +1,13 @@
 \chapter{Operaciones cuánticas} % {{{
+\janote{\h{Hey Carlos.} Dejé los comentarios del esqueleto
+del capítulo para que recordaras lo que habíamos acordado.
+Intenté dar suficiente detalle para este capítulo para introducir
+las operaciones cuánticas, pero toma en cuenta que muchas cosas
+(demostraciones, detalles más formales) los deje por fuera pensando 
+que se pueden guardar para la tesis. Mi objetivo fue conectar 
+todo el capítulo motivado en ejemplos, que a mi parecer cumple
+con el objetivo de este trabajo.
+\newline}
 \janote{
 - Introducción hablando de que las operaciones cuánticas sirven 
 para describir la dinámica de los sistemas abiertos y una guía al 
@@ -10,64 +19,83 @@ pero si consideramos al sistema total (principal+entorno) ese es cerrado.
 \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
 mejor lo voy a quitar}}
 
+Las operación cuánticas son un marco teórico que proporcionan
+una manera de describir el cambio dinámico de los estados 
+de los sistemas cuánticos abiertos \cite{bengtsson_zyczkowski_2017}. 
+En la naturaleza es imposible
+encontrar un sistema cuántico perfectamente cerrado, es decir, un 
+sistema cuántico ideal que no sufra de interacción con su entorno
+\cite{nielsen_chuang_2011}. Los sistemas cuánticos reales 
+interaccionan con su entorno y, peor aún, en el laboratorio 
+los grados de libertad del entorno son, en general, inaccesibles.
+Las operaciones cuánticas son un formalismo que consideran
+la naturaleza abierta de los sistemas cuánticos reales y proporciona
+las herramientas para describir de manera discreta la dinámica
+de este tipo de sistemas.
 
+En la sección 2.1 vamos a discutir la condición de completa 
+positividad de las operaciones cuánticas, motivando la definición
+a partir de un ejemplo de una operación que deforma la esfera de
+Bloch de 1 qubit a un disco. Las secciones 2.2 y 2.3 introducen dos 
+representaciones distintas de las operaciones cuánticas,
+vamos a mostrar la conexión entre ambas representaciones
+mediante la matriz de Choi de una operación cuántica. Para 
+concluir, en la sección 2.4 se ilustran tres ejemplos de 
+operaciones cuánticas de 1 qubit que proporcionarán familiaridad
+e intuición sobre los canales cuánticos. 
 
 \section{Mapeos completamente positivos}
-%\janote{
-%Introducir la transformación de la matriz de densidad $\rho$ y hablar
-%de que $\E$ transforma estados en estados.}
-%
-%\janote{
-%    - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
-%    en un disco: presentar que el mapeo extendido para 2 qubits
-%    aplicado al estado máximamente entrelazado resulta en una matriz 
-%    no positiva (algo que no es estado).}
-
-La completa positividad es una condición que deben satisfacer las operaciones
-cuánticas para representar una evolución física 
-\cite{bengtsson_zyczkowski_2017}. Esta condición es
-intrínseca de la dinámica de los sistemas cuánticos abiertos debido a la 
-posibilidad de un sistema cuántico a interaccionar con su entorno. A
-continuación, vamos a presentar un ejemplo que justificará la condición
-de completa positividad de las operaciones cuánticas y, seguidamente,
-vamos a finalizar con la definición precisa de esta condición.
-
-En el formalismo de las operaciones cuánticas, un estado cuántico
-descrito por su operador de densidad $\rho$
+\janote{
+Introducir la transformación de la matriz de densidad $\rho$ y hablar
+de que $\E$ transforma estados en estados.\newline}
+\janote{
+    - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
+    en un disco: presentar que el mapeo extendido para 2 qubits
+    aplicado al estado máximamente entrelazado resulta en una matriz 
+    no positiva (algo que no es estado).\newline}
+\janote{- Definición de CP del Geometry of Quantum States.\newline}
+\janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.
+\newline}
+En el formalismo de las operaciones cuánticas un estado cuántico,
+descrito por su operador de densidad $\rho$,
 se transforma según la ecuación \cite{nielsen_chuang_2011}
-%\janote{Arreglar, muy de putazo escupo la transformación}
 \begin{align}
 \rho' = \E (\rho)
 \label{eq:E(rho)},
 \end{align} 
 donde $\E$ es una operación cuántica que representa alguna evolución 
-física y $\rho'$ es el estado que resulta de la evolución. 
+física y $\rho'$ es el estado que resulta de la evolución.
 En el capítulo anterior hemos 
 establecido dos ejemplos de operaciones cuánticas: la evolución unitaria 
 y la medición del estado de un sistema, 
 para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
 $\E(\rho)=M\rho M^{\dagger}$, respectivamente. 
-Una operación cuántica proporciona
-una descripción discreta del cambio dinámico que un estado cuántico 
-atraviesa durante un proceso físico. Una operación cuántica $\E$ es
+Una operación cuántica describe discretamente 
+el cambio dinámico que un estado cuántico 
+atraviesa durante un proceso físico. 
+
+Una operación cuántica $\E$ es
 una transformación lineal que mapea matrices de densidad en matrices 
 de densidad \cite{bengtsson_zyczkowski_2017}. Surge entonces la siguiente
-pregunta, ¿ser un mapeo afín de matrices de densidad es
-suficiente para asegurar que $\E$ representa una operación física? 
-%\ccnote{¿qué es un mapeo afín?}
+pregunta: si $\E$ es un mapeo afín de matrices de densidad, ¿eso es
+suficiente para que $\E$ represente una operación física? 
 La respuesta es que no, y el resto de esta sección está dedicada
 explicar porqué y motivar la definición de completa positividad.  
-Para que $\E$ sea una evolución física la operación debe cumplir con dos
-condiciones, ser un mapeo afín de operadores de densidad 
-y satisfacer la condición de completa positividad. La segunda condición
-surge como consecuencia de la interacción de un sistema 
-con su entorno, entorno que consideraremos inaccesible durante
-el resto del capítulo.
+Para que $\E$ sea una evolución física la operación debe de cumplir con dos
+condiciones, ser un mapeo afín de matrices de densidad 
+y satisfacer la condición de completa positividad. 
 
+La necesidad de satisfacer la completa positividad
+es consecuencia de la interacción que un sistema podría tener
+con su entorno, sistema secundario que vamos 
+a considerar inaccesible durante el resto del capítulo.
+A continuación vamos a presentar un ejemplo que justificará la condición
+de completa positividad de las operaciones cuánticas y, seguidamente,
+vamos a finalizar con la definición precisa de esta condición.
 
 Vamos a considerar una operación sobre el estado de un sistema de 
-1 qubit. Seguidamente, al considerar la extensión de la misma operación
-sobre el estado máximamente entrelazado de un sistema de 2 qubits 
+1 qubit. Luego, al considerar la extensión de la misma operación,
+sobre el estado máximamente entrelazado de un sistema de 2 qubits, 
 veremos que el estado resultante no es un estado físico
 De esa manera, se justificará la condición de completa positividad 
 de una operación cuántica para representar un proceso físico.
@@ -178,7 +206,6 @@ operación $\E_z\otimes\1$, se transforma como
 0 & 0 & 0 & 0 \\
 \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
 )
-%\E\otimes\1\qty(\rho^{\phi})&=
 \stackrel{\E_{z}\otimes\1}{\longmapsto}
 \mqty( 
 \frac{1}{4} & 0 & 0 & \frac{1}{2} \\
@@ -204,8 +231,6 @@ el entorno, y es necesario que la condición de positividad de los estados
 sea independiente de la dimensión del sistema secundario ya que 
 en el laboratorio los grados de libertad del entorno son usualmente inaccesibles.
 
-%\janote{- Definición de CP del Geometry of Quantum States.}
-
 De manera precisa, la definición de completa positividad es la siguiente.
 Una operación $\E$ se dice que es completamente positiva (CP)
 si y sólo si, para cualquier extensión dimensional arbitraria $K$ 
@@ -215,8 +240,6 @@ el operador $\E\otimes\1_K$ es positivo semidefinido
 \cite{bengtsson_zyczkowski_2017}. Con esta definición, las condiciones 
 que debe cumplir una operación cuántica para representar una evolución física 
 están completas.
-
-%\janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.}
 
 Una operación cuántica debe satisfacer dos condiciones: (1)
 ser un mapeo afín de matrices de densidad, y (2) ser completamente positiva. 
@@ -231,11 +254,26 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 
-
 \section{Fomar de superoperador}
-\janote{Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
+\janote{\h{justificación:}
+    Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 durante todo el capítulo. Además porque numéricamente es 
-la representación que usamos}
+la representación que usamos\newline}
+\janote{
+Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+\newline}
+\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector 
+    columna\newline}
+\janote{
+    Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
+ de Choi es positiva semidefinida entonces la operación cuántica es CP
+ \newline
+}
+\janote{
+Concluir con un ejemplo de un canal nuestro sobre 1 qubit
+\newline
+}
+\janote{Otro ejemplo, pero ahora sí de un canal \newline}
 
 Una forma de representar a una operación cuántica es en la forma de 
 superoperador. Un superoperador es una transformación lineal
@@ -252,7 +290,6 @@ utilizando su forma de superoperador, vamos a mostrar que no es CP.
 Por último, en el segundo ejemplo discutiremos un canal cuántico
 para familiarizar al lector con la forma de superoperador de un canal.
 
-%- Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
 En la forma de superoperador de una operación cuántica se 
 considera que la operación actúa sobre la matriz de densidad 
 como un vector columna, por lo cual es necesario estudiar alguna transformación
@@ -314,7 +351,6 @@ elemento de matriz de $U$, utilizando cuatro índices, es
 U_\ind{m\mu}{n\nu}=\matrixel{i\otimes \mu}{U}{j\otimes \nu}.
 \label{eq:4indices}
 \end{align}
-%\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector columna}
 
 Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
 de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
@@ -341,12 +377,6 @@ sobre el superoperador $\E$ \cite{bengtsson_zyczkowski_2017}:
     \label{eq:positivity-condition}
 \end{align}
 
-
-%\janote{
-%- Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
-% de Choi es positiva semidefinida entonces la operación cuántica es CP
-%}
-
 Según lo que discutimos en la sección anterior estas condiciones
 no son suficientes para que la operación $\E$ sea un canal cuántico; adicionalmente 
 $\E$ debe ser CP. Para evaluar la completa positividad de $\E$, en su forma 
@@ -370,10 +400,6 @@ Dado que una operación $\E$ cumple con las condiciones establecidas de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, la positividad
 de la matriz de Choi $D_{\E}$ determina si la operación es 
 o no un canal cuántico.
-
-%\janote{
-%- Concluir con un ejemplo de un canal nuestro sobre 1 qubit
-%}
 
 Ahora retomemos el ejemplo de la operación $\E_z$ 
 sobre 1 qubit de la sección anterior para evaluar la condición de 
@@ -420,8 +446,6 @@ por consiguiente $\E_z$ no es CP.
 En la forma de superoperador de $\E_z$ hemos llegado a la misma
 conclusión de la sección anterior sobre la 
 completa positividad.
-
-%\janote{Otro ejemplo, pero ahora sí de un canal}
 
 Para concluir la sección será útil desarrollar un ejemplo más, 
 pero ahora de una operación que sí es un canal cuántico de 1 qubit. Este 
@@ -509,9 +533,17 @@ y llegar a las condiciones para ser CPTP y empezar a conectarlo
 con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
 con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
 \janote{Entonces voy a omitir la motivación con el entorno y en general
-    mencionar al entorno en la explicación.}
+    mencionar al entorno en la explicación.\newline}
+\janote{Introducción\newline}
+\janote{
+    - Invocar el ejemplo del canal de la sección anterior, pero en su 
+    representación de operadores de suma. Aquí quiero hacer la conexión 
+    entre esta y la sección anterior mostrando que los operadores 
+    de Kraus son los autovectores de la matriz de Choi.\newline}
+\janote{
+    - Comparar la representacion de suma de operadores y superoperadores
+\newline}
 
-%\janote{Introducción:\\ \indent}
 Otra forma de representar a una operación cuántica, distinta a la
 forma de superoperador de la sección anterior, es la forma de Kraus. 
 La diferencia principal entre ambas representaciones 
@@ -529,12 +561,6 @@ a partir de la forma de superoperador del canal.
 Para terminar, se presentarán las condiciones 
 que debe cumplir una operación en la forma de Kraus para
 ser un canal cuántico.
-
-%\janote{
-%- Invocar el ejemplo del canal de la sección anterior, pero en su 
-%representación de operadores de suma. Aquí quiero hacer la conexión 
-%entre esta y la sección anterior mostrando que los operadores 
-%de Kraus son los autovectores de la matriz de Choi.}
 
 Consideremos de nuevo el canal cuántico $\E_{xz}$.
 Recordemos que $\E_{xz}$ es un canal cuántico
@@ -647,8 +673,7 @@ si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
 \sum_iE_i^{\dagger}E_i=\1.
 \label{eq:kraus-tp-cond}
 \end{align}
-%\janote{
-%- Comparar la representacion de suma de operadores y superoperadores\\ \indent}
+
 En resumen, las ecuaciones \eqref{eq:Kraus} y \eqref{eq:kraus-tp-cond}
 caracterizan la forma de Kraus de un canal cuántico. 
 Con esto hemos mostrado dos formas distintas de representar a un 
@@ -665,18 +690,13 @@ Por otro lado, los autovectores de $D_{\E}$,
 multiplicados por la raíz cuadrada de sus autovalores asociados,
 son los operadores de Kraus del canal cuántico. 
 
-\janote{No me parece necesario entrar en detalle con la forma de Kraus.
-Quizás las demostraciones y más detalle se pueden guardar para la tesis.
-Espero haber logrado dar una buena motivación de la CP y haber conectado
-bien la forma de Kraus con la de superoperadores con los ejemplos.}
 \section{Canales cuánticos de 1 qubit}
-%\janote{
-%- Hablar de que se gana intuición pensando en la acción de un canal de 1
-%qubit como la manera en que deforma la esfera de Bloch}
-%
-%
-%\janote{
-%- Ejemplos: phase-flip channel, depolarizing y amplitude damping\\ \indent}
+\janote{
+- Hablar de que se gana intuición pensando en la acción de un canal de 1
+qubit como la manera en que deforma la esfera de Bloch\newline}
+\janote{
+- Ejemplos: phase-flip channel, depolarizing y amplitude damping\newline}
+
 Mostrar algunos ejemplos de canales cuánticos de 1 qubit 
 puede proporcionar intuición 
 para completar el marco teórico de los canales cuánticos. 
@@ -872,7 +892,6 @@ se visualiza como un canal cuya acción sobre la esfera de Bloch
 la deforma de tal manera que el centro geométrico no se mantiene
 en el origen de coordenadas.
 
-%\janote{Amplitude damping channel:\\ \indent}
 El último canal cuántico que vamos a estudiar es el canal de
 amortiguamiento de fase $\E_{AF}$. La acción de $\E_{AF}$
 sobre el vector de Bloch es 
