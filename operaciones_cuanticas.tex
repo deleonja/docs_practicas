@@ -1,23 +1,24 @@
 \chapter{Operaciones cuánticas} % {{{
-\janote{\h{Hey Carlos.} Dejé los comentarios del esqueleto
-del capítulo para que recordaras lo que habíamos acordado.
-Intenté dar suficiente detalle para este capítulo para introducir
-las operaciones cuánticas, pero toma en cuenta que muchas cosas
-(demostraciones, detalles más formales) los deje por fuera pensando 
-que se pueden guardar para la tesis. Mi objetivo fue conectar 
-todo el capítulo motivado en ejemplos, que a mi parecer cumple
-con el objetivo de este trabajo.
-\newline}
-\janote{
-- Introducción hablando de que las operaciones cuánticas sirven 
-para describir la dinámica de los sistemas abiertos y una guía al 
-lector de qué se viene en este cap. Enfatizar en que el truco es 
-considerar como 'nuevo sistema cerrado' al sistema extendido}
-\cpnote{No entiendo esa frase}
-\janote{Me refiero a que un sistema que interactúa con su entorno es abierto, 
-pero si consideramos al sistema total (principal+entorno) ese es cerrado.
-\textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
-mejor lo voy a quitar}}
+% Intro {{{
+% \janote{\h{Hey Carlos.} Dejé los comentarios del esqueleto
+% del capítulo para que recordaras lo que habíamos acordado.
+% Intenté dar suficiente detalle para este capítulo para introducir
+% las operaciones cuánticas, pero toma en cuenta que muchas cosas
+% (demostraciones, detalles más formales) los deje por fuera pensando 
+% que se pueden guardar para la tesis. Mi objetivo fue conectar 
+% todo el capítulo motivado en ejemplos, que a mi parecer cumple
+% con el objetivo de este trabajo.
+% \newline}
+% \janote{
+% - Introducción hablando de que las operaciones cuánticas sirven 
+% para describir la dinámica de los sistemas abiertos y una guía al 
+% lector de qué se viene en este cap. Enfatizar en que el truco es 
+% considerar como 'nuevo sistema cerrado' al sistema extendido}
+% \cpnote{No entiendo esa frase}
+% \janote{Me refiero a que un sistema que interactúa con su entorno es abierto, 
+% pero si consideramos al sistema total (principal+entorno) ese es cerrado.
+% \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
+% mejor lo voy a quitar}}
 
 Las operación cuánticas son un marco teórico que proporcionan
 una manera de describir el cambio dinámico de los estados 
@@ -34,7 +35,9 @@ las herramientas para describir de manera discreta la dinámica
 de este tipo de sistemas.
 
 En la sección 2.1 vamos a discutir la condición de completa 
-positividad de las operaciones cuánticas, motivando la definición
+positividad \cpnote{mejor diría algo de lo qe se pueda agarrar el lector. Algo asi 
+como ``obtendremos las condiciones matemáticas necesarias para definir un 
+canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido} de las operaciones cuánticas, motivando la definición
 a partir de un ejemplo de una operación que deforma la esfera de
 Bloch de 1 qubit a un disco. Las secciones 2.2 y 2.3 introducen dos 
 representaciones distintas de las operaciones cuánticas,
@@ -43,19 +46,19 @@ mediante la matriz de Choi de una operación cuántica. Para
 concluir, en la sección 2.4 se ilustran tres ejemplos de 
 operaciones cuánticas de 1 qubit que proporcionarán familiaridad
 e intuición sobre los canales cuánticos. 
-
-\section{Mapeos completamente positivos}
-\janote{
-Introducir la transformación de la matriz de densidad $\rho$ y hablar
-de que $\E$ transforma estados en estados.\newline}
-\janote{
-    - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
-    en un disco: presentar que el mapeo extendido para 2 qubits
-    aplicado al estado máximamente entrelazado resulta en una matriz 
-    no positiva (algo que no es estado).\newline}
-\janote{- Definición de CP del Geometry of Quantum States.\newline}
-\janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.
-\newline}
+% }}}
+\section{Mapeos completamente positivos} % {{{
+% \janote{
+% Introducir la transformación de la matriz de densidad $\rho$ y hablar
+% de que $\E$ transforma estados en estados.\newline}
+% \janote{
+%     - Motivación de la CP. Ejemplo del mapeo que deforma la esfera de Bloch
+%     en un disco: presentar que el mapeo extendido para 2 qubits
+%     aplicado al estado máximamente entrelazado resulta en una matriz 
+%     no positiva (algo que no es estado).\newline}
+% \janote{- Definición de CP del Geometry of Quantum States.\newline}
+% \janote{- Concluir con que las operaciones que estudiamos deben ser CPTP.
+% \newline}
 En el formalismo de las operaciones cuánticas un estado cuántico,
 descrito por su operador de densidad $\rho$,
 se transforma según la ecuación \cite{nielsen_chuang_2011}
@@ -64,12 +67,16 @@ se transforma según la ecuación \cite{nielsen_chuang_2011}
 \label{eq:E(rho)},
 \end{align} 
 donde $\E$ es una operación cuántica que representa alguna evolución 
-física y $\rho'$ es el estado que resulta de la evolución.
+física y $\rho'$ es el estado que resulta de la evolución\cpnote{Normalmente 
+uno cita al final de la frase, a menos que no se entienda. En este caso y casi
+siempre, funciona ponerla al final}.
 En el capítulo anterior hemos 
 establecido dos ejemplos de operaciones cuánticas: la evolución unitaria 
 y la medición del estado de un sistema, 
 para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
-$\E(\rho)=M\rho M^{\dagger}$, respectivamente. 
+$\E(\rho)=M\rho M^{\dagger}$\cpnote{Aca tienes un posible problema, porque 
+entonecs no conservas la traza. Quizá yo quitaria ese ejemplo, o
+pondría una suma mejor hablemos}, respectivamente. 
 Una operación cuántica describe discretamente 
 el cambio dinámico que un estado cuántico 
 atraviesa durante un proceso físico. 
@@ -128,7 +135,8 @@ transformar al vector de Bloch $\vec{r}$ como
 \label{eq:notCP}
 \end{align}
 donde los subíndices $1,2,3$ se utilizan para etiquetar a $x,y,z$.
-\begin{figure}[H]
+
+\begin{figure}% {{{
 \centering
 \begin{minipage}{.4\textwidth}
 \centering
@@ -141,10 +149,12 @@ $\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
 \includegraphics[width=6cm]
 {img-congreso/DiskXY}
 \end{minipage}
-\caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+\caption{\cpnote{Prefuero dejar a las figuras realmente flotantes}
+Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
 \label{fig:qtm-op-motivation}
-\end{figure}
-Por otro lado, el estado máximente entralazado $\rho^{\phi}$ de 
+\end{figure} % }}}
+
+Por otro lado, el estado máximamente entralazado $\rho^{\phi}$ de 
 un sistema de 2 qubits es \cite{bengtsson_zyczkowski_2017}
 \begin{align}
 \rho^{\phi}&=
@@ -218,6 +228,8 @@ La matriz resultante $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un
 autovalor igual a $-1/4$.
 Por consiguiente, $\E_z\otimes\1\qty(\rho^{\phi})$ no es una matriz 
 de densidad porque no es positiva.  
+\cpnote{Se me hace bien el ejemplo, pero muy enredado el procedimiento. Quizá 
+si lo platicamos, estaría bien.}
 Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
 no describe a ningún estado físico de un sistema de 2 qubits.
 En resumen, la operación $\E_z$ aunque transforma estados positivos
@@ -230,6 +242,7 @@ sin importar la dimensión de este. El sistema secundario podría ser
 el entorno, y es necesario que la condición de positividad de los estados
 sea independiente de la dimensión del sistema secundario ya que 
 en el laboratorio los grados de libertad del entorno son usualmente inaccesibles.
+\cpnote{Esa ultima frase es blah blah. Mejorala}
 
 De manera precisa, la definición de completa positividad es la siguiente.
 Una operación $\E$ se dice que es completamente positiva (CP)
@@ -237,7 +250,10 @@ si y sólo si, para cualquier extensión dimensional arbitraria $K$
 del espacio de Hilbert, tal que 
 $\hi_N \rightarrow \hi_N \otimes \hi_K$,
 el operador $\E\otimes\1_K$ es positivo semidefinido 
-\cite{bengtsson_zyczkowski_2017}. Con esta definición, las condiciones 
+\cite{bengtsson_zyczkowski_2017}. 
+\cpnote{No estoy seguro de que esa sea la definición. 
+Mas bien, quieres decir que sea positivo}
+Con esta definición, las condiciones 
 que debe cumplir una operación cuántica para representar una evolución física 
 están completas.
 
@@ -254,31 +270,34 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 
-\section{Fomar de superoperador}
-\janote{\h{justificación:}
-    Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
-durante todo el capítulo. Además porque numéricamente es 
-la representación que usamos\newline}
-\janote{
-Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
-\newline}
-\janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector 
-    columna\newline}
-\janote{
-    Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
- de Choi es positiva semidefinida entonces la operación cuántica es CP
- \newline
-}
-\janote{
-Concluir con un ejemplo de un canal nuestro sobre 1 qubit
-\newline
-}
-\janote{Otro ejemplo, pero ahora sí de un canal \newline}
+%}}}
+\section{Fomar de superoperador} % {{{
+% \janote{\h{justificación:}
+%     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
+% durante todo el capítulo. Además porque numéricamente es 
+% la representación que usamos\newline}
+% \janote{
+% Empezar hablando del reshape a $\rho$ (pasarlo de matriz a vector columna)
+% \newline}
+% \janote{Hablar de los mapeos que actúan sobre $\rho$ como un vector 
+%     columna\newline}
+% \janote{
+%     Hablar de la matriz de Choi y enunciar el teorema de Choi: si la matriz
+%  de Choi es positiva semidefinida entonces la operación cuántica es CP
+%  \newline
+% }
+% \janote{
+% Concluir con un ejemplo de un canal nuestro sobre 1 qubit
+% \newline
+% }
+% \janote{Otro ejemplo, pero ahora sí de un canal \newline}
 
 Una forma de representar a una operación cuántica es en la forma de 
 superoperador. Un superoperador es una transformación lineal
 que actúa sobre el espacio vectorial de los operadores lineales 
-\cite{preskill1998lecture}. Iniciaremos esta sección discutiendo algunas
+\cite{preskill1998lecture}. 
+% \cpnote{Odio esas dos primeras frases}
+Iniciaremos esta sección discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
 una notación de cuatro índices que es útil al considerar un espacio de Hilbert 
 compuesto por dos subsistemas. Luego vamos a presentar 
@@ -453,10 +472,7 @@ ejemplo servirá para proporcionar más familiaridad con la forma de
 los superoperador y, además, para hacer la conexión con 
 la forma de Kraus de las operaciones cuánticas en la siguiente sección.
 
-Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch
-al eje $y$ como se muestra en la \Fref{fig:QC-ex2}. El vector de 
-Bloch de cualquier punto en la esfera se proyecta hacia el eje $y$.
-\begin{figure}[H]
+\begin{figure} % {{{
     \centering
     \begin{minipage}{.4\textwidth}
         \centering
@@ -471,7 +487,10 @@ Bloch de cualquier punto en la esfera se proyecta hacia el eje $y$.
     \end{minipage}
     \caption{Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
     \label{fig:QC-ex2}
-\end{figure}
+\end{figure} % }}}
+Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch
+al eje $y$ como se muestra en la \Fref{fig:QC-ex2}. El vector de 
+Bloch de cualquier punto en la esfera se proyecta hacia el eje $y$.
 A partir de la representación geométrica de $\E_{xz}$ 
 se puede inferir que el vector de Bloch se transforma 
 como
@@ -525,7 +544,8 @@ si una operación en su forma de superoperador es un canal cuántico.
 En la siguiente sección presentaremos la forma de Kraus de las operaciones
 cuánticas.
 
-\section{Forma de Kraus}
+%}}}
+\section{Forma de Kraus} % {{{
 \janote{
 - Enunciar la representación en operadores de suma partiendo de un 
 estado que se acopla con algún entorno
@@ -690,7 +710,8 @@ Por otro lado, los autovectores de $D_{\E}$,
 multiplicados por la raíz cuadrada de sus autovalores asociados,
 son los operadores de Kraus del canal cuántico. 
 
-\section{Canales cuánticos de 1 qubit}
+%}}}
+\section{Canales cuánticos de 1 qubit} % {{{
 \janote{
 - Hablar de que se gana intuición pensando en la acción de un canal de 1
 qubit como la manera en que deforma la esfera de Bloch\newline}
@@ -1004,5 +1025,6 @@ La preferencia por alguna representación u otra está determinada
 por la naturaleza del problema a resolver. 
 En el siguiente capítulo veremos las ventajas de la forma de superoperador 
 de un canal cuántico en el problema de estudio de este proyecto. 
+% }}}
 % }}}
 
