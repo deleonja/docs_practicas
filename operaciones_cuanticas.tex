@@ -34,15 +34,14 @@ la naturaleza abierta de los sistemas cuánticos reales y proporciona
 las herramientas para describir de manera discreta la dinámica
 de este tipo de sistemas.
 
-En la sección 2.1 vamos a discutir una condición necesaria, 
-que debe satisfacer una operación cuántica, para que esta
-transforme estados entrelazados, de un sistema principal acoplado 
-con algún entorno, en estados positivos del sistema total,
-sin importar la naturaleza del entorno.
+En la sección 2.1 vamos a discutir la condición
+que deben satisfacer las operaciones cuánticas para que éstas
+transformen estados entrelazados (que son positivos)
+en estados positivos.
 \cpnote{mejor diría algo de lo qe se pueda agarrar el lector. Algo asi 
 como ``obtendremos las condiciones matemáticas necesarias para definir un 
 canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido} 
-\janote{Listo.}
+\janote{Mejor?}
 Vamos a motivar la definición de esta condición
 a partir de un ejemplo de una operación que deforma la esfera de
 Bloch de 1 qubit a un disco. Las secciones 2.2 y 2.3 introducen dos 
@@ -83,9 +82,10 @@ En el capítulo anterior  establecimos
 dos ejemplos de operaciones cuánticas: la evolución unitaria 
 y la medición del estado de un sistema, 
 para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
-$\E(\rho)=M\rho M^{\dagger}$\cpnote{Aca tienes un posible problema, porque 
+$\E(\rho)=\sum_mM\rho M^{\dagger}$\cpnote{Aca tienes un posible problema, porque 
 entonecs no conservas la traza. Quizá yo quitaria ese ejemplo, o
-pondría una suma mejor hablemos}, respectivamente. 
+pondría una suma mejor hablemos}\janote{Cierto. Si no, no 
+se conserva la traza unitaria. Pondré la suma}, respectivamente. 
 Una operación cuántica describe discretamente 
 el cambio dinámico que un estado cuántico 
 atraviesa durante un proceso físico. 
@@ -93,65 +93,72 @@ atraviesa durante un proceso físico.
 Una operación cuántica $\E$ es
 una transformación lineal que mapea matrices de densidad en matrices 
 de densidad \cite{bengtsson_zyczkowski_2017}. Surge entonces la siguiente
-pregunta: si $\E$ es un mapeo afín de matrices de densidad, ¿eso es
-suficiente para que $\E$ represente una operación física? 
+pregunta: si $\E$ es un mapeo afín de matrices de densidad, ¿es eso
+suficiente para afirmar que $\E$ representa una operación física? 
 La respuesta es que no, y el resto de esta sección está dedicada
 explicar porqué y motivar la definición de completa positividad.  
 Para que $\E$ sea una evolución física la operación debe de cumplir con dos
-condiciones, ser un mapeo afín de matrices de densidad 
-y satisfacer la condición de completa positividad. 
+condiciones: (1) ser un mapeo afín de matrices de densidad, 
+y (2) satisfacer una condición más fuerte que la de positividad. 
 
-La necesidad de satisfacer la completa positividad
-es consecuencia de la interacción que un sistema podría tener
-con su entorno, sistema secundario que vamos 
+La necesidad de satisfacer esta segunda condición
+es una consecuencia de la interacción que un sistema podría tener
+con su entorno, un sistema secundario que vamos 
 a considerar inaccesible durante el resto del capítulo.
-A continuación vamos a presentar un ejemplo que justificará la condición
-de completa positividad de las operaciones cuánticas y, seguidamente,
-vamos a finalizar con la definición precisa de esta condición.
+A continuación vamos a considerar una operación 
+que actúa sobre los estados de un sistema de
+1 qubit y, al considerar la extensión de la misma operación
+sobre un sistema de 2 qubits que se encuentra en
+el estado máximamente entrelazado,
+obtendremos como resultado un estado no físico.
+De esa manera, se justificará la necesidad de imponer 
+una condición más robusta que la de la positividad 
+de las operaciones cuánticas, para exigir 
+que una operación cuántica transforme estados 
+positivos en estados positivos, para cualquier
+extensión dimensional arbitraria del espacio
+de estados del sistema.
 
-Vamos a considerar una operación sobre el estado de un sistema de 
-1 qubit. Luego, al considerar la extensión de la misma operación,
-sobre el estado máximamente entrelazado de un sistema de 2 qubits, 
-veremos que el estado resultante no es un estado físico
-De esa manera, se justificará la condición de completa positividad 
-de una operación cuántica para representar un proceso físico.
-
-La matriz de densidad de 1 qubit se puede escribir 
-como \cite{nielsen_chuang_2011}
+Antes de entrar de lleno con la operación que vamos 
+a considerar necesitamos establecer la forma en la 
+cual representar a la matriz de densidad. La base
+que vamos a utilizar serán los productos tensoriales de
+las matrices de Pauli: $\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
+con $\sigma_0=\1$. De esa manera, las matrices de 
+densidad de 1 qubit y 2 qubits se escriben, 
+respectivamente, como~\cite{nielsen_chuang_2011}
 \begin{align}
-\rho=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
+\rho^1&=\frac{\1}{2}+\sum_{i=1}^{3} r_i\sigma_i,
+& 
+\rho^2&=\frac{\1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \label{eq:DM-1q}
 \end{align}
-donde $\sigma_i$ son las matrices de Pauli $\qty(\sigma_0 =\1)$
-y $r_i$ las componentes
-el vector de Bloch ($\abs{\vec{r}}\leq1$), un vector que determina
-las coordenadas de un punto en una esfera unitaria,
-conocida como la esfera de Bloch. 
-Esta representación de la matriz de densidad de 1 qubit 
-permite asociar a cada punto en la 
-esfera de Bloch con un estado del sistema. En la parte
-izquierda de la \Fref{fig:qtm-op-motivation} se muestra la esfera de Bloch
+donde $r_0=r_{00}=1$, para que se cumpla que $\Tr\qty(\rho)=1.$
+Las componentes $r_i$ y $r_{ij}$ definen un vector de 4 entradas
+y una matriz de $4\times4$, respectivamente. 
+Para el caso de 1 qubit, el vector $\qty(r_1, r_2, r_3)$ define 
+las coordenadas de un punto sobre una esfera unitaria conocida
+como la esfera de Bloch.
+Así, todos los estados de 1 qubit se asocian con un punto en la
+esfera de Bloch. En el panel izquierdo de la 
+\Fref{fig:qtm-op-motivation} se muestra la esfera de Bloch
 y algunos estados de 1 qubit; los estados puros se corresponden
 con puntos en la superficie de la esfera y los estados mixtos 
 con puntos en el interior, incluyendo al origen.
 
-De manera similar a \eqref{eq:DM-1q}, la matriz de densidad 
-de 2 qubits se puede escribir como
-\begin{align}
-\rho&=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
-\label{eq:DM-2q}
-\end{align}
-donde $r$ es ahora una matriz de $4\times4$ que contiene
-la información física del sistema. 
-
-Ahora consideremos la operación $\E_z$ que deforma la bola de Bloch a un 
+Ahora, consideremos la operación $\E_z$ que deforma la bola de Bloch a un 
 disco sobre el plano $xy$, como se muestra en la \Fref{fig:qtm-op-motivation}. 
 La acción de la operación $\E_z$ sobre una matriz de densidad
+de 1 qubit 
 de la forma \eqref{eq:DM-1q} es equivalente a 
 transformar al vector $\vec{r}$ como 
-$\qty(r_0,r_1,r_2,r_3)\mapsto\qty(r_0,r_1,r_2,0)$,
-donde los subíndices $1,2,3$ se utilizan son etiquetas de 
-las coordenadas $x,y,z$.
+$\qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0)$,
+notando que los subíndices $1,2,3$ se utilizan para
+etiquetar a las coordenadas $x,y,z$. 
+Es decir, $\E_z$ borra la componente $z$ del estado de un 1 qubit.
+La matriz $\E_z\qty(\rho^1)$ es también una matriz de densidad, 
+por lo cual se concluye que $\E_z$ transforma estados 
+positivos en estados positivos.
 
 \begin{figure}% {{{
 \centering
@@ -166,17 +173,25 @@ $\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
 \includegraphics[width=6cm]
 {img-congreso/DiskXY}
 \end{minipage}
-\caption{\cpnote{Prefuero dejar a las figuras realmente flotantes}
+\caption{
+\cpnote{Prefiero dejar a las figuras realmente flotantes}
+\janote{De acuerdo}
 Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
 \label{fig:qtm-op-motivation}
 \end{figure} % }}}
 
-Si ahora consideramos la operación $\E_z$ en el espacio extendido
+No obstante, si ahora consideramos la operación $\E_z\otimes\1$ sobre el espacio extendido
 de  un sistema de 2 qubits, que se encuentra en el estado máximamente
 entrelazado $\ket{\phi}=\qty(\ket{0}+\ket{1})/\sqrt{2}$, veremos 
-que la matriz resultante no es una matriz de densidad. 
-El estado máximamente entralazado $\rho^{\phi}$
-es \cite{bengtsson_zyczkowski_2017}
+que $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$  no es una matriz de densidad.
+La acción de $\E_z\otimes\1$ es tal que borra la componente
+$z$ local del qubit 1 y deja intacto al resto del estado total, por consiguiente,
+si la matriz de densidad es de la forma de \eqref{eq:DM-1q} entonces 
+$\E_z\otimes\1$ borra las componentes $r_{3j}$ y deja invariantes 
+al resto. Para calcular $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$
+necesitamos entonces escribir $\dyad{\phi}{\phi}$ en la base
+de productos tensoriales de las matrices de Pauli.
+Calculando $\dyad{\phi}{\phi}$ se tiene
 \begin{align}
 \dyad{\phi}{\phi}=& 
 %\mqty( 
@@ -191,28 +206,27 @@ es \cite{bengtsson_zyczkowski_2017}
 + \dyad{11}{00} + \dyad{11}{11} \Big).
 \label{eq:DM-2q-MaxE}
 \end{align}
-Al calcular las proyecciones de $\dyad{\phi}{\phi}$ sobre
-los elementos de la base de productos tensoriales 
-de las matrices de Pauli, usando el producto interno
-de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$,
-se encuentra que $r_{00}=r_{11}=r_{33}=1$, $r_{22}=-1$,
-y el resto de las entradas de $r$ son iguales a cero. 
+Para calcular las componentes $r_{ij}$ se calculan las
+proyecciones de $\dyad{\phi}{\phi}$ sobre
+los elementos $\sigma_i\otimes\sigma_j$, usando el producto interno
+de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
+De esa manera, se encuentra que $r_{00}=r_{11}=r_{33}=1$, $r_{22}=-1$,
+y el resto de los elementos de $r$ son iguales a cero. 
 Por lo tanto, el estado máximamente entrelazado de
-dos qubits, en la base de productos tensoriales
-de las matrices de Pauli, es
+dos qubits, en la forma de \eqref{eq:DM-1q}, se escribe como
 \begin{align}
-\qty[{\rho}^{\phi}]_{\sigma}=
-\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}
+\dyad{\phi}{\phi}_{\sigma}=
+\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
 \end{align}
-La acción de $\E_z\otimes\1$ sobre una matriz de densidad 
-de 2 qubits es tal que borra la componente $z$ local del primer qubit. 
-Es decir, borra los elementos de $r$ de la forma $r_{3j}$ y deja invariantes 
-al resto, entonces
+Recordando que $\E_z\otimes\1$ borra los elementos de $r$ de la forma
+$r_{3j}$, entonces el cálculo de la matriz $\E_z\otimes\1 \qty({\rho}^{\phi})$
+en la base de productos tensoriales de las matrices de Pauli es directo,
 \begin{align}
 \qty[\E_z\otimes\1 \qty({\rho}^{\phi})]_{\sigma}=
-\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
+\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2};
 \end{align}
-y transformando de vuelta esta matriz a la base computacional se tiene
+y, transformando de vuelta esta matriz a la base computacional,
+se obtiene
 \begin{align}
 \E_z\otimes\1 \qty({\rho}^{\phi})=
 \mqty( 
@@ -231,27 +245,24 @@ no describe a ningún estado físico de un sistema de 2 qubits.
 
 En resumen, aunque la operación $\E_z$ transforma estados positivos
 de 1 qubit en estados positivos de 1 qubit, 
-su extensión en el espacio de 2 qubits $\E_z\otimes\1$
+su extensión en el espacio de 2 qubits, $\E_z\otimes\1$,
 transforma al menos un estado en un estado no válido. 
 En vista de este resultado, se hace evidente que una operación cuántica 
 debe transformar estados positivos en estados positivos,
 aún cuando se considere la extensión de la operación en 
-un espacio de un sistema total de cualquier dimensión.
-El sistema secundario podría ser 
-el entorno, y es necesario que la condición de positividad de los estados
-sea independiente de la dimensión del sistema secundario ya que 
-en el laboratorio los grados de libertad del entorno son usualmente inaccesibles.
-\cpnote{Esa ultima frase es blah blah. Mejorala}
+un espacio de un sistema más grande de dimensión arbitraria.
+\cpnote{Esa ultima frase es blah blah. Mejorala} \janote{Hecho.}
 
 De manera precisa, la definición de completa positividad es la siguiente.
 Una operación $\E$ se dice que es completamente positiva (CP)
 si y sólo si, para cualquier extensión dimensional arbitraria $K$ 
 del espacio de Hilbert, tal que 
 $\hi_N \rightarrow \hi_N \otimes \hi_K$,
-el operador $\E\otimes\1_K$ es positivo semidefinido 
-\cite{bengtsson_zyczkowski_2017}. 
+el operador $\E\otimes\1_K$ es positivo~\cite{bengtsson_zyczkowski_2017}. 
 \cpnote{No estoy seguro de que esa sea la definición. 
 Mas bien, quieres decir que sea positivo}
+\janote{Recordatorio: quedamos en dejarlo con las 
+mismas palabras del GofQS}
 Con esta definición, las condiciones 
 que debe cumplir una operación cuántica para representar una evolución física 
 están completas.
@@ -270,7 +281,9 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 %}}}
-\section{Fomar de superoperador \cpnote{No entiendo este título}} % {{{
+\section{Forma de superoperador} % {{{
+\cpnote{No entiendo este título}
+\janote{Hay problema con llamarle así? S}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 % durante todo el capítulo. Además porque numéricamente es 
@@ -301,7 +314,7 @@ lineales~\cite{preskill1998lecture}.
 \cpnote{Normalmente no se dejan las citas iniciando linea. Para prevenir
 eso, se usa la tilde \~ que deja un espacio, pero no parte linea ahí. Lo cambio
 para que veas como podría ir. }
-% \cpnote{Odio esas dos primeras frases}
+\cpnote{Odio esas dos primeras frases}
 Iniciaremos esta sección discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
 una notación de cuatro índices que es útil al considerar un espacio de Hilbert 
