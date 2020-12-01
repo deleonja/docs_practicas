@@ -270,7 +270,7 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 %}}}
-\section{Fomar de superoperador} % {{{
+\section{Fomar de superoperador \cpnote{No entiendo este título}} % {{{
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 % durante todo el capítulo. Además porque numéricamente es 
@@ -293,8 +293,14 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 Una forma de representar a una operación cuántica es en la forma de 
 superoperador. Un superoperador es una transformación lineal
-que actúa sobre el espacio vectorial de los operadores lineales 
-\cite{preskill1998lecture}. 
+que actúa sobre el espacio vectorial de los operadores
+lineales~\cite{preskill1998lecture}. 
+% Antiguo:
+% que actúa sobre el espacio vectorial de los operadores lineales 
+% \cite{preskill1998lecture}. 
+\cpnote{Normalmente no se dejan las citas iniciando linea. Para prevenir
+eso, se usa la tilde \~ que deja un espacio, pero no parte linea ahí. Lo cambio
+para que veas como podría ir. }
 % \cpnote{Odio esas dos primeras frases}
 Iniciaremos esta sección discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
@@ -327,7 +333,8 @@ de densidad es invariante al vectorizarla.
 
 Para determinar si una operación lineal, en su forma de superoperador, es CP 
 se debe evaluar la positividad semidefinida de la matriz del superoperador
-reordenada según un procedimiento conocido como \textit{reshuffle}.
+reordenada según un procedimiento conocido como \textit{reshuffle}\cpnote{No se como
+estemos de citas, pero creo que acá sería bueno poner una}.
 La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
 consiste en reordenar cada fila de $B$, con $MN$ elementos, 
 en submatrices de dimensión $M\times N$ y colocarlas en 
@@ -377,11 +384,19 @@ superoperador que actúa sobre una matriz de densidad vectorizada $\vec{\rho}$,
 debe ser de dimensión $N^2\times N^2$. Los elementos de matriz de
 $\E$ pueden etiquetarse utilizando cuatro índices como en \eqref{eq:4indices},
 haciendo cualquier partición en dos del sistema de Hilbert total.
+\cpnote{Este y el parrafo anterior se sienten medio desorganizados. Como que
+medio tienen coherencia interna, pero siento que no tienen flujo respecto 
+al resto del texto. Quiza puedes medio reorganizar la información, o 
+convencerme de que no tengo razón? De hecho, ahora que lo lep quizá
+quitaría este parrafo.}
 
 Una operación $\E$ que sea candidata a canal cuántico debe transformar 
 matrices de densidad en matrices de densidad. Esto quiere decir que
 la imagen $\rho'$, de una matriz de densidad $\rho$, debe ser (i) Hermítica, 
-(ii) de traza unitaria y (iii) positiva semidefinida. 
+(ii) de traza unitaria y (iii) positiva semidefinida \cpnote{Añadiría 
+que estas son condiciones necesarias pero no suficientes para que E sea 
+operación cuantica. Lo dices más adelante, pero de esta frase pareciera que
+es necesario y sificiente pedir eso}. 
 Cada una de estas condiciones sobre $\rho'$ impone una condición 
 sobre el superoperador $\E$ \cite{bengtsson_zyczkowski_2017}:
 \begin{align}
@@ -394,8 +409,10 @@ sobre el superoperador $\E$ \cite{bengtsson_zyczkowski_2017}:
     &&\Leftrightarrow&&  \E_\ind{m\mu}{n\nu}\rho_{n\nu}\geq0.
     \label{eq:positivity-condition}
 \end{align}
+\cpnote{Creo que fue contigo que sufrimos con la convención de Einstein acá. 
+No propagues ese sufrimiento por favor.}
 
-Según lo que discutimos en la sección anterior estas condiciones
+Según lo que discutimos en la sección anterior, estas condiciones
 no son suficientes para que la operación $\E$ sea un canal cuántico; adicionalmente 
 $\E$ debe ser CP. Para evaluar la completa positividad de $\E$, en su forma 
 de superoperador, vamos a definir a la matriz de Choi $D_{\E}$ como 
@@ -417,14 +434,16 @@ para evaluar si $\E$ como superoperador es un canal cuántico.
 Dado que una operación $\E$ cumple con las condiciones establecidas de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, la positividad
 de la matriz de Choi $D_{\E}$ determina si la operación es 
-o no un canal cuántico.
+o no un canal cuántico.\cpnote{De nuevo, quizá una cita}
 
 Ahora retomemos el ejemplo de la operación $\E_z$ 
 sobre 1 qubit de la sección anterior para evaluar la condición de 
 completa positividad de la operación en su forma de superoperador. 
 Recordemos que la acción de $\E_z$ sobre la 
 esfera de Bloch se ilustra en la \Fref{fig:qtm-op-motivation}.
-La expresión \eqref{eq:notCP} especifica el vector de Bloch
+La expresión \eqref{eq:notCP}\cpnote{Link quebrado. En general es util
+checar el log de un documento, para ver que no se están olvidando citas o 
+referencias} especifica el vector de Bloch
 de la matriz de densidad $\rho'$, imagen de $\rho$ bajo la acción de $\E_z$.
 Por lo tanto, al vectorizar $\rho$ y $\rho'$ el cálculo 
 de la matriz de superoperador $\E_z$ es directo. 
@@ -448,6 +467,9 @@ acción de la operación $\E_z$ en su forma de superoperador, es
 1\\r_x-ir_y\\r_x+ir_y\\1
 ).
 \end{align}
+\cpnote{Creo que no has dicho como es la operacion de reshuffle en términos de los
+dobles indices. Quiza por eso querías tener el parrafo que señale antes, pero no lo 
+dijiste}
 Se aplica el procedimiento de \textit{reshuffle} a la matriz en la ecuación 
 anterior y se obtiene que la matriz de Choi de la operación $\E_z$ es
 \begin{align}
@@ -543,6 +565,7 @@ si una operación en su forma de superoperador es un canal cuántico.
 En la siguiente sección presentaremos la forma de Kraus de las operaciones
 cuánticas.
 
+\cpnote{Aca voy}
 %}}}
 \section{Forma de Kraus} % {{{
 \janote{
