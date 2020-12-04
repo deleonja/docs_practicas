@@ -281,8 +281,9 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 %}}}
-\section{Forma de superoperador} % {{{
+\section{Superoperadores} % {{{
 \cpnote{No entiendo este título}
+\janote{Así creo que queda mejor}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 % durante todo el capítulo. Además porque numéricamente es 
@@ -303,20 +304,27 @@ dos formas distintas de representar a las operaciones cuánticas.
 % }
 % \janote{Otro ejemplo, pero ahora sí de un canal \newline}
 
-Una forma de representar a una operación cuántica es en la forma de 
-superoperador. Un superoperador es una transformación lineal
-que actúa sobre el espacio vectorial de los operadores
-lineales~\cite{preskill1998lecture}. 
+Las operaciones cuánticas se pueden representar de dos 
+maneras distintas: como superoperadores ó en su forma
+de Kraus. En esta sección vamos a discutir los superoperadores, 
+que es la representación de una operación cuántica como 
+una matriz que actúa sobre la matriz de densidad reordenada
+como un vector columna.
+%Una forma de representar a una operación cuántica es en la forma de 
+%superoperador. Un superoperador es una transformación lineal
+%que actúa sobre el espacio vectorial de los operadores
+%lineales~\cite{preskill1998lecture}. 
 % Antiguo:
 % que actúa sobre el espacio vectorial de los operadores lineales 
 % \cite{preskill1998lecture}. 
 \cpnote{Normalmente no se dejan las citas iniciando linea. Para prevenir
 eso, se usa la tilde \~ que deja un espacio, pero no parte linea ahí. Lo cambio
-para que veas como podría ir. }
+para que veas como podría ir. } 
 \cpnote{Odio esas dos primeras frases}
-Iniciaremos esta sección discutiendo algunas
+\janote{Ahora mejor?}
+Iniciaremos discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
-una notación de cuatro índices que es útil al considerar un espacio de Hilbert 
+una notación de cuatro índices, que es útil al trabajar en un espacio de Hilbert 
 compuesto por dos subsistemas. Luego vamos a presentar 
 las condiciones que debe satisfacer un superoperador para ser un 
 canal cuántico. Por último, vamos a presentar dos ejemplos de operaciones
@@ -324,7 +332,7 @@ lineales que actúan sobre la matriz de densidad de 1 qubit. En el primer
 ejemplo vamos a retomar la operación discutida en la sección anterior y, 
 utilizando su forma de superoperador, vamos a mostrar que no es CP. 
 Por último, en el segundo ejemplo discutiremos un canal cuántico
-para familiarizar al lector con la forma de superoperador de un canal.
+para familiarizar al lector con la forma de superoperador de un canal cuántico.
 
 En la forma de superoperador de una operación cuántica se 
 considera que la operación es una matriz que actúa sobre la matriz de densidad 
@@ -349,6 +357,7 @@ de la operación, según el procedimiento de
 \textit{reshuffle}~\cite{bengtsson_zyczkowski_2017}.
 \cpnote{No se como
 estemos de citas, pero creo que acá sería bueno poner una}
+\janote{De acuerdo}
 La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
 consiste en reordenar cada fila de $B$, con $MN$ elementos, 
 en submatrices de dimensión $M\times N$ y colocarlas en 
@@ -398,8 +407,16 @@ En esta base, un elemento de matriz de $U$ es
 U_\ind{m\mu}{n\nu}=\matrixel{i\otimes \mu}{U}{j\otimes \nu}.
 \label{eq:4indices}
 \end{align}
-A continuación vamos a utilizar esta notación de cuatro índices
-para establecer las condiciones sobre una matriz para ser una 
+En esta notación de cuatro índices el reordenamiento 
+de \textit{reshuffle} de una matriz  $B$ toma la 
+forma~\cite{bengtsson_zyczkowski_2017}
+\begin{align}
+B^R_\ind{m\mu}{n\nu} = B_\ind{mn}{\mu\nu}.
+\label{eq:R-4ind}
+\end{align}
+A continuación, con las transformaciones algebraicas introducidas y
+esta nueva notación de cuatro índices,
+vamos a establecer las condiciones sobre una matriz para ser una 
 operación cuántica. 
 %Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
 %de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
@@ -413,7 +430,7 @@ medio tienen coherencia interna, pero siento que no tienen flujo respecto
 al resto del texto. Quiza puedes medio reorganizar la información, o 
 convencerme de que no tengo razón? De hecho, ahora que lo lep quizá
 quitaría este parrafo.} \janote{Estaba chafa. Lo arreglé desde 
-la línea 326 del PDF.}
+la línea 327 del PDF.}
 
 Una operación cuántica $\E$ de ser: (1) un mapeo lineal que
 transforme matrices de densidad en matrices de densidad, y (2) una 
@@ -425,7 +442,7 @@ una matriz de densidad, es decir, una matriz (i) Hermítica,
 que estas son condiciones necesarias pero no suficientes para que E sea 
 operación cuantica. Lo dices más adelante, pero de esta frase pareciera que
 es necesario y sificiente pedir eso}
-\janote{Reformulé desde la línea 339 del PDF.}
+\janote{Reformulé desde la línea 341 del PDF.}
 Cada una de estas tres condiciones sobre $\rho'$ impone una condición 
 sobre la matriz $\E$ \cite{bengtsson_zyczkowski_2017}:
 \begin{align}
@@ -445,12 +462,12 @@ ese dolor de cabeza}
 Ahora sólo nos resta establecer cómo evaluar la condición (2) sobre $\E$
 para que sea una operación cuántica. 
 Para evaluar la completa positividad de la matriz $\E$
-es necesario introducir a la matriz de Choi $D_{\E}$ 
-de una operación $\E$, definida como 
+es necesario introducir la matriz de Choi $D_{\E}$ 
+de una operación correspondiente $\E$, que se define como 
 $D_{\E}=\E^{R}$~\cite{bengtsson_zyczkowski_2017}.
-La matriz de Choi $D_{\E}$ es la matriz reordenada mediante
-el \textit{reshuffle} de la matriz $\E$. 
-Finalmente, el teorema de Choi \cite{bengtsson_zyczkowski_2017}
+La matriz de Choi $D_{\E}$ es la matriz reordenada, mediante
+el \textit{reshuffling}, de la matriz $\E$. 
+Finalmente, el teorema de Choi~\cite{bengtsson_zyczkowski_2017}
 establece la condición que debe satisfacer $D_{\E}$ para 
 evaluar la completa positividad de la matriz $\E$:
 \begin{teorema}{\textbf{Teorema de Choi.}}
@@ -493,19 +510,21 @@ acción de la matriz $\E_z$, es
 )
 \frac{1}{2}
 \mqty(
-1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+1+r_3\\r_1-ir_2\\r_1+ir_2\\1-r_3
 )
 =
 \frac{1}{2}
 \mqty(
-1\\r_x-ir_y\\r_x+ir_y\\1
+1\\r_1-ir_2\\r_1+ir_2\\1
 ).
 \end{align}
 \cpnote{Creo que no has dicho como es la operacion de reshuffle en términos de los
 dobles indices. Quiza por eso querías tener el parrafo que señale antes, pero no lo 
 dijiste}
-Se aplica el procedimiento de \textit{reshuffle} a la matriz en la ecuación 
-anterior y se obtiene que la matriz de Choi de la operación $\E_z$ es
+\janote{Ahora sí. Lo agregué en la línea 333 PDF}
+Se aplica el procedimiento de \textit{reshuffle},
+según la ecuación \eqref{eq:R-4ind}, a la matriz en la ecuación 
+anterior y se obtiene la matriz de Choi de $\E_z$:
 \begin{align}
 \E_z^R=
 \mqty(
@@ -518,13 +537,11 @@ anterior y se obtiene que la matriz de Choi de la operación $\E_z$ es
 La matriz $\E_z^R$ tiene un autovalor $-1/2$, 
 por consiguiente $\E_z$ no es CP. 
 En la forma de superoperador de $\E_z$ hemos llegado a la misma
-conclusión de la sección anterior sobre la 
-completa positividad.
 
-Para concluir la sección será útil desarrollar un ejemplo más, 
+Antes de concluir esta sección será útil desarrollar un ejemplo más, 
 pero ahora de una operación que sí es un canal cuántico de 1 qubit. Este 
-ejemplo servirá para proporcionar más familiaridad con la forma de 
-los superoperador y, además, para hacer la conexión con 
+ejemplo servirá para proporcionar más familiaridad con  
+los superoperadores y, además, hacer la conexión con 
 la forma de Kraus de las operaciones cuánticas en la siguiente sección.
 
 \begin{figure} % {{{
@@ -544,20 +561,19 @@ la forma de Kraus de las operaciones cuánticas en la siguiente sección.
     \label{fig:QC-ex2}
 \end{figure} % }}}
 Consideremos la operación $\E_{xz}$ que colapsa la esfera de Bloch
-al eje $y$ como se muestra en la \Fref{fig:QC-ex2}. El vector de 
+al eje $y$, como se muestra en la \Fref{fig:QC-ex2}. El vector de 
 Bloch de cualquier punto en la esfera se proyecta hacia el eje $y$.
 A partir de la representación geométrica de $\E_{xz}$ 
-se puede inferir que el vector de Bloch se transforma 
-como
+se puede inferir cómo se transforma el vector $\vec{r}$
+de $\rho$ en \eqref{eq:DM-1q}
 \begin{align}
-\qty(r_x,r_y,r_z)\mapsto\qty(0,r_y,0),
+\qty(1,r_1,r_2,r_3)\mapsto\qty(1,0,r_2,0),
 \label{eq:Bloch-vec-mapToY}
 \end{align}
 con lo cual se determina $\rho'$ y, seguidamente,
-la matriz del superoperador $\E_{xz}$.
+la matriz $\E_{xz}$.
 Por lo tanto, la ecuación de transformación de la matriz 
-de densidad de 1 qubit, bajo la acción de $\E_{xz}$ y 
-en su forma de superoperador, es
+de densidad de 1 qubit, bajo la acción de $\E_{xz}$, es
 \begin{align}
 \mqty(
 \begin{array}{cccc}
@@ -569,19 +585,19 @@ en su forma de superoperador, es
 )
 \frac{1}{2}
 \mqty(
-1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+1+r_3\\r_1-ir_2\\r_1+ir_2\\1-r_3
 )
 =
 \frac{1}{2}
 \mqty(
-1\\-ir_y\\ir_y\\1
+1\\-ir_2\\ir_2\\1
 ).
 \label{eq:QC-ex2-SR}
 \end{align}
-Al calcular la matriz de Choi de la operación notamos 
-que $\E_{xz}=\E_{xz}^R$ e, inmediatamente, se concluye
-que $\E_{xz}$ es completamente positiva. La operación $\E_{xz}$
-es un canal cuántico.
+Al calcular la matriz de Choi de $\E_{xz}$ notamos 
+que $\E_{xz}=\E_{xz}^R$ e, inmediatamente, podemos concluir
+que $\E_{xz}$ es completamente positiva. La matriz $\E_{xz}$
+es una operación cuántica.
 
 En resumen, en la forma de superoperador de una operación cuántica $\E$
 se considera a $\E$ como una matriz que actúa sobre 
@@ -589,13 +605,15 @@ una matriz de densidad vectorizada $\vec{\rho}$.
 Si una operación $\E$ satisface las condiciones de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, entonces
 es un mapeo afín de matrices de densidad.
-Además, el procedimiento de \textit{reshuffle} 
-proporciona una manera para calcular la matriz de Choi de
- $\E$; y, según el teorema de Choi, si 
-la matriz de Choi es positiva semidefinida, entonces $\E$ es 
+Además, el procedimiento de \textit{reshuffle},
+establecido en la ecuación \eqref{eq:R-4ind} en notación
+de cuatro índices, proporciona una manera para 
+calcular la matriz de Choi $D_{\E}$;
+y, según el teorema de Choi, si 
+$D_{\E}$ es una matriz positiva semidefinida, entonces $\E$ es 
 completamente positiva. 
 Así, hemos establecido las herramientas y condiciones para evaluar 
-si una operación en su forma de superoperador es un canal cuántico.
+si una operación, en su forma de superoperador, es un canal cuántico.
 En la siguiente sección presentaremos la forma de Kraus de las operaciones
 cuánticas.
 
