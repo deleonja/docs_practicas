@@ -1,4 +1,4 @@
-\chapter{Operaciones cuánticas} % {{{
+\chapter{Operaciones cuánticas} 
 % Intro {{{
 % \janote{\h{Hey Carlos.} Dejé los comentarios del esqueleto
 % del capítulo para que recordaras lo que habíamos acordado.
@@ -282,8 +282,7 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 %}}}
 \section{Superoperadores} % {{{
-\cpnote{No entiendo este título}
-\janote{Así creo que queda mejor}
+\cpnote{Creo qe si toca cambiar todo a representación matricial :S}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 % durante todo el capítulo. Además porque numéricamente es 
@@ -305,7 +304,8 @@ dos formas distintas de representar a las operaciones cuánticas.
 % \janote{Otro ejemplo, pero ahora sí de un canal \newline}
 
 Las operaciones cuánticas se pueden representar de dos 
-maneras distintas: como superoperadores ó en su forma
+maneras distintas: como superoperadores ó \cpnote{o no lleva acento 
+nunca, segun lo que leo en RAE} en su forma
 de Kraus. En esta sección vamos a discutir los superoperadores, 
 que es la representación de una operación cuántica como 
 una matriz que actúa sobre la matriz de densidad reordenada
@@ -620,26 +620,27 @@ cuánticas.
 \cpnote{Aca voy}
 %}}}
 \section{Forma de Kraus} % {{{
-\janote{
-- Enunciar la representación en operadores de suma partiendo de un 
-estado que se acopla con algún entorno
-y llegar a las condiciones para ser CPTP y empezar a conectarlo
-con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
-con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
-\janote{Entonces voy a omitir la motivación con el entorno y en general
-    mencionar al entorno en la explicación.\newline}
-\janote{Introducción\newline}
-\janote{
-    - Invocar el ejemplo del canal de la sección anterior, pero en su 
-    representación de operadores de suma. Aquí quiero hacer la conexión 
-    entre esta y la sección anterior mostrando que los operadores 
-    de Kraus son los autovectores de la matriz de Choi.\newline}
-\janote{
-    - Comparar la representacion de suma de operadores y superoperadores
-\newline}
+% \janote{
+% - Enunciar la representación en operadores de suma partiendo de un 
+% estado que se acopla con algún entorno
+% y llegar a las condiciones para ser CPTP y empezar a conectarlo
+% con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
+% con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
+% \janote{Entonces voy a omitir la motivación con el entorno y en general
+%     mencionar al entorno en la explicación.\newline}
+% \janote{Introducción\newline}
+% \janote{
+%     - Invocar el ejemplo del canal de la sección anterior, pero en su 
+%     representación de operadores de suma. Aquí quiero hacer la conexión 
+%     entre esta y la sección anterior mostrando que los operadores 
+%     de Kraus son los autovectores de la matriz de Choi.\newline}
+% \janote{
+%     - Comparar la representacion de suma de operadores y superoperadores
+% \newline}
 
 Otra forma de representar a una operación cuántica, distinta a la
-forma de superoperador de la sección anterior, es la forma de Kraus. 
+forma de superoperador \cpnote{Cambiar a matricial aca y en todas partes}
+ de la sección anterior, es la forma de Kraus. 
 La diferencia principal entre ambas representaciones 
 es que la forma de superoperador
 representa a una operación cuántica como una matriz que 
@@ -648,8 +649,7 @@ la forma de Kraus representa a una operación cuántica
 como operadores que actúan sobre el espacio de 
 Hilbert del sistema. Vamos a iniciar retomando el segundo 
 ejemplo de la sección anterior, en el cual estudiamos 
-el canal cuántico $\E_{xz}$, cuya acción sobre la esfera
-de Bloch se muestra en la \Fref{fig:QC-ex2}.
+el canal cuántico $\E_{xz}$, ver \Fref{fig:QC-ex2}.
 Luego vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
 a partir de la forma de superoperador del canal.
 Para terminar, se presentarán las condiciones 
@@ -680,12 +680,15 @@ la matriz de Choi y se obtienen
 \mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
 \mqty(0,\frac{1}{2},\frac{1}{2},0)^T,
 \end{align}
-cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente.
+cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente\cpnote{Esta
+frase está mal armada desde un punto de vista matemático No se si sea obvio en 
+que represtanción estamos (ojala solo estemos usando una base)}.
 Se reordena cada autovector $\ket{E_i}$ en una matriz
 $E_i$ de $2\times2$, siguiendo el procedimiento 
 inverso de vectorización establecido en
 \eqref{eq:matrix-to-vector}, y luego se multiplica cada $E_i$ por 
-la raíz cuadrada de su autovalor respectivo. Se obtiene
+la raíz cuadrada de su autovalor respectivo \cpnote{Que pasa con las
+degeneraciones?}. Se obtiene
 \begin{align}
 E_1&=
 \frac{1}{\sqrt{2}}
@@ -707,7 +710,10 @@ Ahora operamos a la matriz de densidad de 1 qubit
 \rho'=\sum_{i=1}^2E_i\rho E_i^{\dagger}
 \label{eq:Kraus}
 \end{align}
-que se conoce como la forma de Kraus de una operación cuántica. Operando
+que se conoce como la forma de Kraus de una operación cuántica. 
+\cpnote{Creo qe andabas cansado cuando escribiste esta parte. Dale una
+iterada a esta seccion y me avisas}
+Operando
 \begin{align}
 \rho'=&
 \frac{1}{2}
@@ -1098,6 +1104,5 @@ La preferencia por alguna representación u otra está determinada
 por la naturaleza del problema a resolver. 
 En el siguiente capítulo veremos las ventajas de la forma de superoperador 
 de un canal cuántico en el problema de estudio de este proyecto. 
-% }}}
 % }}}
 
