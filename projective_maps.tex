@@ -44,6 +44,113 @@ check para mostrar que entendí el caso de 1 qubit.}
 
 \cpnote{Me parece bien, pero porfa no te extiendas de más en este capitulo}
 
+\begin{align}
+\mqty(
+ 1 & 0 & 0 & 1 \\
+ 0 & 1 & -i & 0 \\
+ 0 & 1 & i & 0 \\
+ 1 & 0 & 0 & -1 
+)
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 0 
+)
+\mqty(
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+ 0 & \frac{1}{2} & \frac{1}{2} & 0 \\
+ 0 & \frac{i}{2} & -\frac{i}{2} & 0 \\
+ \frac{1}{2} & 0 & 0 & -\frac{1}{2} 
+)
+&=
+\mqty(
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} 
+),
+\end{align}
+que es igual a una expresión de por allá arriba. Luego 
+aplicamos el procedimiento de \textit{reshuffle}
+\begin{align}
+\mqty(
+ \frac{1}{2} & 0 & 0 & 1 \\
+ 0 & \frac{1}{2} & 0 & 0 \\
+ 0 & 0 & \frac{1}{2} & 0 \\
+ 1 & 0 & 0 & \frac{1}{2}
+),
+\end{align}
+calculamos los eigenvalores $\lambda_i$: 
+$\qty{\frac{3}{2},-\frac{1}{2},\frac{1}{2},\frac{1}{2}}$
+y dependiendo de si $\lambda_i\geq 0$ entonces se concluye
+que la operación es CP.
+
+\begin{align}
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 0 & -i & 0 \\
+ 0 & i & 0 & 0 \\
+ 0 & 0 & 0 & 1 
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+)
+&=
+\frac{1}{2}
+\mqty(
+1+r_z\\r_y-ir_x\\r_y+ir_x\\1-r_z
+)
+\end{align}
+
+\begin{align}
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & \frac{1}{2} & -\frac{1}{2} & 0 \\
+ 0 & -\frac{1}{2} & \frac{1}{2} & 0 \\
+ 0 & 0 & 0 & 1 
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_y-ir_x\\r_y+ir_x\\1-r_z
+)
+&=
+\frac{1}{2}
+\mqty(
+1+r_z\\r_y\\r_y\\1-r_z
+)
+\end{align}
+
+\begin{align}
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 0 & -i & 0 \\
+ 0 & i & 0 & 0 \\
+ 0 & 0 & 0 & 1 
+)
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & \frac{1}{2} & -\frac{1}{2} & 0 \\
+ 0 & -\frac{1}{2} & \frac{1}{2} & 0 \\
+ 0 & 0 & 0 & 1 
+)
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 0 & -i & 0 \\
+ 0 & i & 0 & 0 \\
+ 0 & 0 & 0 & 1 
+)
+\frac{1}{2}
+\mqty(
+1+r_z\\r_y-ir_x\\r_y+ir_x\\1-r_z
+)&=
+\frac{1}{2}
+\mqty(
+1+r_z\\-ir_x\\ir_x\\1-r_z
+)
+\end{align}
+
 Recordemos que la matriz de densidad de 1 qubit se escribe como
 \begin{align}
 \rho = \frac{1}{2}\sum_{i=0}^3r_i\sigma_i
@@ -82,15 +189,10 @@ es igual a colapsar las 3 dimensiones de la esfera de Bloch.
 Esta operación es el caso límite del canal depolarizante $(p=1)$
 del capítulo anterior. 
 \end{enumerate}
-En principio, con los ejemplos que se desarrollaron en el capítulo 
-anterior ya sabemos cuáles de estas operaciones son operaciones
-cuánticas y cuáles no. Por lo tanto, vamos a justificar porque las 
-operaciones son equivalentes. Son equivalentes porque 
-sólo ocurre un cambio de base local. 
-\begin{align}
-P \E P\qty(\rho),
-\end{align}
-con $P$ el cambio de base local.
+De la representación geométrica intuimos que si es equivalente 
+borrar cualquier componente del vector de Bloch o cualquier par
+de componentes, pues en términos de la esfera de Bloch 
+la operación es igual salvo por algunas rotaciones.
 % }}}
 \section{Solución numérica} % {{{
 \janote{Introducción para justificar porqué nos interesa reproducir

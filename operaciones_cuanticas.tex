@@ -330,11 +330,11 @@ las condiciones que debe satisfacer un superoperador para ser un
 canal cuántico. Por último, vamos a presentar dos ejemplos de operaciones
 lineales que actúan sobre la matriz de densidad de 1 qubit. En el primer 
 ejemplo vamos a retomar la operación discutida en la sección anterior y, 
-utilizando su forma de superoperador, vamos a mostrar que no es CP. 
+utilizando su forma matricial, vamos a mostrar que no es CP. 
 Por último, en el segundo ejemplo discutiremos un canal cuántico
-para familiarizar al lector con la forma de superoperador de un canal cuántico.
+para familiarizar al lector con la forma matricial de un canal cuántico.
 
-En la forma de superoperador de una operación cuántica se 
+En la forma matricial de una operación cuántica se 
 considera que la operación es una matriz que actúa sobre la matriz de densidad 
 como un vector columna, por lo cual es necesario estudiar una 
 transformación que reordene a una matriz en un vector columna, y viceversa.
@@ -351,7 +351,7 @@ vector columna. Bajo esta transformación, los elementos de matriz no se
 modifican, por lo tanto la información física contenida en una matriz 
 de densidad es invariante al vectorizarla.
 
-En su forma de superoperador, para determinar si una operación cuántica es CP
+En su forma matricial, para determinar si una operación cuántica es CP
 se debe evaluar la positividad semidefinida de la matriz reordenada 
 de la operación, según el procedimiento de
 \textit{reshuffle}~\cite{bengtsson_zyczkowski_2017}.
@@ -392,7 +392,7 @@ que actúan sobre el espacio de estados del sistema total.
 %las condiciones que una matriz debe de cumplir para 
 %representar una operación cuántica.  
 %Para establecer las condiciones que una operación, en su
-%forma de superoperador, debe cumplir para ser un mapeo afín de
+%forma matricial, debe cumplir para ser un mapeo afín de
 %matrices de densidad es útil introducir la siguiente notación de cuatro índices. 
 Supongamos que $U$ es un operador que actúa sobre un espacio de Hilbert 
 $\hi$ de la forma $\hi=\hi_M\otimes\hi_N$.
@@ -536,7 +536,7 @@ anterior y se obtiene la matriz de Choi de $\E_z$:
 \end{align}
 La matriz $\E_z^R$ tiene un autovalor $-1/2$, 
 por consiguiente $\E_z$ no es CP. 
-En la forma de superoperador de $\E_z$ hemos llegado a la misma
+En la forma matricial de $\E_z$ hemos llegado a la misma
 
 Antes de concluir esta sección será útil desarrollar un ejemplo más, 
 pero ahora de una operación que sí es un canal cuántico de 1 qubit. Este 
@@ -599,7 +599,7 @@ que $\E_{xz}=\E_{xz}^R$ e, inmediatamente, podemos concluir
 que $\E_{xz}$ es completamente positiva. La matriz $\E_{xz}$
 es una operación cuántica.
 
-En resumen, en la forma de superoperador de una operación cuántica $\E$
+En resumen, en la forma matricial de una operación cuántica $\E$
 se considera a $\E$ como una matriz que actúa sobre 
 una matriz de densidad vectorizada $\vec{\rho}$. 
 Si una operación $\E$ satisface las condiciones de
@@ -613,7 +613,7 @@ y, según el teorema de Choi, si
 $D_{\E}$ es una matriz positiva semidefinida, entonces $\E$ es 
 completamente positiva. 
 Así, hemos establecido las herramientas y condiciones para evaluar 
-si una operación, en su forma de superoperador, es un canal cuántico.
+si una operación, en su forma matricial, es un canal cuántico.
 En la siguiente sección presentaremos la forma de Kraus de las operaciones
 cuánticas.
 
@@ -639,19 +639,19 @@ cuánticas.
 % \newline}
 
 Otra forma de representar a una operación cuántica, distinta a la
-forma de superoperador \cpnote{Cambiar a matricial aca y en todas partes}
+forma matricial \cpnote{Cambiar a matricial aca y en todas partes}
  de la sección anterior, es la forma de Kraus. 
 La diferencia principal entre ambas representaciones 
-es que la forma de superoperador
+es que la forma matricial
 representa a una operación cuántica como una matriz que 
 actúa sobre el espacio de los operadores lineales, por otro lado,
 la forma de Kraus representa a una operación cuántica 
 como operadores que actúan sobre el espacio de 
 Hilbert del sistema. Vamos a iniciar retomando el segundo 
 ejemplo de la sección anterior, en el cual estudiamos 
-el canal cuántico $\E_{xz}$, ver \Fref{fig:QC-ex2}.
+el canal cuántico $\E_{xz}$ (ver \Fref{fig:QC-ex2}).
 Luego vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
-a partir de la forma de superoperador del canal.
+a partir de la forma matricial del canal.
 Para terminar, se presentarán las condiciones 
 que debe cumplir una operación en la forma de Kraus para
 ser un canal cuántico.
@@ -669,16 +669,17 @@ la forma de Kraus, mostraremos que se obtiene el
 resultado de la ecuación \eqref{eq:QC-ex2-SR}.
 
 Recordemos que la matriz de la ecuación \eqref{eq:QC-ex2-SR}
-es la matriz del superoperador de $\E_{xz}$ y, al mismo tiempo,
+es la representación matricial de $\E_{xz}$ y, al mismo tiempo,
 la matriz de Choi del canal $(\E_{xz}=\E_{xz}^R)$.  
 Se calculan los autovectores $\ket{E_{1,2,3,4}}$ de 
 la matriz de Choi y se obtienen
 \begin{align}
-\ket{E_{1,2,3,4}}=
-\mqty(\frac{1}{2},0,0,\frac{1}{2})^T,
-\mqty(0,-\frac{1}{2},\frac{1}{2},0)^T,
-\mqty(-\frac{1}{2},0,0,\frac{1}{2})^T,
-\mqty(0,\frac{1}{2},\frac{1}{2},0)^T,
+\begin{tabular}{ll}
+$\ket{E_1}=\mqty(\frac{1}{2},0,0,\frac{1}{2})^T$, 
+& $ \ket{E_{2}}=\mqty(0,-\frac{1}{2},\frac{1}{2},0)^T$ \\
+$\ket{E_{3}}=\mqty(-\frac{1}{2},0,0,\frac{1}{2})^T$, 
+& $\ket{E_4}= \mqty(0,\frac{1}{2},\frac{1}{2},0)^T$
+\end{tabular}
 \end{align}
 cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente\cpnote{Esta
 frase está mal armada desde un punto de vista matemático No se si sea obvio en 
@@ -777,7 +778,7 @@ si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
 En resumen, las ecuaciones \eqref{eq:Kraus} y \eqref{eq:kraus-tp-cond}
 caracterizan la forma de Kraus de un canal cuántico. 
 Con esto hemos mostrado dos formas distintas de representar a un 
-canal cuántico: la forma de superoperador, una matriz cuadrada
+canal cuántico: la forma matricial, una matriz cuadrada
 de dimensión $N^2$, que actúa sobre una matriz de densidad vectorizada 
 con $N^2$ entradas; y la forma de Kraus, matrices que actúan sobre
 una matriz de densidad que también pertenecen al espacio de 
@@ -809,7 +810,7 @@ se puede visualizar la acción de un canal cuántico como la
 deformación de la esfera de Bloch bajo la acción del canal.
 En esta sección vamos a estudiar la acción de tres canales 
 cuánticos representativos de 1 qubit, presentaremos
-la forma de superoperador, así como la forma de Kraus de 
+la forma matricial, así como la forma de Kraus de 
 cada uno de los canales cuánticos.
 
 El canal inversor de fase y bit $\E_{BPF}$ intercambia 
@@ -896,7 +897,7 @@ E_1&=
 ).
 \label{eq:bpf-kraus}
 \end{align}
-Así hemos encontrado la forma de superoperador y de Kraus del canal
+Así hemos encontrado la forma matricial y de Kraus del canal
 cuántico inversor de fase y bit $\E_{BPF}$. Se puede evaluar directamente que 
 tanto la matriz en \eqref{eq:bpf-supero} como los operadores $E_i$
 en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
@@ -1022,7 +1023,7 @@ cuyo centro geométrico no es el origen de coordenadas.
 \end{figure}
 Igual que en los ejemplos anteriores, la matriz de densidad $\rho'$
 se infiere de \eqref{eq:damp-phase} y se calcula la representación 
-matricial de $\E_{AF}$ en su forma de superoperador. De esa 
+matricial de $\E_{AF}$ en su forma matricial. De esa 
 manera, se obtiene que la ecuación de transformación de la 
 matriz de densidad es
 \begin{align}
@@ -1097,12 +1098,12 @@ que los canales cuánticos son mapeos afines de matrices de
 densidad que transforman estados positivos en estados positivos,
 sin importar la naturaleza del entorno con el que el sistema podría
 interactuar. Dos formas de representar a los canales cuánticos
-se presentaron en este capítulo, la forma de superoperador y 
+se presentaron en este capítulo, la forma matricial y 
 la forma de Kraus, cuya conexión entre ambas representaciones
 es posible mediante la matriz de Choi del canal cuántico. 
 La preferencia por alguna representación u otra está determinada 
 por la naturaleza del problema a resolver. 
-En el siguiente capítulo veremos las ventajas de la forma de superoperador 
+En el siguiente capítulo veremos las ventajas de la forma matricial 
 de un canal cuántico en el problema de estudio de este proyecto. 
 % }}}
 
