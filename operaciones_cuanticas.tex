@@ -542,7 +542,7 @@ Antes de concluir esta sección será útil desarrollar un ejemplo más,
 pero ahora de una operación que sí es un canal cuántico de 1 qubit. Este 
 ejemplo servirá para proporcionar más familiaridad con  
 los superoperadores y, además, hacer la conexión con 
-la forma de Kraus de las operaciones cuánticas en la siguiente sección.
+la representación de Kraus de las operaciones cuánticas en la siguiente sección.
 
 \begin{figure} % {{{
     \centering
@@ -614,12 +614,12 @@ $D_{\E}$ es una matriz positiva semidefinida, entonces $\E$ es
 completamente positiva. 
 Así, hemos establecido las herramientas y condiciones para evaluar 
 si una operación, en su forma matricial, es un canal cuántico.
-En la siguiente sección presentaremos la forma de Kraus de las operaciones
+En la siguiente sección presentaremos la representación de Kraus de las operaciones
 cuánticas.
 
 \cpnote{Aca voy}
 %}}}
-\section{Forma de Kraus} % {{{
+\section{Representación de Kraus} % {{{
 % \janote{
 % - Enunciar la representación en operadores de suma partiendo de un 
 % estado que se acopla con algún entorno
@@ -638,58 +638,103 @@ cuánticas.
 %     - Comparar la representacion de suma de operadores y superoperadores
 % \newline}
 
-Otra forma de representar a una operación cuántica, distinta a la
-forma matricial \cpnote{Cambiar a matricial aca y en todas partes}
- de la sección anterior, es la forma de Kraus. 
-La diferencia principal entre ambas representaciones 
-es que la forma matricial
-representa a una operación cuántica como una matriz que 
-actúa sobre el espacio de los operadores lineales, por otro lado,
-la forma de Kraus representa a una operación cuántica 
-como operadores que actúan sobre el espacio de 
-Hilbert del sistema. Vamos a iniciar retomando el segundo 
-ejemplo de la sección anterior, en el cual estudiamos 
-el canal cuántico $\E_{xz}$ (ver \Fref{fig:QC-ex2}).
-Luego vamos a mostrar cómo encontrar la forma de Kraus de $\E_{xz}$ 
-a partir de la forma matricial del canal.
-Para terminar, se presentarán las condiciones 
-que debe cumplir una operación en la forma de Kraus para
-ser un canal cuántico.
+Las operaciones cuánticas también pueden escribirse 
+en la representación de Kraus.
+%\cpnote{Cambiar a matricial aca y en todas partes}
+%\janote{Hecho.}
+La representación recibe el apellido del físico alemán Karl Kraus
+que, en 1971, introdujo esta representación como resultado
+del teorema de Stinespring \janote{cita}.
+La representación de Kraus de una operación cuántica es una forma
+de reescribir a la ecuación \eqref{eq:E(rho)} como
+$\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger}$,
+para algún conjunto de operadores $\{E_k\}$ 
+que satisfacen la condición $\sum _kE_k^{\dagger}E_k\leq\1$
+\cite{nielsen_chuang_2011}. Esta forma de representar a una
+operación cuántica guarda estrecha relación con 
+su representación matricial por medio de la matriz de Choi. 
+La representación de Kraus de las operaciones cuánticas sólo
+es una condición equivalente del teorema de Choi,
+presentado en la sección anterior, sobre los mapeos 
+completamente positivos.
 
-Consideremos de nuevo el canal cuántico $\E_{xz}$.
-Recordemos que $\E_{xz}$ es un canal cuántico
-que colapsa la esfera de Bloch al eje $y$. 
-Vamos a calcular los autovectores y autovalores de la 
-matriz de Choi, luego al reordenar
-cada autovector como matriz y multiplicarlo por la raíz cuadrada
-del autovalor correspondiente obtendremos los llamados 
-operadores de Kraus; después, al operarlos con la matriz 
-de densidad de 1 qubit, según 
-la forma de Kraus, mostraremos que se obtiene el 
-resultado de la ecuación \eqref{eq:QC-ex2-SR}.
+En esta sección vamos primero a enunciar la forma canónica
+de Kraus y, luego, vamos a mostrar cómo encontrar los 
+operadores de Kraus del canal $\E_{xz}$ a partir de la 
+matriz de Choi, calculada en el segundo ejemplo de la 
+sección anterior.
 
-Recordemos que la matriz de la ecuación \eqref{eq:QC-ex2-SR}
-es la representación matricial de $\E_{xz}$ y, al mismo tiempo,
-la matriz de Choi del canal $(\E_{xz}=\E_{xz}^R)$.  
-Se calculan los autovectores $\ket{E_{1,2,3,4}}$ de 
-la matriz de Choi y se obtienen
+La representación de Kraus no determina a los operadores
+de Kraus de forma única, por lo cual es deseable encontrar
+una forma canónica. Un conjunto de operadores de Kraus 
+canónicos se puede obtener a partir de los eigenvectores,
+reordenados como matrices, de la matriz de Choi de la 
+operación cuántica \cite{bengtsson_zyczkowski_2017}.
+Además, la raíz cuadrada de los eigenvalores de la 
+matriz de Choi proporcionan los pesos de los operadores
+de Kraus en su forma canónica.  
+
+\textbf{Forma canónica de Kraus.} Un mapeo completamente 
+positivo $\E:\mathcal{M}^{(N)}\to\mathcal{M}^{(N)}$ se
+puede escribir como
 \begin{align}
-\begin{tabular}{ll}
-$\ket{E_1}=\mqty(\frac{1}{2},0,0,\frac{1}{2})^T$, 
-& $ \ket{E_{2}}=\mqty(0,-\frac{1}{2},\frac{1}{2},0)^T$ \\
-$\ket{E_{3}}=\mqty(-\frac{1}{2},0,0,\frac{1}{2})^T$, 
-& $\ket{E_4}= \mqty(0,\frac{1}{2},\frac{1}{2},0)^T$
+\rho \longrightarrow \rho' = 
+\sum_{k=1}^{r\leq N^2}d_k\chi_k\rho\chi_k^{\dagger}
+= \sum_{i=1}^rE_k\rho E_k^{\dagger},
+\label{eq:Kraus-canonical}
+\end{align}
+donde $r$ es el rango de la matriz de Choi y $d_k$ y $\chi_k$ 
+son sus eigenvalores y eigenvectores normalizados, respectivamente; 
+adicionalmente
+\begin{align}
+  \Tr\qty(E_k^{\dagger}E_k)=d_i\delta_{ij}.
+  \label{eq:Tr-Kraus-canonical}
+\end{align}
+Si la $\E$ preserva la 
+traza de $\rho$, entonces
+\begin{align}
+  \sum_kE_k^{\dagger}E_k=\1
+  &&\Rightarrow&&
+  \sum_{k=1}^rd_k=N .
+  \label{eq:completeness-Kraus-canonical}
+\end{align}
+Se conoce como rango de Kraus al número de operadores 
+en la forma canónica y es igual al rango de la matriz de Choi $r$
+\cite{bengtsson_zyczkowski_2017}.
+
+Ahora con la forma canónica de Kraus introducida podemos
+discutir un ejemplo de cómo calcular la representación de Kraus
+de una operación cuántica.
+La matriz de Choi de $\E_{xz}$ es igual a  su representación
+matricial de la ecuación \eqref{eq:QC-ex2-SR}.
+Para encontrar la representación canónica de Kraus de $\E_{xz}$
+vamos a diagonalizar a la matriz de Choi y así encontrar
+sus eigenvalores y eigenvectores; luego, al reordenar
+cada eigenvector como matriz y multiplicarlo por la raíz cuadrada
+del eigenvalor correspondiente obtendremos los operadores 
+de Kraus $E_k$ de $\E_{xz}$. Finalmente, al operarlos siguiendo la 
+ecuación \eqref{eq:Kraus-canonical} mostraremos que se obtiene el 
+mismo resultado de la ecuación \eqref{eq:QC-ex2-SR}.
+
+Se calculan los eigenvectores $\ket{\chi_k}$ de $\E_{xz}$ y se obtiene
+\begin{align}
+\begin{tabular}{lcl}
+$\ket{\chi_1}=\frac{1}{\sqrt{2}}\qty(\ket{00}+\ket{11})$, & \hspace{1cm}
+& $ \ket{\chi_{2}}=\frac{1}{\sqrt{2}}\qty(-\ket{01}+\ket{10})$, \\
+$\ket{\chi_{3}}=\frac{1}{\sqrt{2}}\qty(-\ket{00}+\ket{11})$, & \hspace{1cm}
+& $\ket{\chi_4}=\frac{1}{\sqrt{2}}\qty(\ket{01}+\ket{10})$,
 \end{tabular}
 \end{align}
-cuyos autovalores son $\lambda_{1,2,3,4}=1/2,1/2,0,0$, respectivamente\cpnote{Esta
+cuyos respectivos autovalores son $d_1=1,d_2=1,d_3=0,d_4=0$. \cpnote{Esta
 frase está mal armada desde un punto de vista matemático No se si sea obvio en 
-que represtanción estamos (ojala solo estemos usando una base)}.
-Se reordena cada autovector $\ket{E_i}$ en una matriz
-$E_i$ de $2\times2$, siguiendo el procedimiento 
-inverso de vectorización establecido en
-\eqref{eq:matrix-to-vector}, y luego se multiplica cada $E_i$ por 
-la raíz cuadrada de su autovalor respectivo \cpnote{Que pasa con las
-degeneraciones?}. Se obtiene
+que represtanción estamos (ojala solo estemos usando una base)}
+\janote{Ahora que le estoy dando la iterada de nuevo te caché el problema
+de la base}
+Reordenamos cada uno de los $\ket{\chi_k}$ en una matriz
+de $2\times2$, siguiendo el proceso inverso de \eqref{eq:matrix-to-vector},
+y se multiplica por $\sqrt{d_k}$ para obtener 
+los operadores de Kraus canónicos $E_k$, así se obtiene
+\cpnote{Que pasa con las degeneraciones?} 
 \begin{align}
 E_1&=
 \frac{1}{\sqrt{2}}
@@ -703,18 +748,19 @@ E_2&=
 \mqty(
 0 & -1\\
 1 & 0
-).
+)
 \end{align}
-Ahora operamos a la matriz de densidad de 1 qubit 
-\eqref{eq:DM-1q} siguiendo la operación
-\begin{align}
-\rho'=\sum_{i=1}^2E_i\rho E_i^{\dagger}
-\label{eq:Kraus}
-\end{align}
-que se conoce como la forma de Kraus de una operación cuántica. 
+y $E_3=E_4=0$, dado que $d_3=d_4=0$. 
+
+Finalmente, relizamos la operación $\E_{xz}$, en su representación 
+de Kraus, siguiendo la ecuación~\eqref{eq:Kraus-canonical}
+%Para asegurarnos que se obtiene el mismo resultado $\rho'$ 
+%utilizando la representación de Kraus de $\E_{xz}$, 
+%que el resultado en \eqref{eq:QC-ex2-SR} en la forma matricial del canal,
+%operamos explícitamente en la forma de canónica de Kraus 
+%\eqref{eq:Kraus-canonical}:
 \cpnote{Creo qe andabas cansado cuando escribiste esta parte. Dale una
 iterada a esta seccion y me avisas}
-Operando
 \begin{align}
 \rho'=&
 \frac{1}{2}
@@ -729,7 +775,7 @@ Operando
 \mqty(
 1 & 0\\
 0 & 1
-)
+)^{\dagger}
 +
 \frac{1}{2}
 \mqty(
@@ -743,7 +789,7 @@ Operando
 \mqty(
 0 & 1\\
 -1 & 0
-)&
+)^{\dagger}&
 \nonumber\\
 \rho'=&
 \frac{1}{2}
@@ -753,43 +799,45 @@ ir_y & 1
 ).
 \label{eq:QC-ex2-KR}
 \end{align}
-Hemos obtenido el mismo resultado de la ecuación 
-\eqref{eq:QC-ex2-SR}, pero reordenado como matriz. 
-No obstante, los operadores $E_i$ son
-operadores que también actúan sobre el espacio de Hilbert de 1 qubit. 
-La ecuación \eqref{eq:Kraus} se conoce 
-como la forma de \textit{Kraus} de los mapeos completamente positivos
-\cite{bengtsson_zyczkowski_2017}.
-Los autovectores de la matriz de Choi de una operación cuántica $\E$,
-reordenados como matrices, se
-reciben el nombre de operadores de Kraus $E_i$ de la operación cuántica.
-Los operadores $E_i$ linealmente independientes  
-pueden ser hasta $N^2$ \cite{nielsen_chuang_2011}, igual a la dimensión 
-del espacio de los operadores lineales que actúan sobre un espacio de
-Hilbert de dimensión $N$. 
-Finalmente, una operación cuántica $\E$ preserva la traza de la matriz de densidad 
-si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
-\cite{bengtsson_zyczkowski_2017}
-\begin{align}
-\sum_iE_i^{\dagger}E_i=\1.
-\label{eq:kraus-tp-cond}
-\end{align}
+En efecto se obtiene el mismo resultado $\rho'$ de \eqref{eq:QC-ex2-SR}, 
+pero reordenado como matriz. 
 
-En resumen, las ecuaciones \eqref{eq:Kraus} y \eqref{eq:kraus-tp-cond}
-caracterizan la forma de Kraus de un canal cuántico. 
-Con esto hemos mostrado dos formas distintas de representar a un 
+%Los autovectores de la matriz de Choi de una operación cuántica $\E$,
+%reordenados como matrices, se
+%reciben el nombre de operadores de Kraus $E_i$ de la operación cuántica.
+%Los operadores $E_i$ linealmente independientes  
+%pueden ser hasta $N^2$ \cite{nielsen_chuang_2011}, igual a la dimensión 
+%del espacio de los operadores lineales que actúan sobre un espacio de
+%Hilbert de dimensión $N$. 
+%Finalmente, una operación cuántica $\E$ preserva la traza de la matriz de densidad 
+%si y sólo sus operadores de Kraus $E_i$ satisfacen la condición
+%\cite{bengtsson_zyczkowski_2017}
+%\begin{align}
+%\sum_iE_i^{\dagger}E_i=\1.
+%\label{eq:kraus-tp-cond}
+%\end{align}
+
+En resumen, las ecuaciones \eqref{eq:Kraus-canonical},
+\eqref{eq:Tr-Kraus-canonical} y \eqref{eq:completeness-Kraus-canonical}
+caracterizan la representación de Kraus canónica de un canal cuántico. 
+Hasta aquí hemos presentado dos formas distintas de representar a un 
 canal cuántico: la forma matricial, una matriz cuadrada
 de dimensión $N^2$, que actúa sobre una matriz de densidad vectorizada 
-con $N^2$ entradas; y la forma de Kraus, matrices que actúan sobre
-una matriz de densidad que también pertenecen al espacio de 
-los operadores lineales que actúan sobre el espacio de Hilbert. La matriz de 
-Choi de un canal cuántico proporciona una manera de conectar ambas 
-representaciones. Por un lado, si $D_{\E}$ es la matriz de Choi de un canal 
-cuántico $\E$, entonces $D_{\E}^R$ es la matriz de superoperador
-del canal.
-Por otro lado, los autovectores de $D_{\E}$,
-multiplicados por la raíz cuadrada de sus autovalores asociados,
-son los operadores de Kraus del canal cuántico. 
+con $N^2$ entradas; y la representación de Kraus, operadores 
+que pertenecen al espacio de los operadores lineales que 
+actúan sobre el espacio de Hilbert del sistema actuando 
+sobre la matriz de densidad. La matriz de Choi de un 
+canal cuántico proporciona una manera de conectar ambas 
+representaciones. Por un lado, si $D_{\E}$ es la matriz de 
+Choi de un canal cuántico $\E$, entonces $D_{\E}^R$ es 
+la representación matricial del canal;
+por otro lado, los eigenvectores de $D_{\E}$, reordenados
+como matrices y multiplicados por la raíz cuadrada de sus eigenvalores 
+correspondientes, dan como resultado los operadores de Kraus 
+canónicos del canal cuántico. Ahora que contamos con dos 
+formas de representar a una operación cuántica
+será útil revisar algunos ejemplos de operaciones de 1 qubit
+en la siguiente sección.
 
 %}}}
 \section{Canales cuánticos de 1 qubit} % {{{
@@ -810,7 +858,7 @@ se puede visualizar la acción de un canal cuántico como la
 deformación de la esfera de Bloch bajo la acción del canal.
 En esta sección vamos a estudiar la acción de tres canales 
 cuánticos representativos de 1 qubit, presentaremos
-la forma matricial, así como la forma de Kraus de 
+la forma matricial, así como la representación de Kraus de 
 cada uno de los canales cuánticos.
 
 El canal inversor de fase y bit $\E_{BPF}$ intercambia 
@@ -1099,7 +1147,7 @@ densidad que transforman estados positivos en estados positivos,
 sin importar la naturaleza del entorno con el que el sistema podría
 interactuar. Dos formas de representar a los canales cuánticos
 se presentaron en este capítulo, la forma matricial y 
-la forma de Kraus, cuya conexión entre ambas representaciones
+la representación de Kraus, cuya conexión entre ambas representaciones
 es posible mediante la matriz de Choi del canal cuántico. 
 La preferencia por alguna representación u otra está determinada 
 por la naturaleza del problema a resolver. 
