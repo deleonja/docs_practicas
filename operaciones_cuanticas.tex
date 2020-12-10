@@ -620,6 +620,8 @@ cuánticas.
 \cpnote{Aca voy}
 %}}}
 \section{Representación de Kraus} % {{{
+\janote{Reescribí esta sección. El contenido es el mismo, pero debería
+estar escrito de mejor manera.}
 % \janote{
 % - Enunciar la representación en operadores de suma partiendo de un 
 % estado que se acopla con algún entorno
@@ -633,18 +635,18 @@ cuánticas.
 %     - Invocar el ejemplo del canal de la sección anterior, pero en su 
 %     representación de operadores de suma. Aquí quiero hacer la conexión 
 %     entre esta y la sección anterior mostrando que los operadores 
-%     de Kraus son los autovectores de la matriz de Choi.\newline}
+%     de Kraus son los eigenvectores de la matriz de Choi.\newline}
 % \janote{
 %     - Comparar la representacion de suma de operadores y superoperadores
 % \newline}
 
-Las operaciones cuánticas también pueden escribirse 
-en la representación de Kraus.
-%\cpnote{Cambiar a matricial aca y en todas partes}
-%\janote{Hecho.}
-La representación recibe el apellido del físico alemán Karl Kraus
-que, en 1971, introdujo esta representación como resultado
-del teorema de Stinespring \janote{cita}.
+Las operaciones cuánticas también pueden escribirse
+en otra representación conocida como la forma de Kraus.
+\cpnote{Cambiar a matricial aca y en todas partes}
+\janote{Hecho.}
+La representación recibe su nombre en honor al físico alemán Karl Kraus,
+quien en 1971 introdujo esta representación como resultado
+del teorema de Stinespring \cite{bengtsson_zyczkowski_2017}.
 La representación de Kraus de una operación cuántica es una forma
 de reescribir a la ecuación \eqref{eq:E(rho)} como
 $\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger}$,
@@ -685,12 +687,12 @@ puede escribir como
 \end{align}
 donde $r$ es el rango de la matriz de Choi y $d_k$ y $\chi_k$ 
 son sus eigenvalores y eigenvectores normalizados, respectivamente; 
-adicionalmente
+adicionalmente, los operadores $E_k$ deben satisfacer la condición
 \begin{align}
   \Tr\qty(E_k^{\dagger}E_k)=d_i\delta_{ij}.
   \label{eq:Tr-Kraus-canonical}
 \end{align}
-Si la $\E$ preserva la 
+Si $\E$ preserva la 
 traza de $\rho$, entonces
 \begin{align}
   \sum_kE_k^{\dagger}E_k=\1
@@ -702,21 +704,23 @@ Se conoce como rango de Kraus al número de operadores
 en la forma canónica y es igual al rango de la matriz de Choi $r$
 \cite{bengtsson_zyczkowski_2017}.
 
-Ahora con la forma canónica de Kraus introducida podemos
+Ahora, con la forma canónica de Kraus introducida podemos
 discutir un ejemplo de cómo calcular la representación de Kraus
 de una operación cuántica.
 La matriz de Choi de $\E_{xz}$ es igual a  su representación
-matricial de la ecuación \eqref{eq:QC-ex2-SR}.
-Para encontrar la representación canónica de Kraus de $\E_{xz}$
-vamos a diagonalizar a la matriz de Choi y así encontrar
+matricial en \eqref{eq:QC-ex2-SR}.
+Para encontrar la representación canónica de Kraus de $\E_{xz}\qty(\rho)$
+vamos a diagonalizar a $D_{\E_{xz}}$ $(D_{\E_{xz}}=\E_{xz})$
+para encontrar
 sus eigenvalores y eigenvectores; luego, al reordenar
 cada eigenvector como matriz y multiplicarlo por la raíz cuadrada
 del eigenvalor correspondiente obtendremos los operadores 
-de Kraus $E_k$ de $\E_{xz}$. Finalmente, al operarlos siguiendo la 
-ecuación \eqref{eq:Kraus-canonical} mostraremos que se obtiene el 
-mismo resultado de la ecuación \eqref{eq:QC-ex2-SR}.
+de Kraus $E_k$ de $\E_{xz}$. Finalmente, al operar los $E_k$ 
+con la matriz de densidad de 1 qubit, siguiendo la forma de 
+Kraus en \eqref{eq:Kraus-canonical}, mostraremos que se obtiene el 
+mismo resultado $\rho'$ en \eqref{eq:QC-ex2-SR}.
 
-Se calculan los eigenvectores $\ket{\chi_k}$ de $\E_{xz}$ y se obtiene
+Al calcular con los eigenvectores $\ket{\chi_k}$ de $D_{\E_{xz}}$ se obtiene
 \begin{align}
 \begin{tabular}{lcl}
 $\ket{\chi_1}=\frac{1}{\sqrt{2}}\qty(\ket{00}+\ket{11})$, & \hspace{1cm}
@@ -730,10 +734,10 @@ frase está mal armada desde un punto de vista matemático No se si sea obvio en
 que represtanción estamos (ojala solo estemos usando una base)}
 \janote{Ahora que le estoy dando la iterada de nuevo te caché el problema
 de la base}
-Reordenamos cada uno de los $\ket{\chi_k}$ en una matriz
-de $2\times2$, siguiendo el proceso inverso de \eqref{eq:matrix-to-vector},
-y se multiplica por $\sqrt{d_k}$ para obtener 
-los operadores de Kraus canónicos $E_k$, así se obtiene
+Se reordenan cada uno de los $\ket{\chi_k}$ en una matriz
+de $2\times2$, siguiendo el proceso inverso de vectorización
+en \eqref{eq:matrix-to-vector}, y se multiplica por $\sqrt{d_k}$ 
+para obtener los operadores de Kraus canónicos $E_k$; así se obtienen
 \cpnote{Que pasa con las degeneraciones?} 
 \begin{align}
 E_1&=
@@ -748,17 +752,12 @@ E_2&=
 \mqty(
 0 & -1\\
 1 & 0
-)
+),
 \end{align}
 y $E_3=E_4=0$, dado que $d_3=d_4=0$. 
-
-Finalmente, relizamos la operación $\E_{xz}$, en su representación 
-de Kraus, siguiendo la ecuación~\eqref{eq:Kraus-canonical}
-%Para asegurarnos que se obtiene el mismo resultado $\rho'$ 
-%utilizando la representación de Kraus de $\E_{xz}$, 
-%que el resultado en \eqref{eq:QC-ex2-SR} en la forma matricial del canal,
-%operamos explícitamente en la forma de canónica de Kraus 
-%\eqref{eq:Kraus-canonical}:
+Finalmente, escribimos a $\E_{xz}\qty(\rho)$ en su representación 
+de Kraus para revisar que se obtiene la misma matriz
+de densidad $\rho'$ obtenida en la sección anterior,
 \cpnote{Creo qe andabas cansado cuando escribiste esta parte. Dale una
 iterada a esta seccion y me avisas}
 \begin{align}
@@ -769,8 +768,8 @@ iterada a esta seccion y me avisas}
 0 & 1
 )
 \mqty(
-\frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
-\frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
+\frac{1+r_3}{2}& \frac{r_1-ir_2}{2}\\
+\frac{r_1+ir_2}{2} & \frac{1-r_3}{2}
 )
 \mqty(
 1 & 0\\
@@ -783,8 +782,8 @@ iterada a esta seccion y me avisas}
 1 & 0
 )
 \mqty(
-\frac{1+r_z}{2}& \frac{r_x-ir_y}{2}\\
-\frac{r_x+ir_y}{2} & \frac{1-r_z}{2}
+\frac{1+r_3}{2}& \frac{r_1-ir_2}{2}\\
+\frac{r_1+ir_2}{2} & \frac{1-r_3}{2}
 )
 \mqty(
 0 & 1\\
@@ -794,15 +793,15 @@ iterada a esta seccion y me avisas}
 \rho'=&
 \frac{1}{2}
 \mqty(
-1 & -ir_y\\
-ir_y & 1
+1 & -ir_2\\
+ir_2 & 1
 ).
 \label{eq:QC-ex2-KR}
 \end{align}
-En efecto se obtiene el mismo resultado $\rho'$ de \eqref{eq:QC-ex2-SR}, 
-pero reordenado como matriz. 
+En efecto se obtiene el mismo resultado $\rho'$ que 
+en  \eqref{eq:QC-ex2-SR}, pero reordenada como una matriz. 
 
-%Los autovectores de la matriz de Choi de una operación cuántica $\E$,
+%Los eigenvectores de la matriz de Choi de una operación cuántica $\E$,
 %reordenados como matrices, se
 %reciben el nombre de operadores de Kraus $E_i$ de la operación cuántica.
 %Los operadores $E_i$ linealmente independientes  
@@ -821,23 +820,23 @@ En resumen, las ecuaciones \eqref{eq:Kraus-canonical},
 \eqref{eq:Tr-Kraus-canonical} y \eqref{eq:completeness-Kraus-canonical}
 caracterizan la representación de Kraus canónica de un canal cuántico. 
 Hasta aquí hemos presentado dos formas distintas de representar a un 
-canal cuántico: la forma matricial, una matriz cuadrada
-de dimensión $N^2$, que actúa sobre una matriz de densidad vectorizada 
-con $N^2$ entradas; y la representación de Kraus, operadores 
+canal cuántico: (1) la forma matricial, una matriz cuadrada
+de tamaño $N^2$ que actúa sobre una matriz de densidad vectorizada 
+con $N^2$ entradas; y (2) la representación de Kraus, operadores 
 que pertenecen al espacio de los operadores lineales que 
 actúan sobre el espacio de Hilbert del sistema actuando 
-sobre la matriz de densidad. La matriz de Choi de un 
-canal cuántico proporciona una manera de conectar ambas 
+sobre la matriz de densidad. La matriz de Choi
+proporciona una manera de conectar ambas 
 representaciones. Por un lado, si $D_{\E}$ es la matriz de 
 Choi de un canal cuántico $\E$, entonces $D_{\E}^R$ es 
-la representación matricial del canal;
+la representación matricial de $\E$;
 por otro lado, los eigenvectores de $D_{\E}$, reordenados
 como matrices y multiplicados por la raíz cuadrada de sus eigenvalores 
 correspondientes, dan como resultado los operadores de Kraus 
-canónicos del canal cuántico. Ahora que contamos con dos 
+canónicos $E_k$ de $\E$. Ahora que contamos con dos 
 formas de representar a una operación cuántica
-será útil revisar algunos ejemplos de operaciones de 1 qubit
-en la siguiente sección.
+será útil revisar algunos ejemplos de canales cuánticos
+de 1 qubit en la siguiente sección.
 
 %}}}
 \section{Canales cuánticos de 1 qubit} % {{{
@@ -847,39 +846,42 @@ qubit como la manera en que deforma la esfera de Bloch\newline}
 \janote{
 - Ejemplos: phase-flip channel, depolarizing y amplitude damping\newline}
 
-Mostrar algunos ejemplos de canales cuánticos de 1 qubit 
-puede proporcionar intuición 
-para completar el marco teórico de los canales cuánticos. 
-Como se presentó en los ejemplos que abordamos en las 
-secciones anteriores, para los sistemas de 1 qubit se tiene la
-herramienta geométrica de la esfera de Bloch para asociar cada 
-punto de ella con un estado del sistema. De esa manera, 
-se puede visualizar la acción de un canal cuántico como la 
-deformación de la esfera de Bloch bajo la acción del canal.
-En esta sección vamos a estudiar la acción de tres canales 
-cuánticos representativos de 1 qubit, presentaremos
-la forma matricial, así como la representación de Kraus de 
-cada uno de los canales cuánticos.
+Los canales cuánticos de 1 qubit proporcionan buena intuición 
+para completar el marco teórico de las operaciones cuánticas. 
+La ventaja particular que tienen estos canales cuánticos 
+es que es posible visualizar geométricamente la acción de
+la operación sobre la esfera de Bloch. 
+En esta sección vamos a presentar tres canales cuánticos 
+representativos del caso de un 1 qubit. Vamos a presentar 
+la forma matricial y la representación de Kraus de 
+cada uno de los canales.
 
-El canal inversor de fase y bit $\E_{BPF}$ intercambia 
-los estados $\ket{0}$ y $\ket{1}$, 
-autoestados de $\sigma_z$, e intercambia la fase total
-del estado $\ket{\psi}$ de un qubit con probabilidad $1-p$. 
-Recordemos que el vector $\vec{r}$ de la matriz de densidad en \eqref{eq:DM-1q} 
-especifica las coordenadas $r_i$ en la esfera de Bloch del punto asociado al estado
-en el que se encuentra el sistema. La acción de $\E_{BPF}$ es 
-equivalente a la siguiente transformación del vector de Bloch $\vec{r}$
+\subsection{Canal inversor de fase y bit}
+El canal inversor de fase y bit $\E_{BPF}$ transforma 
+con probabilidad $1-p$ a un estado de 1 qubit de la forma  
 \begin{align}
-\qty(r_x,r_y,r_z)\rightarrow&\Big(\qty(1-2p)r_x,r_y,\qty(1-2p)r_z\Big).
+   \ket{\psi}=e^{i\gamma}\qty[\cos\qty(\frac{\theta}{2})\ket{0}
+  +e^{i\phi}\sin \qty(\frac{\theta}{2})\ket{1}],
+   \label{eq:psi-1qubit}
+ \end{align} 
+con $\ket{0}$ y $\ket{1}$ los eigenestados de 
+la matriz de Pauli $\sigma_z$, según las transformaciones 
+$\theta\to\theta+\pi$ y $\phi\to\phi+2\pi$. 
+Si consideramos a la matriz de densidad de 1 qubit
+$\rho^1$ en \eqref{eq:DM-1q} el canal $\E_{BPF}$ 
+transforma  al vector $\vec{r}$ como
+\begin{align}
+\qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,\qty(1-2p)r_1,r_2,\qty(1-2p)r_3\Big).
 \label{eq:bit-phase-flip-Bloch-trans}
 \end{align}
-Geométricamente, el vector de Bloch es proyectado por $\E_{BPF}$ 
-al eje $y$ y las componentes en $x$ y $z$ se pierden, como 
-se muestra en la \Fref{fig:bit-phase-flip}.
-Notemos que el ejemplo que discutimos en la sección 2.2 del 
-canal cuántico que colapsa la esfera de Bloch al eje $y$ es un caso
-particular de $\E_{BPF}$ cuando $p=0.5$.
-\begin{figure}[H]
+Geométricamente, el vector de Bloch $\qty(r_1,r_2,r_3)$ es 
+proyectado al eje $y$ y las componentes 
+en $x$ y $z$ son atenuadas, como se muestra en la 
+\Fref{fig:bit-phase-flip}.
+Notemos que el canal cuántico $\E_{xz}$, discutido 
+en la sección 2.2 y 2.3, es un caso particular de $\E_{BPF}$ $(p=0.5)$.
+
+\begin{figure}
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
@@ -894,14 +896,14 @@ $\longmapsto$
 para $p=0.3$.}
 \label{fig:bit-phase-flip}
 \end{figure}
-La expresión en \eqref{eq:bit-phase-flip-Bloch-trans} nos 
-permite calcular la matriz de densidad $\rho'$ que resulta
-bajo la acción del canal inversor de fase y bit. Por lo tanto, 
-vectorizando $\rho$, $\rho'$ y aplicando métodos elementales de
-álgebra lineal para calcular la matriz del superoperador
-se encuentra que la ecuación de transformación de
-la matriz de densidad de 1 qubit bajo la acción 
-de $\E_{BPF}$ es
+Con ayuda de \eqref{eq:bit-phase-flip-Bloch-trans} y la matriz
+de densidad de 1 qubit en \eqref{eq:DM-1q} 
+escrita en la base canónica podemos calcular 
+$\rho$ y $\E_{BPF}\qty(\rho)$. Se vectorizan a $\rho$ y 
+$\E_{BPF}\qty(\rho)$ para luego calcular la forma matricial 
+de $\E_{BPF}$ con métodos elementales de álgebra lineal.
+Así se obtiene que la ecuación $\E_{BPF}(\rho)=\rho'$ 
+en su forma matricial es
 \begin{align}
 \frac{1}{2}
 \mqty(
@@ -912,24 +914,34 @@ p & 0 & 0 & 1-p \\
 )
 \frac{1}{2}
 \mqty(
-1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+1+r_3\\r_1-ir_2\\r_1+ir_2\\1-r_3
 )
 =
 \frac{1}{2}
 \mqty(
-1+\qty(1-p)z\\
-\qty(1-p)x-i y\\
-\qty(1-p)x+i y\\
-1-\qty(1-p)z
+1+\qty(1-2p)r_3\\
+\qty(1-2p)r_1-i r_2\\
+\qty(1-2p)r_1+i r_2\\
+1-\qty(1-2p)r_3
 ).
 \label{eq:bpf-supero}
 \end{align}
-Para encontrar los operadores de Kraus se determinan los autovectores
-de la matriz de Choi $D_{\E_{BPF}}$ del canal inversor de fase y bit. 
-Para encontrar la matriz de Choi se aplica la transformación 
-de \textit{reshuffle} a la matriz en la ecuación \eqref{eq:bpf-supero}.
-Los autovectores de $D_{\E_{BPF}}$, reordenados como matrices y
-cada uno multiplicado por la raíz cuadrada de su autovalor respectivo, son
+Para encontrar los operadores de Kraus se calculan los eigenvectores
+y eigenvalores de $D_{\E_{BPF}}$. Para ello, calculamos antes
+$D_{\E_{BPF}}$ aplicando procedimiento de \textit{reshuffle}
+\begin{align}
+  D_{\E_{BPF}}=\E_{BPF}^R=
+  \mqty(
+	 1-p & 0 & 0 & 1-p \\
+	 0 & p & -p & 0 \\
+	 0 & -p & p & 0 \\
+	 1-p & 0 & 0 & 1-p
+  ).
+  \label{eq:Choi-E_bpf}
+\end{align}
+Los eigenvectores normalizados de $D_{\E_{BPF}}$, 
+reordenados como matrices y multiplicados por 
+la raíz cuadrada de sus eigenvalores respectivos, son
 \begin{align}
 E_0&=
 \sqrt{p}
@@ -942,20 +954,23 @@ E_1&=
 \mqty(
 0 & -1\\
 1 & 0
-).
+),
+&E_3=E_4=0.
 \label{eq:bpf-kraus}
 \end{align}
-Así hemos encontrado la forma matricial y de Kraus del canal
+Así, hemos encontrado la forma matricial y de Kraus del canal
 cuántico inversor de fase y bit $\E_{BPF}$. Se puede evaluar directamente que 
 tanto la matriz en \eqref{eq:bpf-supero} como los operadores $E_i$
 en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
 para ser canales cuánticos.
 
+\subsection{Canal depolarizante}
+\janote{aquí voy\newline}
 Ahora estudiaremos el canal depolarizante $\E_{Dep}$, que se muestra
 en la \Fref{fig:depolarizing}, cuya acción sobre el 
 vector de Bloch con probabilidad $(1-p)$ es 
 \begin{align}
-\qty(r_x,r_y,r_z)\rightarrow&\Big(\qty(1-p)r_x,\qty(1-p)r_y,\qty(1-p)r_z\Big).
+\qty(r_1,r_2,r_3)\rightarrow&\Big(\qty(1-p)r_1,\qty(1-p)r_2,\qty(1-p)r_3\Big).
 \label{eq:depolarizing-bloch-vec}
 \end{align}
 Geométricamente, el canal $\E_{Dep}$ atenúa por igual todas las 
@@ -992,7 +1007,7 @@ superoperador se encuentra que es
 )
 \frac{1}{2}
 \mqty(
-1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+1+r_3\\r_1-ir_2\\r_1+ir_2\\1-r_3
 )
 =
 \frac{1}{2}
@@ -1003,7 +1018,7 @@ superoperador se encuentra que es
 1-\qty(1-p)z
 ),
 \end{align}
-y calculando los autovectores y autovalores de la matriz de Choi de
+y calculando los eigenvectores y autovalores de la matriz de Choi de
 $\E_{Dep}$ se encuentra que los operadores de Kraus del 
 canal depolarizante son
 \begin{align}
@@ -1045,8 +1060,8 @@ El último canal cuántico que vamos a estudiar es el canal de
 amortiguamiento de fase $\E_{AF}$. La acción de $\E_{AF}$
 sobre el vector de Bloch es 
 \begin{align}
-\qty(r_x,r_y,r_z)\rightarrow&\Big(r_x\sqrt{1-\gamma},
-r_y\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_z\Big),
+\qty(r_1,r_2,r_3)\rightarrow&\Big(r_1\sqrt{1-\gamma},
+r_2\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_3\Big),
 \label{eq:damp-phase}
 \end{align}
 En la \Fref{fig:amp-damp} se muestra la acción del canal 
@@ -1083,7 +1098,7 @@ matriz de densidad es
 )
 \frac{1}{2}
 \mqty(
-1+r_z\\r_x-ir_y\\r_x+ir_y\\1-r_z
+1+r_3\\r_1-ir_2\\r_1+ir_2\\1-r_3
 )
 =
 \frac{1}{2}
@@ -1095,7 +1110,7 @@ matriz de densidad es
 ).
 \end{align}
 Se calcula la matriz de Choi de $\E_{AF}$ con la transformación
-de \textit{reshuffle} y se obtienen sus autovectores multipicados
+de \textit{reshuffle} y se obtienen sus eigenvectores multipicados
 por la raíz cuadrada de sus autovalores asociados, reordenados
 como matrices. Así, se obtiene que los operadores de Kraus 
 del canal de amortiguamiento de amplitud son
