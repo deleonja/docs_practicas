@@ -237,7 +237,7 @@ se obtiene
 ).
 \end{align}
 La matriz  $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un 
-autovalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
+eigenvalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
 \cpnote{Se me hace bien el ejemplo, pero muy enredado el procedimiento. Quizá 
 si lo platicamos, estaría bien.}
 Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
@@ -281,7 +281,7 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 %}}}
-\section{Superoperadores} % {{{
+\section{Forma matricial} % {{{
 \cpnote{Creo qe si toca cambiar todo a representación matricial :S}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
@@ -534,7 +534,7 @@ anterior y se obtiene la matriz de Choi de $\E_z$:
 1 & 0 & 0 & \frac{1}{2} 
 ).
 \end{align}
-La matriz $\E_z^R$ tiene un autovalor $-1/2$, 
+La matriz $\E_z^R$ tiene un eigenvalor $-1/2$, 
 por consiguiente $\E_z$ no es CP. 
 En la forma matricial de $\E_z$ hemos llegado a la misma
 
@@ -729,7 +729,7 @@ $\ket{\chi_{3}}=\frac{1}{\sqrt{2}}\qty(-\ket{00}+\ket{11})$, & \hspace{1cm}
 & $\ket{\chi_4}=\frac{1}{\sqrt{2}}\qty(\ket{01}+\ket{10})$,
 \end{tabular}
 \end{align}
-cuyos respectivos autovalores son $d_1=1,d_2=1,d_3=0,d_4=0$. \cpnote{Esta
+cuyos respectivos eigenvalores son $d_1=1,d_2=1,d_3=0,d_4=0$. \cpnote{Esta
 frase está mal armada desde un punto de vista matemático No se si sea obvio en 
 que represtanción estamos (ojala solo estemos usando una base)}
 \janote{Ahora que le estoy dando la iterada de nuevo te caché el problema
@@ -927,7 +927,7 @@ p & 0 & 0 & 1-p \\
 \label{eq:bpf-supero}
 \end{align}
 Para encontrar los operadores de Kraus se calculan los eigenvectores
-y eigenvalores de $D_{\E_{BPF}}$. Para ello, calculamos antes
+y eigenvalores de $D_{\E_{BPF}}$. Para~ello, calculamos antes
 $D_{\E_{BPF}}$ aplicando procedimiento de \textit{reshuffle}
 \begin{align}
   D_{\E_{BPF}}=\E_{BPF}^R=
@@ -943,13 +943,13 @@ Los eigenvectores normalizados de $D_{\E_{BPF}}$,
 reordenados como matrices y multiplicados por 
 la raíz cuadrada de sus eigenvalores respectivos, son
 \begin{align}
-E_0&=
+E_1&=
 \sqrt{p}
 \mqty(
 1 & 0\\
 0 & 1
 )&
-E_1&=
+E_2&=
 \sqrt{1-p}
 \mqty(
 0 & -1\\
@@ -966,19 +966,23 @@ para ser canales cuánticos.
 
 \subsection{Canal depolarizante}
 \janote{aquí voy\newline}
-Ahora estudiaremos el canal depolarizante $\E_{Dep}$, que se muestra
-en la \Fref{fig:depolarizing}, cuya acción sobre el 
-vector de Bloch con probabilidad $(1-p)$ es 
+El canal depolarizante $\E_{Dep}$ 
+atenúa todas las coordenadas 
+del vector de Bloch con probabilidad $1-p$, como se muestra
+en la \Fref{fig:depolarizing}. Por consiguiente, 
+se sigue que el vector $\vec{r}$ de la matriz 
+de densidad de 1 qubit se transforma como
 \begin{align}
-\qty(r_1,r_2,r_3)\rightarrow&\Big(\qty(1-p)r_1,\qty(1-p)r_2,\qty(1-p)r_3\Big).
+\qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,\qty(1-p)r_1,\qty(1-p)r_2,\qty(1-p)r_3\Big).
 \label{eq:depolarizing-bloch-vec}
 \end{align}
-Geométricamente, el canal $\E_{Dep}$ atenúa por igual todas las 
-componentes del vector de Bloch y tiene como caso límite $(p=1)$
-el mapeo de cualquier estado de 1 qubit al estado 
-de máxima ignorancia o máximamente mixto $\1/2$
-\cite{bengtsson_zyczkowski_2017}, asociado con el origen de coordenadas.
-\begin{figure}[H]
+
+Cuando $p=1$ el canal mapea todos los estados 
+de 1 qubit al estado de máxima ignorancia $\1/2$, 
+o también conocido como el estado máximamente mixto 
+\cite{bengtsson_zyczkowski_2017}. Geométricamente, 
+la esfera de Bloch se deforma a un punto en el origen.
+\begin{figure}
     \centering
     \begin{minipage}{.4\textwidth}
         \centering
@@ -993,12 +997,11 @@ de máxima ignorancia o máximamente mixto $\1/2$
     para $p=0.4$.}
     \label{fig:depolarizing}
 \end{figure}
-Repitiendo el procedimiento del ejemplo anterior para calcular 
-la ecuación de transformación de la matriz de densidad de
-1 qubit bajo la acción de $\E_{Dep}$ en su forma de 
-superoperador se encuentra que es
+
+Se repite el procedimiento del ejemplo anterior para calcular 
+la representación matricial de $\E_{Dep}$ y asi se obtiene
+que la ecuación $\E_{Dep}(\rho)=\rho'$ en su forma matricial es
 \begin{align}
-\frac{1}{2}
 \mqty(
 1-\frac{p}{2} & 0 & 0 & \frac{p}{2} \\
 0 & 1-p & 0 & 0 \\
@@ -1016,11 +1019,25 @@ superoperador se encuentra que es
 \qty(1-p)\qty(x-i y)\\
 \qty(1-p)\qty(x+i y)\\
 1-\qty(1-p)z
-),
+).
 \end{align}
-y calculando los eigenvectores y autovalores de la matriz de Choi de
-$\E_{Dep}$ se encuentra que los operadores de Kraus del 
-canal depolarizante son
+Se aplica el procedimiento de \textit{reshuffle}
+para determinar a la matriz de Choi
+\begin{align}
+D_{\E_{Dep}}=
+\mqty(
+ 1-\frac{p}{2} & 0 & 0 & 1-p \\
+ 0 & \frac{p}{2} & 0 & 0 \\
+ 0 & 0 & \frac{p}{2} & 0 \\
+ 1-p & 0 & 0 & 1-\frac{p}{2} 
+).
+\label{•}
+\end{align}
+Ahora, con $D_{\E_{Dep}}$ se calculan sus 
+eigenvectores y eigenvalores para encontrar la forma 
+canónica de Kraus, siguiendo lo establecido en la
+sección 2.3. Se encuentran los operadores de Kraus
+canónicos:
 \begin{align}
 E_0&=
 \sqrt{1-\frac{3p}{4}}
@@ -1047,28 +1064,30 @@ E_3&=
 1 & 0
 ).
 \end{align}
-Los dos ejemplos anteriores son canales cuánticos que dejan invariantes 
-el estado máximamente mixto. Es decir, $\E(\1/2)=\1/2$. Los canales que
-satisfacen esta condición se conocen como canales unitales. El 
-último ejemplo a continuación será un canal cuántico que 
-no cumple la condición de unitalidad. Geométricamente, esto
-se visualiza como un canal cuya acción sobre la esfera de Bloch
-la deforma de tal manera que el centro geométrico no se mantiene
-en el origen de coordenadas.
 
-El último canal cuántico que vamos a estudiar es el canal de
-amortiguamiento de fase $\E_{AF}$. La acción de $\E_{AF}$
-sobre el vector de Bloch es 
+Notemos que los canales de inersión de fase y bit y el
+depolarizante dejan invariante al estado máximamente mixto
+$\rho=\1/2$. Esto se puede visualizar fácilmente en la representación
+de Bloch, pues dejar invariante a $\rho=\1/2$ significa dejar 
+invariante al origen de coordenadas. Todos los canales 
+cuánticos que satisfacen $\E(\1/2)=\1/2$
+se conocen como canales unitales. 
+A continuación, el último ejemplo que vamos a presentar
+es el de un canal que no satisface la condición de unitalidad.
+
+\subsection{Canal de amortiguamiento de amplitud}
+La acción del canal de amortiguamiento de amplitud $\E_{AF}$
+sobre la esfera de Bloch es tal que la deforma a un elipsoide
+cuyo centro geométrico no es el origen de coordenadas, 
+como se muestra en la \Fref{fig:amp-damp}. 
+El canal $\E_{AF}$ transforma al vector $\vec{r}$ de 
+la matriz de densidad de 1 qubit como
 \begin{align}
-\qty(r_1,r_2,r_3)\rightarrow&\Big(r_1\sqrt{1-\gamma},
-r_2\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_3\Big),
+\qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,r_1\sqrt{1-\gamma},
+r_2\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_3\Big).
 \label{eq:damp-phase}
 \end{align}
-En la \Fref{fig:amp-damp} se muestra la acción del canal 
-de amortiguamiento de fase sobre la esfera de Bloch.
-El canal $\E_{AF}$ deforma la esfera de Bloch a un elipsoide
-cuyo centro geométrico no es el origen de coordenadas. 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \begin{minipage}{.4\textwidth}
         \centering
@@ -1084,17 +1103,17 @@ cuyo centro geométrico no es el origen de coordenadas.
         para $p=0.4$.}
     \label{fig:amp-damp}
 \end{figure}
-Igual que en los ejemplos anteriores, la matriz de densidad $\rho'$
-se infiere de \eqref{eq:damp-phase} y se calcula la representación 
-matricial de $\E_{AF}$ en su forma matricial. De esa 
-manera, se obtiene que la ecuación de transformación de la 
-matriz de densidad es
+Con la transformación de $\vec{r}$ determinada se repite 
+el mismo procedimiento de los ejemplos anteriores 
+para calcular la representación matricial de $\E_{AF}$. 
+Por tanto, la ecuación $\E_{AF}(\rho)=\rho'$, escrita 
+en forma matricial, es 
 \begin{align}
 \mqty(
-1 & 0 & 0 & \gamma  \\
-0 & \sqrt{1-\gamma } & 0 & 0 \\
-0 & 0 & \sqrt{1-\gamma } & 0 \\
-0 & 0 & 0 & 1-\gamma
+ 1 & 0 & 0 & \gamma  \\
+ 0 & \sqrt{1-\gamma } & 0 & 0 \\
+ 0 & 0 & \sqrt{1-\gamma } & 0 \\
+ 0 & 0 & 0 & 1-\gamma  
 )
 \frac{1}{2}
 \mqty(
@@ -1108,65 +1127,75 @@ matriz de densidad es
 \sqrt{1-p}\qty(x+i y)\\
 1-\gamma-\qty(1-\gamma)z
 ).
+\label{eq:damp-ph-matrix}
 \end{align}
 Se calcula la matriz de Choi de $\E_{AF}$ con la transformación
-de \textit{reshuffle} y se obtienen sus eigenvectores multipicados
-por la raíz cuadrada de sus autovalores asociados, reordenados
-como matrices. Así, se obtiene que los operadores de Kraus 
-del canal de amortiguamiento de amplitud son
+de \textit{reshuffle} a la matriz en \eqref{eq:damp-ph-matrix}
+y se~obtiene
 \begin{align}
-E_0&=
+D_{\E_{AF}}=
+\mqty(
+ 1 & 0 & 0 & \sqrt{1-\gamma } \\
+ 0 & \gamma  & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ \sqrt{1-\gamma } & 0 & 0 & 1-\gamma  
+).
+\end{align}
+Se calculan los eigenvectores normalizados de $D_{\E_{AF}}$, multipicados
+por la raíz cuadrada de sus eigenvalores asociados, y se reordenan
+como matrices. Así, se obtienen los operadores de Kraus 
+del canal de amortiguamiento de amplitud:
+\begin{align}
+E_1&=
 \sqrt{1-\gamma }
 \mqty(
 \frac{1}{\sqrt{1-\gamma }} & 0 \\
 0 & 1
 ),&
-E_1&=
+E_2&=
 \sqrt{\gamma }
 \mqty(
 0 & 1 \\
 0 & 0 
-).
+),
+&
+E_3=E_4=0.
 \end{align}
 
-Hemos expuesto 3 ejemplos de canales cuánticos de 1 qubit:
+Para resumir, hemos expuesto 3 ejemplos de canales cuánticos de 1 qubit:
 el canal de inversión de fase y bit, el canal depolarizante 
 y el canal de amortiguamiento
 de amplitud. La acción de los canales cuánticos de 1 qubit 
 es más sencilla de visualizar en la representación de la esfera de Bloch
 y su deformación bajo la acción del canal. 
 El canal de inversión de fase y bit deforma la
-esfera de Bloch de tal manera que encoge las componentes $x$ y $z$ en 
-un factor $1-2p$ y deja invariante la componente
+esfera de Bloch de tal forma que encoge las componentes $x$ y $z$ en 
+un factor $1-2p$, y deja invariante la componente
 $y$ de cada punto en la esfera, con $p$ un parámetro que indica la
-probabilidad de ocurrir una inversión de bit y fase de un estado. 
+probabilidad de ocurrir la acción del canal. 
 El canal depolarizante 
-deforma todas las componentes del vector de Bloch de manera uniforme
-en un factor $1-p$, es decir que la esfera de Bloch se encoge
-continuamente hasta un punto en el origen, el estado
-de máximamente mixto de un sistema de 1 qubit. Por último, 
+atenúa todas las componentes del vector de Bloch de manera uniforme
+en un factor $1-p$; la esfera de Bloch se encoge
+continuamente hasta un punto en el origen. Finalmente, 
 el canal de amortiguamiento de amplitud deforma la esfera de Bloch
-a un elipsoide cuyo centro geométrico no coincide con el origen. Por
-ello, se dice que el canal no es unital. Los canales unitales son 
-aquellos que dejan invariante el estado máximamente mixto, 
-que en la representación de la esfera de Bloch se traduce en 
-que la acción del canal no modifica el origen de coordenadas.
+a un elipsoide cuyo centro geométrico no coincide con el origen, por
+ello, se dice que el canal no es unital; son canales unitales aquellos 
+que dejan invariante al estado máximamente mixto, 
+que en la esfera de Bloch es el origen de coordenadas.
 
 El formalismo de los canales cuánticos proporciona un marco 
 teórico para describir el cambio dinámico de los estados cuánticos 
-de sistemas que interactúan con su entorno. Una manera 
-más intuitiva de llamar a los canales cuánticos es mapeos 
-completamente positivos que preservan la traza, para enfatizar 
+de sistemas abiertos. Un nombre más descriptivo para 
+los canales cuánticos es mapeos completamente 
+positivos que preservan la traza, para enfatizar 
 que los canales cuánticos son mapeos afines de matrices de 
-densidad que transforman estados positivos en estados positivos,
-sin importar la naturaleza del entorno con el que el sistema podría
-interactuar. Dos formas de representar a los canales cuánticos
+densidad, que transforman estados positivos en estados positivos,
+aún cuando el sistema se acopla con un sistema secundario y el estado
+total es uno entrelazado. 
+Dos formas de representar a los canales cuánticos
 se presentaron en este capítulo, la forma matricial y 
 la representación de Kraus, cuya conexión entre ambas representaciones
-es posible mediante la matriz de Choi del canal cuántico. 
+es posible mediante la matriz de Choi.
 La preferencia por alguna representación u otra está determinada 
 por la naturaleza del problema a resolver. 
-En el siguiente capítulo veremos las ventajas de la forma matricial 
-de un canal cuántico en el problema de estudio de este proyecto. 
 % }}}
-
