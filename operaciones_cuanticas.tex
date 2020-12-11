@@ -430,7 +430,7 @@ medio tienen coherencia interna, pero siento que no tienen flujo respecto
 al resto del texto. Quiza puedes medio reorganizar la información, o 
 convencerme de que no tengo razón? De hecho, ahora que lo lep quizá
 quitaría este parrafo.} \janote{Estaba chafa. Lo arreglé desde 
-la línea 327 del PDF.}
+la línea 328 del PDF.}
 
 Una operación cuántica $\E$ de ser: (1) un mapeo lineal que
 transforme matrices de densidad en matrices de densidad, y (2) una 
@@ -521,7 +521,7 @@ acción de la matriz $\E_z$, es
 \cpnote{Creo que no has dicho como es la operacion de reshuffle en términos de los
 dobles indices. Quiza por eso querías tener el parrafo que señale antes, pero no lo 
 dijiste}
-\janote{Ahora sí. Lo agregué en la línea 333 PDF}
+\janote{Ahora sí. Lo agregué en la línea 335 PDF}
 Se aplica el procedimiento de \textit{reshuffle},
 según la ecuación \eqref{eq:R-4ind}, a la matriz en la ecuación 
 anterior y se obtiene la matriz de Choi de $\E_z$:
@@ -866,10 +866,11 @@ con probabilidad $1-p$ a un estado de 1 qubit de la forma
  \end{align} 
 con $\ket{0}$ y $\ket{1}$ los eigenestados de 
 la matriz de Pauli $\sigma_z$, según las transformaciones 
-$\theta\to\theta+\pi$ y $\phi\to\phi+2\pi$. 
+$\theta\to\theta+\pi$ y $\phi\to\phi+2\pi$ 
+\cite{nielsen_chuang_2011}. 
 Si consideramos a la matriz de densidad de 1 qubit
 $\rho^1$ en \eqref{eq:DM-1q} el canal $\E_{BPF}$ 
-transforma  al vector $\vec{r}$ como
+transforma  al vector $\vec{r}$ como \cite{nielsen_chuang_2011}
 \begin{align}
 \qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,\qty(1-2p)r_1,r_2,\qty(1-2p)r_3\Big).
 \label{eq:bit-phase-flip-Bloch-trans}
@@ -971,7 +972,7 @@ atenúa todas las coordenadas
 del vector de Bloch con probabilidad $1-p$, como se muestra
 en la \Fref{fig:depolarizing}. Por consiguiente, 
 se sigue que el vector $\vec{r}$ de la matriz 
-de densidad de 1 qubit se transforma como
+de densidad de 1 qubit se transforma como \cite{nielsen_chuang_2011}
 \begin{align}
 \qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,\qty(1-p)r_1,\qty(1-p)r_2,\qty(1-p)r_3\Big).
 \label{eq:depolarizing-bloch-vec}
@@ -1082,6 +1083,7 @@ cuyo centro geométrico no es el origen de coordenadas,
 como se muestra en la \Fref{fig:amp-damp}. 
 El canal $\E_{AF}$ transforma al vector $\vec{r}$ de 
 la matriz de densidad de 1 qubit como
+\cite{nielsen_chuang_2011}
 \begin{align}
 \qty(1,r_1,r_2,r_3)\rightarrow&\Big(1,r_1\sqrt{1-\gamma},
 r_2\sqrt{1-\gamma},\gamma+\qty(1-\gamma)r_3\Big).
@@ -1187,8 +1189,8 @@ El formalismo de los canales cuánticos proporciona un marco
 teórico para describir el cambio dinámico de los estados cuánticos 
 de sistemas abiertos. Un nombre más descriptivo para 
 los canales cuánticos es mapeos completamente 
-positivos que preservan la traza, para enfatizar 
-que los canales cuánticos son mapeos afines de matrices de 
+positivos que preservan la traza \cite{bengtsson_zyczkowski_2017},
+para enfatizar que los canales cuánticos son mapeos afines de matrices de 
 densidad, que transforman estados positivos en estados positivos,
 aún cuando el sistema se acopla con un sistema secundario y el estado
 total es uno entrelazado. 
