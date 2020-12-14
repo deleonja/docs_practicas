@@ -5,3 +5,8 @@ anteproyecto.pdf ::
 
 
 -include ~/makefile
+
+
+
+# Repository
+LOCALGITREPOSITORY=git@github.com:deleonja/docs_practicas.git
