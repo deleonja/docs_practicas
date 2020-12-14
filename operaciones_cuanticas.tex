@@ -620,8 +620,8 @@ cuánticas.
 \cpnote{Aca voy}
 %}}}
 \section{Representación de Kraus} % {{{
-\janote{Reescribí esta sección. El contenido es el mismo, pero debería
-estar escrito de mejor manera.}
+% \janote{Reescribí esta sección. El contenido es el mismo, pero debería
+% estar escrito de mejor manera.}
 % \janote{
 % - Enunciar la representación en operadores de suma partiendo de un 
 % estado que se acopla con algún entorno
@@ -642,8 +642,8 @@ estar escrito de mejor manera.}
 
 Las operaciones cuánticas también pueden escribirse
 en otra representación conocida como la forma de Kraus.
-\cpnote{Cambiar a matricial aca y en todas partes}
-\janote{Hecho.}
+% \cpnote{Cambiar a matricial aca y en todas partes}
+% \janote{Hecho.}
 La representación recibe su nombre en honor al físico alemán Karl Kraus,
 quien en 1971 introdujo esta representación como resultado
 del teorema de Stinespring \cite{bengtsson_zyczkowski_2017}.
@@ -656,7 +656,8 @@ que satisfacen la condición $\sum _kE_k^{\dagger}E_k\leq\1$
 operación cuántica guarda estrecha relación con 
 su representación matricial por medio de la matriz de Choi. 
 La representación de Kraus de las operaciones cuánticas sólo
-es una condición equivalente del teorema de Choi,
+es una condición equivalente del teorema de Choi\cpnote{No entiendo eso 
+de que una representeacion sea una condición equivalente},
 presentado en la sección anterior, sobre los mapeos 
 completamente positivos.
 
@@ -667,7 +668,7 @@ matriz de Choi, calculada en el segundo ejemplo de la
 sección anterior.
 
 La representación de Kraus no determina a los operadores
-de Kraus de forma única, por lo cual es deseable encontrar
+de Kraus de forma única\cpnote{Mal redactado :(}, por lo cual es deseable encontrar
 una forma canónica. Un conjunto de operadores de Kraus 
 canónicos se puede obtener a partir de los eigenvectores,
 reordenados como matrices, de la matriz de Choi de la 
@@ -686,6 +687,8 @@ puede escribir como
 \label{eq:Kraus-canonical}
 \end{align}
 donde $r$ es el rango de la matriz de Choi y $d_k$ y $\chi_k$ 
+\cpnote{Estoy confundido. Si chi son vectores, y haces chi rho chi, te queda un 
+escalar? O como loe haces?}
 son sus eigenvalores y eigenvectores normalizados, respectivamente; 
 adicionalmente, los operadores $E_k$ deben satisfacer la condición
 \begin{align}
@@ -720,7 +723,7 @@ con la matriz de densidad de 1 qubit, siguiendo la forma de
 Kraus en \eqref{eq:Kraus-canonical}, mostraremos que se obtiene el 
 mismo resultado $\rho'$ en \eqref{eq:QC-ex2-SR}.
 
-Al calcular con los eigenvectores $\ket{\chi_k}$ de $D_{\E_{xz}}$ se obtiene
+Al calcular con los eigenvectores $\ket{\chi_k}$ de $D_{\E_{xz}}$ \cpnote{redaccion} se obtiene
 \begin{align}
 \begin{tabular}{lcl}
 $\ket{\chi_1}=\frac{1}{\sqrt{2}}\qty(\ket{00}+\ket{11})$, & \hspace{1cm}
@@ -729,16 +732,11 @@ $\ket{\chi_{3}}=\frac{1}{\sqrt{2}}\qty(-\ket{00}+\ket{11})$, & \hspace{1cm}
 & $\ket{\chi_4}=\frac{1}{\sqrt{2}}\qty(\ket{01}+\ket{10})$,
 \end{tabular}
 \end{align}
-cuyos respectivos eigenvalores son $d_1=1,d_2=1,d_3=0,d_4=0$. \cpnote{Esta
-frase está mal armada desde un punto de vista matemático No se si sea obvio en 
-que represtanción estamos (ojala solo estemos usando una base)}
-\janote{Ahora que le estoy dando la iterada de nuevo te caché el problema
-de la base}
+cuyos respectivos eigenvalores son $d_1=1,d_2=1,d_3=0,d_4=0$. 
 Se reordenan cada uno de los $\ket{\chi_k}$ en una matriz
 de $2\times2$, siguiendo el proceso inverso de vectorización
 en \eqref{eq:matrix-to-vector}, y se multiplica por $\sqrt{d_k}$ 
 para obtener los operadores de Kraus canónicos $E_k$; así se obtienen
-\cpnote{Que pasa con las degeneraciones?} 
 \begin{align}
 E_1&=
 \frac{1}{\sqrt{2}}
@@ -758,8 +756,6 @@ y $E_3=E_4=0$, dado que $d_3=d_4=0$.
 Finalmente, escribimos a $\E_{xz}\qty(\rho)$ en su representación 
 de Kraus para revisar que se obtiene la misma matriz
 de densidad $\rho'$ obtenida en la sección anterior,
-\cpnote{Creo qe andabas cansado cuando escribiste esta parte. Dale una
-iterada a esta seccion y me avisas}
 \begin{align}
 \rho'=&
 \frac{1}{2}
@@ -840,6 +836,8 @@ de 1 qubit en la siguiente sección.
 
 %}}}
 \section{Canales cuánticos de 1 qubit} % {{{
+\cpnote{Aca voy}
+
 \janote{
 - Hablar de que se gana intuición pensando en la acción de un canal de 1
 qubit como la manera en que deforma la esfera de Bloch\newline}
