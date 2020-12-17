@@ -1,4 +1,4 @@
-\chapter{Operaciones cuánticas} 
+\chapter{Operaciones cuánticas} \label{ch2}
 % Intro {{{
 % \janote{\h{Hey Carlos.} Dejé los comentarios del esqueleto
 % del capítulo para que recordaras lo que habíamos acordado.
@@ -281,7 +281,7 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 
 %}}}
-\section{Forma matricial} % {{{
+\section{Forma matricial}\label{sec:ch2-matrixForm} % {{{
 \cpnote{Creo qe si toca cambiar todo a representación matricial :S}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
@@ -517,6 +517,7 @@ acción de la matriz $\E_z$, es
 \mqty(
 1\\r_1-ir_2\\r_1+ir_2\\1
 ).
+\label{eq:Ez-matrix}
 \end{align}
 \cpnote{Creo que no has dicho como es la operacion de reshuffle en términos de los
 dobles indices. Quiza por eso querías tener el parrafo que señale antes, pero no lo 
@@ -528,11 +529,12 @@ anterior y se obtiene la matriz de Choi de $\E_z$:
 \begin{align}
 \E_z^R=
 \mqty(
-\frac{1}{2} & 0 & 0 & 1 \\
-0 & \frac{1}{2} & 0 & 0 \\
-0 & 0 & \frac{1}{2} & 0 \\
-1 & 0 & 0 & \frac{1}{2} 
+\frac{1}{4} & 0 & 0 & \frac{1}{2} \\
+0 & \frac{1}{4} & 0 & 0 \\
+0 & 0 & \frac{1}{4} & 0 \\
+\frac{1}{2} & 0 & 0 & \frac{1}{4} 
 ).
+\label{eq:ch2-Choi-Ez}
 \end{align}
 La matriz $\E_z^R$ tiene un eigenvalor $-1/2$, 
 por consiguiente $\E_z$ no es CP. 
@@ -835,7 +837,8 @@ será útil revisar algunos ejemplos de canales cuánticos
 de 1 qubit en la siguiente sección.
 
 %}}}
-\section{Canales cuánticos de 1 qubit} % {{{
+\section{Canales cuánticos de 1 qubit} \label{sec:CC's-1q-ejemplos}
+% {{{
 \cpnote{Aca voy}
 
 \janote{
@@ -964,7 +967,6 @@ en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
 para ser canales cuánticos.
 
 \subsection{Canal depolarizante}
-\janote{aquí voy\newline}
 El canal depolarizante $\E_{Dep}$ 
 atenúa todas las coordenadas 
 del vector de Bloch con probabilidad $1-p$, como se muestra
