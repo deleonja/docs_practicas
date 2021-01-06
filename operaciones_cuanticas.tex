@@ -839,13 +839,13 @@ de 1 qubit en la siguiente sección.
 %}}}
 \section{Canales cuánticos de 1 qubit} \label{sec:CC's-1q-ejemplos}
 % {{{
-\cpnote{Aca voy}
-
-\janote{
-- Hablar de que se gana intuición pensando en la acción de un canal de 1
-qubit como la manera en que deforma la esfera de Bloch\newline}
-\janote{
-- Ejemplos: phase-flip channel, depolarizing y amplitude damping\newline}
+% Intro {{{
+% 
+% \janote{
+% - Hablar de que se gana intuición pensando en la acción de un canal de 1
+% qubit como la manera en que deforma la esfera de Bloch\newline}
+% \janote{
+% - Ejemplos: phase-flip channel, depolarizing y amplitude damping\newline}
 
 Los canales cuánticos de 1 qubit proporcionan buena intuición 
 para completar el marco teórico de las operaciones cuánticas. 
@@ -856,8 +856,15 @@ En esta sección vamos a presentar tres canales cuánticos
 representativos del caso de un 1 qubit. Vamos a presentar 
 la forma matricial y la representación de Kraus de 
 cada uno de los canales.
-
-\subsection{Canal inversor de fase y bit}
+% }}}
+\subsection{Canal inversor de fase y bit} % {{{
+\cpnote{Siento atascada esta parte. Quiza pondría un parrafo ants del comienzo 
+de esta subseccion comentando la parametrizacion en theta y phi. Ya aca decir en 
+que consiste el canal. Por otro lado, quizá consideraria el mapa solo de bit flip o 
+el de phase flip que son mas simples conceptualmente. Como que no le veo el caso 
+a complicarse con este canal. Siq uiqres lo platicamos. El de phase flip tiene 
+mucha relevancia fisica. Si quieres te la comento. No creo que sea el caso comentarlo 
+acá en este documento, pero quizá si en tu tesis. }
 El canal inversor de fase y bit $\E_{BPF}$ transforma 
 con probabilidad $1-p$ a un estado de 1 qubit de la forma  
 \begin{align}
@@ -877,7 +884,8 @@ transforma  al vector $\vec{r}$ como \cite{nielsen_chuang_2011}
 \label{eq:bit-phase-flip-Bloch-trans}
 \end{align}
 Geométricamente, el vector de Bloch $\qty(r_1,r_2,r_3)$ es 
-proyectado al eje $y$ y las componentes 
+proyectado al eje $y$ \cpnote{no me gusta eso, pues si de dice que se
+proyecta, debería caer sobre el eje ``y''. Quiza suavisar la frase} y las componentes 
 en $x$ y $z$ son atenuadas, como se muestra en la 
 \Fref{fig:bit-phase-flip}.
 Notemos que el canal cuántico $\E_{xz}$, discutido 
@@ -894,7 +902,10 @@ $\longmapsto$
     \centering
     \includegraphics[width=6cm]{images/bit-phase-flip}
 \end{minipage}
-\caption{Efecto del canal inversor de fase y bit sobre la esfera de Bloch, 
+\caption{\cpnote{Los ejes estan raros, están como sobre toda la figura y no 
+pareciera que están en el interior de la esfera. Arregla esta y las siguientes 
+figuras porfa. Si te da mucha lata, quizá te puedo ayudar con mathematica.}
+Efecto del canal inversor de fase y bit sobre la esfera de Bloch, 
 para $p=0.3$.}
 \label{fig:bit-phase-flip}
 \end{figure}
@@ -930,7 +941,7 @@ p & 0 & 0 & 1-p \\
 \end{align}
 Para encontrar los operadores de Kraus se calculan los eigenvectores
 y eigenvalores de $D_{\E_{BPF}}$. Para~ello, calculamos antes
-$D_{\E_{BPF}}$ aplicando procedimiento de \textit{reshuffle}
+$D_{\E_{BPF}}$ aplicando procedimiento de \textit{reshuffle} obtenemos
 \begin{align}
   D_{\E_{BPF}}=\E_{BPF}^R=
   \mqty(
@@ -966,10 +977,12 @@ tanto la matriz en \eqref{eq:bpf-supero} como los operadores $E_i$
 en \eqref{eq:bpf-kraus} cumplen con las condiciones respectivas
 para ser canales cuánticos.
 
-\subsection{Canal depolarizante}
+% }}}
+\subsection{Canal depolarizante} % {{{
 El canal depolarizante $\E_{Dep}$ 
 atenúa todas las coordenadas 
-del vector de Bloch con probabilidad $1-p$, como se muestra
+del vector de Bloch con probabilidad \cpnote{las atenia con probabilidad uno. 
+Mas bien diria que la atenua por un factor tal} $1-p$, como se muestra
 en la \Fref{fig:depolarizing}. Por consiguiente, 
 se sigue que el vector $\vec{r}$ de la matriz 
 de densidad de 1 qubit se transforma como \cite{nielsen_chuang_2011}
@@ -1000,7 +1013,7 @@ la esfera de Bloch se deforma a un punto en el origen.
 \end{figure}
 
 Se repite el procedimiento del ejemplo anterior para calcular 
-la representación matricial de $\E_{Dep}$ y asi se obtiene
+la representación matricial de $\E_{Dep}$ y así se obtiene
 que la ecuación $\E_{Dep}(\rho)=\rho'$ en su forma matricial es
 \begin{align}
 \mqty(
@@ -1076,7 +1089,10 @@ se conocen como canales unitales.
 A continuación, el último ejemplo que vamos a presentar
 es el de un canal que no satisface la condición de unitalidad.
 
-\subsection{Canal de amortiguamiento de amplitud}
+% }}}
+\subsection{Canal de amortiguamiento de amplitud} % {{{
+\cpnote{A menos que necesites detalles, acortaría mucho esta subseccion, pues haces 
+lo mismo que en las otras. Si quieres platicamos.}
 La acción del canal de amortiguamiento de amplitud $\E_{AF}$
 sobre la esfera de Bloch es tal que la deforma a un elipsoide
 cuyo centro geométrico no es el origen de coordenadas, 
@@ -1163,7 +1179,10 @@ E_2&=
 &
 E_3=E_4=0.
 \end{align}
-
+% }}}
+% resumen {{{
+\cpnote{Aca ``salir'' de la seccion quiza con un subseccion de ``resumen'' o algo asi}
+\cpnote{Despues de leerla, como que no se si incluir este parrafo o no. Quizá se pueda acortar. Tambien lo podemos hablar.}
 Para resumir, hemos expuesto 3 ejemplos de canales cuánticos de 1 qubit:
 el canal de inversión de fase y bit, el canal depolarizante 
 y el canal de amortiguamiento
@@ -1200,4 +1219,5 @@ la representación de Kraus, cuya conexión entre ambas representaciones
 es posible mediante la matriz de Choi.
 La preferencia por alguna representación u otra está determinada 
 por la naturaleza del problema a resolver. 
+% }}}
 % }}}
