@@ -45,6 +45,10 @@ sistema cuántico, en especial la de los estados entrelazados.
 como ``obtendremos las condiciones matemáticas necesarias para definir un 
 canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido} 
 \janote{Mejor? Toma en cuenta que sólo hablo de la CP en la sección 2.1}
+\cpnote{Sigue sin gustarme. La motivacion para CP es que el canal sea físicamente
+posible. Eso es lo que queremos evaluar en el fondo. El que sea CP es algo 
+digamos intermedio. Quiza puedas decir que {\it vamos a ver si es un canal
+fisico (es decir que es CP)} o algo asi mejor redactado}
 Vamos a motivar la necesidad de esta condición
 a partir de un ejemplo de una operación que deforma a la esfera de
 Bloch en un disco. En las secciones 2.2 y 2.3 introducimos dos 
@@ -78,18 +82,11 @@ se transforma según la ecuación
 donde $\E$ es una operación cuántica que representa alguna evolución 
 física y $\rho'$ es el estado que resulta de la evolución 
 \cite{nielsen_chuang_2011}. 
-\cpnote{Normalmente 
-uno cita al final de la frase, a menos que no se entienda. En este caso y casi
-siempre, funciona ponerla al final}
-\janote{De acuerdo.}
 En el capítulo anterior  establecimos 
 dos ejemplos de operaciones cuánticas: la evolución unitaria 
 y la medición del estado de un sistema, 
 para los cuales $\E \qty(\rho)=U\rho U^{\dagger}$ y 
-$\E(\rho)=\sum_mM\rho M^{\dagger}$\cpnote{Aca tienes un posible problema, porque 
-entonecs no conservas la traza. Quizá yo quitaria ese ejemplo, o
-pondría una suma mejor hablemos}\janote{Cierto. Si no, no 
-se conserva la traza unitaria. Pondré la suma}, respectivamente. 
+$\E(\rho)=\sum_m M_m\rho M_m^{\dagger}$, respectivamente. 
 Una operación cuántica describe discretamente 
 el cambio dinámico que un estado cuántico 
 atraviesa durante un proceso físico. 
@@ -178,8 +175,6 @@ $\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
 {img-congreso/DiskXY}
 \end{minipage}
 \caption{
-\cpnote{Prefiero dejar a las figuras realmente flotantes}
-\janote{De acuerdo}
 Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
 \label{fig:qtm-op-motivation}
 \end{figure} % }}}
@@ -242,9 +237,8 @@ se obtiene
 \end{align}
 La matriz  $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un 
 eigenvalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
-\cpnote{Se me hace bien el ejemplo, pero muy enredado el procedimiento. Quizá 
-si lo platicamos, estaría bien.}
-\janote{Hecho. Corregí desde la línea 330 del PDF.}
+\cpnote{Croe qe los subindices $\sigma$ en la ecuacion 2.4 y 2.3 sobran. Quiza puedes 
+decir en texto que son expresados en t´erminos de las matrices de Pauli o algo asi.}
 Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
 no describe a ningún estado físico de un sistema de 2 qubits.
 
@@ -256,7 +250,6 @@ En vista de este resultado, se hace evidente que una operación cuántica
 debe transformar estados positivos en estados positivos,
 aún cuando se considere la extensión de la operación en 
 un espacio de un sistema más grande de dimensión arbitraria.
-\cpnote{Esa ultima frase es blah blah. Mejorala} \janote{Hecho.}
 
 De manera precisa, la definición de completa positividad es la siguiente.
 Una operación $\E$ se dice que es completamente positiva (CP)
@@ -264,10 +257,6 @@ si y sólo si, para cualquier extensión dimensional arbitraria $K$
 del espacio de Hilbert, tal que 
 $\hi_N \rightarrow \hi_N \otimes \hi_K$,
 el operador $\E\otimes\1_K$ es positivo~\cite{bengtsson_zyczkowski_2017}. 
-\cpnote{No estoy seguro de que esa sea la definición. 
-Mas bien, quieres decir que sea positivo}
-\janote{Recordatorio: quedamos en dejarlo con las 
-mismas palabras del GofQS}
 Con esta definición, las condiciones 
 que debe cumplir una operación cuántica para representar una evolución física 
 están completas.
@@ -287,9 +276,6 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 %}}}
 \section{Forma matricial}\label{sec:ch2-matrixForm} % {{{
-\cpnote{Creo qe si toca cambiar todo a representación matricial :S}
-\janote{Hecho. Lo cambié automático. Si de pronto encuentras aún 
-`forma de superoperador' o algo así márcamela, por favor}
 % \janote{\h{justificación:}
 %     Propongo agregar esta sección por la línea de pensamiento que quiero seguir 
 % durante todo el capítulo. Además porque numéricamente es 
@@ -315,23 +301,9 @@ maneras distintas: en la forma matricial
 %\cpnote{o no lleva acento 
 %nunca, segun lo que leo en RAE} 
 o en la forma de Kraus.
-En esta sección vamos a discutir los superoperadores, 
-que es la representación de una operación cuántica como 
+En esta sección vamos a discutir la representación de una operación cuántica como 
 una matriz que actúa sobre la matriz de densidad reordenada
 como un vector columna.
-%Una forma de representar a una operación cuántica es en la forma de 
-%superoperador. Un superoperador es una transformación lineal
-%que actúa sobre el espacio vectorial de los operadores
-%lineales~\cite{preskill1998lecture}. 
-% Antiguo:
-% que actúa sobre el espacio vectorial de los operadores lineales 
-% \cite{preskill1998lecture}. 
-\cpnote{Normalmente no se dejan las citas iniciando linea. Para prevenir
-eso, se usa la tilde \~ que deja un espacio, pero no parte linea ahí. Lo cambio
-para que veas como podría ir. } 
-\janote{Quité la cita porque cambié los primeros dos enunciados.}
-\cpnote{Odio esas dos primeras frases}
-\janote{Ahora mejor?}
 Iniciaremos discutiendo algunas
 transformaciones algebraicas sobre matrices e introduciremos 
 una notación de cuatro índices, que es útil al trabajar en un espacio de Hilbert 
@@ -365,9 +337,6 @@ En su forma matricial, para determinar si una operación cuántica es CP
 se debe evaluar la positividad semidefinida de la matriz reordenada 
 de la operación, según el procedimiento de
 \textit{reshuffle}~\cite{bengtsson_zyczkowski_2017}.
-\cpnote{No se como
-estemos de citas, pero creo que acá sería bueno poner una}
-\janote{De acuerdo}
 La transformación de \textit{reshuffle} $R$ de una matriz cuadrada $B$ 
 consiste en reordenar cada fila de $B$, con $MN$ elementos, 
 en submatrices de dimensión $M\times N$ y colocarlas en 
@@ -428,19 +397,6 @@ A continuación, con las transformaciones algebraicas introducidas y
 esta nueva notación de cuatro índices,
 vamos a establecer las condiciones sobre una matriz para ser una 
 operación cuántica. 
-%Hasta ahora lo que hemos expuesto nos permite reordenar a una matriz
-%de densidad $\rho$ de dimensión $N\times N$ en un vector con $N^2$ 
-%elementos. Por consiguiente, la matriz $\E$, en su forma de 
-%superoperador que actúa sobre una matriz de densidad vectorizada $\vec{\rho}$, 
-%debe ser de dimensión $N^2\times N^2$. Los elementos de matriz de
-%$\E$ pueden etiquetarse utilizando cuatro índices como en \eqref{eq:4indices},
-%haciendo cualquier partición en dos del sistema de Hilbert total.
-\cpnote{Este y el parrafo anterior se sienten medio desorganizados. Como que
-medio tienen coherencia interna, pero siento que no tienen flujo respecto 
-al resto del texto. Quiza puedes medio reorganizar la información, o 
-convencerme de que no tengo razón? De hecho, ahora que lo lep quizá
-quitaría este parrafo.} \janote{Estaba chafa. Lo arreglé desde 
-la línea 396 del PDF.}
 
 Una operación cuántica $\E$ de ser: (1) un mapeo lineal que
 transforme matrices de densidad en matrices de densidad, y (2) una 
@@ -448,11 +404,6 @@ operación completamente positiva.
 Para cumplir con la condición (1) la imagen $\rho'$ debe ser también 
 una matriz de densidad, es decir, una matriz (i) Hermítica, 
 (ii) de traza unitaria y (iii) positiva semidefinida. 
-\cpnote{Añadiría 
-que estas son condiciones necesarias pero no suficientes para que E sea 
-operación cuantica. Lo dices más adelante, pero de esta frase pareciera que
-es necesario y sificiente pedir eso}
-\janote{Reformulé desde la línea 410 del PDF.}
 Cada una de estas tres condiciones sobre $\rho'$ impone una condición 
 sobre la matriz $\E$ \cite{bengtsson_zyczkowski_2017}:
 \begin{align}
@@ -465,10 +416,8 @@ sobre la matriz $\E$ \cite{bengtsson_zyczkowski_2017}:
     &&\Leftrightarrow&&  \E_\ind{m\mu}{n\nu}\rho_{n\nu}\geq0.
     \label{eq:positivity-condition}
 \end{align}
-\cpnote{Creo que fue contigo que sufrimos con la convención de Einstein acá. 
-No propagues ese sufrimiento por favor.}
-\janote{Había olvidado de nuevo la convención XD, recuerdo 
-ese dolor de cabeza}
+\cpnote{Falta la suma en el tercer termino. Además es rho prima mayori igual a
+cero (a la izquierda)}
 Ahora sólo nos resta establecer cómo evaluar la condición (2) sobre $\E$
 para que sea una operación cuántica. 
 Para evaluar la completa positividad de la matriz $\E$
@@ -490,7 +439,6 @@ Dado que una matriz $\E$ cumpla con las condiciones establecidas de
 \eqref{eq:H-condition} a \eqref{eq:positivity-condition}, la positividad
 semidefinida de $D_{\E}$ determina si $\E$ es 
 o no una operación cuántica~\cite{bengtsson_zyczkowski_2017}.
-\cpnote{De nuevo, quizá una cita} \janote{Listo.}
 
 Ahora volvamos a considerar el ejemplo de la operación $\E_z$ 
 sobre 1 qubit de la sección anterior y evaluemos la condición de 
@@ -502,10 +450,6 @@ de la matriz de densidad de 1 qubit en \eqref{eq:DM-1q}
 como $\qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0)$. Así, 
 con $\vec{r'}$ determinado podemos calcular 
 explícitamente $\rho'$.
-%\cpnote{Link quebrado. En general es util
-%checar el log de un documento, para ver que no se están olvidando citas o 
-%referencias}
-%\janote{Arreglado}
 Por consiguiente, vectorizando $\rho$ y $\rho'$, la matriz $\E_z$ 
 se puede calcular con métodos elementales de álgebra lineal. 
 De esa manera, se obtiene que la ecuación de transformación 
@@ -529,10 +473,6 @@ acción de la matriz $\E_z$, es
 ).
 \label{eq:Ez-matrix}
 \end{align}
-\cpnote{Creo que no has dicho como es la operacion de reshuffle en términos de los
-dobles indices. Quiza por eso querías tener el parrafo que señale antes, pero no lo 
-dijiste}
-\janote{Ahora sí, agregué la eq 2.10}
 Se aplica el procedimiento de \textit{reshuffle},
 según la ecuación \eqref{eq:R-4ind}, a la matriz en la ecuación 
 anterior y se obtiene la matriz de Choi de $\E_z$:
@@ -630,25 +570,6 @@ En la siguiente sección presentaremos la representación de Kraus de las operac
 cuánticas.
 %}}}
 \section{Representación de Kraus} % {{{
-% \janote{Reescribí esta sección. El contenido es el mismo, pero debería
-% estar escrito de mejor manera.}
-% \janote{
-% - Enunciar la representación en operadores de suma partiendo de un 
-% estado que se acopla con algún entorno
-% y llegar a las condiciones para ser CPTP y empezar a conectarlo
-% con la sección anterior.} \cpnote{No sabes si hay alguna motivacion que no sea
-% con el entorno? Realmente no lo usamos y se me hace meter una complicación adicional}
-% \janote{Entonces voy a omitir la motivación con el entorno y en general
-%     mencionar al entorno en la explicación.\newline}
-% \janote{Introducción\newline}
-% \janote{
-%     - Invocar el ejemplo del canal de la sección anterior, pero en su 
-%     representación de operadores de suma. Aquí quiero hacer la conexión 
-%     entre esta y la sección anterior mostrando que los operadores 
-%     de Kraus son los eigenvectores de la matriz de Choi.\newline}
-% \janote{
-%     - Comparar la representacion de suma de operadores y superoperadores
-% \newline}
 
 Las operaciones cuánticas también pueden escribirse
 en otra representación que se conoce como la forma de Kraus.
@@ -664,10 +585,7 @@ que satisfacen la condición $\sum _kE_k^{\dagger}E_k\leq\1$
 La forma de Kraus de una operación cuántica 
 es una representación que hereda como
 consecuencia de satisfacer la condición de completa
-positividad. \cpnote{No entiendo eso 
-de que una representeacion sea una condición equivalente}
-\janote{Creo que me di a entender mejor ahora. Nota que cambié el orden 
-de los enunciados, el penúltimo por el último}
+positividad\cpnote{No entiendo esta frase}.
 Esta forma de representar a una
 operación cuántica guarda estrecha relación con 
 su representación matricial por medio de la matriz de Choi. 
@@ -680,7 +598,7 @@ sección anterior.
 
 Dado que la representación de Kraus no determina a los operadores
 $E_k$ de forma única es de interés buscar una forma canónica de
-la representación. \cpnote{Mal redactado :(} \janote{Mejor?}
+la representación. \cpnote{Mal redactado :(} \janote{Mejor?}\cpnote{Sigue mal, hablamos}
 Un conjunto de operadores de Kraus canónicos de una 
 operación cuántica se puede obtener a partir de los 
 eigenvectores normalizados $\ket{\chi_k}$ de la 
@@ -700,10 +618,6 @@ puede escribir como
 \end{align}
 donde $r$ es el rango de la matriz de Choi y $\chi_k$ 
 son los vectores $\ket{\chi_k}$ reordenados como matrices.
-\cpnote{Estoy confundido. Si chi son vectores, y haces chi rho chi, te queda un 
-escalar? O como loe haces?} 
-\janote{Revisa cómo reformulé desde la línea 473 ``Un conjunto de
-operadores de Kraus..''}
 Además, los operadores $E_k$ deben satisfacer la condición
 \begin{align}
   \Tr\qty(E_k^{\dagger}E_k)=d_i\delta_{ij}.
@@ -737,10 +651,6 @@ Kraus en \eqref{eq:Kraus-canonical}, mostraremos que se obtiene el
 mismo resultado $\rho'$ en \eqref{eq:QC-ex2-SR}.
 
 Al calcular con los eigenvectores $\ket{\chi_k}$ de $D_{\E_{xz}}$ 
-\cpnote{redaccion} 
-\janote{Recuerdo que discutimos en una ocasión la redacción de la eq 2.21. Ahora 
-no sé si este comentario tuyo está desde entonces, o haces referencia 
-a otro error de redacción?}
 se obtienen
 \begin{align}
 \begin{tabular}{lcl}
@@ -875,17 +785,17 @@ cada uno de los canales.
 % }}}
 \subsection{Canal de inversión de bit} % {{{
 %\janote{Mejor cambiar el bit-flip}
-\cpnote{Siento atascada esta parte. Quiza pondría un parrafo ants del comienzo 
-de esta subseccion comentando la parametrizacion en theta y phi. Ya aca decir en 
-que consiste el canal. Por otro lado, quizá consideraria el mapa solo de bit flip o 
-el de phase flip que son mas simples conceptualmente. Como que no le veo el caso 
-a complicarse con este canal. Siq uiqres lo platicamos. El de phase flip tiene 
-mucha relevancia fisica. Si quieres te la comento. No creo que sea el caso comentarlo 
-acá en este documento, pero quizá si en tu tesis. }
-\janote{Cambié el ejemplo al bit-flip. Por lo tanto, reescribí toda 
-esta subsección.}
-El canal de inversión de bit, que denotaremos como $\E_{bf}$ (``\textit{bf}'' por 
-\textit{bit-flip}, como su nombre en inglés), es una operación que 
+% \cpnote{Siento atascada esta parte. Quiza pondría un parrafo ants del comienzo 
+% de esta subseccion comentando la parametrizacion en theta y phi. Ya aca decir en 
+% que consiste el canal. Por otro lado, quizá consideraria el mapa solo de bit flip o 
+% el de phase flip que son mas simples conceptualmente. Como que no le veo el caso 
+% a complicarse con este canal. Siq uiqres lo platicamos. El de phase flip tiene 
+% mucha relevancia fisica. Si quieres te la comento. No creo que sea el caso comentarlo 
+% acá en este documento, pero quizá si en tu tesis. }
+% \janote{Cambié el ejemplo al bit-flip. Por lo tanto, reescribí toda 
+% esta subsección.}
+El canal de inversión de bit, que denotaremos como $\E_{bf}$ (``\textit{bf}'' de su 
+nombre en inglés \textit{bit-flip}), es una operación que 
 intercambia a los eigenestados de $\sigma_z$, $\ket{0}$ y $\ket{1}$,
 del estado de 1 qubit con probabilidad $1-p$. Si consideramos a 
 la matriz de densidad del sistema en la base de las matrices de 
@@ -904,10 +814,6 @@ así a la esfera de Bloch a un elipsoide con semieje mayor sobre el eje $x$.
 Notemos que la contracción deja invariante al eje $x$, lo que significa
 que la acción de $\E_{bf}$ deja invariante a los eigenestados
 de $\sigma_x$.
-\cpnote{no me gusta eso, pues si de dice que se
-proyecta, debería caer sobre el eje ``y''. Quiza suavisar la frase} 
-\janote{Evité escribir que el bit-plit `proyecta' por este comentario. 
-Creo que está mejor ahora.}
 
 \begin{figure}
 \centering
@@ -921,10 +827,6 @@ $\longmapsto$
     \includegraphics[width=6cm]{images/bit-flip}
 \end{minipage}
 \caption{
-\cpnote{Los ejes estan raros, están como sobre toda la figura y no 
-pareciera que están en el interior de la esfera. Arregla esta y las siguientes 
-figuras porfa. Si te da mucha lata, quizá te puedo ayudar con mathematica.}
-\janote{Hecho}
 Efecto del canal de inversión de bit sobre la esfera de Bloch, para $p=0.3$.}
 \label{fig:bit-flip}
 \end{figure}
@@ -935,7 +837,7 @@ la representación de Kraus de $\E_{bf}$.
 Tomamos a la matriz de densidad de 1 qubit $\rho^1$ en 
 \eqref{eq:DM-1q}, la vectorizamos y con ayuda de 
 \eqref{eq:bit-flip-BlochVec} calculamos el estado inicial y 
-final. Con ambos vectores determinados se siguen métodos elmentales 
+final. Con ambos vectores determinados se siguen métodos elementales 
 de álgebra lineal para calcular la forma matricial de $\E_{bf}$.
 De esa manera, se encuentra que la ecuación 
 $\E_{bf}(\rho)=\rho'$ es
@@ -1000,9 +902,6 @@ cuántico de inversión de bit $\E_{bf}$.
 \subsection{Canal depolarizante} % {{{
 El canal depolarizante $\E_{Dep}$ es una operación que
 atenúa todas las componentes del vector de Bloch por un factor 
-\cpnote{las atenia con probabilidad uno. 
-Mas bien diria que la atenua por un factor tal}
-\janote{Ok}
 $1-p$.
 Geométricamente, $\E_{Dep}$ contrae
 a la esfera de Bloch uniformemente como se muestra en 
@@ -1115,9 +1014,6 @@ es el de un canal que no satisface la condición de unitalidad.
 
 % }}}
 \subsection{Canal de amortiguamiento de amplitud} % {{{
-\cpnote{A menos que necesites detalles, acortaría mucho esta subseccion, pues haces 
-lo mismo que en las otras. Si quieres platicamos.}
-\janote{Hecho}
 La acción del canal de amortiguamiento de amplitud $\E_{AA}$
 sobre la esfera de Bloch es tal que la deforma a un elipsoide
 cuyo centro geométrico no es el origen de coordenadas, 
@@ -1219,10 +1115,6 @@ nueva intuición física no se gana a partir de ello.
 %\end{align}
 % }}}
 % resumen {{{
-\cpnote{Aca ``salir'' de la seccion quiza con un subseccion de ``resumen'' o algo asi}
-\cpnote{Despues de leerla, como que no se si incluir este parrafo o no. Quizá se pueda acortar. Tambien lo podemos hablar.}
-\janote{Como que creo que tenía mucho texto y me pareció más apropiado 
-terminar con el siguiente párrafo mucho más conciso:}
 
 Hemos desarrollado tres ejemplos importantes
 de canales cuánticos de 1 qubit para completar el marco 
