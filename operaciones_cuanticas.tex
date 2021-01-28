@@ -20,9 +20,6 @@
 % \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
 % mejor lo voy a quitar}}
 
-\janote{Nota para mí: me falta revisar lo primero que corregí 
-antes de lo que corregí en estos días}
-
 Las operación cuánticas son un marco teórico que proporcionan
 una manera de describir el cambio dinámico de los estados 
 de los sistemas cuánticos abiertos \cite{bengtsson_zyczkowski_2017}. 
@@ -38,9 +35,9 @@ las herramientas para describir de manera discreta la dinámica
 de este tipo de sistemas.
 
 En la sección 2.1 vamos a discutir la condición
-que deben satisfacer las operaciones cuánticas para preservar 
-la positividad de todos los estados físicos posibles de un 
-sistema cuántico, en especial la de los estados entrelazados. 
+que deben satisfacer las operaciones cuánticas para asegurar
+que sean operaciones que representan la evolución de un estado físico 
+en algún otro estado físico.
 \cpnote{mejor diría algo de lo qe se pueda agarrar el lector. Algo asi 
 como ``obtendremos las condiciones matemáticas necesarias para definir un 
 canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido} 
@@ -49,12 +46,14 @@ canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido}
 posible. Eso es lo que queremos evaluar en el fondo. El que sea CP es algo 
 digamos intermedio. Quiza puedas decir que {\it vamos a ver si es un canal
 fisico (es decir que es CP)} o algo asi mejor redactado}
+\janote{Listo}
 Vamos a motivar la necesidad de esta condición
 a partir de un ejemplo de una operación que deforma a la esfera de
 Bloch en un disco. En las secciones 2.2 y 2.3 introducimos dos 
 representaciones distintas de las operaciones cuánticas, junto 
 con las condiciones que se deben satisfacer en cada una de los
-casos. Además, mostraremos la conexión entre 
+casos para que la operación sea una operación cuántica. 
+Además, mostraremos la conexión entre 
 las dos representaciones mediante la matriz de Choi de 
 una operación cuántica. Por último, en la sección 2.4 
 desarrollamos tres ejemplos de operaciones cuánticas de 1 qubit 
@@ -175,8 +174,7 @@ $\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
 {img-congreso/DiskXY}
 \end{minipage}
 \caption{
-Deformación de la esfera de Bloch a un disco sobre el plano $XY$.
-\cpnote{No es un disco}}
+Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
 \label{fig:qtm-op-motivation}
 \end{figure} % }}}
 
@@ -215,14 +213,14 @@ y el resto de los elementos de $r$ son iguales a cero.
 Por lo tanto, el estado máximamente entrelazado de
 dos qubits, en la forma de \eqref{eq:DM-1q}, se escribe como
 \begin{align}
-\dyad{\phi}{\phi}_{\sigma}=
+\dyad{\phi}{\phi}=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
 \end{align}
 Recordando que $\E_z\otimes\1$ borra los elementos de $r$ de la forma
 $r_{3j}$, entonces el cálculo de la matriz $\E_z\otimes\1 \qty({\rho}^{\phi})$
 en la base de productos tensoriales de las matrices de Pauli es directo,
 \begin{align}
-\qty[\E_z\otimes\1 \qty({\rho}^{\phi})]_{\sigma}=
+\E_z\otimes\1 \qty({\rho}^{\phi})=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2};
 \end{align}
 y, transformando de vuelta esta matriz a la base computacional,
@@ -240,6 +238,7 @@ La matriz  $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un
 eigenvalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
 \cpnote{Croe qe los subindices $\sigma$ en la ecuacion 2.4 y 2.3 sobran. Quiza puedes 
 decir en texto que son expresados en t´erminos de las matrices de Pauli o algo asi.}
+\janote{Listo.}
 Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
 no describe a ningún estado físico de un sistema de 2 qubits.
 
@@ -413,12 +412,13 @@ sobre la matriz $\E$ \cite{bengtsson_zyczkowski_2017}:
     \label{eq:H-condition}\\
 \txt{(ii)}&&\Tr(\rho')=1
     &&\Leftrightarrow&&  \sum_{m}\E_\ind{mm}{n\nu}=\delta_{n\nu},\\     
-\txt{(iii)}&&\rho'\geq1
-    &&\Leftrightarrow&&  \E_\ind{m\mu}{n\nu}\rho_{n\nu}\geq0.
+\txt{(iii)}&&\rho'\geq0
+    &&\Leftrightarrow&&  \sum\E_\ind{m\mu}{n\nu}\rho_{n\nu}\geq0.
     \label{eq:positivity-condition}
 \end{align}
 \cpnote{Falta la suma en el tercer termino. Además es rho prima mayori igual a
-cero (a la izquierda)}
+cero (a la izquierda)} \janote{Sóbre qué índices va la sumatoria
+del tercer término?}
 Ahora sólo nos resta establecer cómo evaluar la condición (2) sobre $\E$
 para que sea una operación cuántica. 
 Para evaluar la completa positividad de la matriz $\E$
@@ -583,10 +583,10 @@ $\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger}$,
 para algún conjunto de operadores $\{E_k\}$ 
 que satisfacen la condición $\sum _kE_k^{\dagger}E_k\leq\1$
 \cite{nielsen_chuang_2011}. 
-La forma de Kraus de una operación cuántica 
-es una representación que hereda como
-consecuencia de satisfacer la condición de completa
-positividad\cpnote{No entiendo esta frase}.
+De hecho, esta representación no es específica de las operaciones cuánticas, 
+sino más bien de las operaciones completamente positivas, 
+en general.
+\cpnote{No entiendo esta frase} \janote{Ahora espero que sí}
 Esta forma de representar a una
 operación cuántica guarda estrecha relación con 
 su representación matricial por medio de la matriz de Choi. 
@@ -597,9 +597,14 @@ operadores de Kraus del canal $\E_{xz}$ a partir de la
 matriz de Choi, calculada en el segundo ejemplo de la 
 sección anterior.
 
-Dado que la representación de Kraus no determina a los operadores
-$E_k$ de forma única es de interés buscar una forma canónica de
-la representación. \cpnote{Mal redactado :(} \janote{Mejor?}\cpnote{Sigue mal, hablamos}
+%Dado que la representación de Kraus no determina a los operadores
+%$E_k$ de forma única es de interés buscar una forma canónica de
+%la representación.
+
+La representación de Kraus no es única, razón por la cual es de interés
+determinar un conjunto $\{E_k\}$ de operadores canónicos.
+\cpnote{Mal redactado :(} \janote{Mejor?}\cpnote{Sigue mal, hablamos}
+\janote{Ahora sí, espero jajajaj} 
 Un conjunto de operadores de Kraus canónicos de una 
 operación cuántica se puede obtener a partir de los 
 eigenvectores normalizados $\ket{\chi_k}$ de la 
