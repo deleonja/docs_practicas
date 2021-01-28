@@ -12,6 +12,38 @@ cuántica.}
 Menciona un poco también la relación con los otros mapeos, pero muy por encima, como 
 los de Ruskai}
 
+En la sección 2.1 utilizamos el ejemplo de una operación lineal 
+de 1 qubit que borra una componente del vector de Bloch para motivar
+la condición de completa positividad. 
+Revisamos que esa operación no es completamente positiva.
+Por otro lado, en la sección 2.4.2 revisamos el 
+canal depolarizante, un operación cuántica que cuando $p=1$
+borra las 3 componentes del vector de Bloch. En vista de esto, 
+inevitablemente salta la pregunta acerca de cuántas (y cuáles) 
+componentes del vector de Bloch puede borrar una operación 
+de 1 qubit y ser completamente positiva.
+Debe hacerse hincapié que las operaciones que borran componentes 
+del vector de Bloch son operaciones lineales que 
+preservan la traza y la Hermiticidad de la 
+matriz de densidad de 1 qubit, por lo que la completa positividad 
+es la única condición restante para determinar si la operación 
+es un canal cuántico.
+
+Si bien los canales cuánticos de 1 qubit han sido estudiados y 
+están completamente caracterizados por otros autores (
+\cite{nielsen_chuang_2011}  \cite{bengtsson_zyczkowski_2017}), 
+\janote{No sé dónde poner estas citas :/}
+los canales cuánticos de $n$ 
+qubits aún no. En ese sentido, proponemos estudiar las operaciones
+que borran componentes del vector de Bloch (generalizado, para el 
+caso de $n$ qubits). Por lo cual, este capítulo se enfoca en  
+estudiar, reproducir y entender las operaciones de 1 qubit 
+que borran componentes del vector de Bloch. En la sección 3.1
+se establece el problema y una solución anlítica.
+Por último, en la sección 3.2 se presenta el método numérico que 
+propusimos, así como las herramientas que se utilizaron y 
+los resultados.
+
 % }}}
 \section{El caso de 1 qubit} % {{{
 \janote{Introducción sobre los canales cuánticos de 1 qubit. Recordar 
@@ -36,7 +68,7 @@ dando las herramientas para el algoritmo numérico)}
 
 Los canales cuánticos de 1 qubit son especialmente interesantes porque 
 son fáciles de visualizar en la esfera de Bloch, como se presentó
-en la sección \ref{sec:CC's-1q-ejemplos}, y eso hace que 
+en la sección \ref{sec:CC's-1q-ejemplos}. Esto hace que 
 aporten mucha intuición física para entender la teoría de
 las operaciones cuánticas. 
 Particularmente, recordemos 
@@ -405,17 +437,18 @@ similar, se puede revisar que el resto de nuestros
 resultados (\Cref{c:resultados-1q}) satisfacen las condiciones
 de Fujiwara-Algoet.
 
-En resumen, se estudiaron las operaciones PCE de 1 qubit, operaciones 
-que borran las componentes $r_i$ de una matriz de densidad 
+En resumen, se estudiaron las operaciones PCE de 1 qubit, que son operaciones 
+que borran las componentes $r_i$ de la matriz de densidad 
 escrita en la representación de las matrices de Pauli. 
-Se implementó un método numérico para resolver
-el problema. No obstante, el método está diseñado  
-para resolver el problema de sistemas con más de 1 qubit.
+Se implementó un método numérico para evaluar
+numéricamente la CP de estas operaciones. 
+El método se diseñó para resolver el problema de sistemas con más de 1 qubit.
 Se encontró que 5 de las 8 operaciones PCE son canales cuánticos.
 Son canales PCE la identidad, el canal completamente depolarizante 
 y los canales que transforman a la esfera de Bloch a una línea sobre 
-cualquiera de los 3 ejes. Los resultados coinciden con lo que se
-encuentra en la literatura reciente. En el futuro, nos gustaría 
+cualquiera de los 3 ejes. Estos resultados son compatibles con lo 
+que se encuentra en la bibliografía acerca de los canales cuánticos
+de 1 qubit. En el futuro, nuestro objetivo es
 caracterizar a los canales PCE de sistemas de $n$ qubits.
 % }}}
 
