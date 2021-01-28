@@ -1,15 +1,63 @@
 %%% Haga el diseño que más le guste
 \chapter{INTRODUCCIÓN}
-\textcolor{mycolor}{
-\begin{itemize}
-\item La mecánica cuántica y la limitación del formalismo que se 
-aprende en la licenciatura para describir a los sistemas abiertos
-\item Teoría de los canales cuánticos
-\item Mapeos PCE y el estado del estudio, que sería lo de 1
-qubit que se puso en el informe de prácticas
-\item Cuáles son las expectativas de lo que queremos encontrar 
-para 2 y 3 qubits
-\end{itemize}
-}
-Prueba:
-\cite{bengtsson_zyczkowski_2017}
+%\textcolor{mycolor}{
+%\begin{itemize}
+%\item La mecánica cuántica y la limitación del formalismo que se 
+%aprende en la licenciatura para describir a los sistemas abiertos
+%\item Teoría de los canales cuánticos
+%\item Mapeos PCE y el estado del estudio, que sería lo de 1
+%qubit que se puso en el informe de prácticas
+%\item Cuáles son las expectativas de lo que queremos encontrar 
+%para 2 y 3 qubits
+%\end{itemize}
+%}
+
+En sus inicios, la teoría cuántica se ocupó de describir de la dinámica 
+de sistemas cuánticos ideales que se consideran completamente aislados 
+de su entorno \cite{feynman1965feyman}. Sin embargo, el rápido progreso
+de las últimas décadas en la manipulación de los sistemas cuánticos de 
+muchos cuerpos ha hecho cada vez más necesaria una formulación 
+más general de la mecánica cuántica en la que se considere a 
+los sistemas cuánticos como sistemas abiertos que pueden sufrir de 
+interacción con su entorno \cite{preskill1998lecture}.
+
+Una propuesta para describir la evolución de los sistemas cuánticos abiertos
+es la teoría de los canales cuánticos. Esta teoría proporciona una descripción
+discreta de la dinámica de los sistemas abiertos que ocupa el formalismo
+de la matriz de densidad para describir a los estados cuánticos
+\cite{nielsen_chuang_2011}. La matriz
+de densidad posee la ventaja sobre el vector de estado de poder describir
+estados puros y mixtos (mezclas estadísticas) \cite{sakurai_napolitano_2017}. 
+Otro nombre que reciben 
+los canales cuánticos y que describe mejor el tipo de mapeos lineales 
+que son es el de operaciones completamente positivas que preservan la traza 
+(operaciones CPTP) \cite{bengtsson_zyczkowski_2017}.\\
+
+Por otro lado, los sistemas cuánticos de dos niveles han tomado especial
+relevancia en información y computación cuántica, pues son empleados 
+como la unidad fundamental de información: el qubit. Por esa razón, es
+de interés teórico entender la dinámica de los qubits como sistemas 
+abiertos. En este trabajo proponemos la continuación del estudio de 
+las operaciones PCE que se comenzó con el trabajo de práctica final.
+Las operaciones PCE son operaciones lineales que borran componentes
+del vector de Bloch generalizado de un sistema de $n$ qubits. El caso 
+de 1 qubit fue estudiado con éxito. De las 8 operaciones PCE posibles para
+1 qubit 5 son canales cuánticos: la identidad, las operaciones que borran 2 
+componentes del vector de Bloch y el canal completamente depolarizante.
+El estudio y caracterización de las operaciones PCE proporcionaría 
+un aporte significativo al entendimiento de los canales cuánticos de
+sistemas de qubits y de la dinámica de los sistemas abiertos, en general.\\
+
+Para este trabajo nos proponemos estudiar las operaciones PCE de 
+2 y 3 qubits. Con suficiente suerte, entender estos dos casos
+puede guiar el camino hacia la caracterización general de las operaciones
+PCE de $n$ qubits. Proponemos evaluar numéricamente, de forma sistemática, 
+la completa positividad de las operaciones PCE de 2 qubits. Buscaremos
+herramientas geométricas para analizar y extraer la mayor cantidad de
+información relevante que los resultados permitan evaluar de una manera
+más eficiente el caso de 3 qubits. Además, revisaremos el 
+estudio de otras operaciones de similar naturaleza para compararlos
+con las operaciones PCE \cite{nathanson2007pauli}. 
+La motivación principal de este trabajo de graduación 
+es buscar pistas que conduzcan a la caracterización de las 
+operaciones PCE de sistemas de $n$ qubits.
