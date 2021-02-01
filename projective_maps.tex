@@ -1,23 +1,26 @@
 \chapter{Mapeos proyectivos}  
 % Intro {{{
-\janote{Introducción. Motivar y justificar el estudio de las operaciones
-que borran componentes de la matriz de densidad de un 1 qubit. Discutir
-que entender los canales cuánticos que borran componentes de la 
-matriz de densidad ayudaría a entender mejor la teoría 
-de las operaciones CPTP y, también, la mecánica cuántica porque al fin y al 
-cabo estamos estudiando qué permite y qué no la mecánica 
-cuántica.}
+% \janote{Introducción. Motivar y justificar el estudio de las operaciones
+% que borran componentes de la matriz de densidad de un 1 qubit. Discutir
+% que entender los canales cuánticos que borran componentes de la 
+% matriz de densidad ayudaría a entender mejor la teoría 
+% de las operaciones CPTP y, también, la mecánica cuántica porque al fin y al 
+% cabo estamos estudiando qué permite y qué no la mecánica 
+% cuántica.}
+% 
+% \cpnote{La justificacion me gustaria ver en pseudocodigo antes de que la afines. 
+% Menciona un poco también la relación con los otros mapeos, pero muy por encima, como 
+% los de Ruskai}
 
-\cpnote{La justificacion me gustaria ver en pseudocodigo antes de que la afines. 
-Menciona un poco también la relación con los otros mapeos, pero muy por encima, como 
-los de Ruskai}
-
-En la sección 2.1 utilizamos el ejemplo de una operación lineal 
+En la sección 2.1 \cpnote{Conviene usar mejor los 
+comandos ref y label por si mueves capitulos. Ahora pues no mas
+borra este comentario, pero para el futuro es mejor hacerlo así.} utilizamos el
+ejemplo de una operación lineal 
 de 1 qubit que borra una componente del vector de Bloch para motivar
 la condición de completa positividad. 
 Revisamos que esa operación no es completamente positiva.
 Por otro lado, en la sección 2.4.2 revisamos el 
-canal depolarizante, un operación cuántica que cuando $p=1$
+canal despolarizante, un operación cuántica que cuando $p=1$
 borra las 3 componentes del vector de Bloch. En vista de esto, 
 inevitablemente salta la pregunta acerca de cuántas (y cuáles) 
 componentes del vector de Bloch puede borrar una operación 
@@ -30,41 +33,48 @@ es la única condición restante para determinar si la operación
 es un canal cuántico.
 
 Si bien los canales cuánticos de 1 qubit han sido estudiados y 
-están completamente caracterizados por otros autores (
-\cite{nielsen_chuang_2011}  \cite{bengtsson_zyczkowski_2017}), 
-\janote{No sé dónde poner estas citas :/}
-los canales cuánticos de $n$ 
-qubits aún no. En ese sentido, proponemos estudiar las operaciones
+están completamente caracterizados por otros autores
+los canales cuánticos de $n$ qubits aún no~\cite{nielsen_chuang_2011}
+\cite{bengtsson_zyczkowski_2017}\cpnote{Normalmente las citas se ponen al final
+de la frase, menos que no se entienda. Un ejemplo donde toca ponerlas 
+a la mitad de la frase es Hay muchas formas de preparar tacos. La forma
+del norte [1], la del centro [2] y la del sur[3] son cada una diferentes. }. En
+ese sentido \cpnote{Por qué ``en ese sentido?''}, proponemos estudiar las
+operaciones
 que borran componentes del vector de Bloch (generalizado, para el 
 caso de $n$ qubits). Por lo cual, este capítulo se enfoca en  
 estudiar, reproducir y entender las operaciones de 1 qubit 
-que borran componentes del vector de Bloch. En la sección 3.1
-se establece el problema y una solución anlítica.
+que borran componentes del vector de Bloch. \cpnote{Este parrafo siento 
+que no tiene estructura. De que se trata? Hemos hablado de como se estructura 
+típicamente un parrafo? Si no lo hemos hecho, dime y te mando una referencia. Si lo 
+hemos hecho, trata de iterarlo. Se para acá el parrafo anterior de lo que viene 
+explicando la estructura.} En la sección 3.1
+se establece el problema y una solución analítica.
 Por último, en la sección 3.2 se presenta el método numérico que 
 propusimos, así como las herramientas que se utilizaron y 
 los resultados.
 
 % }}}
 \section{El caso de 1 qubit} % {{{
-\janote{Introducción sobre los canales cuánticos de 1 qubit. Recordar 
-la forma de la matriz de densidad escrita en la representación 
-de Pauli y su asociación con la esfera de Bloch.}
+% \janote{Introducción sobre los canales cuánticos de 1 qubit. Recordar 
+% la forma de la matriz de densidad escrita en la representación 
+% de Pauli y su asociación con la esfera de Bloch.}
 
-\janote{Establecer el problema que nos interesa para 1 qubit:
-mapeos que borran y dejan invariantes todas las combinaciones 
-posibles de las componentes del vector de Bloch. 
-Discutir que la componente $r_0$ la dejamos intacta para 
-preservar la traza. Hablar de la representación geométrica 
-de las operaciones que estudiamos.}
-
-\janote{Presentar la forma analítica de calcular la representación
-en forma de superoperador de alguno de los 8 mapeos posibles. 
-A diferencia de lo que ya se hizo en el capítulo anterior, voy a presentar
-el cálculo a partir de la forma diagonal del mapeo (también para ir 
-dando las herramientas para el algoritmo numérico)}
-
-\janote{Concluir presentando las 8 operaciones de 1 qubit que nos intersan.}
-\cpnote{Me parece bien, pero porfa no te extiendas de más en este capitulo}
+% \janote{Establecer el problema que nos interesa para 1 qubit:
+% mapeos que borran y dejan invariantes todas las combinaciones 
+% posibles de las componentes del vector de Bloch. 
+% Discutir que la componente $r_0$ la dejamos intacta para 
+% preservar la traza. Hablar de la representación geométrica 
+% de las operaciones que estudiamos.}
+% 
+% \janote{Presentar la forma analítica de calcular la representación
+% en forma de superoperador de alguno de los 8 mapeos posibles. 
+% A diferencia de lo que ya se hizo en el capítulo anterior, voy a presentar
+% el cálculo a partir de la forma diagonal del mapeo (también para ir 
+% dando las herramientas para el algoritmo numérico)}
+% 
+% \janote{Concluir presentando las 8 operaciones de 1 qubit que nos intersan.}
+% \cpnote{Me parece bien, pero porfa no te extiendas de más en este capitulo}
 
 Los canales cuánticos de 1 qubit son especialmente interesantes porque 
 son fáciles de visualizar en la esfera de Bloch, como se presentó
@@ -80,7 +90,7 @@ vimos que $\E_z$ no es una operación completamente positiva porque
 $\E_z\otimes\1 _2$ transforma al estado máximamente entrelazado de 
 dos qubits en una matriz que no es una matriz de densidad;
 por consiguiente, $\E_z$ no es un canal cuántico. 
-Motivados en estas dos operaciones, nos parece interesante 
+Motivados por estas dos operaciones, nos parece interesante 
 estudiar las operaciones que borran las componentes del 
 vector de Bloch de la matriz de densidad de 1 qubit.
 
@@ -154,7 +164,7 @@ para mostrar el procedimiento análitico para
 calcular la forma matricial de una operación 
 y evaluar su completa positividad. La diferencia 
 de este procedimiento con lo que mostramos en el
-capítulo anterior será que está formulado para 
+capítulo anterior es que está formulado para 
 poderse implementar de manera numérica.
 Recordemos que $\E_z$ transforma a las componentes 
 de la matriz de densidad de 1 qubit como
@@ -168,6 +178,7 @@ que son las matrices de Pauli y $\sigma_0=\1$ como matrices vectorizadas.
 Denotemos $\qty[\E_z]_{\sigma}$ a la forma matricial de
 $\E_z$ en la base de Pauli. 
 Los elementos de la diagonal $(\qty[\E_{z}]_{\sigma})_{ii}$ 
+\cpnote{No entiendo el subindice ii}
 deben satisfacer la ecuación $r_i'=(\qty[\E_{z}]_{\sigma})_{ii}r_i$, 
 con $r_0=1$; así se determina 
 \begin{align}
@@ -281,23 +292,23 @@ numérico que implementamos para resolver problema.
 
 % }}}
 \section{Método numérico} % {{{
-\janote{Introducción para justificar porqué nos interesa reproducir
-lo de 1 qubit de forma numérica (porque queremos estudiar 2+ qubits).}
-
-\janote{Enunciar el algoritmo.}
-
-\janote{Hablar de que se implementó en Mathematica y por 
-aquí meter la info al repositorio y añadir la idea que tienes 
-con eso.}
-
-\janote{Concluir con los resultados del numérico.}
-
-\janote{En el siguiente capítulo (último último) hablamos sobre
-seguir trabajando en este proyecto para la tesis, 
-pero ahora con más qubits, y concluir discutiendo 
-que se cumplieron con los objetivos planteados
-para este trabajo de prácticas.}
-\cpnote{Si, todo bien}
+% \janote{Introducción para justificar porqué nos interesa reproducir
+% lo de 1 qubit de forma numérica (porque queremos estudiar 2+ qubits).}
+% 
+% \janote{Enunciar el algoritmo.}
+% 
+% \janote{Hablar de que se implementó en Mathematica y por 
+% aquí meter la info al repositorio y añadir la idea que tienes 
+% con eso.}
+% 
+% \janote{Concluir con los resultados del numérico.}
+% 
+% \janote{En el siguiente capítulo (último último) hablamos sobre
+% seguir trabajando en este proyecto para la tesis, 
+% pero ahora con más qubits, y concluir discutiendo 
+% que se cumplieron con los objetivos planteados
+% para este trabajo de prácticas.}
+% \cpnote{Si, todo bien}
 
 En la sección anterior se enunció que las operaciones
 PCE de 1 qubit son 8. Un poco de paciencia y tiempo es lo que 
