@@ -14,7 +14,6 @@
 % para describir la dinámica de los sistemas abiertos y una guía al 
 % lector de qué se viene en este cap. Enfatizar en que el truco es 
 % considerar como 'nuevo sistema cerrado' al sistema extendido}
-% \cpnote{No entiendo esa frase}
 % \janote{Me refiero a que un sistema que interactúa con su entorno es abierto, 
 % pero si consideramos al sistema total (principal+entorno) ese es cerrado.
 % \textbf{Ahora que lo expliqué ya no encuentro sentido para hablar de esto aquí,
@@ -37,16 +36,7 @@ de este tipo de sistemas.
 En la sección 2.1 vamos a discutir la condición
 que deben satisfacer las operaciones cuánticas para asegurar
 que sean operaciones que representan la evolución de un estado físico 
-en algún otro estado físico.
-\cpnote{mejor diría algo de lo qe se pueda agarrar el lector. Algo asi 
-como ``obtendremos las condiciones matemáticas necesarias para definir un 
-canal válido'' o algo asi, porque si no el que no sepa, va a quedar confundido} 
-\janote{Mejor? Toma en cuenta que sólo hablo de la CP en la sección 2.1}
-\cpnote{Sigue sin gustarme. La motivacion para CP es que el canal sea físicamente
-posible. Eso es lo que queremos evaluar en el fondo. El que sea CP es algo 
-digamos intermedio. Quiza puedas decir que {\it vamos a ver si es un canal
-fisico (es decir que es CP)} o algo asi mejor redactado}
-\janote{Listo}
+a algún otro estado físico.
 Vamos a motivar la necesidad de esta condición
 a partir de un ejemplo de una operación que deforma a la esfera de
 Bloch en un disco. En las secciones 2.2 y 2.3 introducimos dos 
@@ -236,9 +226,6 @@ se obtiene
 \end{align}
 La matriz  $\E_z\otimes\1\qty(\rho^{\phi})$ tiene un 
 eigenvalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
-\cpnote{Croe qe los subindices $\sigma$ en la ecuacion 2.4 y 2.3 sobran. Quiza puedes 
-decir en texto que son expresados en t´erminos de las matrices de Pauli o algo asi.}
-\janote{Listo.}
 Dicho de otro modo, $\E_z\otimes\1\qty(\rho^{\phi})$ 
 no describe a ningún estado físico de un sistema de 2 qubits.
 
@@ -298,8 +285,6 @@ dos formas distintas de representar a las operaciones cuánticas.
 
 Las operaciones cuánticas se pueden representar de dos 
 maneras distintas: en la forma matricial 
-%\cpnote{o no lleva acento 
-%nunca, segun lo que leo en RAE} 
 o en la forma de Kraus.
 En esta sección vamos a discutir la representación de una operación cuántica como 
 una matriz que actúa sobre la matriz de densidad reordenada
@@ -418,7 +403,8 @@ sobre la matriz $\E$ \cite{bengtsson_zyczkowski_2017}:
 \end{align}
 \cpnote{Falta la suma en el tercer termino. Además es rho prima mayori igual a
 cero (a la izquierda)} \janote{Sóbre qué índices va la sumatoria
-del tercer término?}
+del tercer término?} \cpnote{sospecho quesobre n y $\nu$, pero porfa verifica. La
+verdad es que ahora no lo veo muy claro.}
 Ahora sólo nos resta establecer cómo evaluar la condición (2) sobre $\E$
 para que sea una operación cuántica. 
 Para evaluar la completa positividad de la matriz $\E$
@@ -583,10 +569,9 @@ $\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger}$,
 para algún conjunto de operadores $\{E_k\}$ 
 que satisfacen la condición $\sum _kE_k^{\dagger}E_k\leq\1$
 \cite{nielsen_chuang_2011}. 
-De hecho, esta representación no es específica de las operaciones cuánticas, 
-sino más bien de las operaciones completamente positivas, 
-en general.
-\cpnote{No entiendo esta frase} \janote{Ahora espero que sí}
+% De hecho, esta representación no es específica de las operaciones cuánticas, 
+% sino más bien de las operaciones completamente positivas, 
+% en general.
 Esta forma de representar a una
 operación cuántica guarda estrecha relación con 
 su representación matricial por medio de la matriz de Choi. 
@@ -603,8 +588,6 @@ sección anterior.
 
 La representación de Kraus no es única, razón por la cual es de interés
 determinar un conjunto $\{E_k\}$ de operadores canónicos.
-\cpnote{Mal redactado :(} \janote{Mejor?}\cpnote{Sigue mal, hablamos}
-\janote{Ahora sí, espero jajajaj} 
 Un conjunto de operadores de Kraus canónicos de una 
 operación cuántica se puede obtener a partir de los 
 eigenvectores normalizados $\ket{\chi_k}$ de la 
@@ -791,15 +774,6 @@ cada uno de los canales.
 % }}}
 \subsection{Canal de inversión de bit} % {{{
 %\janote{Mejor cambiar el bit-flip}
-% \cpnote{Siento atascada esta parte. Quiza pondría un parrafo ants del comienzo 
-% de esta subseccion comentando la parametrizacion en theta y phi. Ya aca decir en 
-% que consiste el canal. Por otro lado, quizá consideraria el mapa solo de bit flip o 
-% el de phase flip que son mas simples conceptualmente. Como que no le veo el caso 
-% a complicarse con este canal. Siq uiqres lo platicamos. El de phase flip tiene 
-% mucha relevancia fisica. Si quieres te la comento. No creo que sea el caso comentarlo 
-% acá en este documento, pero quizá si en tu tesis. }
-% \janote{Cambié el ejemplo al bit-flip. Por lo tanto, reescribí toda 
-% esta subsección.}
 El canal de inversión de bit, que denotaremos como $\E_{bf}$ (``\textit{bf}'' de su 
 nombre en inglés \textit{bit-flip}), es una operación que 
 intercambia a los eigenestados de $\sigma_z$, $\ket{0}$ y $\ket{1}$,
