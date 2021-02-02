@@ -11,14 +11,26 @@ para 2 y 3 qubits
 \end{itemize}
 }
 
-En sus inicios, la teoría cuántica se ocupó de describir de la dinámica 
-de sistemas cuánticos ideales que se consideran completamente aislados 
-de su entorno \cite{feynman1965feyman}. Sin embargo, el rápido progreso
-de las últimas décadas en la manipulación de los sistemas cuánticos de 
-muchos cuerpos ha hecho cada vez más necesaria una formulación 
-más general de la mecánica cuántica en la que se considere a 
-los sistemas cuánticos como sistemas abiertos que pueden sufrir de 
-interacción con su entorno \cite{preskill1998lecture}.
+A diferencia de los sistemas cuánticos cerrados, la dinámica 
+de los sistemas abiertos no puede describirse adecuadamente 
+con operadores unitarios únicamente.
+Un sistema cerrado es un sistema ideal que se considera completamente
+aislado del resto del universo. Sin embargo, los sistemas cuánticos 
+reales están en alguna medida abiertos a interacciones con su entorno.
+Por esa razón, la descripción completa de un sistema cuántico requiere
+incluir a su entorno y considerar que este sistema secundario
+es inaccesible parcial o totalmente, o que sencillamente no es de interés 
+para el observador \cite{schlosshauer2007decoherence}.
+
+
+%En sus inicios, la teoría cuántica se ocupó de describir de la dinámica 
+%de sistemas cuánticos ideales que se consideran completamente aislados 
+%de su entorno \cite{feynman1965feyman}. Sin embargo, el rápido progreso
+%de las últimas décadas en la manipulación de los sistemas cuánticos de 
+%muchos cuerpos ha hecho cada vez más necesaria una formulación 
+%más general de la mecánica cuántica en la que se considere a 
+%los sistemas cuánticos como sistemas abiertos que pueden sufrir de 
+%interacción con su entorno \cite{preskill1998lecture}.
 \cpnote{No es cierto. Desde un inicio si fue importante la decoherencia. 
 Te dejo un link (como comentario en el .tex) que encontre poniendo von neumman decoherence en google. 
 Se me ocurre que le des una leida a la historia de la decoherencia, de varias fuentes. 
@@ -26,6 +38,8 @@ No he leido este libro, pero si he escuchado al autor y creo que puede ser
 una buena fuente 
 https://www.springer.com/gp/book/9783540357735
 }
+\janote{Reescribí ese primer párrafo. Quedamos que en la introducción 
+de la tesis hablaré sobre la decoherencia.}
 % https://plato.stanford.edu/entries/qm-decoherence/#OrthApp
 
 Una propuesta para describir la evolución de los sistemas cuánticos abiertos
@@ -59,11 +73,17 @@ Para este trabajo nos proponemos estudiar las operaciones PCE de
 2 y 3 qubits. Con suficiente suerte, entender estos dos casos
 puede guiar el camino hacia la caracterización general de las operaciones
 PCE de $n$ qubits. Proponemos evaluar numéricamente, de forma sistemática, 
-la completa positividad de las operaciones PCE de 2 qubits \cpnote{explica porque no es 
-posible ir mas alla de 2 qubits}. Buscaremos
-herramientas geométricas para analizar y extraer la mayor cantidad de
-información relevante que los resultados permitan evaluar de una manera
-más eficiente el caso de 3 qubits. Además, revisaremos el 
+la completa positividad de las operaciones PCE de 2 qubits. \cpnote{explica porque no es 
+posible ir mas alla de 2 qubits} \janote{Dale, va a continuación con 
+los siguientes 3 enunciados:} 
+El número de operaciones PCE crece de manera doblemente exponencial
+con el número $n$ de qubits ($2^{2n}$). Para $n=3$ el número de 
+operaciones PCE es del orden de $10^{18}$. Esto impone una restricción  
+para evaluar numéricamente la CP las operaciones PCE a partir de $n=3$.
+Por esa razón, buscaremos herramientas geométricas para analizar 
+y extraer la mayor cantidad de información relevante de los 
+resultados de 1 y 2 qubits y así evaluar de alguna manera razonable
+el caso de 3 qubits. Además, revisaremos el 
 estudio de otras operaciones de similar naturaleza para compararlos
 con las operaciones PCE \cite{nathanson2007pauli}. 
 La motivación principal de este trabajo de graduación 
