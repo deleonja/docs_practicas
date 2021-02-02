@@ -1,41 +1,41 @@
 \chapter{Conclusiones y trabajo futuro}
 \section{Conclusiones}
-\begin{enumerate}
-\item El formalismo de la matriz de densidad proporciona la herramienta 
-más general para describir al estado de un sistema cuántico, 
-puesto que la matriz de densidad puede describir estados puros y mixtos.
-\item Los sistemas cuánticos reales son sistemas abiertos que sufren
-de interacción con algún sistema secundario. Por esa razón, el estudio 
-de un formalismo para describir la evolución de los sistemas abiertos
-es necesario.
-\item La teoría de las operaciones cuánticas propone una manera
-discreta de describir la dinámica de los sistemas cuánticos abiertos.
-\item Una operación cuántica es una operación completamente positiva 
-que preserva la traza de la matriz de densidad. 
-\item La completa positividad es una condición más robusta a la 
-positividad que asegura que una operación cuántica transforma
-a todos los estados físicos de un sistema, especialmente a los estados 
-entrelazados, en estados positivos.
-\item Las operaciones PCE son operaciones lineales que borran las 
-componentes de una matriz de densidad escrita en la base de las 
-matrices de Pauli.
-\item Se estudiaron las operaciones PCE de 1 qubit evalúando numéricamente
-la condición de completa positividad y se reprodujeron los 5 canales cuánticos
-que han sido bien estudiados por algunos autores
-\cite{nielsen_chuang_2011},
-\cite{bengtsson_zyczkowski_2017}. Los 5 canales cuánticos PCE 
-de 1 qubit son la identidad, el canal totalmente depolarizante y 
-un canal que mapea la esfera de Bloch a una línea sobre cualquiera de los ejes.
-\end{enumerate}
 
-\pagebreak 
+Para abordar el problema de las operaciones que borran componentes 
+del vector de Bloch de 1 qubit fue necesario estudiar el formalismo de 
+la matriz de densidad y la teoría de las operaciones cuánticas. 
+La matriz de densidad es una herramienta que contiene toda la información 
+física que se puede extraer de un estado cuántico. La teoría de las 
+operaciones cuánticas es un marco teórico para describir 
+la evolución dinámica de los sistemas cuánticos abiertos. 
+Una operación cuántica es una operación completamente positiva 
+que preserva la traza de la matriz de densidad (operación CPTP).
+La completa positividad es una condición más robusta a la positividad 
+que asegura que una operación cuántica preserva la positividad de todos 
+los estados de un sistema, especialmente la de los estados entrelazados.
+Con estas herramientas teóricas se pueden abordar una gran variedad
+de problemas, sin embargo en este trabajo nos enfocamos en iniciar el 
+estudio de un tipo muy específico de operaciones lineales de qubits.
+
+En este proyecto nos enfocamos en estudiar las operaciones PCE 
+de 1 qubit que satisfacen la condición de completa positividad
+y, por ende, son canales cuánticos. Una operación PCE 
+de 1 qubit es una operación lineal que borra componentes del 
+vector de Bloch. Existen 8 operaciones PCE de 1 qubit y 
+numéricamente se encontró que 5 de ellas son 
+canales cuánticos: la identidad, el canal totalmente depolarizante 
+y los canales que mapean la esfera de Bloch a una línea sobre 
+cualquiera de los ejes. Estos resultados son consistentes 
+con los canales cuánticos de 1 qubit que han sido estudiados antes 
+por otros autores como Nielsen y Bengtsson 
+\cite{bengtsson_zyczkowski_2017,nielsen_chuang_2011}
 
 \section{Trabajo futuro}
-\begin{enumerate}
-\item Estudiar las operaciones PCE en sistemas de más de 1 qubit.
-\item Caracterizar las condiciones que debe satisfacer una operación 
-PCE para ser una operación completamente positiva y, por consiguiente,
-un canal cuántico.
-\item Estudiar la relación de las operaciones PCE son otras operaciones 
-de Pauli. 
-\end{enumerate}
+Para el trabajo de tesis de graduación proponemos la continuación del
+estudio de las operaciones PCE. Proponemos estudiar numéricamente 
+la completa positividad de las operaciones PCE en sistemas con 
+más de 1 qubit, y con estos resultados lo que se buscaría son pistas 
+para la caracterización general que debe cumplir una operación 
+PCE para ser un canal cuántico. Por otro lado, también sería importante
+revisar si existen otros estudios de canales cuánticos similares a los 
+PCE para determinar la generalidad de este tipo de operaciones.

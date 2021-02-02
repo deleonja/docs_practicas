@@ -12,15 +12,13 @@
 % Menciona un poco también la relación con los otros mapeos, pero muy por encima, como 
 % los de Ruskai}
 
-En la sección 2.1 \cpnote{Conviene usar mejor los 
-comandos ref y label por si mueves capitulos. Ahora pues no mas
-borra este comentario, pero para el futuro es mejor hacerlo así.} utilizamos el
+En la sección 2.1 utilizamos el
 ejemplo de una operación lineal 
 de 1 qubit que borra una componente del vector de Bloch para motivar
 la condición de completa positividad. 
 Revisamos que esa operación no es completamente positiva.
 Por otro lado, en la sección 2.4.2 revisamos el 
-canal despolarizante, un operación cuántica que cuando $p=1$
+canal depolarizante, un operación cuántica que para $p=1$
 borra las 3 componentes del vector de Bloch. En vista de esto, 
 inevitablemente salta la pregunta acerca de cuántas (y cuáles) 
 componentes del vector de Bloch puede borrar una operación 
@@ -32,30 +30,56 @@ matriz de densidad de 1 qubit, por lo que la completa positividad
 es la única condición restante para determinar si la operación 
 es un canal cuántico.
 
-Si bien los canales cuánticos de 1 qubit han sido estudiados y 
-están completamente caracterizados por otros autores
-los canales cuánticos de $n$ qubits aún no~\cite{nielsen_chuang_2011}
-\cite{bengtsson_zyczkowski_2017}\cpnote{Normalmente las citas se ponen al final
-de la frase, menos que no se entienda. Un ejemplo donde toca ponerlas 
-a la mitad de la frase es Hay muchas formas de preparar tacos. La forma
-del norte [1], la del centro [2] y la del sur[3] son cada una diferentes. }. En
-ese sentido \cpnote{Por qué ``en ese sentido?''}, proponemos estudiar las
-operaciones
-que borran componentes del vector de Bloch (generalizado, para el 
-caso de $n$ qubits). Por lo cual, este capítulo se enfoca en  
-estudiar, reproducir y entender las operaciones de 1 qubit 
-que borran componentes del vector de Bloch. \cpnote{Este parrafo siento 
-que no tiene estructura. De que se trata? Hemos hablado de como se estructura 
-típicamente un parrafo? Si no lo hemos hecho, dime y te mando una referencia. Si lo 
-hemos hecho, trata de iterarlo. Se para acá el parrafo anterior de lo que viene 
-explicando la estructura.} En la sección 3.1
-se establece el problema y una solución analítica.
-Por último, en la sección 3.2 se presenta el método numérico que 
-propusimos, así como las herramientas que se utilizaron y 
-los resultados.
+%Si bien los canales cuánticos de 1 qubit han sido estudiados y 
+%están completamente caracterizados por otros autores
+%los canales cuánticos de $n$ qubits aún no~\cite{nielsen_chuang_2011}
+%\cite{bengtsson_zyczkowski_2017}\cpnote{Normalmente las citas se ponen al final
+%de la frase, menos que no se entienda. Un ejemplo donde toca ponerlas 
+%a la mitad de la frase es Hay muchas formas de preparar tacos. La forma
+%del norte [1], la del centro [2] y la del sur[3] son cada una diferentes. }. En
+%ese sentido \cpnote{Por qué ``en ese sentido?''}, proponemos estudiar las
+%operaciones
+%que borran componentes del vector de Bloch (generalizado, para el 
+%caso de $n$ qubits). Por lo cual, este capítulo se enfoca en  
+%estudiar, reproducir y entender las operaciones de 1 qubit 
+%que borran componentes del vector de Bloch. \cpnote{Este parrafo siento 
+%que no tiene estructura. De que se trata? Hemos hablado de como se estructura 
+%típicamente un parrafo? Si no lo hemos hecho, dime y te mando una referencia. Si lo 
+%hemos hecho, trata de iterarlo. Se para acá el parrafo anterior de lo que viene 
+%explicando la estructura.} En la sección 3.1
+%se establece el problema y una solución analítica.
+%Por último, en la sección 3.2 se presenta el método numérico que 
+%propusimos, así como las herramientas que se utilizaron y 
+%los resultados.
+
+\janote{Los siguientes dos párrafos son el reemplazo del párrafo malo 
+que estaba antes}
+En este capítulo comenzaremos el estudio de las operaciones que 
+borran componentes del vector de Bloch con el caso más sencillo de 
+1 qubit. Entender por completo el caso de 1 qubits nos proporcionará 
+de intuición para empezar a entender las características de las operaciones
+de nuestro interés, y también para diseñar una forma de investigar
+el caso de sistemas de más qubits. Por otro lado, Bengtsson y Zyczkowski
+\cite{bengtsson_zyczkowski_2017} estudiaron 
+una caracterización general de los canales cuánticos de 
+1 qubit con la cual se puede comparar los resultados de este capítulo 
+para hacer una revisión de consistencia \janote{de consistencia está bien 
+dicho? Me refiero a hacer un check}. El caso de 1 qubit es importante 
+y es el punto de partida para investigar sistemas de más qubits.
+
+La estructura de este capítulo es la siguiente. 
+En la sección \ref{sec:caso-1-qubit} vamos a establecer el problema 
+de las operaciones que borran componentes del vector de Bloch y 
+vamos a revisar un procedimiento analítico para verificar 
+la completa positividad de estas operaciones.  
+Luego, en la sección \ref{sec:metodo-num},
+discutiremos el diseño del método numérico, los resultados y 
+una comparación de ellos con la caracterización de los canales 
+cuánticos de 1 qubit de Bengtsson y Zyczkowski 
+\cite{bengtsson_zyczkowski_2017}.
 
 % }}}
-\section{El caso de 1 qubit} % {{{
+\section{El caso de 1 qubit} \label{sec:caso-1-qubit} % {{{
 % \janote{Introducción sobre los canales cuánticos de 1 qubit. Recordar 
 % la forma de la matriz de densidad escrita en la representación 
 % de Pauli y su asociación con la esfera de Bloch.}
@@ -177,10 +201,15 @@ $\{ \vec{\sigma}_0,\vec{\sigma}_1,\vec{\sigma}_2,\vec{\sigma}_3\}$,
 que son las matrices de Pauli y $\sigma_0=\1$ como matrices vectorizadas.
 Denotemos $\qty[\E_z]_{\sigma}$ a la forma matricial de
 $\E_z$ en la base de Pauli. 
-Los elementos de la diagonal $(\qty[\E_{z}]_{\sigma})_{ii}$ 
-\cpnote{No entiendo el subindice ii}
-deben satisfacer la ecuación $r_i'=(\qty[\E_{z}]_{\sigma})_{ii}r_i$, 
-con $r_0=1$; así se determina 
+%Los elementos de la diagonal $(\qty[\E_{z}]_{\sigma})_{ii}$ 
+\cpnote{No entiendo el subindice ii} \janote{Quité el subíndice y reformulé
+con el siguiente enunciado:}
+%deben satisfacer la ecuación $r_i'=(\qty[\E_{z}]_{\sigma})_{ii}r_i$, 
+%con $r_0=1$; así se determina 
+En general, este tipo de operaciones transforman al vector de Bloch
+como $r_i\longmapsto \tau_ir_i$, con $\tau_i=0,1$, donde $\tau_i$ son 
+los elementos de la diagonal de la forma matricial de la operación 
+en la base de Pauli. Por lo tanto,
 \begin{align}
 \qty[\E_z]_{\sigma}=
 \mqty(
@@ -248,7 +277,7 @@ por lo cual se concluye que $\E_z$ no es un canal cuántico.
 Para ser prácticos vamos a introducir un nombre para
 las operaciones de estudio: ``Operaciones
 que borran componentes de Pauli'', u ``operaciones PCE",
-por su nombre en inglés (\textit{Pauli-components-erasing}). 
+por su nombre en inglés (\textit{Pauli components erasing}). 
 Las operaciones PCE de 1 qubit que vamos a estudiar 
 se muestran en el \Cref{cuadro:operacionesPCE-1q}.
 \begin{table}
@@ -291,7 +320,7 @@ En la siguiente sección presentaremos el método
 numérico que implementamos para resolver problema.
 
 % }}}
-\section{Método numérico} % {{{
+\section{Método numérico} \label{sec:metodo-num} % {{{
 % \janote{Introducción para justificar porqué nos interesa reproducir
 % lo de 1 qubit de forma numérica (porque queremos estudiar 2+ qubits).}
 % 
