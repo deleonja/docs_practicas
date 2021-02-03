@@ -1,4 +1,4 @@
-informeFinal.pdf :: matriz_densidad.tex operaciones_cuanticas.tex projective_maps.tex
+informeFinal.pdf :: matriz_densidad.tex operaciones_cuanticas.tex projective_maps.tex conclusions.tex formalidades.tex
 
 
 anteproyecto.pdf :: 
