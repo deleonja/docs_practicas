@@ -1,0 +1,175 @@
+%%
+%%	AVISO IMPORTANTE
+%%	Formato optimizado para el sistema operativo GNU/Linux 64 bits
+%%	usar TexLive 2016 (o superior), http://www.ctan.org/tex-archive/systems/texlive/Images/
+%%	usar TeXstudio 2.11, http://texstudio.sourceforge.net/
+
+\documentclass[letterpaper,12pt]{thesisECFM}
+\usepackage{macros}
+
+%%	NO OLVIDE INCLUIR FUENTE DE LAS TABLAS Y FIGURAS
+
+% Decomentar para anular recuadros en los hiperenlaces dentro del pdf
+% \hypersetup{pdfborder={0 0 0}}
+
+% Teoremas ---------------------------------------------------------
+% estos ambientes son para teoremas, lemas, corolarios, otros
+% si no los utiliza los puede obviar en su trabajo de graduación
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}{Corolario}[chapter]
+\newtheorem{lem}{Lema}[chapter]
+\newtheorem{prp}{Proposición}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{exa}{Ejemplo}[chapter]
+\newtheorem{defn}{Definición}[chapter]
+\newtheorem{axm}{Axioma}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{rem}{Nota}[chapter]
+
+
+% --------------------------------------------------------------------------------------------------
+%                    Mi preámbulo usual (José Alfredo)
+% --------------------------------------------------------------------------------------------------
+
+\definecolor{mycolor}{RGB}{255,50,0}
+
+\usepackage{physics}
+
+\usepackage{fancybox}
+\usepackage{colortbl}
+\usepackage{amsbsy}
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+\FXRegisterAuthor{cc}{acc}{\color{Purple}CC}
+
+
+\usepackage[]{lineno}  %\linenumbers
+\setlength\linenumbersep{3pt}
+
+\newcommand{\fref}[1]{fig.~\ref{#1}}  \newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Table~\ref{#1}}
+\newcommand{\Cref}[1]{Cuadro~\ref{#1}}
+
+\newcommand{\psii}{\psi_i}
+\newcommand{\Pk}[1]{\ket{\psi_{#1} }}
+\newcommand{\Pb}[1]{\bra{\psi_{#1} }}
+\newcommand{\pk}{\ket{\psi}}
+\newcommand{\M}{\mathcal{M}^{(N)}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Erho}{\mathcal{E}(\rho)}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\ten}{\otimes}
+\newcommand{\h}[1]{\colorbox{Yellow}{#1}}
+\newcommand{\hi}{\mathcal{H}}
+\newcommand{\txt}[1]{\text{#1}}
+\newcommand{\here}{\h{\hspace{15cm}} }
+\newcommand{\rhoi}{\dyad{\psii}{\psii}}
+\newcommand{\ind}[2]{{{}^{#1}_{#2}}}
+\newcommand{\rc}[1]{r_{#1}}
+\newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
+\newcommand{\esqueleto}[1]{\textcolor{mycolor}{#1}}
+
+% Para que funcione mejor la numeración {{{
+% https://tex.stackexchange.com/questions/43648/why-doesnt-lineno-number-a-paragraph-when-it-is-followed-by-an-align-equation
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+% }}}	
+
+% --------------------------------------------------------------------------------------------------
+% --------------------------------------------------------------------------------------------------
+
+
+
+% Cuerpo de la tesis -----------------------------------------------
+
+\begin{document}
+
+%% Datos generales del trabajo de graduación
+\datosThesis%
+{1}%						% física 1; matemática 2
+{Mapeos proyectivos en sistemas de varios qubits}%		% Título del trabajo de graduación
+{José Alfredo de León Garrido}%			% autor
+{M.Sc. Juan Diego Chang y Dr. Carlos Fernando
+Pineda Zorrilla}%			% asesor
+{septiembre de 2015}		% mes y año de la orden de impresión
+{2}							% femenino 1; masculino 2
+
+%% Datos generales del examen general privado
+\examenPrivado%
+{M.Sc. Jorge Marcelo Ixquiac Cabrera}%	% director ECFM
+{M.Sc. Edgar Anibal Cifuentes Anléu}%		% secretario académico
+{Perengano}%		% examinador 1
+{Zutano}%		% examinador 2
+{Fulano 2}%		% examinador 3
+
+{\onehalfspacing	% interlineado 1 1/2
+
+\OrdenImpresion{ordenImpresion}		% incluye orden de impresión, guardada en pdf
+
+\Agrade{agradecimientos}			% Agradecimientos
+
+\Dedica{dedicatoria}				% Dedicatoria
+asdfds
+\par}
+ 
+\frontmatter    % --------------------------------------------------  Hojas preliminares
+
+{\onehalfspacing	% interlineado 1 1/2
+
+\tableofcontents    % Índice general vinculado
+
+%%% \figurasYtablas{ lista_figuras }{ lista_tablas }; con valor 1 se incluye la lista,
+%%% cualquier otro valor no la genera
+\figurasYtablas{1}{1}
+
+\include{simbolos}  % Lista de símbolos
+
+\include{objetivos}      % Resumen y objetivos
+
+\include{introduccion}      % Introducción
+
+\mainmatter     % --------------------------------------------------  Cuerpo del Trabajo de Graduación
+
+\include{tch1}      % Cap. 1 
+
+\include{tch2}      % Cap. 2 
+
+\include{tch3}      % Cap. 3 
+
+\include{tch4}      % Cap. 4
+
+{\backmatter     %	Capítulos no van numerados --------------------------------------------------  Apartados finales
+
+\include{c_y_r}     % Conclusiones y recomendaciones
+
+\include{bbtesis}   % Bibliografía
+
+}
+
+% Descomentar en el caso de necesitar incluir apéndices
+%\appendix			% Apéndices
+
+%\include{tch1}
+
+\par}               % termina interlineado 1 1/2
+
+\end{document}
