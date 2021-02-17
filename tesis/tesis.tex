@@ -40,20 +40,21 @@
 \definecolor{mycolor}{RGB}{255,50,0}
 
 \usepackage{physics}
-
 \usepackage{fancybox}
 \usepackage{colortbl}
 \usepackage{amsbsy}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
 \FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
-\FXRegisterAuthor{cc}{acc}{\color{Purple}CC}
+
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
 
 
 \usepackage[]{lineno}  %\linenumbers
 \setlength\linenumbersep{3pt}
 
-\newcommand{\fref}[1]{fig.~\ref{#1}}  \newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\fref}[1]{fig.~\ref{#1}}   \newcommand{\tref}[1]{table~\ref{#1}}
 \newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Table~\ref{#1}}
 \newcommand{\Cref}[1]{Cuadro~\ref{#1}}
 
@@ -64,7 +65,7 @@
 \newcommand{\M}{\mathcal{M}^{(N)}}
 \newcommand{\E}{\mathcal{E}}
 \newcommand{\Erho}{\mathcal{E}(\rho)}
-\newcommand{\1}{\mathds{1}}
+\newcommand{\1}{\mathbb{1}}
 \newcommand{\ten}{\otimes}
 \newcommand{\h}[1]{\colorbox{Yellow}{#1}}
 \newcommand{\hi}{\mathcal{H}}
@@ -165,7 +166,8 @@ asdfds
 
 \include{c_y_r}     % Conclusiones y recomendaciones
 
-\include{bbtesis}   % Bibliografía
+\bibliographystyle{abbrv}
+\bibliography{references}   % Bibliografía
 
 }
 
