@@ -2,26 +2,36 @@
 
 \section{Introducción}
 \cpnote{Porfa tambien esqueleto de la into}
+\esqueleto{ 
+\begin{itemize}
+\item Hablar que es importante estudiar problemas de muchas 
+partículas.
+\item Con la teoría de los canales cuánticos se pueden estudiar una 
+gran variedad de sistemas, siendo uno de ellos los de sistemas de qubits.
+\item Hablar qué son los qubits: sistemas cuánticos de dos niveles. 
+\item Escribir sobre la estructura del capítulo.
+\end{itemize}
+}
 
 \section{Operaciones PCE}
-\esqueleto{
-Dos o tres párrafos máximo hablando sobre las operaciones PCE 
-como operaciones proyectivas a la base de productos tensoriales de 
-las matrices de Pauli. Me gustaría poner un problema de motivación
-sólo para hacer más interesante la lectura a partir de acá y dejarle al
-lector algo con lo que pueda entender qué onda con las operaciones 
-PCE. Propongo lo siguiente: cadena de espines. Supongamos una 
-cadena de espines de $N$ sitios y decimos que nos interesa saber 
-si la matriz de densidad del $i$-ésimo espín puede proyectarse 
-al subespacio cuya base son $\sigma_x$ y $\sigma_y$ (lo que 
-quiero decir es que $(r_x,r_y,r_z)\to(r_x,r_y,0)$). Entonces hablo 
-de que hay que considerar que el $i$-ésimo espín puede estar 
-entrelazado con el resto de la cadena, sin embargo, basta con considerar
-que se encuentra entrelazado con cualquiera de sus vecinos y revisar 
-en qué se transforma la matriz de densidad de esos dos espines para 
-averiguar si es posible tal evolución física. Me gustaría poner unas 
-figuritas para hacer interesante esto. 
-}
+%\esqueleto{
+%Dos o tres párrafos máximo hablando sobre las operaciones PCE 
+%como operaciones proyectivas a la base de productos tensoriales de 
+%las matrices de Pauli. Me gustaría poner un problema de motivación
+%sólo para hacer más interesante la lectura a partir de acá y dejarle al
+%lector algo con lo que pueda entender qué onda con las operaciones 
+%PCE. Propongo lo siguiente: cadena de espines. Supongamos una 
+%cadena de espines de $N$ sitios y decimos que nos interesa saber 
+%si la matriz de densidad del $i$-ésimo espín puede proyectarse 
+%al subespacio cuya base son $\sigma_x$ y $\sigma_y$ (lo que 
+%quiero decir es que $(r_x,r_y,r_z)\to(r_x,r_y,0)$). Entonces hablo 
+%de que hay que considerar que el $i$-ésimo espín puede estar 
+%entrelazado con el resto de la cadena, sin embargo, basta con considerar
+%que se encuentra entrelazado con cualquiera de sus vecinos y revisar 
+%en qué se transforma la matriz de densidad de esos dos espines para 
+%averiguar si es posible tal evolución física. Me gustaría poner unas 
+%figuritas para hacer interesante esto. 
+%}
 
 \cpnote{Siento qe aun no es un esqueleto sino ideas. De la motivación
 no me gusta como la abordas. Yo pensaría mejor en hablar un poco de defasing
@@ -30,28 +40,121 @@ aun un poco por fuera de tu alcance y te propondría mantenerla más simple.
 Si quieres iteremos la propuesta, y cuando nos pongamos de acuerdo ya haces un esqueleto 
 mas a nivel de parrafos.}
 
-\section{1 qubit}
 \esqueleto{
-Resumen de los resultados de 1 qubit. Para seguir un orden lógico
-en este capítulo voy a hablar de los resultados de 1 qubit con el 
-problema resuelto analíticamente (está medio desordenado 
-si hablo por acá del método numérico y luego lo vuelvo a hacer 
-en la sección 2.5), a partir de las desigualdades
-de los eigenvalores (el polihedro?).
+\begin{itemize}
+\item Para introducir el contexto de las operaciones PCE voy mencionar sobre
+el defasing y el bitflip channel cuando $p=0.5$.
+\item Luego hablar sobre
+la extensión de este tipo de canales cuánticos para sistemas de 2 
+qubits. Mencionar que es intuitivo entender que localmente, sobre cada qubit,  
+las únicas evoluciones físicas son las que ya se conocen para 1 qubit 
+(bitflip, defasing y bit-phase flip).
+\item Sin embargo, el problema cobra interés
+al considerar que el estado de 2 qubits es más que 
+sólo la suma del estado del qubit 1 y del qubit 2, ya que aparecen 
+las correlaciones cuánticas.
+\item Mencionar que 
+vamos a entender a este tipo de canales cuánticos como operaciones 
+que `borran' las componentes del vector de Bloch generalizado de un 
+sistema de qubits.
+\item Por último, mencionar que 
+el entrelazamiento en sistemas de muchas partículas nos conduce
+a preguntarnos de qué forma puede un canal cuántico las correlaciones
+cuánticas de un sistema de qubits.
+\end{itemize}
 }
+
+\section{1 qubit}
+%\esqueleto{
+%Resumen de los resultados de 1 qubit. Para seguir un orden lógico
+%en este capítulo voy a hablar de los resultados de 1 qubit con el 
+%problema resuelto analíticamente (está medio desordenado 
+%si hablo por acá del método numérico y luego lo vuelvo a hacer 
+%en la sección 2.5), a partir de las desigualdades
+%de los eigenvalores (el polihedro?).
+%}
 
 \cpnote{Está bien. Acá antes de escribir quiero un esqueleto más detallado. Lo mismo para las siguientes secciones, 2.3, 2.4 y 2.5}
 
+\esqueleto{ 
+\begin{itemize}
+\item Escribir a $\rho$ de 1 qubit en la base de las matrices de Pauli.
+\item Enunciar las 8 operaciones PCE de 1 qubit.
+\item Desarrollar cómo verificar analíticamente si las operaciones PCE 
+de 1 qubit son CP. Es decir, partir de 
+\begin{align*}
+\left(
+\begin{array}{cccc}
+ 1 & 0 & 0 & 0 \\
+ 0 & \tau _1 & 0 & 0 \\
+ 0 & 0 & \tau _2 & 0 \\
+ 0 & 0 & 0 & \tau _3 \\
+\end{array}
+\right)
+\end{align*}
+calcular el estado de Jamiolkowsky y verificar si es positivo. Con esto llegaré 
+a las desigualdades.
+\item Con las desigualdades revisar los casos para sacar los 5 canales 
+cuánticos PCE.
+\item Discutir que las operaciones PCE que borran 1 y 2 componentes 
+de Bloch (3 operaciones cada una) son equivalentes bajo permutación 
+de los elementos de la base de las matrices de Pauli. Esto me servirá 
+para retomarlo después con el argumento de que los canales cuánticos
+son equivalentes con permutaciones locales de los elementos de la base 
+y de los swaps de partículas. 
+\item Final: resumencillo de que hay 8 operaciones PCE, pero sólo 5 son 
+CP (y por tanto evoluciones físicas).
+\end{itemize}
+}
+
 \section{El problema de $\mathbf{n}$ qubits}
-\esqueleto{
-Enunciado del problema para $n$ qubits. Creo que esto no da
-para más de 1 o 2 párrafos. 
+\esqueleto{ 
+\begin{itemize}
+\item Escribir a la matriz de densidad de $n$ qubits en la base 
+de productos de las matrices de Pauli. Me gustó mucho la notación 
+que usé en el último documento para escribir la expresión de los eigenvalores
+de $n$ qubits, así que qué te parece escribirla de la siguiente manera?
+\begin{align}
+\rho = \frac{1}{2^n}\qty(
+1
++
+\sum_{\underset{(j_1,\ldots,j_n\neq0)}{j_1,\ldots,j_n=0}}^3
+r_{j_1,\ldots,j_n}
+\sigma_{j_1} \ot \ldots \ot \sigma_{j_n}
+).
+\end{align}
+Yo la siento más sencilla de entender que como está en el Nielsen y Chuang.
+\item Las operaciones PCE de $n$ qubits se definen entonces como 
+las operaciones lineales que transforman a las componentes 
+de la matriz de densidad como $r_{j_1,\ldots,j_n}\to
+\tau_{j_1,\ldots,j_n}r_{j_1,\ldots,j_n}$ donde $\tau_{j_1,\ldots,j_n}=0,1$
+son los elementos de la diagonal del superoperador $\E$.
+\item Hacer énfasis que la única condición que debe satisfacer una operación
+PCE para ser un canal cuántico es ser CP. Por lo cual, nuestro estudie 
+se reduce a eso: estudiar la CP de las operaciones PCE.
+\item Enunciar los pasos para verificar la CP para una operación de $n$ 
+qubits verificando la positividad de la matriz de Choi 
+a partir del superoperador $\E$ en la base que es diagonal
+\item Concluir remarcando la idea clave de nuestro estudio que es investigar 
+la CP de las operaciones PCE.
+\end{itemize}
 }
 
 \section{Solución numérica}
 \esqueleto{ 
-Hablar de la solución numérica, similar al informe de prácticas, pero 
-enfocado al problema de $n$ qubits. 
-Aquí también agregar el link al repositorio y ahí voy a agregar unas cosillas
-para mostrar cálculos de 2 y 3 qubits. 
+\begin{itemize}
+\item Resolvimos numéricamente la verificación de la CP para 
+2 qubits completo y para 3 parcialmente implementando la verificación
+de la positividad de la matriz de Choi. Decir que fue imposible verificar 
+todas las operaciones de 3 qubits porque son un montón.
+\item Hablar de las herramientas que se desarrollaron en Mathematica.
+\item Colocar link al repositorio donde habrá un .nb para probar las 
+funciones y la verificación de la que estoy hablando en esta sección.
+\item Colocar una gráfica de tiempo de ejecución para justificar que 
+no teníamos tiempo suficiente para dejar tostando la computadora 
+como 1 año para esperar los resultados completos de 3 qubits.
+\item Concluir que si bien el método numérico nos dio `poquitos 
+resultados', esos resultados sirven muchísimo para extraer mucha 
+información y ganar intuición acerca de los canales cuánticos PCE.
+\end{itemize}
 }
