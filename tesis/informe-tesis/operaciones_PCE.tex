@@ -14,6 +14,20 @@ de Pauli, y sería buen momento antes, o de plano no decir nada.}
 \item Escribir sobre la estructura del capítulo.
 \end{itemize}
 }
+
+\esqueleto{
+\hrule\vspace{10pt}
+\h{Párrafos}
+\begin{itemize}
+\item Los sistemas cuánticos de dos niveles han sido y siguen 
+siendo de gran importancia teórica y práctica para la mecánica 
+cuántica y sus aplicaciones.
+\item La teoría de los canales cuánticos se puede utilizar para estudiar 
+la dinámica de un gran variedad de sistemas cuánticos abiertos, pero el objetivo
+de este proyecto está centrado en el estudio de los canales cuánticos de qubits.
+\item La estructura del capítulo.
+\end{itemize}
+}
 % }}}
 \section{Operaciones PCE} % {{{
 %\esqueleto{
@@ -65,6 +79,33 @@ a preguntarnos de qué forma puede un canal cuántico las correlaciones
 cuánticas de un sistema de qubits.
 \end{itemize}
 }
+
+
+\esqueleto{
+\hrule \vspace{10pt}
+\h{Párrafos}
+\begin{itemize}
+\item El defasing y bitflip channel cuando $p=0.5$ se pueden entender 
+como canales cuánticos de 1 qubit que borran 2 componentes del 
+vector de Bloch y a la componente restante la dejan invariante.
+¿Cómo son los canales cuánticos de este tipo, 
+que borran las componentes del vector de Bloch, para 2 qubits?
+\item Por la matriz de densidad reducida las evoluciones permitidas 
+localmente sobre cada qubit son defasing, bitflip y bit-phase fip.
+\item Al examinar la matriz de densidad para 2 qubits
+se puede distinguir que está compuesta por componentes locales 
+de cada qubit + correlaciones entre ambas partículas. 
+Esto conduce principalmente a la pregunta 
+¿de qué forma se pueden borrar las correlaciones cuánticas tal que 
+esa evolución sea física?
+\item Recursivamente, al aumentar el número de partículas en 
+el sistema, aparecen nuevas correlaciones que no sabemos de 
+qué manera se pueden borrar para que ese proceso cumpla con
+las condiciones para ser una evolución que físicamente pueda ocurrir.
+El `borrado' está condicionado por la completa positividad que 
+debe de satisfacer la operación.
+\end{itemize}
+}
 % }}}
 \section{1 qubit} % {{{
 %\esqueleto{
@@ -108,6 +149,23 @@ y de los swaps de partículas.
 CP (y por tanto evoluciones físicas).
 \end{itemize}
 }
+
+\esqueleto{
+\hrule \vspace{10pt}
+\h{Párrafos}
+\begin{itemize}
+\item Las operaciones PCE de 1 qubit transforman a las componentes
+de Bloch $r_i$ como $r_i\to \tau_ir_i$, donde $\tau_i=0,1$.
+\item Hay 8 operaciones PCE posibles para 1 qubit.
+\item La completa positividad está determinada por un set de 4 desigualdades.
+\item Las tres operaciones PCE que borran 1 y 2 componentes del vector 
+de Bloch, respectivamente, son equivalente bajo permutación de las 
+matrices de Pauli $\sigma_i$ en la base 
+$\{\sigma_0,\sigma_1,\sigma_2,\sigma_3\}$.
+\item Cinco de las ocho operaciones PCE son completamente positivas y,
+por consiguiente, canales cuánticos.
+\end{itemize}
+}
 % }}}
 \section{El problema de $\mathbf{n}$ qubits} % {{{
 \esqueleto{ 
@@ -141,6 +199,25 @@ a partir del superoperador $\E$ en la base que es diagonal
 la CP de las operaciones PCE.
 \end{itemize}
 }
+
+\esqueleto{
+\hrule \vspace{10pt}
+\h{Párrafos}
+\begin{itemize}
+\item Una operación PCE de $n$ qubits es una operación lineal que 
+preserva la traza de la matriz de densidad y que transforma a las
+componentes del vector de Bloch generalizado como 
+$r_{j_1,\ldots,j_n}\to \tau_{j_1,\ldots,j_n}r_{j_1,\ldots,j_n}$,
+donde $\tau_{j_1,\ldots,j_n}=0,1$.
+\item La condición para que una operación PCE sea un canal cuántico
+es que sea completamente positiva.
+\item Una manera de verificar la completa positividad de una operación PCE
+es verificar la positividad de su matriz de Choi.
+\item El problema de las operaciones PCE consiste en investigar 
+cuáles son las condiciones que se deben de satisfacer para que 
+la operación sea completamente positiva.
+\end{itemize}
+}
 % }}}
 \section{Solución numérica} % {{{
 \esqueleto{ 
@@ -158,6 +235,24 @@ como 1 año para esperar los resultados completos de 3 qubits.
 \item Concluir que si bien el método numérico nos dio `poquitos 
 resultados', esos resultados sirven muchísimo para extraer mucha 
 información y ganar intuición acerca de los canales cuánticos PCE.
+\end{itemize}
+}
+
+\esqueleto{
+\hrule \vspace{10pt}
+\h{Párrafos}
+\begin{itemize}
+\item En una primera aproximación al problema de las operaciones PCE
+verificamos numéricamente la positividad de la matriz de Choi de todas las
+operaciones PCE de 2 qubits y parcialmente de 3 qubits.
+\item Se implementaron rutinas en Mathematica para verificar la
+completa positividad de las operaciones PCE.
+\item El tiempo de cómputo para verificar la CP de todas las operaciones 
+PCE de 3 qubits hizo imposible analizar todas las operaciones posibles.
+\item Los resultados de 2 y 3 qubits exhiben características a partir de 
+las cuales se puede comenzar a determinar algunas de las condiciones 
+que deben de cumplir las operaciones PCE de $n$ qubits para ser 
+canales cuánticos.
 \end{itemize}
 }
 % }}}
