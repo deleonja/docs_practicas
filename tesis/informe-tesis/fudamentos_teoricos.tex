@@ -49,7 +49,7 @@ Consideremos un sistema cuántico que se encuentra en alguno de los estados
 $\Pk{i}$ con probabilidad $p_i$. El conjunto de todos los posibles estados
 conforman un ensamble de estados del sistema. Supongamos que realizamos 
 la medición de algún observable $\Lambda$ sobre el ensamble. El 
-valor esperado al medir $\Lambda$ sobre este sistema se encuentra
+valor esperado al medir $\Lambda$ sobre este sistema es
 \begin{align}\label{eq:expVal-expanded-Lambda}
 	\expval{\Lambda} &= \sum_i p_i \matrixel{\psii}{\Lambda}{\psii}\nonumber\\
 	&= \sum_{i,j,k} p_i 
@@ -59,6 +59,7 @@ con $\ket{\phi_j}$ y $\ket{\varphi_k}$ dos bases ortonormales distintas del
 espacio de Hilbert del sistema. Ahora, al reordenar 
 \eqref{eq:expVal-expanded-Lambda} se obtiene una expresión 
 que motiva claramente la definición de la matriz de densidad $\rho$,
+\cpnote{No veo la necesidad de meter dos bases ortogonales diferentes. }
 \begin{align}\label{eq:expVa-Lambda-wRho}
 	\expval{\Lambda}&= \sum _{j,k}\bra{\varphi_k}\qty(\sum_ip_i \dyad{\psii}{\psii} 
 	)\ket{\phi_j}	\matrixel{\phi_j}{\Lambda}{\varphi_k}.
@@ -83,11 +84,14 @@ se tiene
 \end{align} 
 Este resultado muestra que la matriz de densidad $\rho$ 
 contiene toda la información física disponible de un sistema al 
-realizar una medición.
+realizar una medición. \cpnote{Reformula esta ultima frase. se me hace
+que parece decir más de lo que realmente muestra la prueba}
 
 Desde luego la matriz de densidad es una herramienta con la que
 se puede formular matemáticamente la mecánica cuántica como 
-con el vector de estado. Por ejemplo, veamos a continuación cómo 
+con el vector de estado\cpnote{Esta frase la pondría
+al principio del capítulo y lo que sigue del párrafo lo pondría al mismo 
+nivel conceptual que la discusión anterior. }. Por ejemplo, veamos a continuación cómo 
 describir la evolución de un sistema cuántico cerrado.
 Consideremos un sistema cuyo Hamiltoniano es $H$, y es
 independiente del tiempo. Bajo estas condiciones la evolución
@@ -113,13 +117,17 @@ de un sistema cerrado se describe como
 \rho(0) \longrightarrow U\rho(0)U^{\dagger}.
 \end{align}
 Con esto, se ha asegurado que la dinámica de un sistema cuántico puede 
-describirse utilizando su matriz de densidad.
+describirse utilizando su matriz de densidad. \cpnote{En aras de la simplicidad, 
+yo formularía el ejemplo directamente con al $U$. No hay necesidad de traer el 
+Hamiltoniano acá.}
 
 Las ecuaciones \eqref{eq:Tr(rhoLambda)} y \eqref{eq:rho-ClosedEvolution}
 muestran que la matriz de densidad puede utilizarse para la descripción 
 de la medición y la evolución de los estados cuánticos. 
 En la siguiente sección veremos la formulación de los postulados 
-de la mecánica cuántica utilizando la matriz de densidad.
+de la mecánica cuántica utilizando la matriz de densidad. \cpnote{El título 
+de la siguiente sección contradice la ultima frase. quizá vale la pena que revises
+este caputulo y lo leas todo a ver si hay mas problemas como de estructura. }
 
 % }}}
 \section{Propiedades de la matriz de densidad} % {{{
