@@ -28,6 +28,20 @@ de este proyecto está centrado en el estudio de los canales cuánticos de qubit
 \item La estructura del capítulo.
 \end{itemize}
 }
+
+El tipo de operaciones que estudiamos en este trabajo son operaciones 
+que actúan sobre sistemas de qubits. Un qubit es un sistema cuántico 
+de dos niveles \janote{cita}, como una partícula de espín 1/2. Los 
+canales cuánticos de 1 qubit son especialmente útiles para ganar intuición
+sobre los canales cuánticos ya que los estados de 1 qubit se 
+pueden representar geométricamente en la esfera de Bloch \janote{cita}.
+Los estados de 1 qubit en la esfera de Bloch se pueden relacionar con 
+su matriz de densidad al escribir esta en la base de las matrices 
+de Pauli como 
+\begin{align}
+\rho=\frac{1}{2}\sum_{i=0}^3r_i\sigma_i
+\end{align}
+
 % }}}
 \section{Operaciones PCE} % {{{
 %\esqueleto{
@@ -106,6 +120,99 @@ El `borrado' está condicionado por la completa positividad que
 debe de satisfacer la operación.
 \end{itemize}
 }
+
+Hablar de qubits y de esfera de Bloch
+
+Una motivación que conduce a definir y estudiar las operaciones 
+de Pauli que borran componentes (PCE) es a partir 
+de canales cuánticos de 1 qubit como el canal de inversión
+de bit o el canal de inversión de fase. Estos dos canales deforman
+a la esfera de Bloch a un elipsoide con alguno de los ejes $x$ o $y$ como
+eje mayor. En particular nos vamos a enfocar en el caso que ambos canales
+mapean la esfera de Bloch a una línea los ejes $x$ o $y$. De esta manera, 
+vamos a conducirnos a preguntarnos por la extensión de este tipo 
+de operaciones sobre sistemas de muchos qubits.
+
+Vamos a partir analizando el caso del canal de inversión de bit. 
+En términos del vector de Bloch, este canal cuántico atenúa las 
+componentes $r_y$ y $r_z$ del vector de Bloch en un factor $1-2p$, 
+es decir, $(r_x,r_y,r_z)\to\qty(r_x,(1-2p)r_y,(1-2p)r_z)$.
+En el caso particular cuando $r_y=r_z=0$ ($p=0.5$) 
+este canal mapea la esfera de Bloch a una línea sobre el eje $x$.
+Decimos que el canal 'borró' las componentes $r_y$ y $r_z$ de
+la matriz de densidad del sistema. De manera similar, el canal 
+de inversión de fase transforma al vector de Bloch como 
+$(r_x,r_y,r_z)\to\qty((1-2p)r_x,(1-2p)r_y,r_z)$. Cuando tomamos 
+el caso $p=0.5$ el canal mapea la esfera de Bloch a una 
+línea sobre el eje $z$, el canal 'borró' las componentes $r_x$ y $r_y$
+de la matriz de densidad.
+
+\begin{figure}
+\centering
+\begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics[width=4.5cm]{bloch-ball}
+\end{minipage}
+$\longmapsto$
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=4.5cm]{bit-flip}
+\end{minipage}
+\caption{
+Efecto del canal de inversión de bit sobre la esfera de Bloch, para $p=0.3$.}
+\label{fig:bit-flip}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics[width=4.5cm]{bloch-ball}
+\end{minipage}
+$\longmapsto$
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=4.5cm]{phase-flip}
+\end{minipage}
+\caption{
+Efecto del canal de inversión de bit sobre la esfera de Bloch, para $p=0.3$.}
+\label{fig:phase-flip}
+\end{figure}
+
+Recordemos que en el capítulo anterior analizamos la operación de 
+1 qubit que mapea la esfera de Bloch a un disco sobre el plano 
+$x$$-$$y$ y encontramos que esa operación no es completamente 
+positiva, lo que implica que existe al menos un estado entrelazado en 
+el espacio extendido de 2 qubits que es mapeado a algo que no es
+un estado físico de 2 qubits. Esto implica que no todas 
+las operaciones que borran componentes de la matriz de 
+densidad escrita en la base de las matrices de Pauli son canales cuánticos.
+
+En general, la matriz de densidad de un sistema de $n$ qubits 
+se puede escribir en la base de productos tensoriales de las matrices 
+de Pauli. Llamaremos de aquí en adelante operaciones PCE a los 
+mapeos que borran las componentes de Pauli de la matriz de densidad
+de un sistema de $n$ qubits. En las próximas secciones vamos a
+establecer de manera precisa el problema de las operaciones PCE 
+para el caso de 1 qubit y luego el de $n$ qubits.
+
+%Un caso particular e interesante de los canales cuánticos de inversión de bit 
+%y de inversión de fase es cuando $p=0.5$. En ese caso los canales 
+%cuánticos `borran'  dos componentes del vector de Bloch, las 
+%componentes en $y$ y $z$, y componentes en $x$ y $y$, respectivamente.
+%Geométricamente, ambos canales cuánticos transforman la bola 
+%de Bloch a una línea sobre los ejes $x$ y $z$, respectivamente.
+%En la representación de Kraus estos canales cuánticos se escriben como 
+%\begin{align}
+%\E(\rho)=P_0\rho P_0+P_1\rho P_1,
+%\end{align}
+%donde, para el inversor de bit, 
+%$P_0=\dyad{+_x}{+_x}$ y $P_1=\dyad{-_x}{-_x}$ con
+%$\ket{\pm_x}=\frac{1}{\sqrt{2}}\qty(\ket{0}\pm\ket{1})$
+%los eigenestados de $\sigma_x$; y para el inversor de fase
+%$P_0=\dyad{0}{0}$ y $P_1=\dyad{1}{1}$.
+
+
 % }}}
 \section{1 qubit} % {{{
 %\esqueleto{

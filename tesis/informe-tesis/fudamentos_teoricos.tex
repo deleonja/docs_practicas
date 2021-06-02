@@ -3,21 +3,52 @@
 haría de la seccion ``ensambles de estados cuánticos'', la sección 1.1. Lo mismo para los 
 siguientes capítulos. Si estas de acuerdo, no mas sería comentar la linea que marca
 la introducción.}
+\janote{Recuerdo que discutimos esto. Te mencioné que 
+no podía quitar el título de la sección porque en el protocolo 
+coloqué la introducción como una sección y así me lo aprobaron. Por 
+esa razón será mejor dejar el título para evitar esas correcciones luego.}
 \section{Introducción} % {{{
-% \esqueleto{Escribiré que la matriz de densidad
-% y la teoría de canales cuánticos es el marco teórico para el problema 
-% de las operaciones PCE. Luego un enunciado que resuma de manera
-% introductoria la idea de cada uno de los conceptos. \newline\newline
-% Por último enunciar la estructura del capítulo.}
+\janote{Iteración v2 de la introducción:}
 
-Para estudiar las operaciones de Pauli que borran componentes (PCE)
+El estudio de los sistemas cuánticos como sistemas que no
+interactúan con su entorno nos ha permitido entender bastante bien los
+fenómenos cuánticos. No obstante, una descripción más precisa 
+requiere de considerar que los sistemas cuánticos reales son sistemas abiertos
+que interactúan con su entorno. Para estudiar los 
+sistemas cuánticos abiertos será necesario revisar un formalismo distinto
+al del vector de estado para describir a los estados cuánticos. 
+Este formalismo es el de la matriz de densidad y tiene la ventaja 
+de describir de manera más apropiada a los estados mixtos. 
+Para la descripción de la evolución dinámica  
+vamos a estudiar la teoría de los canales cuánticos, 
+que es un marco teórico en el cual se considera que los estados 
+cuánticos (matriz de densidad) evolucionan de forma discreta.
+
+La estructura de este capítulo es la siguiente.
+En la sección \ref{sec:ensambles} revisaremos una motivación para introducir 
+a la matriz de densidad a partir de un ensamble de estados. 
+Seguidamente, en la sección \ref{sec:density-matrices-properties},
+estudiaremos las propiedades que debe cumplir una matriz 
+de densidad para representar un estado cuántico
+y cómo se reformulan los postulados 
+de la mecánica cuántica utilizando este nuevo formalismo.
+En la sección \ref{sec:qtm-channels} vamos a revisar las
+condiciones para que un canal cuántico describa la evolución 
+física de la matriz de densida. Por último, en la sección
+\ref{sec:qtm-channels-representation}, vamos a estudiar 
+la representación de superoperador y de Kraus de un canal cuántico.
+
+
+\m Para estudiar las operaciones de Pauli que borran componentes (PCE)
 se necesitan herramientas matemáticas para describir a los estados 
 cuánticos y su evolución dinámica\cpnote{Me parece una forma mala de abrir la tesis. 
 La gente no sabe que es eso. Supongo que lo introduciras más adelante. Yo sugeririra
 quitar ese término (PCE) y rediseñar estas primeras dos frases. Quizá 
 mejor motivalo desde los sistemas abiertos o desde mediciones que es el objeto 
-fundamental de nuestro estudio. Marcame todo el párrafo para revisar cuando lo iteres.}. Nuestro
-interés en el problema de 
+fundamental de nuestro estudio. Marcame todo el párrafo para revisar cuando lo iteres.}. 
+\janote{Hecho. Iteré arriba los dos párrafos de intro. Lo encerrado entre 
+las marcas \m \m son los párrafos viejos.}
+Nuestro interés en el problema de 
 las operaciones PCE se enfoca para los sistemas cuánticos abiertos, 
 sistemas que interaccionan con otro sistema externo. Por ello recurrimos
 a la teoría de los canales cuánticos como marco teórico para estudiar 
@@ -36,98 +67,142 @@ importantes de la matriz de densidad lo presentamos en la sección
 en las secciones \ref{sec:qtm-channels}
 y \ref{sec:qtm-channels-representation} presentamos la teoría de los
 canales cuánticos y dos formas en las que se puede representar
-a un canal cuántico, respectivamente.
+a un canal cuántico, respectivamente.\m
 % }}}
 \section{Ensambles de estados cuánticos} \label{sec:ensambles} % {{{
 \esqueleto{Un copy-paste de la sección 1.1 del informe final de 
 prácticas. Voy a retocar alguna parte si fuera necesario, como ser
 más formal o agregar alguna prueba.}
 
-Para introducir la definición del operador de densidad presentamos la 
+Para introducir la definición de la matriz de densidad presentamos la 
 motivación que exponen Sakurai y Napolitano \cite{sakurai_napolitano_2017}.
 Consideremos un sistema cuántico que se encuentra en alguno de los estados 
 $\Pk{i}$ con probabilidad $p_i$. El conjunto de todos los posibles estados
-conforman un ensamble de estados del sistema. Supongamos que realizamos 
+conforman al ensamble de estados del sistema $\{p_i, \ket{\psi_i} \}$. 
+Supongamos que realizamos 
 la medición de algún observable $\Lambda$ sobre el ensamble. El 
 valor esperado al medir $\Lambda$ sobre este sistema es
 \begin{align}\label{eq:expVal-expanded-Lambda}
-	\expval{\Lambda} &= \sum_i p_i \matrixel{\psii}{\Lambda}{\psii}\nonumber\\
-	&= \sum_{i,j,k} p_i 
-	\bra{\psii}\dyad{\phi_j}{\phi_j}\Lambda\dyad{\varphi_k}{\varphi_k}\Pk{i},
+	\expval{\Lambda} &= \sum_i p_i \matrixel{\psii}{\Lambda}{\psii}
+	= \sum_{i,j,k} p_i 
+	\bra{\psii}\dyad{\phi_j}{\phi_j}\Lambda\dyad{\phi_k}{\phi_k}\Pk{i},
 \end{align}
-con $\ket{\phi_j}$ y $\ket{\varphi_k}$ dos bases ortonormales distintas del
-espacio de Hilbert del sistema. Ahora, al reordenar 
-\eqref{eq:expVal-expanded-Lambda} se obtiene una expresión 
+con $\ket{\phi_j}$ es una base ortonormal del
+espacio de Hilbert del sistema. Si se reordena
+\eqref{eq:expVal-expanded-Lambda} de manera apropiada
+se obtiene una expresión 
 que motiva claramente la definición de la matriz de densidad $\rho$,
 \cpnote{No veo la necesidad de meter dos bases ortogonales diferentes. }
+\janote{De acuerdo. Dejé una}
 \begin{align}\label{eq:expVa-Lambda-wRho}
-	\expval{\Lambda}&= \sum _{j,k}\bra{\varphi_k}\qty(\sum_ip_i \dyad{\psii}{\psii} 
-	)\ket{\phi_j}	\matrixel{\phi_j}{\Lambda}{\varphi_k}.
+	\expval{\Lambda}&= \sum _{j,k}\bra{\phi_k}\qty(\sum_ip_i \dyad{\psii}{\psii} 
+	)\ket{\phi_j}	\matrixel{\phi_j}{\Lambda}{\phi_k}.
 \end{align}
-La matriz que se encuentra dentro del paréntesis se define como 
+La matriz que se encuentra entre paréntesis se define como 
 la matriz de densidad 
 $\rho$~\cite{nielsen_chuang_2011, sakurai_napolitano_2017}
-\begin{equation}
+\begin{equation}\label{eq:rho_def}
 	\rho \equiv \sum _i p_i\dyad{\psi_i}{\psi_i}.
-	\label{eq:rho_def}
 \end{equation}
-Notemos que 
+Notemos que un elemento de matriz de $\rho$, escrita en la base 
+$\ket{\phi_j}$, es
 \begin{align}
-	\matrixel{\varphi_k}{\rho}{\phi_j} = 
-	\sum_ip_i \braket{\varphi_k}{\psii}\braket{\psii}{\phi_j},
+	\matrixel{\phi_k}{\rho}{\phi_j} = 
+	\sum_ip_i \braket{\phi_k}{\psii}\braket{\psii}{\phi_j},
 \end{align}
-por lo tanto, sustituyendo en la ecuación \eqref{eq:expVa-Lambda-wRho},
-se tiene
+por lo tanto, sustituyendo en la ecuación \eqref{eq:expVa-Lambda-wRho}
+se tiene que el valor promedio del observable $\Lambda$ es
 \begin{align}\label{eq:Tr(rhoLambda)}
-	\expval{\Lambda}=\sum _k \matrixel{\varphi_k}{\rho \Lambda}{\varphi_k} 
+	\expval{\Lambda}=\sum _k \matrixel{\phi_k}{\rho \Lambda}{\phi_k} 
 	= \Tr \qty(\rho\Lambda).
 \end{align} 
-Este resultado muestra que la matriz de densidad $\rho$ 
+Este resultado muestra cómo a partir de la matriz de densidad $\rho$ 
 contiene toda la información física disponible de un sistema al 
 realizar una medición. \cpnote{Reformula esta ultima frase. se me hace
-que parece decir más de lo que realmente muestra la prueba}
+que parece decir más de lo que realmente muestra la prueba} 
+\janote{Hecho. Nueva iteración:}
+Este resultado es interesante porque muestra que es posible 
+calcular el valor promedio de un observable utilizando la 
+matriz de densidad del sistema. En virtud de este resultado
+vale la pena investigar a continuación cómo evoluciona la 
+matriz de densidad de un sistema.
 
 Desde luego la matriz de densidad es una herramienta con la que
 se puede formular matemáticamente la mecánica cuántica como 
 con el vector de estado\cpnote{Esta frase la pondría
 al principio del capítulo y lo que sigue del párrafo lo pondría al mismo 
-nivel conceptual que la discusión anterior. }. Por ejemplo, veamos a continuación cómo 
-describir la evolución de un sistema cuántico cerrado.
-Consideremos un sistema cuyo Hamiltoniano es $H$, y es
-independiente del tiempo. Bajo estas condiciones la evolución
-del sistema está descrita por 
-$\ket{\psi (t)}=e^{-iHt/\hbar}\ket{\psi(0)}$~\cite{sakurai2010modern}. 
-Sin embargo, consideremos que el sistema se encuentra inicialmente
-en un ensamble de estados $\{p_i, \ket{\psii(0)}\}$, por lo cual
-el estado final del sistema será 
-$\{p_i, \ket{\psii(t)}\}$.
-Por consiguiente, el operador de densidad final $\rho(t)$  es 
-\begin{align} \label{eq:Rho-evolution-H}
-	\rho(t) &= \sum_j p_j\dyad{\psi_j(t)}{\psi_j(t)}\nonumber\\
-	&= \sum_j p_j e^{-iHt} \dyad{\psi_j(0)}{\psi_j(0)}\qty(e^{-iHt})^{\dagger}
-	\nonumber\\
-	&= e^{-iHt}\rho(0)e^{iHt},
-\end{align}
-donde $\rho(0)$ es la matriz de densidad que describe al ensamble 
-de estados inicial $\{p_i, \ket{\psii(0)}\}$.	 Aunque hemos desarrollado 
-un ejemplo para la evolución de un sistema cuyo Hamiltoniano es 
-independiente del tiempo, es sencillo de ver que en general la dinámica  
-de un sistema cerrado se describe como 
-\begin{align}\label{eq:rho-ClosedEvolution}
-\rho(0) \longrightarrow U\rho(0)U^{\dagger}.
-\end{align}
-Con esto, se ha asegurado que la dinámica de un sistema cuántico puede 
-describirse utilizando su matriz de densidad. \cpnote{En aras de la simplicidad, 
+nivel conceptual que la discusión anterior. }. 
+\janote{De acuerdo. En la última iteración que hice de la introducción
+tome en cuenta este comentario tuyo.}
+
+\janote{Me habías dejado los siguientes dos comentarios entre el texto
+que tenía antes. Así que opté por reescribir el desarrollo de la evolución
+dinámica de una vez con el operador $U$.}
+\cpnote{En aras de la simplicidad, 
 yo formularía el ejemplo directamente con al $U$. No hay necesidad de traer el 
 Hamiltoniano acá.}
-
-Las ecuaciones \eqref{eq:Tr(rhoLambda)} y \eqref{eq:rho-ClosedEvolution}
-muestran que la matriz de densidad puede utilizarse para la descripción 
-de la medición y la evolución de los estados cuánticos. 
-En la siguiente sección veremos la formulación de los postulados 
-de la mecánica cuántica utilizando la matriz de densidad. \cpnote{El título 
+\cpnote{El título 
 de la siguiente sección contradice la ultima frase. quizá vale la pena que revises
 este caputulo y lo leas todo a ver si hay mas problemas como de estructura. }
+
+Consideremos un sistema que se encuentra en el ensamble 
+de estados inicial $\{ p_i, \ket{\psi_i(0)}\}$
+y que evoluciona según algún operador unitario $U(t)$. Es decir, 
+el ensamble de estados en cualquier tiempo $t>0$ está dado por 
+$\{p_i, U(t)\ket{\psi(0)}\}$. Entonces, utilizando la definición 
+\eqref{eq:rho_def} recién introducida, la matriz de
+densidad $\rho(t)$ del sistema será
+\begin{align} \label{eq:Rho-evolution-H}
+	\rho(t) &= \sum_j p_j\dyad{\psi_j(t)}{\psi_j(t)}\nonumber\\
+	&= \sum_j p_j U(t) \dyad{\psi_j(0)}{\psi_j(0)}U^{\dagger}(t)
+	\nonumber\\
+	&= U(t)\rho(0)U^{\dagger}(t),
+\end{align}
+donde $\rho(0)$ es la matriz de densidad del ensamble 
+de estados inicial $\{p_i, \ket{\psii(0)}\}$. Hemos probado así
+que la descripción dinámica de un sistema que evoluciona 
+según un operador unitario puede hacerse utilizando 
+su matriz de densidad. En la sección que sigue 
+estudiaremos las propiedades que deben satisfacer 
+las matrices de densidad en general y revisaremos cómo 
+formular los postulados de la mecánica cuántica con la matriz de densidad.
+
+%
+%Por ejemplo, veamos a continuación cómo 
+%describir la evolución de un sistema cuántico cerrado.
+%Consideremos un sistema cuyo Hamiltoniano es $H$, y es
+%independiente del tiempo. Bajo estas condiciones la evolución
+%del sistema está descrita por 
+%$\ket{\psi (t)}=U(t)\ket{\psi(0)}$~\cite{sakurai2010modern}. 
+%Sin embargo, consideremos que el sistema se encuentra inicialmente
+%en un ensamble de estados $\{p_i, \ket{\psii(0)}\}$, por lo cual
+%el estado final del sistema será 
+%$\{p_i, \ket{\psii(t)}\}$.
+%Por consiguiente, el matriz de densidad final $\rho(t)$  es 
+%\begin{align} \label{eq:Rho-evolution-H}
+%	\rho(t) &= \sum_j p_j\dyad{\psi_j(t)}{\psi_j(t)}\nonumber\\
+%	&= \sum_j p_j U(t) \dyad{\psi_j(0)}{\psi_j(0)}U^{\dagger}(t)
+%	\nonumber\\
+%	&= e^{-iHt}\rho(0)e^{iHt},
+%\end{align}
+%donde $\rho(0)$ es la matriz de densidad que describe al ensamble 
+%de estados inicial $\{p_i, \ket{\psii(0)}\}$.	 Aunque hemos desarrollado 
+%un ejemplo para la evolución de un sistema cuyo Hamiltoniano es 
+%independiente del tiempo, es sencillo de ver que en general la dinámica  
+%de un sistema cerrado se describe como 
+%\begin{align}\label{eq:rho-ClosedEvolution}
+%\rho(0) \longrightarrow U\rho(0)U^{\dagger}.
+%\end{align}
+%Con esto, se ha asegurado que la dinámica de un sistema cuántico puede 
+%describirse utilizando su matriz de densidad. 
+
+
+%Las ecuaciones \eqref{eq:Tr(rhoLambda)} y \eqref{eq:rho-ClosedEvolution}
+%muestran que la matriz de densidad puede utilizarse para la descripción 
+%de la medición y la evolución de los estados cuánticos. 
+%En la siguiente sección veremos la formulación de los postulados 
+%de la mecánica cuántica utilizando la matriz de densidad. 
+
 
 % }}}
 \section{Propiedades de la matriz de densidad} % {{{
@@ -146,7 +221,7 @@ Según Nielsen y Chuang \cite{nielsen_chuang_2011} las matrices
 de densidad están caracterizadas por el siguiente teorema:
 \begin{thm}\label{teo:density-operator}
 Un operador $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
-es el operador de densidad asociado a algún ensamble 
+es el matriz de densidad asociado a algún ensamble 
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \begin{enumerate}
 \item $\Tr \rho = 1$.
@@ -200,7 +275,7 @@ utilizando la matriz de densidad \cite[p.~102]{nielsen_chuang_2011}.
 	\end{equation}
 %	Este postulado confirma lo que en la sección anterior aseguramos
 %	de que la formulación de cualquier medición proyectiva utilizando el 
-%	operador de densidad es posible. Debemos notar que las mediciones
+%	matriz de densidad es posible. Debemos notar que las mediciones
 %	proyectivas son un caso especial de las mediciones enunciadas en
 %	este postulado.
 %	Una medición proyectiva está descrita por un observable
@@ -318,13 +393,13 @@ todos los grados de libertad del sistema, excepto los del subsistema de interés
 %que, ya que la traza es una operación lineal, la traza parcial también 
 %lo es. 
 %Además, debe notarse en la deducción que se presentó para motivar 
-%al operador de densidad recudido, 
+%al matriz de densidad recudido, 
 %que la ecuación \eqref{eq:reducedRho-def1} evidencia 
 %el uso de la traza parcial, definida en \eqref{eq:part_trace-def}, 
-%como la única operación que da lugar al operador de densidad reducido. 
+%como la única operación que da lugar al matriz de densidad reducido. 
 
 %Antes de concluir revisaremos un ejemplo del cálculo del 
-%operador de densidad reducido que evidencia una de las
+%matriz de densidad reducido que evidencia una de las
 %\textit{extrañas} consecuencias del
 %entrelazamiento cuántico.
 %Consideremos un sistema de 2 qubits que se encuentra en el estado de Bell
@@ -336,7 +411,7 @@ todos los grados de libertad del sistema, excepto los del subsistema de interés
 %			 &= \frac{\dyad{00}{00}-\dyad{11}{00}-\dyad{00}{11}
 %                 +\dyad{11}{11}}{2}.
 %\end{align}
-%Calculamos ahora el operador de densidad reducido para el qubit 1.  
+%Calculamos ahora el matriz de densidad reducido para el qubit 1.  
 %Haciendo la traza parcial sobre el qubit 2 se tiene
 %\begin{align}
 %	\rho^A &= \Tr _B(\rho) \\
