@@ -106,18 +106,17 @@ se tiene que el valor promedio del observable $\Lambda$ es
 	\expval{\Lambda}=\sum _k \matrixel{\phi_k}{\rho \Lambda}{\phi_k} 
 	= \Tr \qty(\rho\Lambda).
 \end{align} 
-Este resultado muestra cómo a partir de la matriz de densidad $\rho$ 
-se puede calcular toda la información física disponible de un sistema al 
-realizar una medición. 
+%Este resultado muestra cómo a partir de la matriz de densidad $\rho$ 
+%se puede calcular toda la información física disponible de un sistema al 
+%realizar una medición. 
 Este resultado es interesante porque muestra que es posible 
 calcular el valor promedio de un observable utilizando la 
 matriz de densidad del sistema. En virtud de este resultado
 vale la pena investigar a continuación cómo evoluciona la 
 matriz de densidad de un sistema.
-
-Desde luego la matriz de densidad es una herramienta con la que
-se puede formular matemáticamente la mecánica cuántica como 
-con el vector de estado.
+%Desde luego la matriz de densidad es una herramienta con la que
+%se puede formular matemáticamente la mecánica cuántica como 
+%con el vector de estado.
 % \cpnote{Esta frase la pondría
 % al principio del capítulo y lo que sigue del párrafo lo pondría al mismo 
 % nivel conceptual que la discusión anterior. }. 
@@ -134,6 +133,7 @@ con el vector de estado.
 % de la siguiente sección contradice la ultima frase. quizá vale la pena que revises
 % este caputulo y lo leas todo a ver si hay mas problemas como de estructura. }
 % 
+
 Consideremos un sistema que se encuentra en el ensamble 
 de estados inicial $\{ p_i, \ket{\psi_i(0)}\}$
 y que evoluciona según algún operador unitario $U(t)$. Es decir, 
@@ -206,12 +206,23 @@ postulados de la mecánica cuántica usando la matriz de densidad y
 voy a omitir el ejemplo que coloqué en el informe de prácticas.}
 
 
+\janote{Intro?}
 
-Según Nielsen y Chuang \cite{nielsen_chuang_2011} las matrices
-de densidad están caracterizadas por el siguiente teorema:
+A pesar de que contamos con la definición \eqref{eq:rho_def} de 
+la matriz de densidad dado un ensamble de estados, será útil 
+estudiar cuáles son las condiciones que una matriz debe cumplir 
+para ser una matriz de densidad. Luego de esto, estamos listos 
+para revisar la formulación de los postulados de la mecánica cuántica
+utilizando la matriz de densidad. Por último, vamos a estudiar la
+matriz de densidad reducida, una aplicación de la matriz de densidad 
+en sistemas de muchas partículas.
+
+Las propiedades que una matriz debe tener para que esta represente al 
+estado físico de un sistema se establecen a continuación
+\cite{nielsen_chuang_2011}:
 \begin{thm}\label{teo:density-operator}
-Un operador $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
-es el matriz de densidad asociado a algún ensamble 
+Una matriz $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
+es la matriz de densidad asociada a algún ensamble 
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \begin{enumerate}
 \item $\Tr \rho = 1$.
@@ -220,42 +231,45 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \end{thm} 
 \begin{proof} Consultar~\cite[p.~101]{nielsen_chuang_2011} \end{proof}
 
-La condición de traza unitaria de la matriz de densidad cumple la misma
-función que la condición de normalización del vector de estado. La
-suma de las probabilidades de todas las posibles mediciones 
-de un observable deben sumar uno. La condición de positividad 
-implica que los eigenvalores $\lambda_i$ y eigenvectores
-$\ket{i}$ dan lugar a $\{\lambda_i, \ket{i}\}$, uno de todos los 
-posibles ensambles que están asociados a la matriz de densidad $\rho$.
+La condición de traza unitaria de la matriz de densidad es análoga
+a la condición de normalización de la función de onda, las probabilidades
+de medir al sistema en un estado u otro deben sumar uno. 
+Por otro lado, los eigenvalores $\lambda_i$ y eigenvectores $\ket{\psi_i}$ de la 
+matriz de densidad definen a uno de los posibles ensambles de estados
+$\{\lambda_i, \ket{\psi_i} \}$ del sistema. Entonces,
+la condición de positividad de la matriz de densidad asegura que las
+probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
+son cero o positivas, como esperaríamos que fuese.
 
-Ahora que hemos establecido de manera precisa a la matriz de densidad
+Ahora que que ya contamos con una definición de la matriz de densidad 
+que no parte de conocer \textit{apriori} el ensamble de estados del sistema
 nos ocupamos de la formulación de los postulados de la mecánica cuántica 
-utilizando la matriz de densidad \cite[p.~102]{nielsen_chuang_2011}.
+utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 \begin{itemize}
 	\item[] \textbf{Postulado 1.} \textit{Estado del sistema.} 
 	Un sistema físico tiene asociado un espacio vectorial complejo
-	con producto interno que se conoce como el espacio de Hilbert $\hi$ del
+	con producto interno conocido como el espacio de Hilbert $\hi$ del
 	sistema. Los estados del sistema están descritos por el conjunto 
-	de matrices de densidad en el espacio de Hilbert-Schmidt $\mathcal{HS}$	
-	que actúan sobre el espacio de Hilbert $\hi$ del sistema. 
+	de matrices de densidad que actúan sobre $\hi$.
 	\item[] \textbf{Postulado 2.} \textit{Evolución unitaria.}
-	La evolución de un sistema cuántico cerrado en un intervalo 
-	de tiempo $[t_1,t_2]$ está descrita 	por una transformación unitaria
+	La evolución de un sistema cuántico cerrado, en un intervalo 
+	de tiempo $[t_1,t_2]$, está descrita	por una transformación unitaria $U$
 	de la siguiente manera 
 	\begin{equation} \label{eq:postulate-ClosedEvolution}
 	\rho(t_1)\longrightarrow U\rho(t_1) U^{\dagger}=\rho(t_2).
 	\end{equation}
 	\item[] \textbf{Postulado 3.} \textit{Medición.}
-	Las mediciones están descritas por un conjunto de 
-	operadores $\{M_m\}$. Estos son operadores que actúan sobre el espacio 
-	de Hilbert $\hi$ del sistema. El índice $m$ refiere a los posibles
+	Las mediciones sobre el estado $\rho$ de un sistema 
+	están descritas por un conjunto de operadores $\{M_m\}$. 
+	Estos son operadores que actúan sobre $\hi$ y el 
+	índice $m$ refiere a los posibles
 	resultados de la medición. Si el estado del sistema es $\rho$ 
 	inmediatamente antes de la medición, entonces la probabilidad
-	de medir $m$ es
+	$p(m)$ de obtener el resultado $m$ es
 	\begin{equation} \label{eq:post_MeasureProb}
 	p(m)=\Tr \qty(M_m^{\dagger}M_m\rho),
 	\end{equation}						
-	y el estado del sistema después de la medición será
+	y el estado del sistema inmediatamente después de la medición será
 	\begin{equation} \label{eq:post_MeasureTrasnfState}
 	\rho'=\frac{M_m\rho M_m^{\dagger}}{\tr \qty(M_m^{\dagger}M_m\rho)}.
 	\end{equation}	
@@ -263,34 +277,11 @@ utilizando la matriz de densidad \cite[p.~102]{nielsen_chuang_2011}.
 	\begin{equation} \label{eq:post_MeasureMCompleteness}
 	\sum _m M_m^{\dagger}M_m=\mathbb{1}.
 	\end{equation}
-%	Este postulado confirma lo que en la sección anterior aseguramos
-%	de que la formulación de cualquier medición proyectiva utilizando el 
-%	matriz de densidad es posible. Debemos notar que las mediciones
-%	proyectivas son un caso especial de las mediciones enunciadas en
-%	este postulado.
-%	Una medición proyectiva está descrita por un observable
-%	$\Omega$, que es un operador Hermítico que actúa sobre $\hi$. 
-%	$\Omega$ tiene una descomposición espectral \cite{nielsen_chuang_2011}
-%	\begin{align}
-%		\Omega = \sum _i \lambda_iP_i,
-%	\end{align}
-%	donde $P_i$ es el proyector al autoespacio de $\Omega$ 
-%	con autovalor $\lambda_i$.
-%	De acuerdo con este postulado si el sistema se encuentra en el estado
-%	$\rho$, la probabilidad de medir $\lambda_i$ es
-%	\begin{align}
-%		p(i) = \Tr \qty(P_i^{\dagger}P_i\rho) = \Tr \qty(P_i\rho).
-%	\end{align}
-%	Además, dado que se midió $\lambda_i$ el estado del sistema inmediatamente 
-%	luego de realizar la medición es 
-%	\begin{align}
-%		\rho'&=\frac{P_i\rho P_i}{\Tr \qty(P_i \rho)}.
-%	\end{align}
 	\item[] \textbf{Postulado 4.} \textit{Sistemas de partículas.}
 	El espacio de Hilbert de un sistema 	de varias partículas se compone del
 	producto tensorial de los espacios de Hilbert 	individuales.
 	Es decir, si el sistema total se compone de $N$ partículas, 
-	entonces el sistema total es
+	entonces el espacio de Hilbert total es
 	\begin{align}
 		\hi_{\txt{total}} = \hi_1\ten \hi_2 \ten \ldots \ten \hi_N.
 	\end{align}
@@ -298,25 +289,39 @@ utilizando la matriz de densidad \cite[p.~102]{nielsen_chuang_2011}.
 	densidad que actúan sobre $\hi _{\text{total}}$.
 \end{itemize}
 
-Por último en esta sección discutiremos sobre la matriz de densidad
-reducida, una herramienta especialmente útil para los sistemas 
-de varias partículas. La matriz de densidad es una herramienta 
-que proporciona toda la información física disponible al hacer 
-una medición sobre cualquier parte del sistema total. 
+Respecto al último postulado debemos resaltar que no todos 
+los estados del sistema total son de la forma $\rho=\rho_1
+\ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
+total son separables, pues el conjunto de los estados 
+del sistema total también está compuesto por estados 
+no separables, también llamados entrelazados.
+Son justo los estados entrelazados los que conducen a hacernos preguntas
+como cuál es el estado en el que se encuentra sólo una parte del sistema. 
+Permítannos ser más claros con un ejemplo. Si un sistema bipartito 
+se encuentra en un estado separable $\rho\ot \sigma$, sabemos 
+que una parte del sistema se encuentra en el estado $\rho$ y la otra 
+parte del sistema en el estado $\sigma$. Ahora bien, ¿cuál es el estado
+de cada parte del sistema cuando el estado total es uno entrelazado? O,
+al menos, es deseable conocer cuál es la información accesible 
+para un observable de sólo una parte del sistema. Para responder a 
+estas preguntas revisaremos en lo que resta de esta sección
+la matriz de densidad reducida. Esta aplicación de la matriz de densidad 
+proporciona una herramienta para la descripción de subsistemas 
+de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
 
 Supongamos dos subsistemas $A$ y $B$ cuyo estado total es 
-$\rho^{AB}$ (en general, $\rho^{AB}\neq \rho^A\ot \rho^B$). 
-Consideremos una base ortonormal $\ket{\psi_i}$ de $A$ y una 
-base ortonormal $\ket{\phi_j}$ de $B$. Una base ortonormal 
-del sistema total está dado por el producto tensorial entre los elementos
-de la base de A y de B. En esta base, un elemento de matriz
-de $\rho^{AB}$ está dado por
+$\rho^{AB}$ (en general $\rho^{AB}\neq \rho^A\ot \rho^B$). 
+Consideremos una base ortonormal $\ket{\psi_i}$ de $\hi_A$ y una 
+base ortonormal $\ket{\phi_j}$ de $\hi_B$. Una base ortonormal 
+del sistema total $\hi_{\text{total}}$ está dado 
+por $\ket{\psi_i}\ot \ket{\phi_j}$.
+En esta base un elemento de matriz de $\rho^{AB}$ está dado por
 \begin{align}
 	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}.
 \end{align}
-Supongamos que $\Omega_A$ es un observable únicamente de $A$
-que actúa sobre el espacio de Hilbert total. El valor esperado de 
-$\Omega_A$, utilizando \eqref{eq:Tr(rhoLambda)}, es
+Supongamos que $\Omega_A\ot \1$ es un observable que actúa sobre $A$
+en $\hi_{\text{total}}$ y el valor esperado 
+$\expval{\Omega_A\ot \1}$, utilizando \eqref{eq:Tr(rhoLambda)}, es
 \begin{align}
 	\Tr \qty(\rho^{AB}\qty(\Omega_A\ot \mathbb{1})) &= \sum _{i,j} 
 	\bra{\psi_i}\bra{\phi_j}\rho^{AB}\qty(\Omega_A\ot \mathbb{1})
@@ -324,8 +329,7 @@ $\Omega_A$, utilizando \eqref{eq:Tr(rhoLambda)}, es
 	\nonumber\\
 	&= \sum _{i,j} 
 	\bra{\psi_i} \bra{\phi_j}\rho^{AB}
-	\qty(\sum _{k,l} \ket{\psi_k} \dyad{\phi_l}
-	\bra{\psi_k} \bra{\phi_l} )
+	\qty(\sum _{k,l} \ket{\psi_k} \ket{\phi_l} \bra{\psi_k}\bra{\phi_l} )
 	\qty(\Omega_A\ot \mathbb{1})\ket{\psi_i} \ket{\phi_j}\nonumber\\
 	&= \sum _{i,j,k,l} 
 	\bra{\psi_i} \bra{\phi_j}\rho^{AB}\ket{\psi_k} \ket{\phi_l}
@@ -336,14 +340,16 @@ $\Omega_A$, utilizando \eqref{eq:Tr(rhoLambda)}, es
 	\label{eq:almost-reducedRho}
 \end{align}
 donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$.
-De lo que está entre paréntesis definimos a la matriz de densidad
-reducida $\rho^A$ como~\cite{chandra2013quantum}
+La matriz entre paréntesis define a la matriz de densidad
+reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}
 	\sum _j \bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_j}
 	= \matrixel{\psi_i}{\rho^A}{\psi_k}.
 	\label{eq:reducedRho-def1}
 \end{align}
-Con $\rho^A$ definido retomemos  \eqref{eq:almost-reducedRho}
+y retomando el cálculo de $\expval{\Omega_A\ot \1}$
+en \eqref{eq:almost-reducedRho} se obtiene, en función 
+de $\rho^A$,
 \begin{align}
 	\Tr \qty(\rho^{AB}\qty(\Omega_A\ot \mathbb{1}))&= \sum _{i,k}\nonumber
 	\matrixel{\psi_i}{\rho^A}{\psi_k} \matrixel{\psi_k}{\Omega_A}{\psi_i}
@@ -351,23 +357,24 @@ Con $\rho^A$ definido retomemos  \eqref{eq:almost-reducedRho}
 	&= \sum_i \matrixel{\psi_i}{\rho^A\Omega_A}{\psi_i}\nonumber\\
 	&= \Tr \qty(\rho^A\Omega_A). \label{eq:reduced-works}
 \end{align}
-Este resultado es similar al que se obtuvo en la ecuación
-\eqref{eq:Tr(rhoLambda)}, por lo cuál nos conduce a una
-conclusión similar. La matriz de densidad reducida $\rho^A$ 
-contiene la información que se puede extraer al 
-hacer una medición exclusivamente del subsistema $A$.
+Notemos la similitud de este resultado con el que se obtuvo en la ecuación
+\eqref{eq:Tr(rhoLambda)}. El valor esperado de un observable que actúa 
+sobre un subsistema que forma parte de un sistema compuesto puede 
+calcularse si la matriz de densidad reducida se conoce.
 
-La operación que define a la matriz de densidad reducida en 
-la ecuación \eqref{eq:reducedRho-def1} se conoce como la traza parcial
+Ahora que mostramos la utilidad que puede tener la matriz de densidad
+reducida vamos a discutir con más detalle la operación que la define en
+\eqref{eq:reducedRho-def1}. 
+Esta operación se llama la traza parcial y se conoce como parcial 
+porque únicamente se realiza la operación de traza sobre un subsistema, 
+es decir
 \begin{align} 
 	\sum _j \bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_j}
 	&=\matrixel{\psi_i}{\Tr_B\qty(\rho^{AB})}{\psi_k}
 	= \matrixel{\psi_i}{\rho^A}{\psi_k}.
 	\label{eq:partialTrace-def}
 \end{align}
-%\janote{aquí voy} \janote{hablar de que la traza parcial es trazar 
-%sobre los grados de libertad que no intersan}
-De manera precisa la traza parcial se define como \cite{nielsen_chuang_2011}
+En general, la definición de la traza parcial es \cite{nielsen_chuang_2011}
 \begin{align}
 	\Tr_B (\dyad{\alpha_i}{\alpha_j}\otimes \dyad{\beta_k}{\beta_l})
 	\equiv
@@ -376,57 +383,17 @@ De manera precisa la traza parcial se define como \cite{nielsen_chuang_2011}
 \end{align}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
 y $\ket{\beta_j}$ del resto del espacio de Hilbert total. En sistemas 
-multipartitos la traza parcial se puede entender como la traza sobre 
-todos los grados de libertad del sistema, excepto los del subsistema de interés. 
+multipartitos la traza parcial es la traza sobre 
+todos los grados de libertad del sistema excepto los de alguno de los 
+subsistemas que lo compone.
 
-%Es sencillo probar
-%que, ya que la traza es una operación lineal, la traza parcial también 
-%lo es. 
-%Además, debe notarse en la deducción que se presentó para motivar 
-%al matriz de densidad recudido, 
-%que la ecuación \eqref{eq:reducedRho-def1} evidencia 
-%el uso de la traza parcial, definida en \eqref{eq:part_trace-def}, 
-%como la única operación que da lugar al matriz de densidad reducido. 
-
-%Antes de concluir revisaremos un ejemplo del cálculo del 
-%matriz de densidad reducido que evidencia una de las
-%\textit{extrañas} consecuencias del
-%entrelazamiento cuántico.
-%Consideremos un sistema de 2 qubits que se encuentra en el estado de Bell
-%$\qty(\ket{00}-\ket{11})/\sqrt{2}$, un estado entrelazado. El operador
-%de densidad para el sistema compuesto es
-%\begin{align}
-%	\rho &= \qty(\frac{\ket{00}-\ket{11}}{\sqrt{2}})
-%	\qty(\frac{\bra{00}-\bra{11}}{\sqrt{2}}) \\
-%			 &= \frac{\dyad{00}{00}-\dyad{11}{00}-\dyad{00}{11}
-%                 +\dyad{11}{11}}{2}.
-%\end{align}
-%Calculamos ahora el matriz de densidad reducido para el qubit 1.  
-%Haciendo la traza parcial sobre el qubit 2 se tiene
-%\begin{align}
-%	\rho^A &= \Tr _B(\rho) \\
-%			 	 &= \frac{\Tr _B(\dyad{00}{00})-\Tr _B(\dyad{11}{00})
-%			 	 -\Tr _B(\dyad{00}{11})+\Tr _B(\dyad{11}{11})}{2} \\
-%			 	 &= \frac{\dyad{0}{0} + \dyad{1}{1}}{2} \\
-%			 	 &= \frac{\mathbb{1}}{2}.
-%\end{align}
-%Notemos que el qubit 1 se encuentra en un estado mixto
-%$\qty(\Tr \qty(\mathbb{1}/2)^2<1)$. De hecho, si hiciéramos la 
-%traza parcial sobre el qubit 1 llegaríamos al mismo estado del qubit 2.
-%Es decir, aunque contamos con la información completa del estado 
-%de los dos qubits como sistema compuesto, tenemos incompleta la 
-%información del estado individual de cualquiera de los dos qubits
-%en el sistema. Esta es una de las consecuencias del entrelazamiento
-%cuántico.
-
-La matriz de densidad reducida completa todo lo que necesitamos 
-saber de la matriz de densidad reducida para continuar con la descripción
-de la evolución de los estados cuánticos en la siguiente sección. 
-La matriz de densidad, caracterizada como una matriz positiva de traza unitaria, 
-es una herramienta para representar a los estados cuánticos y, junto 
-con la matriz de densidad reducida, proporcionan 
-la información accesible al observador de un sistema, 
-completo o cualquier parte de él. 
+Ahora que contamos con las propiedades de la matriz de densidad, 
+los postulados reescritos con este formalismo y la aplicación de la matriz
+de densidad reducida para describir subsistemas ya disponemos de
+las herramientas adecuadas para describir a los estados cuánticos 
+utilizando a la matriz de densidad. En la siguiente sección continuamos 
+con la evolución de la matriz de densidad utilizando la teoría de los 
+canales cuánticos.
 
 % }}}
 \section{Canales cuánticos}\label{sec:qtm-channels} % {{{
