@@ -202,8 +202,7 @@ veo que me gustaría ir aquí más al grano y mandar al lector
 a las pruebas en el Chuang (para no copiar otra vez las pruebas
 aquí). Puntualizaré: (1) caracterización de la matriz de densidad, (2)
 postulados de la mecánica cuántica usando la matriz de densidad y
-(3) matriz de densidad reducida. Para la matriz de densiddad reducida
-voy a omitir el ejemplo que coloqué en el informe de prácticas.}
+(3) matriz de densidad reducida.}
 
 
 A pesar de que contamos con la definición \eqref{eq:rho_def} de 
@@ -395,47 +394,56 @@ canales cuánticos.
 
 % }}}
 \section{Canales cuánticos}\label{sec:qtm-channels} % {{{
-\esqueleto{Copy-paste del informe final, sección mapeos 
-completamente positivos.}
+\esqueleto{Tomé de base el texto de canales cuánticos del informe 
+de prácticas, lo traté de resumir e iteré la redacción de varias cosas.}
 
-Los sistemas cuánticos reales sufren de interacción con su entorno.
-Por esa razón, se hace necesario un marco teórico para describir 
-la evolución de los sistemas cuánticos abiertos. Una de las propuestas
-para ello es la teoría de los canales cuánticos que describe la dinámica de 
-los sistemas abiertos de forma discreta. 
+Los canales cuánticos son una de las alternativas para describir cómo
+evolucionan los sistemas cuánticos abiertos utilizando la matriz de densidad. 
+Un canal cuántico $\E$ es un mapeo afín de matrices de densidad y una
+operación completamente positiva~\cite{bengtsson_zyczkowski_2017}.
+Que un canal cuántico sea un mapeo afín significa que es un mapeo 
+que preserva las propiedades de las matrices de densidad. Por otro lado,
+para entender qué es la completa positividad y qué implica esto para la 
+evolución dinámica de los estados cuánticos vamos a elaborar en 
+esta sección un ejemplo de una operación que actúa sobre una partícula
+de espín 1/2 antes de definir formalmente la completa positividad.
 
-La teoría de los canales cuánticos ocupa a la matriz de densidad para 
-representar a los estados cuánticos. Esta teoría establece que un 
-sistema que se encuentra en un estado $\rho$ se transforma a un 
-estado final $\rho'$ descrito por un canal cuántico
-$\E$, según la ecuación~\cite{nielsen_chuang_2011}
+Un canal cuántico $\E$ es una operación que actúa sobre un estado 
+cuántico $\rho$ como
 \begin{align} \label{eq:E(rho)}
-\rho' = \E (\rho),
+\rho' = \E (\rho).
 \end{align} 
-Evidentemente, $\E$ debe ser una operación lineal 
+$\E$ debe ser una operación lineal 
 que preserva las características de la matriz de densidad: (1) traza
-unitaria y (2) positividad. Sin embargo, hace falta una condición 
-más sobre $\E$ para que describa una evolución física. El sistema
-principal ($P$) podría encontrarse en un estado entrelazado 
-$\rho^{\text{total}}$ $(\rho^{\text{total}}\neq \rho^P\ot\rho^S)$ 
-con un sistema secundario ($S$). La condición adicional sobre $\E$ 
-debe asegurar que, para cualquier sistema secundario, el operador $\E\ot\1$ 
-también preserva la positividad de la matriz de densidad, especialmente 
-la de los estados entrelazados (como $\rho^{\text{total}}$). Esta 
-condición se conoce como completa positividad (CP).
+unitaria y (2) positividad. Sin embargo, esto no es suficiente para
+que $\E$ describa una evolución física. Consideremos un sistema 
+total que se compone de un subsistema principal $P$ (el sistema 
+cuántico que nos interesa estudiar) y un subsistema secundario $S$
+(cualquier otro sistema con el que el subsistema principal pueda 
+interaccionar). Nuestro objetivo es estudiar la dinámica de $\rho^P$,
+la matriz de densidad de $P$, y vamos a suponer que el 
+estado de $S$ no lo conocemos \textit{apriori}
+o que sencillamente no nos interesa. La condición de completa positividad
+se hace necesaria de imponer sobre $\E$ cuando consideramos que
+el sistema total podría encontrarse en un estado entrelazado  
+$\rho^{\text{total}}\neq \rho^P\ot\rho^S$. 
+Esta condición asegura que aún las matrices de densidad
+de estados entrelazados preservarán las propiedades de traza unitaria
+y positividad.
 
-Para entender mejor la condición de CP vamos a revisar un 
-ejemplo. Vamos a considerar la operación lineal $\E_z$ de 1 qubit (partícula
+Elaboremos un ejemplo concreto de una operación que transforma
+un estado entrelazado en algo que no representa a un estado físico. 
+Vamos a considerar la operación lineal $\E_z$ de 1 qubit (partícula
 de espín 1/2) que mapea la bola de Bloch a un disco perpendicular 
 al eje $z$ (\Fref{fig:qtm-op-motivation}). 
-Seguidamente, veremos que $\E_z \ot\1$ no preserva la
-positividad del estado máximamente entrelazado (estado de Bell)
-de 2 qubits.
+Seguidamente veremos que $\E_z \ot\1$ no preserva la
+positividad del estado máximamente entrelazado de 2 qubits (estado de Bell).
 
 Para escribir a la matriz de densidad utilizaremos 
-la base de produtos tensoriales de las matrices de Pauli
+la base de productos tensoriales de las matrices de Pauli
 $\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
-con $\sigma_0=\1$ y los subíndices $1,2,3$ para etiquetar a $x$, $y$ y $z$.
+con $\sigma_0=\1$ y los subíndices $1,2$ y $3$ son nada más 
+una etiqueta $x$, $y$ y $z$.
 Respectivamente, las matrices de densidad para 1 y 2 qubits se 
 escriben como~\cite{nielsen_chuang_2011}
 \begin{align}
@@ -444,28 +452,37 @@ escriben como~\cite{nielsen_chuang_2011}
 \rho^2&=\frac{1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \label{eq:densityMatrices_1and2Qubits}
 \end{align}
-donde $r_0=r_{00}=1$ $(\Tr\rho=1)$.
-Las componentes $r_i$ y $r_{ij}$ definen un vector de 4 entradas
-y una matriz de $4\times4$.
-Para 1 qubit, las componentes $\qty(r_1, r_2, r_3)$ definen 
-un punto en la bola de Bloch.
-En el panel izquierdo de la \Fref{fig:qtm-op-motivation} 
-se muestra a la bola de Bloch y algunos estados de 1 qubit. 
-Los estados puros se corresponden con puntos en la superficie
-y los estados mixtos con puntos en el interior.
+donde imponemos que $r_0=r_{00}=1$ para preservar 
+la traza unitaria. Las componentes $r_i$ y $r_{ij}$ son las proyecciones 
+de la matriz de densidad sobre los elementos de la base de productos 
+tensoriales de las matrices de Pauli. En particular para 1 qubit, 
+las componentes $r_x, r_y$ y $r_z$ de $\rho^1$ definen 
+las componentes rectangulares de un punto en la bola de Bloch.
+La bola de Bloch es una bola unitaria que se utiliza para 
+representar geométricamente a los estados de 1 qubit
+(ver \Fref{fig:qtm-op-motivation}). De esta manera, con la bola de 
+Bloch tenemos una forma de asociar una representación geométrica 
+con la matriz de densidad de 1 qubit en 
+\eqref{eq:densityMatrices_1and2Qubits}.
 
-
-La transformación de la matriz de densidad de 1 qubit bajo la acción 
-de  $\E_z$ es sencilla en términos de las componentes $r_i$
-de $\rho^1$ en \eqref{eq:densityMatrices_1and2Qubits}.
-La operación $\E_z$ transforma a las componentes de $\rho^1$ como
-$\qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0)$. De la \Fref{fig:qtm-op-motivation}
-podemos notar que todos los puntos del disco son estados de 1 qubit, por 
-lo cual es bastante intuitivo entender que $\E_z$ preserva la positividad y 
-la traza unitaria de todos los estados de 1 qubit. 
-Sin embargo, veremos a continuación que el estado 
-máximamente entrelazado de 2 qubits se transforma en una 
-matriz no positiva.
+La acción de $\E_z$ la podemos entender estudiando cómo transforma
+a la matriz de densidad $\rho^1$ en
+\eqref{eq:densityMatrices_1and2Qubits}.
+En términos de las componentes $r_i$ la operación $\E_z$ 
+transforma a $\rho^1$ de la siguiente manera
+\begin{align}
+\qty(1,r_x,r_y,r_z)\mapsto\qty(1,r_x,r_y,0).
+\end{align}
+En la \Fref{fig:qtm-op-motivation} mostramos que $\E_z$ transforma 
+geométricamente a la bola de Bloch deformándola a un disco
+unitario sobre el plano $x$-$y$. Aunque podemos revisar explícitamente 
+que las propiedades de traza unitaria y positividad de $\rho^1$ 
+se preservan, también podemos argumentar, utilizando la representación
+geométrica, que dado que el disco final se contiene en la bola de Bloch 
+las propiedades de $\rho^1$ se preservan.
+Sin embargo, veremos a continuación que la acción de $\E_z\ot \1$ 
+sobre el estado máximamente entrelazado de 2 qubits 
+se transforma en una matriz no positiva.
 
 \begin{figure}% {{{
 \centering
@@ -484,29 +501,27 @@ Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
 \end{figure} % }}}
 
 El estado máximamente entrelazado de 2 qubits es
-$\ket{\phi}=\qty(\ket{0}+\ket{1})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
-Ya que conocemos cómo transforma $\E_z$ a las componentes de 
-la matriz de densidad escrita en la base de Pauli es necesario calcular 
-la representación de $\dyad{\phi}{\phi}$ en esa base.
-Las componentes $r_{ij}$ se calculan a partir de las
-proyecciones de $\dyad{\phi}{\phi}$ sobre los elementos 
-$\sigma_i\otimes\sigma_j$ usando el producto interno
+$\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
+Como conocemos cómo transforma $\E_z$ a la matriz de densidad 
+escrita en la base de Pauli será necesario calcular 
+la representación de $\dyad{\phi}{\phi}$ en esa base para 
+luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})•$.
+Las componentes $r_{ij}$ se calculan usando el producto interno
 de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
-Así, se encuentra que
+Así encontramos 
 \begin{align}
 \dyad{\phi}{\phi}=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
 \end{align}
 
-Ya que $\E_z$ borra la componente $z$ del vector de Bloch, 
-entonces la acción de $\E_z\otimes\1$ debe ser tal que borra 
-las componentes de la forma $r_{3j}$ de $\dyad{\phi}{\phi}$, 
-por lo cual
+Ya que $\E_z$ borra la componente en $r_z$ de $\rho^1$ inferimos 
+que la acción de $\E_z\otimes\1$ sobre $\rho^2$ borra 
+las componentes de la forma $r_{3j}$, por consiguiente
 \begin{align}
-\E_z\otimes\1 \qty({\rho}^{\phi})=
-\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2};
+\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
+\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
 \end{align}
-y, transformando de vuelta a la base computacional,
+y en su forma matricial se escribe
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
 \mqty( 
@@ -517,33 +532,36 @@ y, transformando de vuelta a la base computacional,
 ).
 \end{align}
 La matriz  $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ tiene un 
-eigenvalor igual a $-1/4$ y, por lo tanto, no es una matriz de densidad.  
-Dicho de otro modo, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
-no cumple con una de las condiciones para representar un estado físico
-de un sistema de 2 qubits. Hemos mostrado con este ejemplo que la completa 
-positividad es una condición más fuerte a la de la positividad para 
-asegurar que todos los estados de un sistema, incluyendo a 
-cualquier posible estado entrelazado con otro sistema, se transforman
-en estados físicos.
+eigenvalor igual a $-1/4$ y por lo tanto no satisface la condición 
+de positividad para ser una matriz de densidad.  
+En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
+no representa a un estado físico de 2 qubits.
+Se dice que $\E_z$ no es una operación completamente 
+positiva porque existe un estado en el espacio extendido de 2 qubits para 
+el cual la extensión $\E_z\ot \1$ no es un mapeo afín de 
+matrices de densidad. Acabamos de mostrar que la condición de completa
+positividad surge de la posibilidad que un sistema tiene de encontrarse 
+en un estado entrelazado con otro sistema secundario.
 
 Ahora vamos a establecer la condición de completa positividad 
 de forma precisa. Se dice que una operación $\E$ es CP si 
 y sólo si, para cualquier extensión arbitraria de dimensión $K$ 
 del espacio de Hilbert $(\hi_N \rightarrow \hi_N \otimes \hi_K)$ 
 el operador $\E\otimes\1_K$ es positivo~\cite{bengtsson_zyczkowski_2017}. 
-Con esta condición las restricciones sobre un canal cuántico 
-para que este describa una evolución física están completas.
+Con esta definición hemos justificado las dos condiciones que 
+necesita una operación lineal para ser un canal cuántico.
 
-Un canal cuántico es un mapeo lineal que  (1) preserva las características
-de las matrices de densidad y (2) es completamente positivo. 
+Un canal cuántico es un mapeo lineal  (1) que preserva las características
+de la matriz de densidad y (2) completamente positivo. 
 En la literatura se suele utilizar el término operaciones 
 completamente positivas que preservan la traza 
 (CPTP) para referirse a los canales 
 cuánticos~\cite{bengtsson_zyczkowski_2017}. 
-Ahora que hemos establecido las condiciones que satisfacen los
-canales cuánticos vamos a presentar en la siguiente sección 
-dos formas distintas, pero equivalentes, de representar a un canal 
-cuántico: como superoperador y la forma de Kraus.
+La teoría de los canales cuánticos se puede utilizar para 
+describir la evolución dinámica de los sistemas abiertos 
+utilizando su matriz de densidad para representar a los estados cuánticos.
+En la siguiente y última sección de este capítulo estudiaremos 
+cuáles son las representaciones de los canales cuánticos. 
 
 
 % }}}
