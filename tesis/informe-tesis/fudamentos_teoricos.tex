@@ -138,12 +138,12 @@ Consideremos un sistema que se encuentra en el ensamble
 de estados inicial $\{ p_i, \ket{\psi_i(0)}\}$
 y que evoluciona según algún operador unitario $U(t)$. Es decir, 
 el ensamble de estados en cualquier tiempo $t>0$ está dado por 
-$\{p_i, U(t)\ket{\psi(0)}\}$. Entonces, utilizando la definición 
+$\{p_i, U(t)\ket{\psi_i(0)}\}$. Entonces, utilizando la definición 
 \eqref{eq:rho_def} recién introducida, la matriz de
 densidad $\rho(t)$ del sistema será
 \begin{align} \label{eq:Rho-evolution-H}
-	\rho(t) &= \sum_j p_j\dyad{\psi_j(t)}{\psi_j(t)}\nonumber\\
-	&= \sum_j p_j U(t) \dyad{\psi_j(0)}{\psi_j(0)}U^{\dagger}(t)
+	\rho(t) &= \sum_i p_i\dyad{\psi_i(t)}{\psi_i(t)}\nonumber\\
+	&= \sum_i p_i U(t) \dyad{\psi_i(0)}{\psi_i(0)}U^{\dagger}(t)
 	\nonumber\\
 	&= U(t)\rho(0)U^{\dagger}(t),
 \end{align}
