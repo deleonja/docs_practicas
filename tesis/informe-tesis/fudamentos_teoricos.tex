@@ -408,9 +408,12 @@ canales cuánticos.
 de prácticas, lo traté de resumir e iteré la redacción de varias cosas.}
 
 Los canales cuánticos son una de las alternativas para describir cómo
-evolucionan los sistemas cuánticos abiertos utilizando la matriz de densidad. 
+evolucionan los sistemas cuánticos abiertos utilizando la matriz de densidad
+\cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
+una matriz de densidad, en general, se sobreentiende}.
 Un canal cuántico $\E$ es un mapeo afín de matrices de densidad y una
-operación completamente positiva~\cite{bengtsson_zyczkowski_2017}.
+operación completamente positiva~\cite{bengtsson_zyczkowski_2017}\cpnote{Oye porque 
+tiene que ser afin? ME gustaría que me contaras mas en detalle}.
 Que un canal cuántico sea un mapeo afín significa que es un mapeo 
 que preserva las propiedades de las matrices de densidad. Por otro lado,
 para entender qué es la completa positividad y qué implica esto para la 
@@ -432,15 +435,19 @@ cuántico que nos interesa estudiar) y un subsistema secundario $S$
 (cualquier otro sistema con el que el subsistema principal pueda 
 interaccionar). Nuestro objetivo es estudiar la dinámica de $\rho^P$,
 la matriz de densidad de $P$, y vamos a suponer que el 
-estado de $S$ no lo conocemos \textit{apriori}
+estado de $S$ no lo conocemos \textit{a priori} \cpnote{a priori va separado, ya lo 
+cambié}
 o que sencillamente no nos interesa. La condición de completa positividad
 se hace necesaria de imponer sobre $\E$ cuando consideramos que
 el sistema total podría encontrarse en un estado entrelazado  
-$\rho^{\text{total}}\neq \rho^P\ot\rho^S$. 
+$\rho^{\text{total}}\neq \rho^P\ot\rho^S$\cpnote{aguas}. 
 Esta condición asegura que aún las matrices de densidad
 de estados entrelazados preservarán las propiedades de traza unitaria
 y positividad.
 
+\cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
+y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
+la promesa anterior y acá explicar}
 Elaboremos un ejemplo concreto de una operación que transforma
 un estado entrelazado en algo que no representa a un estado físico. 
 Vamos a considerar la operación lineal $\E_z$ de 1 qubit (partícula
@@ -453,8 +460,8 @@ Para escribir a la matriz de densidad utilizaremos
 la base de productos tensoriales de las matrices de Pauli
 $\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
 con $\sigma_0=\1$ y los subíndices $1,2$ y $3$ son nada más 
-una etiqueta $x$, $y$ y $z$.
-Respectivamente, las matrices de densidad para 1 y 2 qubits se 
+una etiqueta $x$, $y$ y $z$, respectivamente.
+Las matrices de densidad para 1 y 2 qubits se 
 escriben como~\cite{nielsen_chuang_2011}
 \begin{align}
 \rho^1&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
@@ -462,12 +469,15 @@ escriben como~\cite{nielsen_chuang_2011}
 \rho^2&=\frac{1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \label{eq:densityMatrices_1and2Qubits}
 \end{align}
+\cpnote{La notacion $\rho^2$ parece un cuadrado. No me gusta la redacción ni la
+nueva notacion. quizá algo como $\rho^{[2]}$ o algo asi}
 donde imponemos que $r_0=r_{00}=1$ para preservar 
 la traza unitaria. Las componentes $r_i$ y $r_{ij}$ son las proyecciones 
 de la matriz de densidad sobre los elementos de la base de productos 
 tensoriales de las matrices de Pauli. En particular para 1 qubit, 
 las componentes $r_x, r_y$ y $r_z$ de $\rho^1$ definen 
-las componentes rectangulares de un punto en la bola de Bloch.
+las componentes rectangulares de un punto en la bola \cpnote{Nos refereimos a ella
+normalmente como la esfera de bloch. Sugiero cambiarlo en todas partes} de Bloch.
 La bola de Bloch es una bola unitaria que se utiliza para 
 representar geométricamente a los estados de 1 qubit
 (ver \Fref{fig:qtm-op-motivation}). De esta manera, con la bola de 
@@ -526,7 +536,9 @@ Así encontramos
 
 Ya que $\E_z$ borra la componente en $r_z$ de $\rho^1$ inferimos 
 que la acción de $\E_z\otimes\1$ sobre $\rho^2$ borra 
-las componentes de la forma $r_{3j}$, por consiguiente
+las componentes de la forma $r_{3j}$\cpnote{Esto no me parece obvio. creo que 
+toca argumentarlo un poco mejor. o decir qeu uno lo puede probar usando matrices
+y extensiones.}, por consiguiente
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
@@ -549,9 +561,11 @@ no representa a un estado físico de 2 qubits.
 Se dice que $\E_z$ no es una operación completamente 
 positiva porque existe un estado en el espacio extendido de 2 qubits para 
 el cual la extensión $\E_z\ot \1$ no es un mapeo afín de 
-matrices de densidad. Acabamos de mostrar que la condición de completa
+matrices de densidad \cpnote{aguas}. Acabamos de mostrar que la condición de completa
 positividad surge de la posibilidad que un sistema tiene de encontrarse 
-en un estado entrelazado con otro sistema secundario.
+en un estado entrelazado con otro sistema secundario\cpnote{A veces nos
+referimos a este sistema como auxiliar o ancilla, quiza en italicas, checa a ver 
+como va}.
 
 Ahora vamos a establecer la condición de completa positividad 
 de forma precisa. Se dice que una operación $\E$ es CP si 
@@ -562,16 +576,20 @@ Con esta definición hemos justificado las dos condiciones que
 necesita una operación lineal para ser un canal cuántico.
 
 Un canal cuántico es un mapeo lineal  (1) que preserva las características
-de la matriz de densidad y (2) completamente positivo. 
+de la matriz de densidad y (2) completamente positivo\cpnote{y acá no emcionas que
+sea afin\ldots de lo qeu vi, los afines preservan la dimension  los canales
+cuanticos no lo hacen en general}. 
 En la literatura se suele utilizar el término operaciones 
 completamente positivas que preservan la traza 
 (CPTP) para referirse a los canales 
 cuánticos~\cite{bengtsson_zyczkowski_2017}. 
 La teoría de los canales cuánticos se puede utilizar para 
 describir la evolución dinámica de los sistemas abiertos 
-utilizando su matriz de densidad para representar a los estados cuánticos.
+utilizando su matriz de densidad para representar a los estados cuánticos
+\cpnote{esto ya lo habias dicho en la intro. no le veo sentido en reperitlo 
+aca de manera tan escueta}.
 En la siguiente y última sección de este capítulo estudiaremos 
-cuáles son las representaciones de los canales cuánticos. 
+algunas representaciones de canales cuánticos. 
 
 
 % }}}
