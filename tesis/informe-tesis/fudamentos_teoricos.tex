@@ -212,7 +212,9 @@ para ser una matriz de densidad. Luego de esto, estamos listos
 para revisar la formulación de los postulados de la mecánica cuántica
 utilizando la matriz de densidad. Por último, vamos a estudiar la
 matriz de densidad reducida, una aplicación de la matriz de densidad 
-en sistemas de muchas partículas.
+en sistemas de muchas partículas\cpnote{La matriz de densidad es una
+matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
+quieras referir a la traza parcial?}.
 
 Las propiedades que una matriz debe tener para que esta represente al 
 estado físico de un sistema se establecen a continuación
@@ -236,7 +238,9 @@ matriz de densidad definen a uno de los posibles ensambles de estados
 $\{\lambda_i, \ket{\psi_i} \}$ del sistema. Entonces,
 la condición de positividad de la matriz de densidad asegura que las
 probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
-son cero o positivas, como esperaríamos que fuese.
+son cero o positivas, como esperaríamos que fuese. \cpnote{Siengo que la notación
+$A\ge 0$ no es obvia. Quizá quieras decir en este párrafo que es. Lo dices 
+implicitamente, pero creo qe hay que ser tantito mas explicito.}
 
 Ahora que que ya contamos con una definición de la matriz de densidad 
 que no parte de conocer \textit{apriori} el ensamble de estados del sistema
@@ -289,8 +293,10 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 Respecto al último postulado debemos resaltar que no todos 
 los estados del sistema total son de la forma $\rho=\rho_1
 \ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
-total son separables, pues el conjunto de los estados 
-del sistema total también está compuesto por estados 
+total son separables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
+los factorizables, los separables y los enlazados. Siento que no conoces la diferencia 
+entre los primeros dos. Hablamos y corriges este parrafo por favor}, pues el
+conjunto de los estados del sistema total también está compuesto por estados 
 no separables, también llamados entrelazados.
 Son justo los estados entrelazados los que conducen a hacernos preguntas
 como cuál es el estado en el que se encuentra sólo una parte del sistema. 
@@ -305,6 +311,7 @@ estas preguntas revisaremos en lo que resta de esta sección
 la matriz de densidad reducida. Esta aplicación de la matriz de densidad 
 proporciona una herramienta para la descripción de subsistemas 
 de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
+\cpnote{Creo que igual este párrafo sobra. De nuevo, lo platicamos}
 
 Supongamos dos subsistemas $A$ y $B$ cuyo estado total es 
 $\rho^{AB}$ (en general $\rho^{AB}\neq \rho^A\ot \rho^B$). 
@@ -336,7 +343,8 @@ $\expval{\Omega_A\ot \1}$, utilizando \eqref{eq:Tr(rhoLambda)}, es
 	\matrixel{\psi_k}{\Omega_A}{\psi_i},
 	\label{eq:almost-reducedRho}
 \end{align}
-donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$.
+donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$\cpnote{Esto
+es mas bien una definicipon que de hecho puedes hacer más arriba}.
 La matriz entre paréntesis define a la matriz de densidad
 reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}
@@ -379,7 +387,9 @@ En general, la definición de la traza parcial es \cite{nielsen_chuang_2011}
 	\label{eq:part_trace-def}
 \end{align}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
-y $\ket{\beta_j}$ del resto del espacio de Hilbert total. En sistemas 
+y $\ket{\beta_j}$ del resto del espacio de Hilbert total\cpnote{Para que esta
+definición esté completa, también tienes que decir que la traza parcial 
+es lineal}. En sistemas 
 multipartitos la traza parcial es la traza sobre 
 todos los grados de libertad del sistema excepto los de alguno de los 
 subsistemas que lo compone.
