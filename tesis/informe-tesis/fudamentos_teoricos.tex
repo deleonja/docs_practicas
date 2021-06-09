@@ -211,10 +211,13 @@ estudiar cuáles son las condiciones que una matriz debe cumplir
 para ser una matriz de densidad. Luego de esto, estamos listos 
 para revisar la formulación de los postulados de la mecánica cuántica
 utilizando la matriz de densidad. Por último, vamos a estudiar la
-matriz de densidad reducida, una aplicación de la matriz de densidad 
-en sistemas de muchas partículas\cpnote{La matriz de densidad es una
+matriz de densidad reducida, la manera para describir a los
+subsistemas de sistemas compuestos con el formalismo 
+de la matriz de densidad.\cpnote{La matriz de densidad es una
 matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
-quieras referir a la traza parcial?}.
+quieras referir a la traza parcial?}\janote{No. Me refiero a una 
+aplicación del formalismo de la matriz de densidad. Reformulé 
+esa frase.}
 
 Las propiedades que una matriz debe tener para que esta represente al 
 estado físico de un sistema se establecen a continuación
@@ -225,7 +228,7 @@ es la matriz de densidad asociada a algún ensamble
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \begin{enumerate}
 \item $\Tr \rho = 1$.
-\item $\rho \geq 0$.
+\item $\matrixel{\psi}{\rho}{\psi} \geq 0$, $\forall\ket{\psi} \in \hi$.
 \end{enumerate}	
 \end{thm} 
 \begin{proof} Consultar~\cite[p.~101]{nielsen_chuang_2011} \end{proof}
@@ -240,7 +243,9 @@ la condición de positividad de la matriz de densidad asegura que las
 probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
 son cero o positivas, como esperaríamos que fuese. \cpnote{Siengo que la notación
 $A\ge 0$ no es obvia. Quizá quieras decir en este párrafo que es. Lo dices 
-implicitamente, pero creo qe hay que ser tantito mas explicito.}
+implicitamente, pero creo qe hay que ser tantito mas explicito.}\janote{Qué
+tal mejor sólo modificar la notación para la positividad en el teorema 1.3.1
+así como lo hice?}
 
 Ahora que que ya contamos con una definición de la matriz de densidad 
 que no parte de conocer \textit{apriori} el ensamble de estados del sistema
@@ -283,7 +288,7 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 	producto tensorial de los espacios de Hilbert 	individuales.
 	Es decir, si el sistema total se compone de $N$ partículas, 
 	entonces el espacio de Hilbert total es
-	\begin{align}
+	\begin{align}\label{eq:postulado4}
 		\hi_{\txt{total}} = \hi_1\ten \hi_2 \ten \ldots \ten \hi_N.
 	\end{align}
 	Los estados del sistema total están descritos por las matrices de 
@@ -293,18 +298,20 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 Respecto al último postulado debemos resaltar que no todos 
 los estados del sistema total son de la forma $\rho=\rho_1
 \ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
-total son separables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
+total son factorizables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
 los factorizables, los separables y los enlazados. Siento que no conoces la diferencia 
-entre los primeros dos. Hablamos y corriges este parrafo por favor}, pues el
+entre los primeros dos. Hablamos y corriges este parrafo por favor}
+\janote{Ve directo al siguiente comentario}, pues el
 conjunto de los estados del sistema total también está compuesto por estados 
-no separables, también llamados entrelazados.
+no factorizables, también llamados entrelazados.
 Son justo los estados entrelazados los que conducen a hacernos preguntas
-como cuál es el estado en el que se encuentra sólo una parte del sistema. 
-Permítannos ser más claros con un ejemplo. Si un sistema bipartito 
-se encuentra en un estado separable $\rho\ot \sigma$, sabemos 
+como ¿cuál es el estado en el que se encuentra sólo una parte del sistema total?
+Seremos más claros con un ejemplo. Si un sistema bipartito 
+se encuentra en un estado factorizable $\rho\ot \sigma$ sabemos 
 que una parte del sistema se encuentra en el estado $\rho$ y la otra 
-parte del sistema en el estado $\sigma$. Ahora bien, ¿cuál es el estado
-de cada parte del sistema cuando el estado total es uno entrelazado? O,
+en el estado $\sigma$. No obstante, ¿cuál es el estado
+de bipartición del sistema cuando el estado total es uno entrelazado
+($\rho_{\text{total}}\neq\rho\ot \sigma$)? O,
 al menos, es deseable conocer cuál es la información accesible 
 para un observable de sólo una parte del sistema. Para responder a 
 estas preguntas revisaremos en lo que resta de esta sección
@@ -312,6 +319,26 @@ la matriz de densidad reducida. Esta aplicación de la matriz de densidad
 proporciona una herramienta para la descripción de subsistemas 
 de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
 \cpnote{Creo que igual este párrafo sobra. De nuevo, lo platicamos}
+\janote{Quisiera mantenerlo porque hace una transición de hablar 
+de los postulados a la matriz de densidad reducida. Lo iteré y es 
+el párrafo nuevo que le sigue a este comentario:}
+
+Debemos resaltar que aunque el espacio de Hilbert de muchas partículas 
+es de la forma \eqref{eq:postulado4} no todas las matrices de densidad
+que actúan sobre son de la forma 
+\begin{align}
+\rho_{\text{total}}=\rho_1\ot \rho_2\ot \ldots\ot \rho_n,
+\end{align}
+lo cual nos conduce a preguntarnos que dada una matriz de densidad de
+un sistema compuesto $\rho_{\text{total}}$, ¿cuál es el estado 
+en el que se encuentra cada uno de los subsistemas que lo componen?
+Por esta razón, para averiguar cómo describir a los subsistemas con 
+el formalismo de la matriz de densidad es que vamos a revisar a continuación
+cómo introducir la matriz de densidad reducida utilizando una herramienta
+conocida como la traza parcial \cite{nielsen_chuang_2011}. 
+\janote{Si este párrafo te pareció bien habría que borrar el anterior.}
+
+
 
 Supongamos dos subsistemas $A$ y $B$ cuyo estado total es 
 $\rho^{AB}$ (en general $\rho^{AB}\neq \rho^A\ot \rho^B$). 
@@ -321,11 +348,13 @@ del sistema total $\hi_{\text{total}}$ está dado
 por $\ket{\psi_i}\ot \ket{\phi_j}$.
 En esta base un elemento de matriz de $\rho^{AB}$ está dado por
 \begin{align}
-	\bra{\psi_i}\ten\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ten\ket{\phi_l}.
+	\bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_l},
 \end{align}
+donde hemos utilizado la notación 
+$\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$.
 Supongamos que $\Omega_A\ot \1$ es un observable que actúa sobre $A$
 en $\hi_{\text{total}}$ y el valor esperado 
-$\expval{\Omega_A\ot \1}$, utilizando \eqref{eq:Tr(rhoLambda)}, es
+$\expval{\Omega_A\ot \1}$, utilizando~\eqref{eq:Tr(rhoLambda)},~es
 \begin{align}
 	\Tr \qty(\rho^{AB}\qty(\Omega_A\ot \mathbb{1})) &= \sum _{i,j} 
 	\bra{\psi_i}\bra{\phi_j}\rho^{AB}\qty(\Omega_A\ot \mathbb{1})
@@ -344,7 +373,9 @@ $\expval{\Omega_A\ot \1}$, utilizando \eqref{eq:Tr(rhoLambda)}, es
 	\label{eq:almost-reducedRho}
 \end{align}
 donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$\cpnote{Esto
-es mas bien una definicipon que de hecho puedes hacer más arriba}.
+es mas bien una definicipon que de hecho puedes hacer más arriba}
+\janote{Listo. Lo definí después de la ecuación 1.13. Si te parece bien 
+porfa lo que sigue aquí}.
 La matriz entre paréntesis define a la matriz de densidad
 reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}
@@ -383,13 +414,15 @@ En general, la definición de la traza parcial es \cite{nielsen_chuang_2011}
 \begin{align}
 	\Tr_B (\dyad{\alpha_i}{\alpha_j}\otimes \dyad{\beta_k}{\beta_l})
 	\equiv
-	\dyad{\alpha_i}{\alpha_j}\braket{\beta_k}{\beta_l},
+	\dyad{\alpha_i}{\alpha_j}\Tr \qty(\dyad{\beta_k}{\beta_l}),
 	\label{eq:part_trace-def}
 \end{align}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
-y $\ket{\beta_j}$ del resto del espacio de Hilbert total\cpnote{Para que esta
+y $\ket{\beta_j}$ del resto del espacio de Hilbert total. Ya que la operación
+de traza es una operación lineal la traza parcial también lo es. \cpnote{Para que esta
 definición esté completa, también tienes que decir que la traza parcial 
-es lineal}. En sistemas 
+es lineal} \janote{De acuerdo. Hecho}
+En sistemas 
 multipartitos la traza parcial es la traza sobre 
 todos los grados de libertad del sistema excepto los de alguno de los 
 subsistemas que lo compone.
@@ -404,128 +437,105 @@ canales cuánticos.
 
 % }}}
 \section{Canales cuánticos}\label{sec:qtm-channels} % {{{
-\esqueleto{Tomé de base el texto de canales cuánticos del informe 
-de prácticas, lo traté de resumir e iteré la redacción de varias cosas.}
+%\esqueleto{Tomé de base el texto de canales cuánticos del informe 
+%de prácticas, lo traté de resumir e iteré la redacción de varias cosas.}
+\janote{\h{Léeme} Había muchas cosas que había que reescribir en esta 
+sección, reescribí un 70-80$\%$. Las ideas son las mismas, pero 
+mejor redacción. Por consiguiente, sería mejor si vuelves a revisar 
+toda la sección y no sólo revisar los comentarios que me dejaste.}
 
 Los canales cuánticos son una de las alternativas para describir cómo
-evolucionan los sistemas cuánticos abiertos utilizando la matriz de densidad
+evolucionan los sistemas cuánticos abiertos.
 \cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
-una matriz de densidad, en general, se sobreentiende}.
-Un canal cuántico $\E$ es un mapeo afín de matrices de densidad y una
-operación completamente positiva~\cite{bengtsson_zyczkowski_2017}\cpnote{Oye porque 
-tiene que ser afin? ME gustaría que me contaras mas en detalle}.
-Que un canal cuántico sea un mapeo afín significa que es un mapeo 
-que preserva las propiedades de las matrices de densidad. Por otro lado,
-para entender qué es la completa positividad y qué implica esto para la 
-evolución dinámica de los estados cuánticos vamos a elaborar en 
-esta sección un ejemplo de una operación que actúa sobre una partícula
-de espín 1/2 antes de definir formalmente la completa positividad.
-
-Un canal cuántico $\E$ es una operación que actúa sobre un estado 
-cuántico $\rho$ como
+una matriz de densidad, en general, se sobreentiende} \janote{Entendido}
+Un canal cuántico $\E$ es una operación lineal que transforma matrices
+de densidad en matrices de densidad y que es
+completamente positiva~\cite{bengtsson_zyczkowski_2017},
+\cpnote{Oye porque 
+tiene que ser afin? ME gustaría que me contaras mas en detalle} 
+\janote{Porque estaba confundiendo las cosas jeje. Está mal decir 
+que es un mapeo afín. Yo estaba asociando mal ser afín con mapear
+matrices de densidad en matrices de densidad. Revisé el GofQS y aclaré
+que un mapeo afín es otra cosa. Reformulé el enunciado anterior y posterior
+a este comentario donde utilizaba `mapeo afín'.}
+%Un canal cuántico de preservar las propiedades de las matrices de densidad.
+%Por otro lado, para entender qué es la completa positividad 
+%y qué implica esto para la evolución dinámica de los estados 
+%cuánticos vamos a elaborar en esta sección un ejemplo de 
+%una operación que actúa sobre una partícula de espín 1/2 
+%antes de definir formalmente la completa positividad.
+$\E$ actúa sobre un estado cuántico $\rho$ como
 \begin{align} \label{eq:E(rho)}
 \rho' = \E (\rho).
 \end{align} 
-$\E$ debe ser una operación lineal 
+Un canal cuántico $\E$ es una operación lineal 
 que preserva las características de la matriz de densidad: (1) traza
-unitaria y (2) positividad. Sin embargo, esto no es suficiente para
-que $\E$ describa una evolución física. Consideremos un sistema 
-total que se compone de un subsistema principal $P$ (el sistema 
-cuántico que nos interesa estudiar) y un subsistema secundario $S$
-(cualquier otro sistema con el que el subsistema principal pueda 
-interaccionar). Nuestro objetivo es estudiar la dinámica de $\rho^P$,
-la matriz de densidad de $P$, y vamos a suponer que el 
-estado de $S$ no lo conocemos \textit{a priori} \cpnote{a priori va separado, ya lo 
-cambié}
-o que sencillamente no nos interesa. La condición de completa positividad
-se hace necesaria de imponer sobre $\E$ cuando consideramos que
-el sistema total podría encontrarse en un estado entrelazado  
-$\rho^{\text{total}}\neq \rho^P\ot\rho^S$\cpnote{aguas}. 
-Esta condición asegura que aún las matrices de densidad
-de estados entrelazados preservarán las propiedades de traza unitaria
-y positividad.
+unitaria y (2) positividad. Sin embargo, para que una evolución física 
+de $\rho$ sea descrita por $\E$ es necesario que, además, sea una  
+operación completamente positiva. Supongamos que vamos a estudiar 
+la dinámica de un sistema $P$, que hace parte de un sistema compuesto
+junto con un \textit{ancilla} $S$. Vamos a considerar que el 
+estado del \textit{ancilla} no lo conocemos \textit{a priori} o que 
+sencillamente no nos interesa. La condición de completa positividad
+sobre $\E$ se hace necesariar de imponer para que, aún cuando
+el sistema total se encuentre en un estado entrelazado,
+la extensión del canal cuántico que actúa sobre el 
+sistema compuesto preservará la positividad de 
+la matriz de densidad.
 
 \cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
 y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
-la promesa anterior y acá explicar}
-Elaboremos un ejemplo concreto de una operación que transforma
-un estado entrelazado en algo que no representa a un estado físico. 
-Vamos a considerar la operación lineal $\E_z$ de 1 qubit (partícula
-de espín 1/2) que mapea la bola de Bloch a un disco perpendicular 
-al eje $z$ (\Fref{fig:qtm-op-motivation}). 
-Seguidamente veremos que $\E_z \ot\1$ no preserva la
-positividad del estado máximamente entrelazado de 2 qubits (estado de Bell).
+la promesa anterior y acá explicar} \janote{Fue esto lo que empecé a 
+corregir y mejor terminé reescribiendo casi toda la sección.}
 
-Para escribir a la matriz de densidad utilizaremos 
-la base de productos tensoriales de las matrices de Pauli
-$\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
-con $\sigma_0=\1$ y los subíndices $1,2$ y $3$ son nada más 
-una etiqueta $x$, $y$ y $z$, respectivamente.
-Las matrices de densidad para 1 y 2 qubits se 
-escriben como~\cite{nielsen_chuang_2011}
+Para exponer en una manera más concreta la necesidad de 
+que un canal cuántico sea una operación completamente 
+positiva vamos a elaborar un ejemplo de una operación 
+que no transforma a un estado entrelazado en 
+un estado físico. La operación que consideraremos 
+actúa sobre partículas de espín 1/2, i.e. sistemas cuánticos de
+dos niveles. En computación e información cuántica
+se conoce a estos sistemas como qubits. Una manera
+de escribir a la matriz de densidad de 1 qubit es
 \begin{align}
-\rho^1&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
-& 
-\rho^2&=\frac{1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
-\label{eq:densityMatrices_1and2Qubits}
+\rho&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
+\label{eq:rho-1qubit}
 \end{align}
-\cpnote{La notacion $\rho^2$ parece un cuadrado. No me gusta la redacción ni la
-nueva notacion. quizá algo como $\rho^{[2]}$ o algo asi}
-donde imponemos que $r_0=r_{00}=1$ para preservar 
-la traza unitaria. Las componentes $r_i$ y $r_{ij}$ son las proyecciones 
-de la matriz de densidad sobre los elementos de la base de productos 
-tensoriales de las matrices de Pauli. En particular para 1 qubit, 
-las componentes $r_x, r_y$ y $r_z$ de $\rho^1$ definen 
-las componentes rectangulares de un punto en la bola \cpnote{Nos refereimos a ella
-normalmente como la esfera de bloch. Sugiero cambiarlo en todas partes} de Bloch.
-La bola de Bloch es una bola unitaria que se utiliza para 
-representar geométricamente a los estados de 1 qubit
-(ver \Fref{fig:qtm-op-motivation}). De esta manera, con la bola de 
-Bloch tenemos una forma de asociar una representación geométrica 
-con la matriz de densidad de 1 qubit en 
-\eqref{eq:densityMatrices_1and2Qubits}.
-
-La acción de $\E_z$ la podemos entender estudiando cómo transforma
-a la matriz de densidad $\rho^1$ en
-\eqref{eq:densityMatrices_1and2Qubits}.
-En términos de las componentes $r_i$ la operación $\E_z$ 
-transforma a $\rho^1$ de la siguiente manera
+donde $\sigma_0=\1$ y el resto de $\sigma_i$ las 3 matrices de Pauli.
+Imponemos que $r_0=1$ para que $\Tr(\rho)=1$.
+Esta forma de escribir a la matriz de densidad de 1 qubit es útil porque
+las componentes $r_1$, $r_2$ y $r_3$ especifican las coordenadas 
+cartesianas de un punto en la esfera de Bloch, esfera unitaria que 
+se utiliza para representar a los estados de 1 qubit. Similarmente, 
+la matriz de densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
+\begin{align}\label{eq:rho-2qubits}
+\rho=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
+\end{align}
+con $r_{00}=1$.
+Consideremos ahora la operación lineal $\E_z$ de 1 qubit
+que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
+como se muestra en la \Fref{fig:qtm-op-motivation}. 
+En términos de las componentes $r_i$, la operación $\E_z$ 
+transforma a una matriz de densidad $\rho$ como en 
+\eqref{eq:rho-1qubit} de la siguiente manera
 \begin{align}
-\qty(1,r_x,r_y,r_z)\mapsto\qty(1,r_x,r_y,0).
+\qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0).
 \end{align}
-En la \Fref{fig:qtm-op-motivation} mostramos que $\E_z$ transforma 
-geométricamente a la bola de Bloch deformándola a un disco
-unitario sobre el plano $x$-$y$. Aunque podemos revisar explícitamente 
-que las propiedades de traza unitaria y positividad de $\rho^1$ 
-se preservan, también podemos argumentar, utilizando la representación
-geométrica, que dado que el disco final se contiene en la bola de Bloch 
-las propiedades de $\rho^1$ se preservan.
-Sin embargo, veremos a continuación que la acción de $\E_z\ot \1$ 
+Aunque podemos revisar explícitamente que las propiedades 
+de traza unitaria y positividad de $\rho$ en \eqref{eq:rho-1qubit}
+se preservan, también podemos argumentar geométricamente
+que, dado que el disco final se contiene en la esfera de Bloch, 
+las propiedades de la matriz de densidad de 1 qubit se preservan.
+Sin embargo, veremos que la acción de $\E_z\ot \1$ 
 sobre el estado máximamente entrelazado de 2 qubits 
 se transforma en una matriz no positiva.
 
-\begin{figure}% {{{
-\centering
-\begin{minipage}{.4\textwidth}
-\centering
-\includegraphics[width=5cm]{bloch.png}
-\end{minipage}
-$\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=6cm]{DiskXY}
-\end{minipage}
-\caption{
-Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
-\label{fig:qtm-op-motivation}
-\end{figure} % }}}
-
 El estado máximamente entrelazado de 2 qubits es
 $\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
-Como conocemos cómo transforma $\E_z$ a la matriz de densidad 
-escrita en la base de Pauli será necesario calcular 
-la representación de $\dyad{\phi}{\phi}$ en esa base para 
-luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})•$.
+Ya conocemos cómo transforma $\E_z$ a la matriz de densidad 
+escrita en la base de matrices de Pauli será necesario calcular 
+la representación de $\dyad{\phi}{\phi}$ en la forma de \eqref{eq:rho-2qubits}
+para luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})•$.
 Las componentes $r_{ij}$ se calculan usando el producto interno
 de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
 Así encontramos 
@@ -533,17 +543,22 @@ Así encontramos
 \dyad{\phi}{\phi}=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
 \end{align}
-
-Ya que $\E_z$ borra la componente en $r_z$ de $\rho^1$ inferimos 
-que la acción de $\E_z\otimes\1$ sobre $\rho^2$ borra 
-las componentes de la forma $r_{3j}$\cpnote{Esto no me parece obvio. creo que 
+Recordemos que $\E_z$ borra la componente en $r_3$ de la
+matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
+Al calcular el superoperador $\E_z\ot  \1$, representación de 
+un canal cuántico que veremos en la próxima sección, se encuentra
+que la acción de $\E_z\otimes\1$ sobre la matriz de densidad de 2 qubits,
+escrita como en \eqref{eq:rho-2qubits}, es borrar 
+las componentes de la forma $r_{3j}$,
+\cpnote{Esto no me parece obvio. creo que 
 toca argumentarlo un poco mejor. o decir qeu uno lo puede probar usando matrices
-y extensiones.}, por consiguiente
+y extensiones.} \janote{De acuerdo, mejor?}
+por consiguiente
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
 \end{align}
-y en su forma matricial se escribe
+que al calcular su representación matricial se tiene
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
 \mqty( 
@@ -560,10 +575,10 @@ En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$
 no representa a un estado físico de 2 qubits.
 Se dice que $\E_z$ no es una operación completamente 
 positiva porque existe un estado en el espacio extendido de 2 qubits para 
-el cual la extensión $\E_z\ot \1$ no es un mapeo afín de 
-matrices de densidad \cpnote{aguas}. Acabamos de mostrar que la condición de completa
+el cual la extensión $\E_z\ot \1$ no preserva la positividad del estado. 
+Acabamos de mostrar que la condición de completa
 positividad surge de la posibilidad que un sistema tiene de encontrarse 
-en un estado entrelazado con otro sistema secundario\cpnote{A veces nos
+en un estado entrelazado con un \textit{ancilla}\cpnote{A veces nos
 referimos a este sistema como auxiliar o ancilla, quiza en italicas, checa a ver 
 como va}.
 
@@ -587,9 +602,140 @@ La teoría de los canales cuánticos se puede utilizar para
 describir la evolución dinámica de los sistemas abiertos 
 utilizando su matriz de densidad para representar a los estados cuánticos
 \cpnote{esto ya lo habias dicho en la intro. no le veo sentido en reperitlo 
-aca de manera tan escueta}.
+aca de manera tan escueta} \janote{Entonces mejor borrarla. O 
+sería bueno escribir algo más?}.
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
+
+
+%Para escribir a la matriz de densidad utilizaremos 
+%la base de productos tensoriales de las matrices de Pauli
+%$\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
+%con $\sigma_0=\1$ y los subíndices $1,2$ y $3$ son nada más 
+%una etiqueta $x$, $y$ y $z$, respectivamente.
+%Las matrices de densidad para 1 y 2 qubits se 
+%escriben como~\cite{nielsen_chuang_2011}
+%\begin{align}
+%\tilde{\rho}&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
+%& 
+%\tilde{\varrho}&=\frac{1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
+%\label{eq:densityMatrices_1and2Qubits}
+%\end{align}
+%\cpnote{La notacion $\rho^2$ parece un cuadrado. No me gusta la redacción ni la
+%nueva notacion. quizá algo como $\rho^{[2]}$ o algo asi}
+%
+%
+%
+%donde imponemos que $r_0=r_{00}=1$ para preservar 
+%la traza unitaria. Las componentes $r_i$ y $r_{ij}$ son las proyecciones 
+%de la matriz de densidad sobre los elementos de la base de productos 
+%tensoriales de las matrices de Pauli. En particular para 1 qubit, 
+%las componentes $r_x, r_y$ y $r_z$ de $\rho^1$ definen 
+%las componentes rectangulares de un punto en la bola \cpnote{Nos refereimos a ella
+%normalmente como la esfera de bloch. Sugiero cambiarlo en todas partes} de Bloch.
+%La esfera de Bloch es una bola unitaria que se utiliza para 
+%representar geométricamente a los estados de 1 qubit
+%(ver \Fref{fig:qtm-op-motivation}). De esta manera, con la bola de 
+%Bloch tenemos una forma de asociar una representación geométrica 
+%con la matriz de densidad de 1 qubit en 
+%\eqref{eq:densityMatrices_1and2Qubits}.
+
+%\m Consideremos un sistema 
+%total que se compone de un subsistema principal $P$ (el sistema 
+%cuántico que nos interesa estudiar) y un subsistema secundario $S$
+%(cualquier otro sistema con el que el subsistema principal pueda 
+%interaccionar). Nuestro objetivo es estudiar la dinámica de $\rho^P$,
+%la matriz de densidad de $P$, y vamos a suponer que el 
+%estado de $S$ no lo conocemos \textit{a priori}
+%o que sencillamente no nos interesa. La condición de completa positividad
+%se hace necesaria de imponer sobre $\E$ cuando consideramos que
+%el sistema total podría encontrarse en un estado entrelazado  
+%$\rho^{\text{total}}\neq \rho^P\ot\rho^S$\cpnote{aguas}. 
+%Esta condición asegura que aún las matrices de densidad
+%de estados entrelazados preservarán las propiedades de traza unitaria
+%y positividad. 
+%
+%La acción de $\E_z$ la podemos entender estudiando cómo transforma
+%a la matriz de densidad $\rho^1$ en
+%\eqref{eq:densityMatrices_1and2Qubits}.
+%En términos de las componentes $r_i$ la operación $\E_z$ 
+%transforma a $\rho^1$ de la siguiente manera
+%\begin{align}
+%\qty(1,r_x,r_y,r_z)\mapsto\qty(1,r_x,r_y,0).
+%\end{align}
+%En la \Fref{fig:qtm-op-motivation} mostramos que $\E_z$ transforma 
+%geométricamente a la esfera de Bloch deformándola a un disco
+%unitario sobre el plano $x$-$y$. Aunque podemos revisar explícitamente 
+%que las propiedades de traza unitaria y positividad de $\rho^1$ 
+%se preservan, también podemos argumentar, utilizando la representación
+%geométrica, que dado que el disco final se contiene en la esfera de Bloch 
+%las propiedades de $\rho^1$ se preservan.
+%Sin embargo, veremos a continuación que la acción de $\E_z\ot \1$ 
+%sobre el estado máximamente entrelazado de 2 qubits 
+%se transforma en una matriz no positiva.
+%
+%\begin{figure}% {{{
+%\centering
+%\begin{minipage}{.4\textwidth}
+%\centering
+%\includegraphics[width=5cm]{bloch.png}
+%\end{minipage}
+%$\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
+%\begin{minipage}{0.4\textwidth}
+%\centering
+%\includegraphics[width=6cm]{DiskXY}
+%\end{minipage}
+%\caption{
+%Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+%\label{fig:qtm-op-motivation}
+%\end{figure} % }}}
+%
+%El estado máximamente entrelazado de 2 qubits es
+%$\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
+%Como conocemos cómo transforma $\E_z$ a la matriz de densidad 
+%escrita en la base de Pauli será necesario calcular 
+%la representación de $\dyad{\phi}{\phi}$ en esa base para 
+%luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})•$.
+%Las componentes $r_{ij}$ se calculan usando el producto interno
+%de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
+%Así encontramos 
+%\begin{align}
+%\dyad{\phi}{\phi}=
+%\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
+%\end{align}
+%
+%Ya que $\E_z$ borra la componente en $r_z$ de $\rho^1$ inferimos 
+%que la acción de $\E_z\otimes\1$ sobre $\rho^2$ borra 
+%las componentes de la forma $r_{3j}$\cpnote{Esto no me parece obvio. creo que 
+%toca argumentarlo un poco mejor. o decir qeu uno lo puede probar usando matrices
+%y extensiones.}, por consiguiente
+%\begin{align}
+%\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
+%\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
+%\end{align}
+%y en su forma matricial se escribe
+%\begin{align}
+%\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
+%\mqty( 
+%\frac{1}{4} & 0 & 0 & \frac{1}{2} \\
+%0 & \frac{1}{4} & 0 & 0 \\
+%0 & 0 & \frac{1}{4} & 0 \\
+%\frac{1}{2} & 0 & 0 & \frac{1}{4} \\
+%).
+%\end{align}
+%La matriz  $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ tiene un 
+%eigenvalor igual a $-1/4$ y por lo tanto no satisface la condición 
+%de positividad para ser una matriz de densidad.  
+%En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
+%no representa a un estado físico de 2 qubits.
+%Se dice que $\E_z$ no es una operación completamente 
+%positiva porque existe un estado en el espacio extendido de 2 qubits para 
+%el cual la extensión $\E_z\ot \1$ no es un mapeo afín de 
+%matrices de densidad \cpnote{aguas}. Acabamos de mostrar que la condición de completa
+%positividad surge de la posibilidad que un sistema tiene de encontrarse 
+%en un estado entrelazado con otro sistema secundario\cpnote{A veces nos
+%referimos a este sistema como auxiliar o ancilla, quiza en italicas, checa a ver 
+%como va}. \m
 
 
 % }}}
