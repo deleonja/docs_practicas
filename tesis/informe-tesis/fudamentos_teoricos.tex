@@ -195,14 +195,14 @@ formular los postulados de la mecánica cuántica con la matriz de densidad.
 
 % }}}
 \section{Propiedades de la matriz de densidad} % {{{
-\cpnote{Aca voy. Lo anterior ya queda listo}
+% \cpnote{Aca voy. Lo anterior ya queda listo}
 \label{sec:density-matrices-properties}
-\esqueleto{Revisando esta sección en el informe de prácticas 
-veo que me gustaría ir aquí más al grano y mandar al lector 
-a las pruebas en el Chuang (para no copiar otra vez las pruebas
-aquí). Puntualizaré: (1) caracterización de la matriz de densidad, (2)
-postulados de la mecánica cuántica usando la matriz de densidad y
-(3) matriz de densidad reducida.}
+% \esqueleto{Revisando esta sección en el informe de prácticas 
+% veo que me gustaría ir aquí más al grano y mandar al lector 
+% a las pruebas en el Chuang (para no copiar otra vez las pruebas
+% aquí). Puntualizaré: (1) caracterización de la matriz de densidad, (2)
+% postulados de la mecánica cuántica usando la matriz de densidad y
+% (3) matriz de densidad reducida.}
 
 
 A pesar de que contamos con la definición \eqref{eq:rho_def} de 
@@ -213,11 +213,12 @@ para revisar la formulación de los postulados de la mecánica cuántica
 utilizando la matriz de densidad. Por último, vamos a estudiar la
 matriz de densidad reducida, la manera para describir a los
 subsistemas de sistemas compuestos con el formalismo 
-de la matriz de densidad.\cpnote{La matriz de densidad es una
-matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
-quieras referir a la traza parcial?}\janote{No. Me refiero a una 
-aplicación del formalismo de la matriz de densidad. Reformulé 
-esa frase.}
+de la matriz de densidad.
+% \cpnote{La matriz de densidad es una
+% matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
+% quieras referir a la traza parcial?}\janote{No. Me refiero a una 
+% aplicación del formalismo de la matriz de densidad. Reformulé 
+% esa frase.}
 
 Las propiedades que una matriz debe tener para que esta represente al 
 estado físico de un sistema se establecen a continuación
@@ -241,11 +242,12 @@ matriz de densidad definen a uno de los posibles ensambles de estados
 $\{\lambda_i, \ket{\psi_i} \}$ del sistema. Entonces,
 la condición de positividad de la matriz de densidad asegura que las
 probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
-son cero o positivas, como esperaríamos que fuese. \cpnote{Siengo que la notación
-$A\ge 0$ no es obvia. Quizá quieras decir en este párrafo que es. Lo dices 
-implicitamente, pero creo qe hay que ser tantito mas explicito.}\janote{Qué
-tal mejor sólo modificar la notación para la positividad en el teorema 1.3.1
-así como lo hice?}
+son cero o positivas, como esperaríamos que fuese. 
+% \cpnote{Siengo que la notación
+% $A\ge 0$ no es obvia. Quizá quieras decir en este párrafo que es. Lo dices 
+% implicitamente, pero creo qe hay que ser tantito mas explicito.}\janote{Qué
+% tal mejor sólo modificar la notación para la positividad en el teorema 1.3.1
+% así como lo hice?}
 
 Ahora que que ya contamos con una definición de la matriz de densidad 
 que no parte de conocer \textit{apriori} el ensamble de estados del sistema
@@ -295,33 +297,33 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 	densidad que actúan sobre $\hi _{\text{total}}$.
 \end{itemize}
 
-Respecto al último postulado debemos resaltar que no todos 
-los estados del sistema total son de la forma $\rho=\rho_1
-\ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
-total son factorizables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
-los factorizables, los separables y los enlazados. Siento que no conoces la diferencia 
-entre los primeros dos. Hablamos y corriges este parrafo por favor}
-\janote{Ve directo al siguiente comentario}, pues el
-conjunto de los estados del sistema total también está compuesto por estados 
-no factorizables, también llamados entrelazados.
-Son justo los estados entrelazados los que conducen a hacernos preguntas
-como ¿cuál es el estado en el que se encuentra sólo una parte del sistema total?
-Seremos más claros con un ejemplo. Si un sistema bipartito 
-se encuentra en un estado factorizable $\rho\ot \sigma$ sabemos 
-que una parte del sistema se encuentra en el estado $\rho$ y la otra 
-en el estado $\sigma$. No obstante, ¿cuál es el estado
-de bipartición del sistema cuando el estado total es uno entrelazado
-($\rho_{\text{total}}\neq\rho\ot \sigma$)? O,
-al menos, es deseable conocer cuál es la información accesible 
-para un observable de sólo una parte del sistema. Para responder a 
-estas preguntas revisaremos en lo que resta de esta sección
-la matriz de densidad reducida. Esta aplicación de la matriz de densidad 
-proporciona una herramienta para la descripción de subsistemas 
-de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
-\cpnote{Creo que igual este párrafo sobra. De nuevo, lo platicamos}
-\janote{Quisiera mantenerlo porque hace una transición de hablar 
-de los postulados a la matriz de densidad reducida. Lo iteré y es 
-el párrafo nuevo que le sigue a este comentario:}
+% Respecto al último postulado debemos resaltar que no todos 
+% los estados del sistema total son de la forma $\rho=\rho_1
+% \ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
+% total son factorizables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
+% los factorizables, los separables y los enlazados. Siento que no conoces la diferencia 
+% entre los primeros dos. Hablamos y corriges este parrafo por favor}
+% \janote{Ve directo al siguiente comentario}, pues el
+% conjunto de los estados del sistema total también está compuesto por estados 
+% no factorizables, también llamados entrelazados.
+% Son justo los estados entrelazados los que conducen a hacernos preguntas
+% como ¿cuál es el estado en el que se encuentra sólo una parte del sistema total?
+% Seremos más claros con un ejemplo. Si un sistema bipartito 
+% se encuentra en un estado factorizable $\rho\ot \sigma$ sabemos 
+% que una parte del sistema se encuentra en el estado $\rho$ y la otra 
+% en el estado $\sigma$. No obstante, ¿cuál es el estado
+% de bipartición del sistema cuando el estado total es uno entrelazado
+% ($\rho_{\text{total}}\neq\rho\ot \sigma$)? O,
+% al menos, es deseable conocer cuál es la información accesible 
+% para un observable de sólo una parte del sistema. Para responder a 
+% estas preguntas revisaremos en lo que resta de esta sección
+% la matriz de densidad reducida. Esta aplicación de la matriz de densidad 
+% proporciona una herramienta para la descripción de subsistemas 
+% de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
+% \cpnote{Creo que igual este párrafo sobra. De nuevo, lo platicamos}
+% \janote{Quisiera mantenerlo porque hace una transición de hablar 
+% de los postulados a la matriz de densidad reducida. Lo iteré y es 
+% el párrafo nuevo que le sigue a este comentario:}
 
 Debemos resaltar que aunque el espacio de Hilbert de muchas partículas 
 es de la forma \eqref{eq:postulado4} no todas las matrices de densidad
@@ -336,7 +338,7 @@ Por esta razón, para averiguar cómo describir a los subsistemas con
 el formalismo de la matriz de densidad es que vamos a revisar a continuación
 cómo introducir la matriz de densidad reducida utilizando una herramienta
 conocida como la traza parcial \cite{nielsen_chuang_2011}. 
-\janote{Si este párrafo te pareció bien habría que borrar el anterior.}
+% \janote{Si este párrafo te pareció bien habría que borrar el anterior.}
 
 
 
@@ -369,13 +371,13 @@ $\expval{\Omega_A\ot \1}$, utilizando~\eqref{eq:Tr(rhoLambda)},~es
 	\matrixel{\psi_k}{\Omega_A}{\psi_i}\delta _{lj}\nonumber\\
 	&= \sum_{i,k}\qty(\sum _j 
 	\bra{\psi_i} \bra{\phi_j}\rho^{AB}\ket{\psi_k} \ket{\phi_j})
-	\matrixel{\psi_k}{\Omega_A}{\psi_i},
+	\matrixel{\psi_k}{\Omega_A}{\psi_i}.
 	\label{eq:almost-reducedRho}
 \end{align}
-donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$\cpnote{Esto
-es mas bien una definicipon que de hecho puedes hacer más arriba}
-\janote{Listo. Lo definí después de la ecuación 1.13. Si te parece bien 
-porfa lo que sigue aquí}.
+% donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$\cpnote{Esto
+% es mas bien una definicipon que de hecho puedes hacer más arriba}
+% \janote{Listo. Lo definí después de la ecuación 1.13. Si te parece bien 
+% porfa lo que sigue aquí}.
 La matriz entre paréntesis define a la matriz de densidad
 reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}
@@ -421,7 +423,7 @@ donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
 y $\ket{\beta_j}$ del resto del espacio de Hilbert total. Ya que la operación
 de traza es una operación lineal la traza parcial también lo es. \cpnote{Para que esta
 definición esté completa, también tienes que decir que la traza parcial 
-es lineal} \janote{De acuerdo. Hecho}
+es lineal} \janote{De acuerdo. Hecho} \cpnote{Nel, aun no jala.}
 En sistemas 
 multipartitos la traza parcial es la traza sobre 
 todos los grados de libertad del sistema excepto los de alguno de los 
@@ -446,18 +448,18 @@ toda la sección y no sólo revisar los comentarios que me dejaste.}
 
 Los canales cuánticos son una de las alternativas para describir cómo
 evolucionan los sistemas cuánticos abiertos.
-\cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
-una matriz de densidad, en general, se sobreentiende} \janote{Entendido}
+% \cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
+% una matriz de densidad, en general, se sobreentiende} \janote{Entendido}
 Un canal cuántico $\E$ es una operación lineal que transforma matrices
 de densidad en matrices de densidad y que es
 completamente positiva~\cite{bengtsson_zyczkowski_2017},
-\cpnote{Oye porque 
-tiene que ser afin? ME gustaría que me contaras mas en detalle} 
-\janote{Porque estaba confundiendo las cosas jeje. Está mal decir 
-que es un mapeo afín. Yo estaba asociando mal ser afín con mapear
-matrices de densidad en matrices de densidad. Revisé el GofQS y aclaré
-que un mapeo afín es otra cosa. Reformulé el enunciado anterior y posterior
-a este comentario donde utilizaba `mapeo afín'.}
+% \cpnote{Oye porque 
+% tiene que ser afin? ME gustaría que me contaras mas en detalle} 
+% \janote{Porque estaba confundiendo las cosas jeje. Está mal decir 
+% que es un mapeo afín. Yo estaba asociando mal ser afín con mapear
+% matrices de densidad en matrices de densidad. Revisé el GofQS y aclaré
+% que un mapeo afín es otra cosa. Reformulé el enunciado anterior y posterior
+% a este comentario donde utilizaba `mapeo afín'.}
 %Un canal cuántico de preservar las propiedades de las matrices de densidad.
 %Por otro lado, para entender qué es la completa positividad 
 %y qué implica esto para la evolución dinámica de los estados 
@@ -482,6 +484,8 @@ el sistema total se encuentre en un estado entrelazado,
 la extensión del canal cuántico que actúa sobre el 
 sistema compuesto preservará la positividad de 
 la matriz de densidad.
+\cpnote{Oye, la redaccion de este parrafo está horrible. Dale una iterada nueva, 
+descansado a la 1.4 por favor y me avisas}.
 
 \cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
 y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
