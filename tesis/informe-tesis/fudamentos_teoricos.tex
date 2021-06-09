@@ -1,7 +1,5 @@
 \chapter{FUNDAMENTOS TEÓRICOS}
 \section{Introducción} % {{{
-% \janote{Iteración v2 de la introducción:}
-
 El estudio de los sistemas cuánticos cerrados, es decir sistemas que no
 interactúan con su entorno, nos ha permitido entender bastante bien muchos
 fenómenos cuánticos. No obstante, una descripción más precisa 
@@ -30,37 +28,8 @@ física de la matriz de densida. Por último, en la sección
 \ref{sec:qtm-channels-representation}, vamos a estudiar 
 la representación de superoperador y de Kraus de un canal cuántico.
 
-
-% \m Para estudiar las operaciones de Pauli que borran componentes (PCE)
-% se necesitan herramientas matemáticas para describir a los estados 
-% cuánticos y su evolución dinámica\cpnote{Me parece una forma mala de abrir la tesis. 
-% La gente no sabe que es eso. Supongo que lo introduciras más adelante. Yo sugeririra
-% quitar ese término (PCE) y rediseñar estas primeras dos frases. Quizá 
-% mejor motivalo desde los sistemas abiertos o desde mediciones que es el objeto 
-% fundamental de nuestro estudio. Marcame todo el párrafo para revisar cuando lo iteres.}. 
-% \janote{Hecho. Iteré arriba los dos párrafos de intro. Lo encerrado entre 
-% las marcas \m \m son los párrafos viejos.}
-% Nuestro interés en el problema de 
-% las operaciones PCE se enfoca para los sistemas cuánticos abiertos, 
-% sistemas que interaccionan con otro sistema externo. Por ello recurrimos
-% a la teoría de los canales cuánticos como marco teórico para estudiar 
-% la dinámica. En este marco teórico los estados cuánticos se representan
-% por medio de su matriz de densidad, un formalismo distinto pero equivalente
-% al del vector de estado. Estas dos herramientas cuentan con las características 
-% necesarias para analizar el problema de las operaciones que borran
-% componentes de Pauli de la matriz de densidad de un sistema de qubits.
-% 
-% La estructura de este capítulo es la siguiente. En la sección \ref{sec:ensambles}
-% vamos a presentar la motivación física que conduce a introducir
-% la matriz de densidad. La caracterización, una reformulación de los 
-% postulados de la mecánica cuántica y una de las aplicaciones más 
-% importantes de la matriz de densidad lo presentamos en la sección
-% \ref{sec:density-matrices-properties}. Por último, 
-% en las secciones \ref{sec:qtm-channels}
-% y \ref{sec:qtm-channels-representation} presentamos la teoría de los
-% canales cuánticos y dos formas en las que se puede representar
-% a un canal cuántico, respectivamente.\m
 % }}}
+
 \section{Ensambles de estados cuánticos} \label{sec:ensambles} % {{{
 % \esqueleto{Un copy-paste de la sección 1.1 del informe final de 
 % prácticas. Voy a retocar alguna parte si fuera necesario, como ser
@@ -386,8 +355,7 @@ reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 	\label{eq:reducedRho-def1}
 \end{align}
 y retomando el cálculo de $\expval{\Omega_A\ot \1}$
-en \eqref{eq:almost-reducedRho} se obtiene, en función 
-de $\rho^A$,
+en \eqref{eq:almost-reducedRho} se obtiene, en función de $\rho^A$,
 \begin{align}
 	\Tr \qty(\rho^{AB}\qty(\Omega_A\ot \mathbb{1}))&= \sum _{i,k}\nonumber
 	\matrixel{\psi_i}{\rho^A}{\psi_k} \matrixel{\psi_k}{\Omega_A}{\psi_i}
@@ -397,22 +365,25 @@ de $\rho^A$,
 \end{align}
 Notemos la similitud de este resultado con el que se obtuvo en la ecuación
 \eqref{eq:Tr(rhoLambda)}. El valor esperado de un observable que actúa 
-sobre un subsistema que forma parte de un sistema compuesto puede 
-calcularse si la matriz de densidad reducida se conoce.
+sobre sólo uno de los subsistemas puede calcularse con su matriz de 
+densidad reducida.
 
-Ahora que mostramos la utilidad que puede tener la matriz de densidad
-reducida vamos a discutir con más detalle la operación que la define en
-\eqref{eq:reducedRho-def1}. 
-Esta operación se llama la traza parcial y se conoce como parcial 
-porque únicamente se realiza la operación de traza sobre un subsistema, 
-es decir
+Ya que mostramos la utilidad que puede tener la matriz de densidad
+reducida, ahora vamos a discutir con detalle la operación que 
+la define en \eqref{eq:reducedRho-def1}. 
+Esta operación se conoce como traza parcial. El adjetivo `parcial'
+es porque la operación de traza se realiza sólo sobre los grados 
+de libertad de alguno de los subsistemas. En la ecuación 
+\eqref{eq:reducedRho-def1} denotamos a la matriz de densidad 
+reducida $\rho^A$ como la traza parcial sobre $B$ de $\rho^{AB}$,
 \begin{align} 
 	\sum _j \bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_j}
 	&=\matrixel{\psi_i}{\Tr_B\qty(\rho^{AB})}{\psi_k}
 	= \matrixel{\psi_i}{\rho^A}{\psi_k}.
 	\label{eq:partialTrace-def}
 \end{align}
-En general, la definición de la traza parcial es \cite{nielsen_chuang_2011}
+En general, la traza parcial es una operación lineal
+que se define como~\cite{nielsen_chuang_2011}
 \begin{align}
 	\Tr_B (\dyad{\alpha_i}{\alpha_j}\otimes \dyad{\beta_k}{\beta_l})
 	\equiv
@@ -420,14 +391,10 @@ En general, la definición de la traza parcial es \cite{nielsen_chuang_2011}
 	\label{eq:part_trace-def}
 \end{align}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
-y $\ket{\beta_j}$ del resto del espacio de Hilbert total. Ya que la operación
-de traza es una operación lineal la traza parcial también lo es. \cpnote{Para que esta
+y $\ket{\beta_j}$ del resto del espacio de Hilbert total.\cpnote{Para que esta
 definición esté completa, también tienes que decir que la traza parcial 
-es lineal} \janote{De acuerdo. Hecho} \cpnote{Nel, aun no jala.}
-En sistemas 
-multipartitos la traza parcial es la traza sobre 
-todos los grados de libertad del sistema excepto los de alguno de los 
-subsistemas que lo compone.
+es lineal} \janote{De acuerdo. Hecho} \cpnote{Nel, aun no jala.} 
+\janote{Ahora sí? Fíjate cómo modifiqué la línea 210.}
 
 Ahora que contamos con las propiedades de la matriz de densidad, 
 los postulados reescritos con este formalismo y la aplicación de la matriz
@@ -446,13 +413,19 @@ sección, reescribí un 70-80$\%$. Las ideas son las mismas, pero
 mejor redacción. Por consiguiente, sería mejor si vuelves a revisar 
 toda la sección y no sólo revisar los comentarios que me dejaste.}
 
-Los canales cuánticos son una de las alternativas para describir cómo
-evolucionan los sistemas cuánticos abiertos.
+La teoría de los canales cuánticos es un marco teórico con el cual 
+se puede describir la evolución de los sistemas cuánticos abiertos.
+Un canal cuántico es una operación lineal que debe preservar las 
+propiedades de la matriz de densidad y que, cuando el sistema sea
+parte de un sistema más grande junto con un \textit{ancilla}, la
+extensión del canal que actúa sobre el sistema total debe también 
+de preservar la traza y positividad de la matriz de densidad total.
+
 % \cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
 % una matriz de densidad, en general, se sobreentiende} \janote{Entendido}
-Un canal cuántico $\E$ es una operación lineal que transforma matrices
-de densidad en matrices de densidad y que es
-completamente positiva~\cite{bengtsson_zyczkowski_2017},
+%Un canal cuántico $\E$ es una operación lineal que transforma matrices
+%de densidad en matrices de densidad y que es
+%completamente positiva~\cite{bengtsson_zyczkowski_2017},
 % \cpnote{Oye porque 
 % tiene que ser afin? ME gustaría que me contaras mas en detalle} 
 % \janote{Porque estaba confundiendo las cosas jeje. Está mal decir 
@@ -466,36 +439,40 @@ completamente positiva~\cite{bengtsson_zyczkowski_2017},
 %cuánticos vamos a elaborar en esta sección un ejemplo de 
 %una operación que actúa sobre una partícula de espín 1/2 
 %antes de definir formalmente la completa positividad.
-$\E$ actúa sobre un estado cuántico $\rho$ como
+Matemáticamente se escribe la acción de un canal cuántico $\E$ 
+sobre un estado $\rho$ como
 \begin{align} \label{eq:E(rho)}
-\rho' = \E (\rho).
+\rho' = \E (\rho),
 \end{align} 
-Un canal cuántico $\E$ es una operación lineal 
-que preserva las características de la matriz de densidad: (1) traza
-unitaria y (2) positividad. Sin embargo, para que una evolución física 
-de $\rho$ sea descrita por $\E$ es necesario que, además, sea una  
-operación completamente positiva. Supongamos que vamos a estudiar 
-la dinámica de un sistema $P$, que hace parte de un sistema compuesto
-junto con un \textit{ancilla} $S$. Vamos a considerar que el 
-estado del \textit{ancilla} no lo conocemos \textit{a priori} o que 
-sencillamente no nos interesa. La condición de completa positividad
-sobre $\E$ se hace necesariar de imponer para que, aún cuando
-el sistema total se encuentre en un estado entrelazado,
-la extensión del canal cuántico que actúa sobre el 
-sistema compuesto preservará la positividad de 
-la matriz de densidad.
-\cpnote{Oye, la redaccion de este parrafo está horrible. Dale una iterada nueva, 
-descansado a la 1.4 por favor y me avisas}.
+donde $\E$ es una operación lineal y $\rho'$ es una matriz de
+traza unitaria y positiva. Para que $\E$ sea un canal cuántico 
+se requiere tamebién que sea operación completamente positiva (CP). 
+Antes de enunciar una de las definiciones de la completa positividad
+vamos a elaborar un ejemplo con el objetivo de exponer mejor la 
+implicación física de esta condición.
 
-\cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
-y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
-la promesa anterior y acá explicar} \janote{Fue esto lo que empecé a 
-corregir y mejor terminé reescribiendo casi toda la sección.}
+%Supongamos que vamos a estudiar 
+%la dinámica de un sistema $P$, que hace parte de un sistema compuesto
+%junto con un \textit{ancilla} $S$. Vamos a considerar que el 
+%estado del \textit{ancilla} no lo conocemos \textit{a priori} o que 
+%sencillamente no nos interesa. La condición de completa positividad
+%sobre $\E$ se hace necesariar de imponer para que, aún cuando
+%el sistema total se encuentre en un estado entrelazado,
+%la extensión del canal cuántico que actúa sobre el 
+%sistema compuesto preservará la positividad de 
+%la matriz de densidad.
+%\cpnote{Oye, la redaccion de este parrafo está horrible. Dale una iterada nueva, 
+%descansado a la 1.4 por favor y me avisas}.
 
-Para exponer en una manera más concreta la necesidad de 
-que un canal cuántico sea una operación completamente 
-positiva vamos a elaborar un ejemplo de una operación 
-que no transforma a un estado entrelazado en 
+%\cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
+%y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
+%la promesa anterior y acá explicar} \janote{Fue esto lo que empecé a 
+%corregir y mejor terminé reescribiendo casi toda la sección.}
+
+El ejemplo que vamos a discutir es el de una operación lineal 
+que satisface \eqref{eq:E(rho)} pero que no es CP y, por consiguiente,
+la extensión de la operación sobre un sistema que interactúa con un 
+\textit{ancilla} no transforma al estado máximamente entrelazado en 
 un estado físico. La operación que consideraremos 
 actúa sobre partículas de espín 1/2, i.e. sistemas cuánticos de
 dos niveles. En computación e información cuántica
