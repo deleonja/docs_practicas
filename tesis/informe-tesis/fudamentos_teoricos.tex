@@ -462,10 +462,12 @@ implicación física de esta condición.
 %la promesa anterior y acá explicar} \janote{Fue esto lo que empecé a 
 %corregir y mejor terminé reescribiendo casi toda la sección.}
 
-El ejemplo que vamos a discutir es el de una operación lineal 
-que satisface \eqref{eq:E(rho)} \cpnote{no entiendo que quieres decir que
-no satisfaga 1.19\ldots quizá quieres decir que mapea estados a estados? O como?} pero que no es CP y, por consiguiente,
-la extensión de la operación sobre un sistema que interactúa con un 
+El ejemplo que vamos a discutir es el de una operación que actúa 
+sobre $\rho$ como en \eqref{eq:E(rho)} \cpnote{no entiendo que quieres decir que
+no satisfaga 1.19\ldots quizá quieres decir que mapea estados a estados? O como?} 
+\janote{Sí, eso quiero decir. Modifiqué el enunciado, quedó mejor?}
+pero que no es CP y, por consiguiente,
+la extensión de la operación que actúa sobre un sistema que interactúa con un 
 \textit{ancilla} no transforma al estado máximamente entrelazado en 
 un estado físico. La operación que consideraremos 
 actúa sobre partículas de espín 1/2, i.e. sistemas cuánticos de
@@ -489,13 +491,29 @@ la matriz de densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
 con $r_{00}=1$.
 Consideremos ahora la operación lineal $\E_z$ de 1 qubit
 que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
-como se muestra en la \Fref{fig:qtm-op-motivation}\cpnote{Creo que quitaste la figura}. 
+como se muestra en la \Fref{fig:qtm-op-motivation}.
+\cpnote{Creo que quitaste la figura}\janote{Listo. La agregué de nuevo.}
 En términos de las componentes $r_i$, la operación $\E_z$ 
 transforma a una matriz de densidad $\rho$ como en 
 \eqref{eq:rho-1qubit} de la siguiente manera
 \begin{align}
 \qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0).
 \end{align}
+\begin{figure}% {{{
+\centering
+\begin{minipage}{.4\textwidth}
+\centering
+\includegraphics[width=5cm]{bloch.png}
+\end{minipage}
+$\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics[width=6cm]{DiskXY}
+\end{minipage}
+\caption{
+Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
+\label{fig:qtm-op-motivation}
+\end{figure} % }}}
 Aunque podemos revisar explícitamente que las propiedades 
 de traza unitaria y positividad de $\rho$ en \eqref{eq:rho-1qubit}
 se preservan, también podemos argumentar geométricamente
@@ -515,10 +533,11 @@ Las componentes $r_{ij}$ se calculan usando el producto interno
 de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
 Así encontramos 
 \begin{align}
-\dyad{\phi}{\phi}=
-\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
+\dyad{\phi}{\phi}=\frac{1}{4}\qty(
+\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}).
 \end{align}
 \cpnote{Me parece que tienes un problema de normalización}
+\janote{Cierto. En esta y en la ecuación 1.24 tenía ese error}
 Recordemos que $\E_z$ borra la componente en $r_3$ de la
 matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
 Al calcular el superoperador $\E_z\ot  \1$, representación de 
@@ -528,8 +547,8 @@ escrita como en \eqref{eq:rho-2qubits}, es borrar
 las componentes de la forma $r_{3j}$,
 por consiguiente
 \begin{align}
-\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
-\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
+\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=\frac{1}{4}\qty(
+\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}),
 \end{align}
 que al calcular su representación matricial se tiene
 \begin{align}
@@ -567,13 +586,6 @@ En la literatura se suele utilizar el término operaciones
 completamente positivas que preservan la traza 
 (CPTP) para referirse a los canales 
 cuánticos~\cite{bengtsson_zyczkowski_2017}. 
-La teoría de los canales cuánticos se puede utilizar para 
-describir la evolución dinámica de los sistemas abiertos 
-utilizando su matriz de densidad para representar a los estados cuánticos
-\cpnote{esto ya lo habias dicho en la intro. no le veo sentido en reperitlo 
-aca de manera tan escueta} \janote{Entonces mejor borrarla. O 
-sería bueno escribir algo más?}\cpnote{Si estás de acuerdo, borrala. Se me hace
-también fuera de contexto}.
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
 
@@ -643,23 +655,6 @@ algunas representaciones de canales cuánticos.
 %Sin embargo, veremos a continuación que la acción de $\E_z\ot \1$ 
 %sobre el estado máximamente entrelazado de 2 qubits 
 %se transforma en una matriz no positiva.
-%
-%\begin{figure}% {{{
-%\centering
-%\begin{minipage}{.4\textwidth}
-%\centering
-%\includegraphics[width=5cm]{bloch.png}
-%\end{minipage}
-%$\stackrel{\E_{z}\otimes\1 \vspace{1cm}}{\longmapsto}$
-%\begin{minipage}{0.4\textwidth}
-%\centering
-%\includegraphics[width=6cm]{DiskXY}
-%\end{minipage}
-%\caption{
-%Deformación de la esfera de Bloch a un disco sobre el plano $XY$.}
-%\label{fig:qtm-op-motivation}
-%\end{figure} % }}}
-%
 %El estado máximamente entrelazado de 2 qubits es
 %$\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
 %Como conocemos cómo transforma $\E_z$ a la matriz de densidad 
