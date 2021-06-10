@@ -29,7 +29,6 @@ física de la matriz de densida. Por último, en la sección
 la representación de superoperador y de Kraus de un canal cuántico.
 
 % }}}
-
 \section{Ensambles de estados cuánticos} \label{sec:ensambles} % {{{
 % \esqueleto{Un copy-paste de la sección 1.1 del informe final de 
 % prácticas. Voy a retocar alguna parte si fuera necesario, como ser
@@ -406,12 +405,6 @@ canales cuánticos.
 
 % }}}
 \section{Canales cuánticos}\label{sec:qtm-channels} % {{{
-%\esqueleto{Tomé de base el texto de canales cuánticos del informe 
-%de prácticas, lo traté de resumir e iteré la redacción de varias cosas.}
-\janote{\h{Léeme} Había muchas cosas que había que reescribir en esta 
-sección, reescribí un 70-80$\%$. Las ideas son las mismas, pero 
-mejor redacción. Por consiguiente, sería mejor si vuelves a revisar 
-toda la sección y no sólo revisar los comentarios que me dejaste.}
 
 La teoría de los canales cuánticos es un marco teórico con el cual 
 se puede describir la evolución de los sistemas cuánticos abiertos.
@@ -446,7 +439,7 @@ sobre un estado $\rho$ como
 \end{align} 
 donde $\E$ es una operación lineal y $\rho'$ es una matriz de
 traza unitaria y positiva. Para que $\E$ sea un canal cuántico 
-se requiere tamebién que sea operación completamente positiva (CP). 
+se requiere también que sea operación completamente positiva (CP). 
 Antes de enunciar una de las definiciones de la completa positividad
 vamos a elaborar un ejemplo con el objetivo de exponer mejor la 
 implicación física de esta condición.
@@ -470,7 +463,8 @@ implicación física de esta condición.
 %corregir y mejor terminé reescribiendo casi toda la sección.}
 
 El ejemplo que vamos a discutir es el de una operación lineal 
-que satisface \eqref{eq:E(rho)} pero que no es CP y, por consiguiente,
+que satisface \eqref{eq:E(rho)} \cpnote{no entiendo que quieres decir que
+no satisfaga 1.19\ldots quizá quieres decir que mapea estados a estados? O como?} pero que no es CP y, por consiguiente,
 la extensión de la operación sobre un sistema que interactúa con un 
 \textit{ancilla} no transforma al estado máximamente entrelazado en 
 un estado físico. La operación que consideraremos 
@@ -495,7 +489,7 @@ la matriz de densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
 con $r_{00}=1$.
 Consideremos ahora la operación lineal $\E_z$ de 1 qubit
 que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
-como se muestra en la \Fref{fig:qtm-op-motivation}. 
+como se muestra en la \Fref{fig:qtm-op-motivation}\cpnote{Creo que quitaste la figura}. 
 En términos de las componentes $r_i$, la operación $\E_z$ 
 transforma a una matriz de densidad $\rho$ como en 
 \eqref{eq:rho-1qubit} de la siguiente manera
@@ -524,6 +518,7 @@ Así encontramos
 \dyad{\phi}{\phi}=
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
 \end{align}
+\cpnote{Me parece que tienes un problema de normalización}
 Recordemos que $\E_z$ borra la componente en $r_3$ de la
 matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
 Al calcular el superoperador $\E_z\ot  \1$, representación de 
@@ -531,9 +526,6 @@ un canal cuántico que veremos en la próxima sección, se encuentra
 que la acción de $\E_z\otimes\1$ sobre la matriz de densidad de 2 qubits,
 escrita como en \eqref{eq:rho-2qubits}, es borrar 
 las componentes de la forma $r_{3j}$,
-\cpnote{Esto no me parece obvio. creo que 
-toca argumentarlo un poco mejor. o decir qeu uno lo puede probar usando matrices
-y extensiones.} \janote{De acuerdo, mejor?}
 por consiguiente
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
@@ -555,13 +547,11 @@ de positividad para ser una matriz de densidad.
 En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
 no representa a un estado físico de 2 qubits.
 Se dice que $\E_z$ no es una operación completamente 
-positiva porque existe un estado en el espacio extendido de 2 qubits para 
+positiva porque existen estados en el espacio extendido de 2 qubits para 
 el cual la extensión $\E_z\ot \1$ no preserva la positividad del estado. 
 Acabamos de mostrar que la condición de completa
 positividad surge de la posibilidad que un sistema tiene de encontrarse 
-en un estado entrelazado con un \textit{ancilla}\cpnote{A veces nos
-referimos a este sistema como auxiliar o ancilla, quiza en italicas, checa a ver 
-como va}.
+en un estado entrelazado con un \textit{ancilla}.
 
 Ahora vamos a establecer la condición de completa positividad 
 de forma precisa. Se dice que una operación $\E$ es CP si 
@@ -572,9 +562,7 @@ Con esta definición hemos justificado las dos condiciones que
 necesita una operación lineal para ser un canal cuántico.
 
 Un canal cuántico es un mapeo lineal  (1) que preserva las características
-de la matriz de densidad y (2) completamente positivo\cpnote{y acá no emcionas que
-sea afin\ldots de lo qeu vi, los afines preservan la dimension  los canales
-cuanticos no lo hacen en general}. 
+de la matriz de densidad y (2) completamente positivo. 
 En la literatura se suele utilizar el término operaciones 
 completamente positivas que preservan la traza 
 (CPTP) para referirse a los canales 
@@ -584,7 +572,8 @@ describir la evolución dinámica de los sistemas abiertos
 utilizando su matriz de densidad para representar a los estados cuánticos
 \cpnote{esto ya lo habias dicho en la intro. no le veo sentido en reperitlo 
 aca de manera tan escueta} \janote{Entonces mejor borrarla. O 
-sería bueno escribir algo más?}.
+sería bueno escribir algo más?}\cpnote{Si estás de acuerdo, borrala. Se me hace
+también fuera de contexto}.
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
 
