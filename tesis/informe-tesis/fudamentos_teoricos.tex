@@ -382,7 +382,7 @@ reducida $\rho^A$ como la traza parcial sobre $B$ de $\rho^{AB}$,
 	\label{eq:partialTrace-def}
 \end{align}
 En general, la traza parcial es una operación lineal
-que se define como~\cite{nielsen_chuang_2011}
+que se define mediante la relación~\cite{nielsen_chuang_2011}
 \begin{align}
 	\Tr_B (\dyad{\alpha_i}{\alpha_j}\otimes \dyad{\beta_k}{\beta_l})
 	\equiv
@@ -390,10 +390,7 @@ que se define como~\cite{nielsen_chuang_2011}
 	\label{eq:part_trace-def}
 \end{align}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
-y $\ket{\beta_j}$ del resto del espacio de Hilbert total.\cpnote{Para que esta
-definición esté completa, también tienes que decir que la traza parcial 
-es lineal} \janote{De acuerdo. Hecho} \cpnote{Nel, aun no jala.} 
-\janote{Ahora sí? Fíjate cómo modifiqué la línea 210.}
+y $\ket{\beta_j}$ del resto del espacio de Hilbert total.
 
 Ahora que contamos con las propiedades de la matriz de densidad, 
 los postulados reescritos con este formalismo y la aplicación de la matriz
@@ -463,9 +460,7 @@ implicación física de esta condición.
 %corregir y mejor terminé reescribiendo casi toda la sección.}
 
 El ejemplo que vamos a discutir es el de una operación que actúa 
-sobre $\rho$ como en \eqref{eq:E(rho)} \cpnote{no entiendo que quieres decir que
-no satisfaga 1.19\ldots quizá quieres decir que mapea estados a estados? O como?} 
-\janote{Sí, eso quiero decir. Modifiqué el enunciado, quedó mejor?}
+sobre $\rho$ como en \eqref{eq:E(rho)} 
 pero que no es CP y, por consiguiente,
 la extensión de la operación que actúa sobre un sistema que interactúa con un 
 \textit{ancilla} no transforma al estado máximamente entrelazado en 
@@ -492,7 +487,6 @@ con $r_{00}=1$.
 Consideremos ahora la operación lineal $\E_z$ de 1 qubit
 que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
 como se muestra en la \Fref{fig:qtm-op-motivation}.
-\cpnote{Creo que quitaste la figura}\janote{Listo. La agregué de nuevo.}
 En términos de las componentes $r_i$, la operación $\E_z$ 
 transforma a una matriz de densidad $\rho$ como en 
 \eqref{eq:rho-1qubit} de la siguiente manera
@@ -536,8 +530,6 @@ Así encontramos
 \dyad{\phi}{\phi}=\frac{1}{4}\qty(
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}).
 \end{align}
-\cpnote{Me parece que tienes un problema de normalización}
-\janote{Cierto. En esta y en la ecuación 1.24 tenía ese error}
 Recordemos que $\E_z$ borra la componente en $r_3$ de la
 matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
 Al calcular el superoperador $\E_z\ot  \1$, representación de 
