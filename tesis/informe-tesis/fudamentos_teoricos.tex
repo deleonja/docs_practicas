@@ -189,9 +189,9 @@ de la matriz de densidad.
 % esa frase.}
 
 Las propiedades que una matriz debe tener para que esta represente al 
-estado físico de un sistema se establecen a continuación
-\cite{nielsen_chuang_2011}:
-\begin{thm}\label{teo:density-operator}
+estado físico de un sistema se establecen a 
+continuación~\cite{nielsen_chuang_2011}:
+\begin{thm}\label{teo:density-matrix}
 Una matriz $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
 es la matriz de densidad asociada a algún ensamble 
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
@@ -406,29 +406,11 @@ canales cuánticos.
 La teoría de los canales cuánticos es un marco teórico con el cual 
 se puede describir la evolución de los sistemas cuánticos abiertos.
 Un canal cuántico es una operación lineal que debe preservar las 
-propiedades de la matriz de densidad y que, cuando el sistema sea
+propiedades de la matriz de densidad y que, cuando el sistema forma
 parte de un sistema más grande junto con un \textit{ancilla}, la
 extensión del canal que actúa sobre el sistema total debe también 
 de preservar la traza y positividad de la matriz de densidad total.
 
-% \cpnote{sobra lo de matrices de densidad. Si es abierto, vas a necesitar 
-% una matriz de densidad, en general, se sobreentiende} \janote{Entendido}
-%Un canal cuántico $\E$ es una operación lineal que transforma matrices
-%de densidad en matrices de densidad y que es
-%completamente positiva~\cite{bengtsson_zyczkowski_2017},
-% \cpnote{Oye porque 
-% tiene que ser afin? ME gustaría que me contaras mas en detalle} 
-% \janote{Porque estaba confundiendo las cosas jeje. Está mal decir 
-% que es un mapeo afín. Yo estaba asociando mal ser afín con mapear
-% matrices de densidad en matrices de densidad. Revisé el GofQS y aclaré
-% que un mapeo afín es otra cosa. Reformulé el enunciado anterior y posterior
-% a este comentario donde utilizaba `mapeo afín'.}
-%Un canal cuántico de preservar las propiedades de las matrices de densidad.
-%Por otro lado, para entender qué es la completa positividad 
-%y qué implica esto para la evolución dinámica de los estados 
-%cuánticos vamos a elaborar en esta sección un ejemplo de 
-%una operación que actúa sobre una partícula de espín 1/2 
-%antes de definir formalmente la completa positividad.
 Matemáticamente se escribe la acción de un canal cuántico $\E$ 
 sobre un estado $\rho$ como
 \begin{align} \label{eq:E(rho)}
@@ -441,27 +423,8 @@ Antes de enunciar una de las definiciones de la completa positividad
 vamos a elaborar un ejemplo con el objetivo de exponer mejor la 
 implicación física de esta condición.
 
-%Supongamos que vamos a estudiar 
-%la dinámica de un sistema $P$, que hace parte de un sistema compuesto
-%junto con un \textit{ancilla} $S$. Vamos a considerar que el 
-%estado del \textit{ancilla} no lo conocemos \textit{a priori} o que 
-%sencillamente no nos interesa. La condición de completa positividad
-%sobre $\E$ se hace necesariar de imponer para que, aún cuando
-%el sistema total se encuentre en un estado entrelazado,
-%la extensión del canal cuántico que actúa sobre el 
-%sistema compuesto preservará la positividad de 
-%la matriz de densidad.
-%\cpnote{Oye, la redaccion de este parrafo está horrible. Dale una iterada nueva, 
-%descansado a la 1.4 por favor y me avisas}.
-
-%\cpnote{Prometes que vas a dar un ejemplo antes, luego metes algo en la mitad
-%y luego pones el ejemplo. Me parece un poco desordenado. Quizá puedes quitar
-%la promesa anterior y acá explicar} \janote{Fue esto lo que empecé a 
-%corregir y mejor terminé reescribiendo casi toda la sección.}
-
 El ejemplo que vamos a discutir es el de una operación que actúa 
-sobre $\rho$ como en \eqref{eq:E(rho)} 
-pero que no es CP y, por consiguiente,
+sobre $\rho$ como en \eqref{eq:E(rho)} pero que no es CP. Por lo tanto,
 la extensión de la operación que actúa sobre un sistema que interactúa con un 
 \textit{ancilla} no transforma al estado máximamente entrelazado en 
 un estado físico. La operación que consideraremos 
@@ -484,7 +447,7 @@ la matriz de densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
 \rho=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \end{align}
 con $r_{00}=1$.
-Consideremos ahora la operación lineal $\E_z$ de 1 qubit
+Consideremos entonces la operación lineal $\E_z$ de 1 qubit
 que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
 como se muestra en la \Fref{fig:qtm-op-motivation}.
 En términos de las componentes $r_i$, la operación $\E_z$ 
@@ -519,9 +482,9 @@ se transforma en una matriz no positiva.
 
 El estado máximamente entrelazado de 2 qubits es
 $\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
-Ya conocemos cómo transforma $\E_z$ a la matriz de densidad 
+Dado que conocemos cómo transforma $\E_z$ a la matriz de densidad 
 escrita en la base de matrices de Pauli será necesario calcular 
-la representación de $\dyad{\phi}{\phi}$ en la forma de \eqref{eq:rho-2qubits}
+la representación de $\dyad{\phi}{\phi}$ escrita como en \eqref{eq:rho-2qubits}
 para luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})$.
 Las componentes $r_{ij}$ se calculan usando el producto interno
 de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
@@ -530,14 +493,13 @@ Así encontramos
 \dyad{\phi}{\phi}=\frac{1}{4}\qty(
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}).
 \end{align}
-Recordemos que $\E_z$ borra la componente en $r_3$ de la
+Recordemos que $\E_z$ borra la componente $r_3$ de la
 matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
-Al calcular el superoperador $\E_z\ot  \1$, representación de 
+Al calcular el superoperador $\E_z\ot  \1$, la representación matricial de 
 un canal cuántico que veremos en la próxima sección, se encuentra
-que la acción de $\E_z\otimes\1$ sobre la matriz de densidad de 2 qubits,
-escrita como en \eqref{eq:rho-2qubits}, es borrar 
-las componentes de la forma $r_{3j}$,
-por consiguiente
+que $\E_z\otimes\1$ actuando sobre una matriz de densidad de 2 qubits
+escrita como en \eqref{eq:rho-2qubits} borra
+las componentes de la forma $r_{3j}$. Por consiguiente
 \begin{align}
 \E_z\otimes\1 \qty(\dyad{\phi}{\phi})=\frac{1}{4}\qty(
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}),
@@ -552,239 +514,208 @@ que al calcular su representación matricial se tiene
 \frac{1}{2} & 0 & 0 & \frac{1}{4} \\
 ).
 \end{align}
+
 La matriz  $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ tiene un 
-eigenvalor igual a $-1/4$ y por lo tanto no satisface la condición 
+eigenvalor igual a $-1/4$ y, por lo tanto, no satisface la condición 
 de positividad para ser una matriz de densidad.  
 En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
-no representa a un estado físico de 2 qubits.
-Se dice que $\E_z$ no es una operación completamente 
+no representa a un estado físico de 2 qubits y 
+se dice entonces que $\E_z$ no es una operación completamente 
 positiva porque existen estados en el espacio extendido de 2 qubits para 
-el cual la extensión $\E_z\ot \1$ no preserva la positividad del estado. 
-Acabamos de mostrar que la condición de completa
+el cual la extensión $\E_z\ot \1$ no preserva la positividad de esos estados. 
+De esta manera acabamos de mostrar que la condición de completa
 positividad surge de la posibilidad que un sistema tiene de encontrarse 
 en un estado entrelazado con un \textit{ancilla}.
 
-Ahora vamos a establecer la condición de completa positividad 
-de forma precisa. Se dice que una operación $\E$ es CP si 
+Ya que elaboramos la implicación física de la completa positividad 
+vamos a establecer una definición precisa de esta condición con la
+que debe de cumplir un canal cuántico.
+Se dice que una operación $\E$ es CP si 
 y sólo si, para cualquier extensión arbitraria de dimensión $K$ 
 del espacio de Hilbert $(\hi_N \rightarrow \hi_N \otimes \hi_K)$ 
 el operador $\E\otimes\1_K$ es positivo~\cite{bengtsson_zyczkowski_2017}. 
-Con esta definición hemos justificado las dos condiciones que 
-necesita una operación lineal para ser un canal cuántico.
+Con esta definición hemos terminado de revisar las dos condiciones que 
+debe de satisfacer una operación lineal para ser un 
+canal cuántico.
 
 Un canal cuántico es un mapeo lineal  (1) que preserva las características
-de la matriz de densidad y (2) completamente positivo. 
+de la matriz de densidad y (2) que es completamente positivo. 
 En la literatura se suele utilizar el término operaciones 
 completamente positivas que preservan la traza 
 (CPTP) para referirse a los canales 
 cuánticos~\cite{bengtsson_zyczkowski_2017}. 
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
-
-
-%Para escribir a la matriz de densidad utilizaremos 
-%la base de productos tensoriales de las matrices de Pauli
-%$\{ \sigma_0, \sigma_1, \sigma_2, \sigma_3\}$,
-%con $\sigma_0=\1$ y los subíndices $1,2$ y $3$ son nada más 
-%una etiqueta $x$, $y$ y $z$, respectivamente.
-%Las matrices de densidad para 1 y 2 qubits se 
-%escriben como~\cite{nielsen_chuang_2011}
-%\begin{align}
-%\tilde{\rho}&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
-%& 
-%\tilde{\varrho}&=\frac{1}{4}\sum _{i,j=0, }^{3}r_{ij}\sigma_i\otimes\sigma_j,
-%\label{eq:densityMatrices_1and2Qubits}
-%\end{align}
-%\cpnote{La notacion $\rho^2$ parece un cuadrado. No me gusta la redacción ni la
-%nueva notacion. quizá algo como $\rho^{[2]}$ o algo asi}
-%
-%
-%
-%donde imponemos que $r_0=r_{00}=1$ para preservar 
-%la traza unitaria. Las componentes $r_i$ y $r_{ij}$ son las proyecciones 
-%de la matriz de densidad sobre los elementos de la base de productos 
-%tensoriales de las matrices de Pauli. En particular para 1 qubit, 
-%las componentes $r_x, r_y$ y $r_z$ de $\rho^1$ definen 
-%las componentes rectangulares de un punto en la bola \cpnote{Nos refereimos a ella
-%normalmente como la esfera de bloch. Sugiero cambiarlo en todas partes} de Bloch.
-%La esfera de Bloch es una bola unitaria que se utiliza para 
-%representar geométricamente a los estados de 1 qubit
-%(ver \Fref{fig:qtm-op-motivation}). De esta manera, con la bola de 
-%Bloch tenemos una forma de asociar una representación geométrica 
-%con la matriz de densidad de 1 qubit en 
-%\eqref{eq:densityMatrices_1and2Qubits}.
-
-%\m Consideremos un sistema 
-%total que se compone de un subsistema principal $P$ (el sistema 
-%cuántico que nos interesa estudiar) y un subsistema secundario $S$
-%(cualquier otro sistema con el que el subsistema principal pueda 
-%interaccionar). Nuestro objetivo es estudiar la dinámica de $\rho^P$,
-%la matriz de densidad de $P$, y vamos a suponer que el 
-%estado de $S$ no lo conocemos \textit{a priori}
-%o que sencillamente no nos interesa. La condición de completa positividad
-%se hace necesaria de imponer sobre $\E$ cuando consideramos que
-%el sistema total podría encontrarse en un estado entrelazado  
-%$\rho^{\text{total}}\neq \rho^P\ot\rho^S$\cpnote{aguas}. 
-%Esta condición asegura que aún las matrices de densidad
-%de estados entrelazados preservarán las propiedades de traza unitaria
-%y positividad. 
-%
-%La acción de $\E_z$ la podemos entender estudiando cómo transforma
-%a la matriz de densidad $\rho^1$ en
-%\eqref{eq:densityMatrices_1and2Qubits}.
-%En términos de las componentes $r_i$ la operación $\E_z$ 
-%transforma a $\rho^1$ de la siguiente manera
-%\begin{align}
-%\qty(1,r_x,r_y,r_z)\mapsto\qty(1,r_x,r_y,0).
-%\end{align}
-%En la \Fref{fig:qtm-op-motivation} mostramos que $\E_z$ transforma 
-%geométricamente a la esfera de Bloch deformándola a un disco
-%unitario sobre el plano $x$-$y$. Aunque podemos revisar explícitamente 
-%que las propiedades de traza unitaria y positividad de $\rho^1$ 
-%se preservan, también podemos argumentar, utilizando la representación
-%geométrica, que dado que el disco final se contiene en la esfera de Bloch 
-%las propiedades de $\rho^1$ se preservan.
-%Sin embargo, veremos a continuación que la acción de $\E_z\ot \1$ 
-%sobre el estado máximamente entrelazado de 2 qubits 
-%se transforma en una matriz no positiva.
-%El estado máximamente entrelazado de 2 qubits es
-%$\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
-%Como conocemos cómo transforma $\E_z$ a la matriz de densidad 
-%escrita en la base de Pauli será necesario calcular 
-%la representación de $\dyad{\phi}{\phi}$ en esa base para 
-%luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})•$.
-%Las componentes $r_{ij}$ se calculan usando el producto interno
-%de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
-%Así encontramos 
-%\begin{align}
-%\dyad{\phi}{\phi}=
-%\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}.
-%\end{align}
-%
-%Ya que $\E_z$ borra la componente en $r_z$ de $\rho^1$ inferimos 
-%que la acción de $\E_z\otimes\1$ sobre $\rho^2$ borra 
-%las componentes de la forma $r_{3j}$\cpnote{Esto no me parece obvio. creo que 
-%toca argumentarlo un poco mejor. o decir qeu uno lo puede probar usando matrices
-%y extensiones.}, por consiguiente
-%\begin{align}
-%\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
-%\pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2},
-%\end{align}
-%y en su forma matricial se escribe
-%\begin{align}
-%\E_z\otimes\1 \qty(\dyad{\phi}{\phi})=
-%\mqty( 
-%\frac{1}{4} & 0 & 0 & \frac{1}{2} \\
-%0 & \frac{1}{4} & 0 & 0 \\
-%0 & 0 & \frac{1}{4} & 0 \\
-%\frac{1}{2} & 0 & 0 & \frac{1}{4} \\
-%).
-%\end{align}
-%La matriz  $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ tiene un 
-%eigenvalor igual a $-1/4$ y por lo tanto no satisface la condición 
-%de positividad para ser una matriz de densidad.  
-%En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
-%no representa a un estado físico de 2 qubits.
-%Se dice que $\E_z$ no es una operación completamente 
-%positiva porque existe un estado en el espacio extendido de 2 qubits para 
-%el cual la extensión $\E_z\ot \1$ no es un mapeo afín de 
-%matrices de densidad \cpnote{aguas}. Acabamos de mostrar que la condición de completa
-%positividad surge de la posibilidad que un sistema tiene de encontrarse 
-%en un estado entrelazado con otro sistema secundario\cpnote{A veces nos
-%referimos a este sistema como auxiliar o ancilla, quiza en italicas, checa a ver 
-%como va}. \m
-
-
 % }}}
+
+
 \section{Representaciones de los canales cuánticos} % {{{
 \label{sec:qtm-channels-representation}
-\esqueleto{Enunciar que existen las representaciones de 
-Kraus y de superoperador. Copy-paste de las secciones en las 
-que hablamos de las representaciones en el informe final. Planeo
-dejar sólo un ejemplo y matar los ejemplos de las dos representaciones
-en un tiro.}
+En esta sección estudiaremos dos representaciones distintas de 
+los canales cuánticos: los superoperadores y la representación 
+de suma de operadores de Kraus. Para cada una de ellas repasaremos
+cómo evaluar las condiciones que hacen a una operación lineal un 
+canal cuántico. La representación como superoperador 
+será especialmente útil para investigar el problema
+que vamos a plantear en el siguiente capítulo. No obstante, los 
+operadores de Kraus siguen siendo una parte importante dentro 
+de la teoría de los canales cuánticos y por eso dedicamos brevemente
+la última parte de esta sección a estudiarlos.
 
-Los canales cuánticos pueden representarse como superoperadores
-o en la representación de suma de operadores de Kraus. 
-La matriz de densidad es un operador que actúa sobre el espacio 
-de Hilbert, por consiguiente, la ecuación \eqref{eq:E(rho)} 
-sugiere que $\E$ es un operador que actúa sobre el espacio 
-de Hilbert-Schmidt (espacio en el que viven las matrices de densidad). 
-A esta clase de operadores es a los que se les conoce como 
-superoperadores~\cite{preskill1998lecture}.
-Por otro lado, la representación de Kraus es una forma de 
-representar a un canal cuántico con operadores que pertenecen
-al mismo espacio en el que se contienen las matrices de densidad.
+Los canales cuánticos pueden entenderse como operadores 
+que actúan sobre otros operadores. 
+La matriz de densidad actúa sobre 
+el espacio de Hilbert y un canal cuántico actúa sobre las matrices de 
+densidad, que forman parte del espacio de Hilbert-Schmidt. 
+La diferencia es entonces que las matrices de densidad 
+son operadores que actúan sobre el espacio de 
+Hilbert y los canales cuánticos actúan sobre el espacio 
+de Hilbert-Schmidt. Para hacer una diferencia en 
+la naturaleza de los dos tipos de operadores, los canales cuánticos 
+pueden recibir el nombre de superoperadores~\cite{preskill1998lecture}.
 
-Un superoperador actúa sobre la matriz de densidad 
-como un vector columna. Por ello, discutiremos un procedimiento 
-para `vectorizar' a la matriz de densidad.
-Consideremos una matriz de densidad $\hat{\rho}$ de dimensión $d\times d$.
-La matriz $\hat{\rho}$ puede escribirse como 
-un vector columna $\vec{\rho}$, con $d^2$ elementos, 
-ordenando los elementos de matriz según la ecuación  
+Vamos a revisar primero cómo `vectorizar' a la matriz de densidad 
+para después exponer cómo es la representación matricial de
+un canal cuántico como un superoperador.
+Consideremos una matriz de densidad $\rho$ de dimensión $d\times d$.
+Para vectorizar a $\rho$ los elementos de matriz $\rho_{ij}$ 
+se deben acomodar en un vector columna $\vec{\rho}$, con componentes 
+$\rho_k$, siguiendo la ecuación  
 \begin{align}
-\rho_k=\hat{\rho}_{ij}, 
+\rho_k=\rho_{ij};\hspace{2cm} k=\qty(i-1)d+j,
 \label{eq:matrix-to-vector}
 \end{align}
-donde $k=\qty(i-1)d+j$, con $i,j=,1,\ldots,d$. 
+donde $i,j=,1,\ldots,d$. Por ejemplo, la matriz de densidad
+\begin{align}
+\rho=\mqty(\rho_{00}&\rho_{01}\\ \rho_{10}&\rho_{11})
+\end{align}
+que actúa sobre un espacio de Hilbert de dimensión 2 se vectoriza como 
+\begin{align}
+\vec{\rho}=\mqty(\rho_{00}\\ \rho_{01}\\ \rho_{10}\\ \rho_{11}).
+\end{align}
+En general, una matriz de densidad $\rho$ que actúa 
+sobre un espacio de Hilbert de dimensión $d$ es 
+una matriz de dimensión $d\times d$. Si se vectoriza a $\rho$, la matriz 
+de densidad se transforma en un vector $\vec{\rho}$ de $d^2$ 
+componentes. Un canal cuántico $\E$ que actúa sobre $\rho$ se puede
+representar entonces como una matriz de dimensión $d^2\times d^2$ 
+que actúa sobre el vector $\vec{\rho}$. Esta representación matricial de 
+$\E$ es la que se conoce como superoperador.
 
-Para establecer más adelante una manera de evaluar la CP de una operación 
-lineal vamos a introducir a continuación una notación de 4 índices para 
-etiquetar a los elementos de matriz de un operador que actúa 
-sobre un espacio bipartito y una transformación conocida como 
-\textit{reshuffle} para reordenar a una matriz. 
-Supongamos que $U$ es un operador 
-que actúa sobre un espacio de Hilbert 
-$\hi$ de la forma $\hi=\hi_M\otimes\hi_N$.
-Consideremos una base ortonormal $\ket{m}$ de $\hi_M$ 
-y una base ortonormal $\ket{\mu}$ de $\hi_N$. 
-Los productos $\ket{m}\otimes\ket{\mu}$ definen a una base
-ortonormal del espacio compuesto $\hi$. 
+Antes de estudiar las condiciones que un superoperador $\E$
+debe satisfacer para ser un canal cuántico es útil que revisemos
+dos herramientas algebraicas: (1) una notación de cuatro índices 
+para los elementos de matriz de un operador, y (2) la transformación 
+algebraica de \textit{reshuffle}. Primero, para introducir la nueva notación
+consideremos a un superoperador $\E$ que actúa sobre un espacio de 
+Hilbert-Schmidt de la forma $\hi\mathcal{S}_M\otimes\hi\mathcal{S}_N$. 
+Sea $\ket{m}$ una base ortonormal de $\hi\mathcal{S}_M$, $\ket{\mu}$ 
+una base ortonormal de $\hi\mathcal{S}_N$ y, por lo tanto, 
+$\ket{m}\otimes\ket{\mu}$ una base ortonormal de 
+$\hi\mathcal{S}_M\ot\hi\mathcal{S}_N$.
 Nótese el uso de letras latinas para los índices del
 primer subsistema y letras griegas para los índices del segundo. 
-Un elemento de matriz de $U$ se puede etiquetar como
+Utilizando cuatro índices, un elemento de matriz de $\E$ se calcula como
 \begin{align}
-U_\ind{m\mu}{n\nu}=\matrixel{m\otimes \mu}{U}{n\otimes \nu}.
+\E_\ind{m\mu}{n\nu}=\matrixel{m\otimes \mu}{\E}{n\otimes \nu}.
 \label{eq:4indices}
 \end{align}
-En esta notación de cuatro índices la transformación de \textit{reshuffle}, 
-para reordenar a una matriz  $U$, se define 
+Por último, vamos a introducir la transformación algebraica de \textit{reshuffle}
+de un superoperador $\E$ utilizando la nueva notación de cuatro índices 
+en \eqref{eq:4indices}.
+El \textit{reshuffle} $\E^R$ de un superoperador $\E$ se define 
 como~\cite{bengtsson_zyczkowski_2017}
 \begin{align}
-U^R_\ind{m\mu}{n\nu} = U_\ind{mn}{\mu\nu}.
-\label{eq:R-4ind}
+\E^R_\ind{m\mu}{n\nu} = \E_\ind{mn}{\mu\nu}.
+\label{eq:Reshuffle_4-indices}
 \end{align}
-Con esta nueva notación y una definición de 
-la transformación de \textit{reshuffle}
-contamos con las herramientas necesarias para establecer 
-las condiciones que un superoperador $\E$ debe satisfacer 
-para ser un canal cuántico.
+El siguiente ejemplo ilustra cómo utilizar la notación de cuatro 
+índices en \eqref{eq:4indices} y cómo hacer la transformación 
+de \textit{reshuffle} en \eqref{eq:Reshuffle_4-indices} de un 
+superoperador que actúa sobre un espacio de Hilbert-Schmidt de 
+dimensión 4 de la forma $\mathcal{HS}_2\ot \mathcal{HS}_2$,
+%\begin{align}
+%\left(
+%\begin{array}{cccc}
+% \E_{11} & \E_{12} & \E_{13} & \E_{14} \\
+% \E_{21} & \E_{22} & \E_{23} & \E_{24} \\
+% \E_{31} & \E_{32} & \E_{33} & \E_{34} \\
+% \E_{41} & \E_{42} & \E_{43} & \E_{44} \\
+%\end{array}
+%\right)^R
+%=
+%\left(
+%\begin{array}{cccc}
+% \E_{11} & \E_{12} & \E_{21} & \E_{22} \\
+% \E_{13} & \E_{14} & \E_{23} & \E_{24} \\
+% \E_{31} & \E_{32} & \E_{41} & \E_{42} \\
+% \E_{33} & \E_{34} & \E_{43} & \E_{44} \\
+%\end{array}
+%\right).
+%\end{align}
+\begin{align}
+\left(
+\begin{array}{cccc}
+ \E_{\ind{00}{00}} & \E_{\ind{00}{01}} & \E_{\ind{00}{10}} & \E_{\ind{00}{11}} \\
+ \E_{\ind{01}{00}} & \E_{\ind{01}{01}} & \E_{\ind{01}{10}} & \E_{\ind{01}{11}} \\
+ \E_{\ind{10}{00}} & \E_{\ind{10}{01}} & \E_{\ind{10}{10}} & \E_{\ind{10}{11}} \\
+ \E_{\ind{11}{00}} & \E_{\ind{11}{01}} & \E_{\ind{11}{10}} & \E_{\ind{11}{11}} \\
+\end{array}
+\right)^R
+=
+\left(
+\begin{array}{cccc}
+ \E_{\ind{00}{00}} & \E_{\ind{00}{01}} & \E_{\ind{01}{00}} & \E_{\ind{01}{01}} \\
+ \E_{\ind{00}{10}} & \E_{\ind{00}{11}} & \E_{\ind{01}{10}} & \E_{\ind{01}{11}} \\
+ \E_{\ind{10}{00}} & \E_{\ind{10}{01}} & \E_{\ind{11}{00}} & \E_{\ind{11}{01}} \\
+ \E_{\ind{10}{10}} & \E_{\ind{10}{11}} & \E_{\ind{11}{10}} & \E_{\ind{11}{11}} \\
+\end{array}
+\right).
+\end{align}
+La transformación de \textit{reshuffle} nos será útil específicamente 
+para evaluar la completa positividad de un superoperador $\E$, 
+como veremos a continuación.
 
-Un canal cuántico es una operación lineal completamente
-positiva que preserva las características de la matriz de densidad.
-Es decir, un canal cuántico transforma a la matriz de densidad de
-tal manera que preserva su (1) Hermiticidad, (2) traza unitaria y 
-(3) positividad semidefinida. Para que esto se satisfaga, un 
-canal cuántico $\E$ debe cumplir~\cite{bengtsson_zyczkowski_2017}:
+Ahora que ya contamos con las herramientas algebraicas necesarias, 
+vamos a enunciar las condiciones con las que debe cumplir un 
+superoperador $\E$ para ser un canal cuántico. Un superoperador 
+$\E$ es una matriz que actúa sobre una matriz de densidad vectorizada
+$\vec{\rho}$. Recordemos de la sección anterior que un canal cuántico 
+es una operación lineal que preserva las propiedades de 
+la matriz de densidad y que es completamente positiva.
+La condición de positividad de la matriz de densidad implica 
+otra propiedad: es una matriz Hermítica. 
+Por lo tanto, preservar la Hermiticidad, traza unitaria y positividad 
+de la matriz de densidad impone las siguientes tres condiciones 
+sobre $\E$~\cite{bengtsson_zyczkowski_2017},
+\janote{Sobre la hermiticidad de $\rho$: es una propiedad que se puede 
+deducir de la positividad: si $\rho$ es positiva tiene descomposición 
+espectral $\sum_i\lambda_i\dyad{\psi_i}{\psi_i}$,
+entonces se sigue que $\rho=\rho^{\dagger}$. Por eso, arreglé este
+párrafo que acabas de terminar de leer para introducir la Hermiticidad
+como una propiedad que se deduce de las características de la 
+matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
 \begin{align}
 \txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
     \label{eq:H-condition}\\
 \txt{(ii)}&&\Tr(\rho')=1
-    &&\Leftrightarrow&&  \sum_{m}\E_\ind{mm}{n\nu}=\delta_{n\nu},\\     
+    &&\Leftrightarrow&&  \sum_{m}\E_\ind{mm}{n\nu}=\delta_{n\nu},
+    \label{eq:Tr-condition}\\     
 \txt{(iii)}&&\rho'\geq0
     &&\Leftrightarrow&&  \sum_{n\nu}\E_{\ind{m\mu}{n\nu}}\rho_{n\nu}\geq0 &
     \text{\hspace{8pt}cuando\hspace{4pt}} \rho>0.
     \label{eq:positivity-condition}
 \end{align}
-Adicionalmente, para evaluar la completa positividad de $\E$ es 
-necesario introducir a la matriz de Choi $D_{\E}$ de un canal cuántico.
-La matriz $D_{\E}$ se define como la matriz resultante de 
-aplicar la transformación de \textit{reshuffle} al superoperador $\E$,
-es decir, $D_{\E}=\E^{R}$~\cite{bengtsson_zyczkowski_2017}.
-Finalmente, la condición de CP de $\E$, utilizando a su matriz de Choi, 
-está establecida en el siguiente teorema.
+De esta manera, sólo nos hace falta evaluar la completa positividad de $\E$. 
+Para eso se introduce a la matriz de Choi $D_{\E}$ de un canal cuántico,
+que se define como~\cite{bengtsson_zyczkowski_2017}
+\begin{align}\label{eq:ChoiMatrix-via-reshuffle}
+D_{\E}=\E^{R},
+\end{align}
+con $\E^R$ la transformación de \textit{reshuffle} definida en 
+\eqref{eq:Reshuffle_4-indices}. El siguiente teorema establece 
+cuándo $\E$ es una operación completamente positiva:
 \begin{thm}{Teorema de Choi.}\label{thm:choi-CP}
 Un superoperador lineal $\E$ es completamente positivo si y sólo si 
 su matriz de Choi asociada $D_{\E}$ es positiva semidefinida.
@@ -839,343 +770,93 @@ entonces $\lambda_i\geq1$. Por consiguiente, la matriz
 de Choi $D_{\E}$ debe ser positiva semidefinida para que $\rho'$ 
 también lo sea.
 \end{proof}
-En resumen, las condiciones \eqref{eq:H-condition} 
-a \eqref{eq:positivity-condition}, más el teorema \eqref{thm:choi-CP},
-establecen las restricciones sobre el superoperador $\E$ para que sea
-un canal cuántico~\cite{bengtsson_zyczkowski_2017}.
+En resumen, un superoperador $\E$ es un canal cuántico si 
+cumple con las tres condiciones establecidas en las ecuaciones 
+\eqref{eq:H-condition}, \eqref{eq:Tr-condition}
+y \eqref{eq:positivity-condition}, además de lo que establece 
+el teorema \ref{thm:choi-CP}, que su matriz de Choi sea 
+positiva semidefinida.
 
-Por el otro lado, un canal cuántico $\E$ también puede escribirse
-en la representación de suma de operadores.
-En 1971, Karl Kraus introdujo esta representación como resultado
-del teorema de Stinespring \cite{bengtsson_zyczkowski_2017}.
-La representación de Kraus de un canal cuántico reescribe
-a la ecuación \eqref{eq:E(rho)} como
-$\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger}$,
-para algún conjunto de operadores $\{E_k\}$ 
-que satisfacen la condición 
-$\sum _kE_k^{\dagger}E_k\leq\1$~\cite{nielsen_chuang_2011}. 
-Esta representación se relaciona con el superoperador $\E$ por
-medio de la matriz de Choi.
+Como prometimos al inicio de esta sección, vamos a terminar 
+este primer capítulo con la representación en operadores de Kraus 
+de un canal cuántico. Los operadores de Kraus fueron 
+introducidos por Karl Kraus en 1971 como una consecuencia
+deducida por él del teorema de Stinespring para las operaciones 
+completamente positivas~\cite{bengtsson_zyczkowski_2017}. 
+Aunque la representación en operadores de Kraus y los
+superoperadores puedan parecer fundamentalmente distintos, 
+ambas representaciones guardan conexión mediante 
+la matriz de Choi de un canal cuántico.
 
-La representación de Kraus no es única y, por ello, es de interés
-determinar un conjunto $\{E_k\}$ de operadores canónicos de $\E$.
-Se puede encontrar un conjunto de operadores canónicos de Kraus de 
-un canal cuántico $\E$ a partir de los eigenvectores normalizados 
-$\ket{\chi_k}$ de la matriz de Choi reordenados como matrices 
-mediante el proceso inverso
-establecido en \eqref{eq:matrix-to-vector}~\cite{bengtsson_zyczkowski_2017}.
-Además, la raíz cuadrada de los eigenvalores $\sqrt{\lambda_k}$ de 
-$D_{\E}$ proporcionan los pesos de los operadores canónicos $E_k$.
-
-\textbf{Forma canónica de Kraus.} Un mapeo completamente 
-positivo $\E:\mathcal{M}^{(N)}\to\mathcal{M}^{(N)}$ se
-puede escribir como
+A diferencia de un superoperador, los operadores de Kraus representan
+a un canal cuántico con operadores que actúan sobre el espacio 
+de Hilbert, igual que las matrices de densidad. En la representación 
+de Kraus, un canal cuántico $\E$ actúa sobre la matriz 
+de densidad como
+\begin{align}\label{eq:KrausRepresentation}
+\E\qty(\rho)=\sum_k E_k\rho E_k^{\dagger},
+\end{align}
+para algún conjunto de operadores $\{E_k\}$ que satisfacen la 
+condición~\cite{nielsen_chuang_2011}
 \begin{align}
-\rho \longrightarrow \rho' = 
+\sum _kE_k^{\dagger}E_k\leq\1,
+\end{align} 
+donde los operadores $E_k$ reciben el nombre de operadores de Kraus.
+La libertad de la representación de Kraus permite que 
+varios conjuntos distintos de operadores $\{E_k\}$ sean la representación
+de un mismo canal cuántico. Por ello, es de interés
+determinar un conjunto canónico de operadores de Kraus.
+
+El conjunto canónico se puede determinar para todas las operaciones 
+completamente positivas a partir de su matriz de Choi. Un mapeo 
+completamente positivo $\E:\mathcal{M}^{(N)}\to\mathcal{M}^{(N)}$ 
+se puede escribir como~\citep{bengtsson_zyczkowski_2017}
+\begin{align}
+\E(\rho) = 
 \sum_{k=1}^{r\leq d^2}\lambda_k\chi_k\rho\chi_k^{\dagger}
-= \sum_{i=1}^rE_k\rho E_k^{\dagger},
+%= \sum_{i=1}^rE_k\rho E_k^{\dagger},
 \label{eq:Kraus-canonical}
 \end{align}
-donde $r$ es el rango de $D_{\E}$ y $\chi_k$ sus eigenvectores
-$\ket{\chi_k}$ reordenados como matrices. Esto quiere decir que 
-$E_k=\sqrt{\lambda_k}\chi_k$. Además, los 
-operadores $E_k$ deben satisfacer la condición
+con $\lambda_k$ y $\chi_k$ los eigenvalores y eigenvectores 
+normalizados de la matriz de Choi $D_{\E}$, así como $r$ el rango 
+de $D_{\E}$. 
+Estrictamente hablando, $\chi_k$ son los eigenvectores reordenados 
+como matrices según \eqref{eq:matrix-to-vector}.
+Comparando las ecuaciones \eqref{eq:KrausRepresentation} y
+\eqref{eq:Kraus-canonical}, los operadores de Kraus canónicos 
+se definen como $E_k=\sqrt{\lambda_k}\chi_k$ y deben satisfacer
+la condición
 \begin{align}
   \Tr\qty(E_i^{\dagger}E_j)=d_i\delta_{ij}.
   \label{eq:Tr-Kraus-canonical}
 \end{align}
-Si canal cuántico $\E$ preserva la $\Tr \rho$, se cumple que
+Por último, para que $\E$ cumpla con todas las condiciones para 
+ser un canal cuántico debe imponerse la ecuación de completitud 
+para los operadores canónicos de Kraus,
 \begin{align}
   \sum_kE_k^{\dagger}E_k=\1
   \hspace{0.5cm}\Rightarrow\hspace{0.5cm}
   \sum_{k=1}^r\lambda_k=N .
   \label{eq:completeness-Kraus-canonical}
 \end{align}
-Se conoce como rango de Kraus al número de operadores 
-en la forma canónica. Es decir, el número de términos en la sumatoria
-en \eqref{eq:Kraus-canonical}. Por consiguiente, el rango de 
-Kraus de $\E$ es igual al rango de su matriz de Choi 
-$D_{\E}$~\cite{bengtsson_zyczkowski_2017}.
+En pocas palabras, un canal cuántico en la representación canónica de 
+Kraus se escribe en la forma de \eqref{eq:Kraus-canonical}
+siempre que los operadores canónicos de Kraus cumplan con 
+la condiciones en \eqref{eq:Tr-Kraus-canonical} y 
+\eqref{eq:completeness-Kraus-canonical}. 
 
-Con esto completamos los fundamentos teóricos para estudiar 
-el problema de las operaciones PCE a partir del siguiente capítulo. 
-Primero presentamos a la matriz de densidad como una herramienta 
-para representar a los estados cuánticos. Luego, expusimos la teoría 
-de los canales cuánticos para estudiar la dinámica de los sistemas 
-cuánticos abiertos. Un canal cuántico es una operación
-completamente positiva que preserva las características de la 
-matriz de densidad. Ahora nos vamos a centrar en estudiar una 
-dinámica muy particular de los sistemas de qubits.
+En este capítulo revisamos el formalismo de la matriz de densidad
+y la teoría de los canales cuánticos. Por un lado, la matriz de densidad es una 
+matriz positiva de traza unitaria que sirve de herramienta para 
+representar a los estados cuánticos. 
+Por otro lado, la teoría de los canales cuánticos es un marco teórico 
+para describir la evolución discreta de los sistemas cuánticos abiertos. 
+Un canal cuántico es una operación completamente positiva que 
+preserva la traza de la matriz de densidad y se puede representar 
+como superoperador o en la representación de 
+suma de operadores de Kraus. La matriz de densidad y los canales 
+cuánticos son el marco teórico dentro del cual estudiaremos, en 
+el resto de este trabajo, un tipo de operaciones muy particulares 
+que actúan sobre sistemas de qubits, operaciones que hemos bautizado 
+con el nombre de operaciones que borran las componentes de Pauli.
 % }}}
-%%% Lo que está comentado abajo era parte del modelo, puede ser útil  después  {{{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%En adición a los conjuntos de puntos que se trabajan con normalidad
-%en Matemáticas ~---puras y aplicadas---, se tendrá que hacer uso
-%frecuentemente de los conjuntos de conjuntos, si por ejemplo $X$ es
-%la recta real, como un intervalo es un conjunto de puntos, es decir
-%un subconjuto de $X$, se tendrá que el conjunto de todos los
-%intervalos es un conjunto de conjuntos.
-%
-%En especial, cuando una clase hace referencia a subconjuntos del
-%conjunto $X$, la llamaremos \textbf{familia}. En especial el
-%\textbf{conjunto potencia} $\mathcal{P} (X)=\{A\mid A\subseteq X\}$
-%es una familia de $X$. Asimismo, se definirá el \textbf{complemento}
-%de $A$ por \[A^c=\{x\mid x\notin A\}.\]
-%
-%\begin{defn}\label{dfcp28} Una \textbf{función de selección}
-%para un conjunto $X$ es una función $f$ la cual asocia a cada
-%subconjunto no vacío $E$ de $X$ un elemento de $E$: $f(E)\in E$.
-%\end{defn}
-%
-%\begin{axm}[de selección]\label{choice} Para cualquier conjunto
-%existe una función de selección.
-%\end{axm}
-%
-%\begin{rem} Con frecuencia el axioma~\ref{choice} se presenta en
-%la forma: para cada $E\in \mathcal{P}(X)\setminus\{\nada\}$,
-%elegimos un elemento $x\in E$. Asimismo, es equivalente al lema de
-%Zorn, para más detalles consultar
-%~\cite[p. 97]{Halmo},~\cite[p. 338]{Haus} o~\cite[p. 14]{Hewit}.
-%\end{rem}
-%
-%Una \textbf{clase disjunta} es una clase {\boldmath $A$} de
-%conjuntos tal que para cualquier par de conjuntos distintos de
-%{\boldmath $A$} son disjuntos, en este caso nos referiremos a la
-%unión de conjuntos de {\boldmath $A$} como \textbf{unión disjunta}.
-%
-%Si $E$ es un subconjunto de $X$, la función $\chi _E$ definida para
-%$x\in X$ por la relación:
-%\begin{equation}\label{eq0}
-%    \chi_E(x)= \begin{cases}
-%    1, & \mbox{si } x\in E, \\
-%    0, & \mbox{si } x\notin E.
-%    \end{cases}
-%\end{equation}Es llamada \textbf{función característica}
-%del conjunto $E$. La correspondencia entre los conjuntos y sus
-%funciones características es inyectiva, y todas las propiedades de
-%conjuntos y operaciones entre conjuntos pueden ser expresadas por
-%medio de funciones características. 
-%
-%%%%	TABLA CORTA, ÚNICAMENTE LLEVA LÍNEAS HORIZONTALES PARA SEPARAR BLOQUES
-%
-%\begin{table}[ht]
-%\caption[título optativo de la tabla]{Propiedades de los espacios $L^p$. Fuente: tomada de \cite[Cap. 3]{Brez}.}\label{tablaLp}
-%\centering
-%\begin{tabular}{cccc}
-%\hline
-%Espacio & Reflexivo\footnote{En el sentido topológico.} & Separable & Dual \\ \hline %\hline
-%$L^p$, $1<p<\infty$  & Si & Si & $L^q$, $1/p+1/q=1$ \\
-%$L^1$ & No & Si & $L^\infty$ \\
-%$L^\infty$ & No & No & $L^1 \varsubsetneq (L^\infty)’$ \\ \hline
-%\end{tabular}
-%\end{table}\footnotetext{En el sentido topológico.} 
-%
-%\begin{defn}\label{dfcp1}Si $\su En$ es una sucesión de
-%conjuntos, definiremos los conjuntos $\overline{\lim } E_n$ y
-%$\underline{\lim } E_n$ de la siguiente forma:
-%\[\begin{array}{cc}
-%  \overline{\lim} E_n=\limsup \limits_{n\rightarrow \infty}E_n =
-%  \bigcap \limits_{n=1}^\infty \Union Ein \infty ,&
-%  \underline{\lim} E_n=\liminf \limits_{n\rightarrow \infty}E_n =
-%  \bigcup \limits_{n=1}^\infty \Inter Ein \infty \\
-%\end{array}\] y los llamaremos \textbf{límite superior} y
-%\textbf{límite inferior}, respectivamente, de la sucesión $\su En$.
-%Si tenemos $\overline{\lim} E_n = \underline{\lim} E_n$, usaremos la
-%notación $\lim_n E_n$ para este conjunto. Si la sucesión es tal que
-%$E_n\subset E_{n+1},\ n=1,2,\dots$ le llamaremos \textbf{creciente}
-%y se denotará por $E_n\!\!\uparrow$ y su límite será $\lim
-%\limits_{n\rightarrow \infty}E_n = \union En1 \infty$; si es tal que
-%$E_n\supset E_{n+1},\ n=1,2,\dots$ le llamaremos
-%\textbf{decreciente} y se denotará por $E_n\!\!\downarrow$ y su
-%límite será $\lim \limits_ {n\rightarrow \infty}E_n = \inter En1
-%\infty$. En ambos casos nos referiremos a ella como
-%\textbf{monótona}.\end{defn}
-%
-%
-%\begin{defn}\label{dfcp2}Sea $f$ una aplicación definida del conjunto
-%$X$ al conjunto $Y$, es decir $f:X\To Y$. Para cualquier subconjunto
-%$T\subseteq Y$, definimos la \textbf{imagen inversa} de $T$, bajo
-%$f$, denotada por $\ff (T)$, como sigue:
-%\[\ff (T)=\{s\in X\mid f(s)\in T\}.\]\end{defn} 
-%
-%\begin{thm}\label{thcp1}Para la aplicación $\ff :{\cal{P}} (Y)
-%\To {\cal{P}} (X)$ se tienen las propiedades siguientes:
-%\begin{enumerate}
-%    \vspace{0pt} \item $\ff(\bigcup_j T_j) = \bigcup_j
-%    \ff(T_j)$.
-%    \vspace{0pt} \item $\ff(\bigcap_j T_j) = \bigcap_j
-%    \ff(T_j)$.
-%    \vspace{-6pt} \item Si $T_1\cap T_2=\nada$, entonces
-%    $\ff(T_1)\cap \ff(T_2) = \nada$.
-%    \vspace{-6pt} \item $\ff(T^c) = [\ff(T)]^c$.
-%    \vspace{-6pt} \item $\ff(\nada) = \nada$.
-%    \vspace{-6pt} \item $\ff(Y) = X$.
-%\end{enumerate}
-%\end{thm}
-%
-%
-%Las propiedades (1) y (3) del teorema~\ref{thcp1} establecen las
-%condiciones para la unión disjunta en una familia en $Y$. Sea ahora
-%$\Df$ una familia cualquiera de subconjuntos de $Y$, y definamos la
-%familia $\ff (\Df)$ de subconjuntos de $X$ como
-%sigue:\begin{equation}\label{eq1}
-%    \ff(\Df) = \{A\subseteq X \mid
-%A = \ff(T) \mbox{ para algún } T\in \Df\} = \{\ff(T) \mid T\in
-%\Df\}.
-%\end{equation}
-%
-%El sistema de numeros reales extendido o \textbf{recta real
-%extendida} es el conjunto definido por $\RR\df\R \cup \{-\infty,
-%+\infty\}$, con la siguiente relación de orden: para $a\in \R$
-%tenemos $-\infty <a< +\infty$. La topología para este conjunto se
-%define por declarar como abiertos a los siguientes conjuntos:
-%$(a,b),\ [-\infty,b),\ (a,+\infty]$ y cualquier unión de conjuntos
-%de este tipo. Cuando se haga referencia a los \textbf{numeros reales
-%extendidos} o \textbf{valor real extendido}, se estará hablando de
-%los numeros reales y de los símbolos $\pm\infty$. Cuando trabajamos
-%con teoría de la integración, nos encontraremos con $\infty$, una
-%razón es que algunas veces trataremos de integrar sobre conjuntos de
-%medida infinita, este es caso de la recta real.
-%
-%Por tal motivo, se hacen las siguientes definiciones para
-%facilitar su manejo: $a+\infty = \infty+a \df \infty$ si $0\leq a
-%\leq \infty$,~y
-%\begin{equation}\label{eq4}
-%    a\cdot \infty = \infty \cdot a
-%\df\begin{cases}
-%  \infty, & \mbox{si } 0 < a \leq \infty \\
-%  0, & \mbox{si } a = 0 \\
-%\end{cases}
-%\end{equation}las leyes de cancelación se tratan
-%así: $a+b = a+c\ \Rightarrow\ b=c\ $ y $a\cdot b =a\cdot c\
-%\Rightarrow\ b=c$ sólo cuando $0 < a < \infty$. 
-%
-%\begin{defn}\label{dfcp3}Sea $\su aj$ una sucesión en la recta
-%real extendida, y sean $b_k = \sup\{a_k,a_{k+1},a_{k+2}\dots\},\
-%k=1,2,3,\dots$, y $\beta = \inf\{b_1,b_2,b_3,\dots\}$. Entonces
-%llamaremos a $\beta$ el \textbf{límite superior} de $\su aj$, y
-%escribiremos $\beta = \limsup \limits_{j\rightarrow \infty}(a_j)$.
-%El \textbf{límite inferior} se define análogamente, al intercambiar
-%$\sup$ e $\inf$ en las anteriores definiciones; notemos que \[\liminf
-%\limits_{j\rightarrow \infty}(a_j) = -\limsup \limits_{j\rightarrow
-%\infty}(-a_j).\] Si $\su aj$ converge, entonces tenemos $\liminf
-%\limits_{j\rightarrow \infty}(a_j) = \limsup \limits_{j\rightarrow
-%\infty}(a_j) = \lim \limits_{j\rightarrow
-%\infty}(a_j)$.\end{defn}
-%
-%\begin{prp}\label{prcp1}Si $0\leq a_1\leq a_2\leq \cdots$,
-%$0\leq b_1\leq b_2\leq \cdots$, tales que $a_j \To a$ y $b_j \To
-%b$. Entonces $a_j b_j \To ab$.
-%\end{prp}
-%
-%\begin{defn}\label{dfcp4}Supongamos que $\su fj$ es una sucesión de
-%funciones de valor real extendido en un conjunto $X$. Entonces
-%$\sup_j f_j$ y $\limsup \limits_{j\rightarrow \infty} f_j$ son las
-%funciones definidas en $X$ por:
-%\[\left(\sup_j f_j\right)(x)\df \sup_j(f_j(x)),\quad \left(\limsup
-%\limits_{j \rightarrow \infty} f_j\right)(x)\df \limsup \limits_{j
-%\rightarrow \infty}(f_j(x)).\] Si $f(x)=\lim \limits_{j \rightarrow
-%\infty} f_j(x)$, y asumimos que el límite existe para cualquier
-%$x\in X$, entonces llamaremos a $f$ el \textbf{límite puntual} de la
-%sucesión $\su fj$ y hablaremos de \textbf{convergencia puntual} en
-%este contexto.\end{defn}
-%
-%\begin{figure}[ht]
-%\centering
-%\label{fig:analisisGraficoModelo3}
-%\includegraphics[width=0.9\linewidth]{analisisGraficoModelo3}\\
-%\caption[Titulo en el índice de figuras (opcional)]{Título en el 
-%documento. Las imágenes pueden ser raster (de preferencia jpg, png 
-%con buena resolución para imprimir) o vectorial (convertir a pdf, en 
-%este caso la resolución no afecta) Fuente: imagen tomada de~\cite{liu}.}
-%\end{figure}
-%
-%
-%\begin{lem}\label{lmcp11}Sean $z,w \in \C$, $1 < p \leq 2$ y $1/p +
-%1/q = 1$. Entonces tenemos \[\abs{z+w}^q + \abs{z-w}^q \leq 2 (|z|^p
-%+ |w|^p)^{\frac{1}{p-1}}.\]
-%\end{lem}
-%
-%\begin{proof} Consultar~\cite[p. 227]{Hewit}. \end{proof}
-%
-%\begin{defn}\label{dfcp5}Sea $f:X\To \RR$ una aplicación. Se definen
-%las aplicaciones $f^+\!\df\max\{f,0\}$, $f^-\!\df-\min\{f,0\}$, a
-%$f^+$ y $f^-$ se les llama la \textbf{parte positiva y negativa} de
-%$f$, respectivamente.
-%\end{defn}
-%
-%
-%\begin{prp}\label{prcp2}Para cualquier aplicación $f:X\To \R$
-%denotaremos su valor absoluto con $\abs f$, entonces tenemos
-%\[\abs f=f^++f^-,\quad f=f^+-f^-.\]
-%\end{prp}
-%
-%% --------------->  
-%
-%\section{Tablas y Gráficas}
-%
-%Las tablas y gráficas deben tener un título \verb|\caption{text}| que la identifique, debe especificar la \textbf{fuente}, y una etiqueta \verb|\label{text}| para hacer referencias cruzadas dentro del documento.
-%
-%%% TABLAS LARGAS LLEVAN TODAS LAS DIVISIONES DE LOS BLOQUES
-%\subsection{Tablas}
-%
-%\begin{longtable}{|l|l|l|l|l|}
-%\caption[]{Diccionario de datos, tabla \textit{marn} (continuación)} \\ \hline
-%
-%\multicolumn{1}{|c|}{\textbf{Name}} & \multicolumn{1}{c|}{\textbf{Data type}} & \multicolumn{1}{c|}{\textbf{Not Null?}} & \multicolumn{1}{c|}{\textbf{Primary key?}} & \multicolumn{1}{c|}{\textbf{Default}} \\ \hline \endhead
-%	\caption[Diccionario de datos, tabla \textit{marn}]{Diccionario de datos, tabla \textit{marn}. Fuente: obtenida de pgAdminIII}\label{data:marn} \\ \hline
-%
-%	\multicolumn{1}{|c|}{\textbf{Name}} & \multicolumn{1}{c|}{\textbf{Data type}} & \multicolumn{1}{c|}{\textbf{Not Null?}} & \multicolumn{1}{c|}{\textbf{Primary key?}} & \multicolumn{1}{c|}{\textbf{Default}} \\ \hline \endfirsthead 
-%
-%	id & \textit{integer} & \textit{Yes} & \textit{Yes} & \textit{nextval('marn\_id\_seq'} \\ %\hline
-%
-%	 &  &  &  & \textit{::regclass)}\footnote{Note que la tabla es mas ancha que lo preestablecido. Procure diseñar elementos acordes con el espacio preestablecido.} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Clave primaria que  obtendrá su valor de forma secuencial al ingresar un nuevo registro} \\ \hline
-%		lista\_tax & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Clasificación del proyecto en base al Listado Taxativo del MARN} \\ \hline
-%		no\_marn & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Numero de expediente asignado por el MARN} \\ \hline
-%		date0 & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Día del ingreso del expediente del proyecto (instrumento ambiental) en el MARN} \\ \hline
-%		notas & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Observaciones} \\ \hline
-%		no\_res\_ap & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Numero de resolución aprobatoria del proyecto por el MARN%
-%	\footnote{Note que en esta línea la tabla se corta y continua en la siguiente página. 
-%	Utilizar paquete \textsf{longtable} y ambiente \textit{longtable}.}} \\ \hline
-%		date\_res\_ap & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Día de emisión de la resolución aprobatoria por el MARN} \\ \hline
-%		date0\_fianza & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Día de emisión de fianza del proyecto.} \\ \hline
-%		no\_res\_fianza & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Numero de la resolución de aceptación de fianza por el MARN} \\ \hline
-%		date1\_fianza & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Fecha de inicio de fianza} \\ \hline
-%		date2\_fianza & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Fecha de finalización de fianza (renovación)} \\ \hline
-%		lic\_ambiental & \textit{text} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Numero de licencia ambiental} \\ \hline
-%		date\_lic\_ambiental & \textit{date} & \textit{No} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Fecha de finalización de ultima licencia ambiental} \\ \hline
-%		proyecto\_id & \textit{integer} & \textit{Yes} & \textit{No} & \textit{} \\ \hline
-%
-%	\multicolumn{ 5}{|l|}{Enlace con la tabla proyecto\_id} \\ \hline
-%\end{longtable}
-
-% }}}
-
-
