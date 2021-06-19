@@ -547,8 +547,6 @@ cuánticos~\cite{bengtsson_zyczkowski_2017}.
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
 % }}}
-
-
 \section{Representaciones de los canales cuánticos} % {{{
 \label{sec:qtm-channels-representation}
 En esta sección estudiaremos dos representaciones distintas de 
@@ -680,7 +678,9 @@ Ahora que ya contamos con las herramientas algebraicas necesarias,
 vamos a enunciar las condiciones con las que debe cumplir un 
 superoperador $\E$ para ser un canal cuántico. Un superoperador 
 $\E$ es una matriz que actúa sobre una matriz de densidad vectorizada
-$\vec{\rho}$. Recordemos de la sección anterior que un canal cuántico 
+$\vec{\rho}$\cpnote{Quitaría esta frase. Para ser superoperador, actua sobre cualquier
+operador. Ya lo dijiste arriba y creo que acá no mas estas metiendo ruido}.
+Recordemos de la sección anterior que un canal cuántico 
 es una operación lineal que preserva las propiedades de 
 la matriz de densidad y que es completamente positiva.
 La condición de positividad de la matriz de densidad implica 
@@ -688,13 +688,15 @@ otra propiedad: es una matriz Hermítica.
 Por lo tanto, preservar la Hermiticidad, traza unitaria y positividad 
 de la matriz de densidad impone las siguientes tres condiciones 
 sobre $\E$~\cite{bengtsson_zyczkowski_2017},
-\janote{Sobre la hermiticidad de $\rho$: es una propiedad que se puede 
-deducir de la positividad: si $\rho$ es positiva tiene descomposición 
-espectral $\sum_i\lambda_i\dyad{\psi_i}{\psi_i}$,
-entonces se sigue que $\rho=\rho^{\dagger}$. Por eso, arreglé este
-párrafo que acabas de terminar de leer para introducir la Hermiticidad
-como una propiedad que se deduce de las características de la 
-matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
+% \janote{Sobre la hermiticidad de $\rho$: es una propiedad que se puede 
+% deducir de la positividad: si $\rho$ es positiva tiene descomposición 
+% espectral $\sum_i\lambda_i\dyad{\psi_i}{\psi_i}$,
+% entonces se sigue que $\rho=\rho^{\dagger}$. Por eso, arreglé este
+% párrafo que acabas de terminar de leer para introducir la Hermiticidad
+% como una propiedad que se deduce de las características de la 
+% matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
+\cpnote{No has definido rho prima (al menos no cerca), para que tngan sntido
+estas definiciones, tienes que decir de neuvo que rho prima es E sobre rho}
 \begin{align}
 \txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
@@ -707,7 +709,11 @@ matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
     \text{\hspace{8pt}cuando\hspace{4pt}} \rho>0.
     \label{eq:positivity-condition}
 \end{align}
-De esta manera, sólo nos hace falta evaluar la completa positividad de $\E$. 
+De esta manera, sólo nos hace falta evaluar la completa positividad de $\E$
+\cpnote{no entiendo esta frase en este contexto. estamos evaluando algo? Ya
+evaluamos algo? Además creo que aca conviene separar parrafo pues pasas
+de algo general a lo particular. Como que siento qeu aca el flujo esta chistoson. 
+Dale una mirada a esto y le sigo luego}. 
 Para eso se introduce a la matriz de Choi $D_{\E}$ de un canal cuántico,
 que se define como~\cite{bengtsson_zyczkowski_2017}
 \begin{align}\label{eq:ChoiMatrix-via-reshuffle}
@@ -860,3 +866,4 @@ el resto de este trabajo, un tipo de operaciones muy particulares
 que actúan sobre sistemas de qubits, operaciones que hemos bautizado 
 con el nombre de operaciones que borran las componentes de Pauli.
 % }}}
+
