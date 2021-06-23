@@ -551,8 +551,8 @@ algunas representaciones de canales cuánticos.
 \label{sec:qtm-channels-representation}
 En esta sección estudiaremos dos representaciones distintas de 
 los canales cuánticos: los superoperadores y la representación 
-de suma de operadores de Kraus. Para cada una de ellas repasaremos
-cómo evaluar las condiciones que hacen a una operación lineal un 
+de suma de operadores de Kraus. Para cada una de ellas, vamos a revisar
+cómo escribir las condiciones que hacen a una operación lineal un 
 canal cuántico. La representación como superoperador 
 será especialmente útil para investigar el problema
 que vamos a plantear en el siguiente capítulo. No obstante, los 
@@ -576,9 +576,9 @@ Vamos a revisar primero cómo `vectorizar' a la matriz de densidad
 para después exponer cómo es la representación matricial de
 un canal cuántico como un superoperador.
 Consideremos una matriz de densidad $\rho$ de dimensión $d\times d$.
-Para vectorizar a $\rho$ los elementos de matriz $\rho_{ij}$ 
+Para vectorizar a $\rho$, los elementos de matriz $\rho_{ij}$ 
 se deben acomodar en un vector columna $\vec{\rho}$, con componentes 
-$\rho_k$, siguiendo la ecuación  
+$\rho_k$, siguiendo la ecuación~\citep{bengtsson_zyczkowski_2017}
 \begin{align}
 \rho_k=\rho_{ij};\hspace{2cm} k=\qty(i-1)d+j,
 \label{eq:matrix-to-vector}
@@ -601,7 +601,7 @@ que actúa sobre el vector $\vec{\rho}$. Esta representación matricial de
 $\E$ es la que se conoce como superoperador.
 
 Antes de estudiar las condiciones que un superoperador $\E$
-debe satisfacer para ser un canal cuántico es útil que revisemos
+debe satisfacer para ser un canal cuántico es necesario que revisemos
 dos herramientas algebraicas: (1) una notación de cuatro índices 
 para los elementos de matriz de un operador, y (2) la transformación 
 algebraica de \textit{reshuffle}. Primero, para introducir la nueva notación
@@ -671,23 +671,25 @@ dimensión 4 de la forma $\mathcal{HS}_2\ot \mathcal{HS}_2$,
 \right).
 \end{align}
 La transformación de \textit{reshuffle} nos será útil específicamente 
-para evaluar la completa positividad de un superoperador $\E$, 
-como veremos a continuación.
+para entender la condición de completa positividad que un superoperador $\E$
+de cumplir para ser un canal cuántico.
 
-Ahora que ya contamos con las herramientas algebraicas necesarias, 
-vamos a enunciar las condiciones con las que debe cumplir un 
-superoperador $\E$ para ser un canal cuántico. Un superoperador 
-$\E$ es una matriz que actúa sobre una matriz de densidad vectorizada
-$\vec{\rho}$\cpnote{Quitaría esta frase. Para ser superoperador, actua sobre cualquier
-operador. Ya lo dijiste arriba y creo que acá no mas estas metiendo ruido}.
+Ahora que ya contamos con las herramientas algebraicas necesarias
+estamos listos para enunciar las condiciones que debe cumplir un 
+superoperador $\E$ para ser un canal cuántico. 
+%Un superoperador 
+%$\E$ es una matriz que actúa sobre una matriz de densidad vectorizada
+%$\vec{\rho}$\cpnote{Quitaría esta frase. Para ser superoperador, actua sobre cualquier
+%operador. Ya lo dijiste arriba y creo que acá no mas estas metiendo ruido}.
 Recordemos de la sección anterior que un canal cuántico 
-es una operación lineal que preserva las propiedades de 
-la matriz de densidad y que es completamente positiva.
-La condición de positividad de la matriz de densidad implica 
-otra propiedad: es una matriz Hermítica. 
-Por lo tanto, preservar la Hermiticidad, traza unitaria y positividad 
-de la matriz de densidad impone las siguientes tres condiciones 
-sobre $\E$~\cite{bengtsson_zyczkowski_2017},
+es una operación lineal que actúa sobre una matriz de densidad 
+como en \eqref{eq:E(rho)}, donde $\rho'$
+es una matriz de densidad y $\E$ es una operación completamente positiva.
+La condición de positividad con la que debe cumplir la matriz de densidad 
+implica que además es una matriz Hermítica. 
+Por lo tanto, que un canal cuántico preserve la Hermiticidad, traza unitaria 
+y positividad de la matriz de densidad impone tres condiciones 
+sobre el superoperador $\E$~\cite{bengtsson_zyczkowski_2017}:
 % \janote{Sobre la hermiticidad de $\rho$: es una propiedad que se puede 
 % deducir de la positividad: si $\rho$ es positiva tiene descomposición 
 % espectral $\sum_i\lambda_i\dyad{\psi_i}{\psi_i}$,
@@ -697,24 +699,28 @@ sobre $\E$~\cite{bengtsson_zyczkowski_2017},
 % matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
 \cpnote{No has definido rho prima (al menos no cerca), para que tngan sntido
 estas definiciones, tienes que decir de neuvo que rho prima es E sobre rho}
+\janote{Listo. Leete de nuevo este párrafo. Borré el enunciado que 
+comentaste que hacía ruido.}
 \begin{align}
-\txt{(i)}&& \rho'=\qty(\rho')^{\dagger}&&\Leftrightarrow
+\txt{(i)}&& \rho'&=\qty(\rho')^{\dagger}&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
     \label{eq:H-condition}\\
-\txt{(ii)}&&\Tr(\rho')=1
-    &&\Leftrightarrow&&  \sum_{m}\E_\ind{mm}{n\nu}=\delta_{n\nu},
+\txt{(ii)}&&\Tr(\rho')&=1
+    &\Leftrightarrow&&  \sum_{m}\E_\ind{mm}{n\nu}=\delta_{n\nu},&
     \label{eq:Tr-condition}\\     
-\txt{(iii)}&&\rho'\geq0
-    &&\Leftrightarrow&&  \sum_{n\nu}\E_{\ind{m\mu}{n\nu}}\rho_{n\nu}\geq0 &
-    \text{\hspace{8pt}cuando\hspace{4pt}} \rho>0.
+\txt{(iii)}&&\matrixel{\psi}{\rho'}{\psi}&\geq0,\ \forall \ket{\psi} \in \hi
+    &\Leftrightarrow&&  \sum_{n\nu}\E_{\ind{m\mu}{n\nu}}\rho_{n\nu}\geq0,& 
+    & \rho>0.
     \label{eq:positivity-condition}
 \end{align}
-De esta manera, sólo nos hace falta evaluar la completa positividad de $\E$
+De esta manera, sólo nos hace falta revisar la condición que debe cumplir
+un superoperador $\E$ para ser una operación completamente positiva.
 \cpnote{no entiendo esta frase en este contexto. estamos evaluando algo? Ya
 evaluamos algo? Además creo que aca conviene separar parrafo pues pasas
 de algo general a lo particular. Como que siento qeu aca el flujo esta chistoson. 
-Dale una mirada a esto y le sigo luego}. 
-Para eso se introduce a la matriz de Choi $D_{\E}$ de un canal cuántico,
+Dale una mirada a esto y le sigo luego} \janote{Listo. Reformulé lo que 
+quería decir con `evaluar'}
+Para eso, se introduce a la matriz de Choi $D_{\E}$ de $\E$,
 que se define como~\cite{bengtsson_zyczkowski_2017}
 \begin{align}\label{eq:ChoiMatrix-via-reshuffle}
 D_{\E}=\E^{R},
