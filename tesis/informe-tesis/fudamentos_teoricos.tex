@@ -697,10 +697,10 @@ sobre el superoperador $\E$~\cite{bengtsson_zyczkowski_2017}:
 % párrafo que acabas de terminar de leer para introducir la Hermiticidad
 % como una propiedad que se deduce de las características de la 
 % matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
-\cpnote{No has definido rho prima (al menos no cerca), para que tngan sntido
-estas definiciones, tienes que decir de neuvo que rho prima es E sobre rho}
-\janote{Listo. Leete de nuevo este párrafo. Borré el enunciado que 
-comentaste que hacía ruido.}
+% \cpnote{No has definido rho prima (al menos no cerca), para que tngan sntido
+% estas definiciones, tienes que decir de neuvo que rho prima es E sobre rho}
+% \janote{Listo. Leete de nuevo este párrafo. Borré el enunciado que 
+% comentaste que hacía ruido.}
 \begin{align}
 \txt{(i)}&& \rho'&=\qty(\rho')^{\dagger}&\Leftrightarrow
     && \E_\ind{m\mu}{n\nu}=\E_\ind{\mu m}{\nu n}^*,&&
@@ -715,11 +715,11 @@ comentaste que hacía ruido.}
 \end{align}
 De esta manera, sólo nos hace falta revisar la condición que debe cumplir
 un superoperador $\E$ para ser una operación completamente positiva.
-\cpnote{no entiendo esta frase en este contexto. estamos evaluando algo? Ya
-evaluamos algo? Además creo que aca conviene separar parrafo pues pasas
-de algo general a lo particular. Como que siento qeu aca el flujo esta chistoson. 
-Dale una mirada a esto y le sigo luego} \janote{Listo. Reformulé lo que 
-quería decir con `evaluar'}
+% \cpnote{no entiendo esta frase en este contexto. estamos evaluando algo? Ya
+% evaluamos algo? Además creo que aca conviene separar parrafo pues pasas
+% de algo general a lo particular. Como que siento qeu aca el flujo esta chistoson. 
+% Dale una mirada a esto y le sigo luego} \janote{Listo. Reformulé lo que 
+% quería decir con `evaluar'}
 Para eso, se introduce a la matriz de Choi $D_{\E}$ de $\E$,
 que se define como~\cite{bengtsson_zyczkowski_2017}
 \begin{align}\label{eq:ChoiMatrix-via-reshuffle}
@@ -768,8 +768,13 @@ donde $\delta_{\ind{m'\mu'}{n'	\nu'}}=\delta_{m'n'}\delta_{\mu'\nu'}$,
 donde utilizamos $\E_{\ind{m\mu}{n\nu}}
 =\E^R_{\ind{mn}{\mu\nu}}
 =D_{\ind{mn}{\mu\nu}}$.
-Finalmente, para evaluar que $\rho'$ sea una matriz de densidad positiva 
+Finalmente, para evaluar \cpnote{me parece que acá va ``determinar''
+(moidificando un poco la frase que sigue) o ``si requerimos\ldots'' algo asi.
+No lo cambio porque quiero resaltar que creo que abusas de la palabra
+``evaluar''} que $\rho'$ sea una matriz de densidad positiva 
 calculamos sus elementos de matriz con un vector arbitrario~$y_{mm'}$
+\cpnote{Uno calcula los elementos de matriz con respecto a una base. Quizá
+lo que quieres hacer es calcular un valor esperado.}
 para encontrar la condición que se debe de satisfacer,
 \begin{align}
 \sum_{m,m',\mu,\mu'}
@@ -780,14 +785,15 @@ y_{mn'}\chi^i_{mn}z_{nm'}}^2
 \end{align}
 entonces $\lambda_i\geq1$. Por consiguiente, la matriz 
 de Choi $D_{\E}$ debe ser positiva semidefinida para que $\rho'$ 
-también lo sea.
+también lo sea. \cpnote{No lo veo. Explicamelo, o si puedes 
+poner una ecuación matricial, estaría padre.}
 \end{proof}
 En resumen, un superoperador $\E$ es un canal cuántico si 
 cumple con las tres condiciones establecidas en las ecuaciones 
 \eqref{eq:H-condition}, \eqref{eq:Tr-condition}
 y \eqref{eq:positivity-condition}, además de lo que establece 
 el teorema \ref{thm:choi-CP}, que su matriz de Choi sea 
-positiva semidefinida.
+positiva semidefinida. 
 
 Como prometimos al inicio de esta sección, vamos a terminar 
 este primer capítulo con la representación en operadores de Kraus 
@@ -851,13 +857,17 @@ para los operadores canónicos de Kraus,
   \sum_{k=1}^r\lambda_k=N .
   \label{eq:completeness-Kraus-canonical}
 \end{align}
+\cpnote{no entiendo ni la flecha de la ecuación anterior ni el hecho de uqe sumen 
+a $N$}
 En pocas palabras, un canal cuántico en la representación canónica de 
 Kraus se escribe en la forma de \eqref{eq:Kraus-canonical}
 siempre que los operadores canónicos de Kraus cumplan con 
 la condiciones en \eqref{eq:Tr-Kraus-canonical} y 
 \eqref{eq:completeness-Kraus-canonical}. 
 
-En este capítulo revisamos el formalismo de la matriz de densidad
+En este capítulo revisamos \cpnote{Creo que es un poco mucho decir que 
+revisamos esos formalismos. Mas bine se introdujeron brevemente o algo así.} 
+el formalismo de la matriz de densidad
 y la teoría de los canales cuánticos. Por un lado, la matriz de densidad es una 
 matriz positiva de traza unitaria que sirve de herramienta para 
 representar a los estados cuánticos. 
@@ -871,5 +881,7 @@ cuánticos son el marco teórico dentro del cual estudiaremos, en
 el resto de este trabajo, un tipo de operaciones muy particulares 
 que actúan sobre sistemas de qubits, operaciones que hemos bautizado 
 con el nombre de operaciones que borran las componentes de Pauli.
+
+\cpnote{Bien, va quedando bonita la tesis.}
 % }}}
 
