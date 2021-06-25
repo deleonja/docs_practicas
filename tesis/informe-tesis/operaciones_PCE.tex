@@ -282,6 +282,44 @@ $n$ qubits en la base de Pauli y definir formalmente una operación PCE.}
 
 % }}}
 \section{1 qubit} % {{{
+\esqueleto{
+Idea central de esta sección: encontrar todos los canales cuánticos PCE 
+de 1 qubit.}
+
+\esqueleto{
+Para resolver el problema lo que haremos será encontrar los eigenvalores 
+de la matriz de Choi del superoperador y así encontrar las condiciones 
+que debe satisfacer una operación PCE de 1 qubit para ser un canal cuántico
+en términos de las $\tau_i$. 
+Escribir al superoperador, en su forma diagonal con las $\tau_i$, 
+que actúa sobre la matriz de densidad de 1 qubit escrita en la base de Pauli. 
+}
+
+\esqueleto{
+Aplicar el reshuffle para encontrar la matriz de Choi y calcular después 
+sus eigenvalores.
+}
+
+\esqueleto{
+Enunciar las desigualdades que deben satisfacer las $\tau_i$ para que 
+la operación sea un canal cuántico. Hacer referencia al resultado del
+Geometry of Quantum States en el que también llegan a esas desigualdades
+(tienen un nombre). Esto para hacerlo ver como un check de que no 
+estamos hablando paja aquí.
+}
+
+\esqueleto{
+Escribir las 8 operaciones PCE de 1 qubit y discutir sobre las operaciones 
+que sí satisfacen las desigualdades para ser canales cuánticos y las que no.
+Discutir que no hay nada fundalmente diferente entre las 3 operaciones
+que mapean la esfera de Bloch a una línea, igual que las 3 que mapean 
+la esfera de Bloch a un disco. Esto implica que hay una equivalencia
+entre esas operaciones. 
+Y fin. En conclusión, son canales cuánticos PCE solo los que dejan igual 
+la esfera de Bloch, mapean la esfera de Bloch a una línea o al origen de
+coordenadas. 
+}
+
 %\esqueleto{
 %Resumen de los resultados de 1 qubit. Para seguir un orden lógico
 %en este capítulo voy a hablar de los resultados de 1 qubit con el 
@@ -342,6 +380,26 @@ $n$ qubits en la base de Pauli y definir formalmente una operación PCE.}
 %}
 % }}}
 \section{El problema de $\mathbf{n}$ qubits} % {{{
+
+\esqueleto{
+La idea central de esta sección es que para el problema de n qubits la 
+solucion son los mismos pasos que para el problema de 1 qubit, pero
+la diagonalización exacta de la matriz de Choi no es así nomás. Por lo tanto, 
+hay que recurrir a otros métodos mientras no tengamos la diagonalización 
+para investigar sistemas de más de 1 qubit.
+}
+
+\esqueleto{
+Repetir el procedimiento de la sección anterior: (1) escribir al 
+superoperador en la base que es diagonal, (2) reshuffle, pero al llegar al
+paso (3), la diagonalización, discutir que el problema de que la
+diagonalización exacta es un problema difícil y para este trabajo 
+preferimos explorar una solución numérica.
+}
+
+\janote{La sección está va a ser cortita, pero ni modo, toca igual ponerla
+y tampoco quiero sacar más discusión donde no es necesaria para extenderla.}
+
 %\esqueleto{ 
 %\begin{itemize}
 %\item Escribir a la matriz de densidad de $n$ qubits en la base 
@@ -394,6 +452,33 @@ $n$ qubits en la base de Pauli y definir formalmente una operación PCE.}
 %}
 % }}}
 \section{Solución numérica} % {{{
+\esqueleto{
+La idea central de esta sección es describir el método numérico para 
+resolver 2 y 3 qubits (hay que discutir qué y cómo vamos a escribir lo 
+de 3 qubits porque el primer método numérico de fuerza bruta no puede 
+resolver completo 3 qubits).
+}
+
+\esqueleto{
+Para implementar el método numérico utilizamos el lenguaje de Wolfram 
+Alpha. El algoritmo implementado fue: 
+\begin{enumerate}
+\item Escribir una posible configuración de $\vec{\tau}$ de 1's y 0's.
+\item Aplicar la transformación de reshuffle.
+\item Calcular los eigenvalores de la matriz de Choi. 
+\item Revisar que todos los eigenvalores sean no negativos.
+\end{enumerate}
+}
+
+\esqueleto{
+Describir en un cuadro las rutinas que implementé (en un cuadro porque 
+creo que se puede ver más ordenado).
+}
+
+\esqueleto{
+Escribir
+}
+
 %\esqueleto{ 
 %\begin{itemize}
 %\item Resolvimos numéricamente la verificación de la CP para 
