@@ -109,9 +109,10 @@ del vector de Bloch. El canal \textit{bit-flip} transforma a las componentes
 de \eqref{eq:rho-1qubit-ch2} como~\cite{nielsen_chuang_2011}
 \begin{align}\label{eq:bit-flip-transformation}
 \qty(1,r_1,r_2,r_3)\longmapsto \qty(1,r_1,(1-2p)r_2,(1-2p)r_3),
-\hspace{.5cm} -1\leq p\leq 1.
+\hspace{.5cm} 0\leq p\leq 1.
 \end{align}
 \cpnote{Para $p=-1$ si es un canal cuantico? no, hay algo acá que está mal.}
+\janote{Me confundí, pero corregido}
 Similarmente, el canal \textit{defasing} actúa sobre las mismas
 componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}
 como~\cite{nielsen_chuang_2011}
@@ -150,13 +151,14 @@ En este caso, \eqref{eq:bit-flip-transformation} y
 Es decir que, el \textit{bit-flip} y \textit{defasing} cuando $p=1/2$
 son operaciones que mapean la esfera de Bloch a una línea sobre 
 el eje mayor de los elipsoides en las Figs. \ref{fig:bit-flip} y \ref{fig:phase-flip}.
-Probará ser útil después entender a estos canales cuánticos 
-como operaciones que `borran' dos de las cuatro 
-componentes $r_i$, y que dejan invariante a las otras dos, 
-de la matriz de densidad de 1 qubit escrita en la base de matrices 
-de Pauli como~en~\eqref{eq:rho-1qubit-ch2}.\cpnote{La redacción está como 
+Va a ser útil que interpretemos a estos canales cuánticos 
+como operaciones que `borran' dos de las proyecciones
+$r_i$  de la matriz de densidad de 1 qubit sobre
+las matrices de Pauli y que dejan al resto de $r_j$ invariantes.
+\cpnote{La redacción está como 
 chistosa. Por cierto lo de arrancar diciendo ``probara ser \ldots'' suena a 
 anglisismo. Porfa considera cambiar eso. } 
+\janote{Listo}
 
 %\esqueleto{Conducir al lector a preguntarse: `bueno, entonces deplano
 %que puedo borrar cualquier cantidad de componentes de Pauli, ¿no? ¡¿NO?!', 
@@ -240,11 +242,15 @@ que transforma a las componentes de Pauli como
 r_{j_1,\ldots,r_n}\longmapsto \tau_{j_1,\ldots,r_n}r_{j_1,\ldots,r_n},
 \hspace{.8cm} \tau_{j_1,\ldots,r_n} = 0,1.
 \end{align}
-Una operación PCE es una operación borra un subconjunto de las 
-componentes de Pauli, y al resto las deja invariantes, de la matriz 
-de densidad de $n$ qubits\cpnote{redaccion}. A las operaciones PCE que satisfacen 
-la condición de completa positividad para ser un canales cuántico
-les vamos a llamar canales cuánticos PCE o sólo canales PCE.
+Una operación PCE es una operación lineal que actúa sobre la matriz 
+de densidad de $n$ qubits y que borra a algunas de las componentes de 
+Pauli y deja invariantes al resto.
+\cpnote{redaccion}
+\janote{Quizás no entendí porqué la redacción estaba mal. Hice una 
+corrección, pero si igual sigue mal por favor dime qué es lo que estoy 
+diciendo mal.}. A las operaciones PCE que satisfacen 
+la condición de completa positividad y son, por ende, canales cuánticos,
+les vamos a llamar canales cuánticos PCE o sólamente canales PCE.
 
 El problema que planteamos para este trabajo de graduación es
 el siguiente: qué características tienen en común y satisfacen todos 
