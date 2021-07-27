@@ -34,7 +34,7 @@
 %                    Mi preámbulo usual (José Alfredo)
 % --------------------------------------------------------------------------------------------------
 \usepackage{natbib}
-
+\usepackage{ctable} % for \specialrule command
 \usepackage{bbold}
 
 \definecolor{mycolor}{RGB}{255,50,0}
@@ -43,6 +43,7 @@
 \usepackage{fancybox}
 \usepackage{colortbl}
 \usepackage{amsbsy}
+\usepackage{float}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
 \FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
@@ -54,8 +55,8 @@
 \usepackage[]{lineno}  \linenumbers
 \setlength\linenumbersep{3pt}
 
-\newcommand{\fref}[1]{fig.~\ref{#1}}   \newcommand{\tref}[1]{table~\ref{#1}}
-\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Table~\ref{#1}}
+\newcommand{\fref}[1]{fig.~\ref{#1}}   \newcommand{\tref}[1]{tabla~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Tabla~\ref{#1}}
 \newcommand{\Cref}[1]{Cuadro~\ref{#1}}
 
 \newcommand{\psii}{\psi_i}
@@ -78,6 +79,7 @@
 \newcommand{\esqueleto}[1]{\textcolor{mycolor}{#1}}
 \newcommand{\ot}{\otimes}
 \newcommand{\m}{\textcolor{mycolor}{|}}
+\newcommand{\taus}{\tau_{j_1,\ldots ,j_n}}
 
 % Para que funcione mejor la numeración {{{
 % https://tex.stackexchange.com/questions/43648/why-doesnt-lineno-number-a-paragraph-when-it-is-followed-by-an-align-equation

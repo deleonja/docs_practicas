@@ -75,7 +75,7 @@
 %especialmente cómo actúan sobre las componentes de Pauli.}
 
 En esta sección vamos a elaborar una discusión que conducirá a
-la definición de una operación PCE y el planteamiento del problema
+la definición de una operación PCE y al planteamiento del problema
 a tratar en esta tesis. 
 Comenzaremos por introducir a los canales cuánticos  
 \textit{bit-flip} y \textit{defasing} de 1 qubit. 
@@ -102,7 +102,7 @@ Para entender algebraicamente cómo actúan estos canales cuánticos
 recordemos que la matriz de densidad de 1 qubit se escribe en la 
 base de matrices de Pauli como
 \begin{align}\label{eq:rho-1qubit-ch2}
-\rho=\frac{1}{2}\sum_{i=0}^3r_i\sigma_i,\hspace{.8cm}r_0=1,
+\rho=\frac{1}{2}\sum_{i=0}^3r_i\sigma_i,\hspace{2cm}r_0=1,
 \end{align}
 donde $r_1$, $r_2$ y $r_3$ especifican las coordenadas $\qty(x,y,z)$ 
 del vector de Bloch. El canal \textit{bit-flip} transforma a las componentes 
@@ -118,7 +118,7 @@ componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}
 como~\cite{nielsen_chuang_2011}
 \begin{align}\label{eq:defasing-transformation}
 \qty(1,r_1,r_2,r_3)\longmapsto \qty(1,(1-2p)r_1,(1-2p)r_2,r_3),
-\hspace{.5cm} -1\leq p\leq 1.
+\hspace{.5cm} 0\leq p\leq 1.
 \end{align}
 \begin{figure}
 \centering
@@ -154,7 +154,7 @@ el eje mayor de los elipsoides en las Figs. \ref{fig:bit-flip} y \ref{fig:phase-
 Va a ser útil que interpretemos a estos canales cuánticos 
 como operaciones que `borran' dos de las proyecciones
 $r_i$  de la matriz de densidad de 1 qubit sobre
-las matrices de Pauli y que dejan al resto de $r_j$ invariantes.
+las matrices de Pauli y que dejan al resto de componentes $r_j$ invariantes.
 \cpnote{La redacción está como 
 chistosa. Por cierto lo de arrancar diciendo ``probara ser \ldots'' suena a 
 anglisismo. Porfa considera cambiar eso. } 
@@ -174,7 +174,8 @@ anglisismo. Porfa considera cambiar eso. }
 Las operaciones 	que se describen en \eqref{eq:bit-flip_p=0.5}
 y \eqref{eq:defasing_p=0.5} sugieren preguntarse si todas las
 operaciones que borran cualesquiera de las componentes $r_i$ 
-de \eqref{eq:rho-1qubit-ch2} son canales cuánticos.
+de la matriz de densidad de 1 qubit 
+en \eqref{eq:rho-1qubit-ch2} son canales cuánticos.
 La pregunta es relevante porque la respuesta es
 que no. En el capítulo anterior, en la sección 
 \ref{sec:qtm-channels}, elaboramos el ejemplo de la operación $\E_z$
@@ -186,7 +187,7 @@ no transforma a la matriz
 de densidad del estado máximamente entrelazado en otra 
 matriz de densidad.
 Es decir, la operación $\E_z$ es un ejemplo de una 
-operación que borra un subconjunto de las componentes $r_i$ de 
+operación de 1 qubit que borra un subconjunto de las componentes $r_i$ de 
 la matriz de densidad \eqref{eq:rho-1qubit-ch2} y que no es canal cuántico.
 
 %\esqueleto{Motivar a pensar que si la CP ya impide que algunas 
@@ -204,19 +205,20 @@ de Pauli. Revisemos el problema de 2 qubits. La matriz de densidad
 se escribe
 \begin{align}\label{eq:rho_2qubits_cap2}
 \rho = \frac{1}{4}\sum_{i,j=0}^3r_{ij}\sigma_i\ot\sigma_j, 
-\hspace{.8cm} r_{0,0}=1.
+\hspace{2cm} r_{0,0}=1.
 \end{align}
 Hay 15 componentes $r_{ij}$ que se podrían borrar o dejar invariantes. 
-Por consiguiente, la cantidad de operaciones de este tipo posibles son 
-$32,768$ $(2^{15})$. El número de posibles operaciones de este tipo 
-crece de manera exponencial como $2^{4^n-1}$. Sin embargo, no es 
-sólo el crecimiento exponencial en el número de operaciones posibles 
+Por consiguiente, hay $32,768$ $(2^{15})$ operaciones distintas que borran las 
+componentes de la matriz de densidad \eqref{eq:rho_2qubits_cap2} de 2 qubits. 
+El número de operaciones de este tipo crece de manera exponencial 
+como $2^{4^n-1}$, con $n$ el número de qubits. Sin embargo, no es 
+sólo el crecimiento exponencial en el número de operaciones de este tipo
 lo que hace interesante al problema, sino también el hecho de que en 
-sistemas de más de 1 qubit aparecen las correlaciones cuánticas entre 
-las particiones del sistema. Es decir, no es trivial inferir cuáles son los 
+sistemas de más de 1 qubit aparecen correlaciones cuánticas entre 
+las particiones del sistema. Por consiguiente, no es trivial inferir cuáles son los 
 canales cuánticos que borran las componentes $r_{ij}$ de 
 \eqref{eq:rho_2qubits_cap2} a partir de los canales cuánticos 
-de 1 qubit que borran las $r_i$ de \eqref{eq:rho-1qubit-ch2}.
+de 1 qubit que borran las componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}.
 
 %\esqueleto{Ya, no más rodeos y finiquitar con la expresión de $\rho$ para 
 %$n$ qubits en la base de Pauli y definir formalmente una operación PCE.}
@@ -227,7 +229,7 @@ productos tensoriales de las matrices de Pauli, se escribe como
 \begin{align}\label{eq:rho_n_qubits}
 \rho=\frac{1}{2^n}\sum_{j_1,\ldots,j_n=0}^3
 r_{j_1,\ldots,j_n}\sigma_{j_1}\ot\ldots\ot\sigma_{j_n},
-\hspace{.8cm} r_{0,\ldots,0}=1.
+\hspace{2cm} r_{0,\ldots,0}=1.
 \end{align}
 Vamos a llamar ``componentes de Pauli'' a las componentes $r_{j_1,\ldots,j_n}$
 de \eqref{eq:rho_n_qubits}. Las componentes de Pauli son las proyecciones
@@ -238,9 +240,10 @@ operación PCE por sus siglas en inglés (\textit{Pauli
 component erasing}), a una operación lineal que actúa sobre una 
 matriz de densidad de la forma \eqref{eq:rho_n_qubits} y 
 que transforma a las componentes de Pauli como
-\begin{align}
+\begin{align}\label{eq:PCE_definition}
 r_{j_1,\ldots,r_n}\longmapsto \tau_{j_1,\ldots,r_n}r_{j_1,\ldots,r_n},
-\hspace{.8cm} \tau_{j_1,\ldots,r_n} = 0,1.
+\hspace{1cm} \tau_{j_1,\ldots,r_n} = 0,1,
+\hspace{1cm} \tau_{0,\ldots,0}=1.
 \end{align}
 Una operación PCE es una operación lineal que actúa sobre la matriz 
 de densidad de $n$ qubits y que borra a algunas de las componentes de 
@@ -250,12 +253,13 @@ Pauli y deja invariantes al resto.
 corrección, pero si igual sigue mal por favor dime qué es lo que estoy 
 diciendo mal.}. A las operaciones PCE que satisfacen 
 la condición de completa positividad y son, por ende, canales cuánticos,
-les vamos a llamar canales cuánticos PCE o sólamente canales PCE.
+les llamaremos ``canales cuánticos PCE'' o sólamente ``canales PCE''.
 
-El problema que planteamos para este trabajo de graduación es
-el siguiente: qué características tienen en común y satisfacen todos 
-los canales PCE de sistemas de 2 y 3 qubits. Dicho de otro modo, 
-nuestro objetivo es investigar qué hace diferente la condición de 
+De manera muy puntual, podemos formular el problema para 
+este trabajo con la siguiente pregunta: ¿qué características tienen 
+en común y qué condiciones satisfacen todos los canales PCE 
+de sistemas de 2 y 3 qubits? Dicho de otro modo, 
+nuestro objetivo es investigar qué hace de diferente la condición de 
 completa positividad a los canales PCE del conjunto de todas las 
 operaciones PCE de 2 y 3 qubits.
 En las siguientes secciones presentaremos el estudio analítico del 
@@ -263,130 +267,171 @@ caso de 1 qubit y el método numérico que diseñamos
 para estudiar sistemas de 2 y 3 qubits. 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Esto podría servir
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Para establecer qué son las operaciones PCE y el porqué de nuestro interés por 
-%estudiarlas vamos a hablar antes de dos ejemplos 
-%de canales cuánticos de 1 qubit. Estos dos ejemplos junto con la operación
-%$\E_z$, que discutimos en la sección \ref{sec:qtm-channels}, nos servirán 
-%como punto de partida para motivar el estudio de un tipo muy particular 
-%de operaciones, que actúan sobre sistemas de qubits, a los cuáles hemos
-%bautizado con el nombre de operaciones de Pauli que borran 
-%componentes (PCE por sus siglas en inglés, \textit{Pauli component erasing}).
-%
-%Los canales cuánticos de 1 qubit que discutiremos son el canal 
-%de inversión de bit y el canal de inversión de fase. 
-%Geométricamente, ambos canales deforman la bola 
-%de Bloch en un elipsoide con eje de simetría en $x$ y $y$,
-%respectivamente (Figs. \ref{fig:bit-flip} y \ref{fig:phase-flip}).
-%Los semiejes perpendiculares al eje de simetría del elipsoide
-%varían según un parámetro $p$. Especifícamente
-%nos interesa revisar el caso de los canales de inversión de bit 
-%y de inversión de fase cuando la bola de Bloch se mapea a una 
-%línea sobre el eje de simetría del elipsoide.
-%
-%Recordemos que la matriz de densidad de 1 qubit
-%se escribe en la base de matrices de Pauli
-%como $\rho^1$ en %\eqref{eq:densityMatrices_1and2Qubits}.
-%El canal cuántico de inversión de bit transforma a las componentes 
-%$r_i$ de $\rho^1$ como $(1,r_x,r_y,r_z)\to\qty(1,r_x,(1-2p)r_y,(1-2p)r_z)$, 
-%con $p$ un parámetro que se encuentra entre 0 y 1.
-%Cuando $p=0.5$, el canal inversor de bit hace cero las 
-%componentes $r_y$ y $r_z$ de $\rho^1$. Geométricamente,
-%mapea la bola de Bloch a una línea sobre el eje $x$.
-%Decimos que el canal `borró' las componentes $r_y$ y $r_z$ de $\rho^1$. 
-%De manera similar, cuando $p=0.5$, el canal 
-%de inversión de fase `borra' las componentes $r_x$ y $r_y$
-%de $\rho^1$ y mapea la bola de Bloch a una línea sobre el eje $z$.
-
-
-
-
-
-%Por otro lado recordemos, de la sección \ref{sec:qtm-channels}, 
-%que la operación $\E_z$, que borra la componente $r_z$ de $\rho^1$,
-%no es un canal cuántico porque no satisface la condición de completa
-%positivad. Esto significa que existe al menos un estado entrelazado en 
-%el espacio extendido de 2 qubits que es mapeado por $\E_z\otimes \1$ 
-%a una matriz que no es un estado físico de 2 qubits. 
-%
-%Recapitulando, revisamos tres ejemplos de operaciones que borran 
-%componentes de la matriz de densidad de 1 qubit, escrita en la base 
-%de matrices de Pauli. Dos de ellas satisfacen las condiciones para 
-%ser canales cuánticos y una de ellas no porque no es una operación 
-%completamente positiva. En otras palabras, las operaciones que 
-%borran las componentes de Pauli de la matriz de densiad de 1 qubit 
-%no satisfacen trivialmente las condiciones para ser canales cuánticos.
-%Es así como nos preguntamos ¿cuáles son las características que
-%comparten los canales cuánticos de 1 qubit que borran las componentes 
-%de Pauli? 
-%
-%Estamos listos para formular la definición de las operaciones PCE y 
-%cuál es el problema de nuestro interés. La matriz de densidad de $n$
-%qubits puede escribirse en la base de los productos tensoriales 
-%de las matrices de Pauli como
-%\begin{align}\label{eq:rho-pauliBasis}
-%\rho=\frac{1}{2^n}\sum_{j_1,\ldots,j_n=0}^3
-%r_{j_1,\ldots,j_n}\sigma_{j_1}\ot \ldots\ot \sigma_{j_n},
-%\end{align}
-%donde $r_{j_1,\ldots,r_n}/2^n$ son las proyecciones de $\rho$ sobre 
-%cada uno de los elementos $\sigma_{j_1}\ot \ldots\ot \sigma_{j_n}$. 
-%Definimos entonces a una operación de Pauli que borra componentes (PCE)  
-%como una operación que actúa sobre una matriz de densidad de $n$ qubits 
-%de la forma \eqref{eq:rho-pauliBasis} haciendo cero a algún subconjunto
-%de componentes $r_{j_1,\ldots,j_n}$ y dejando invariante al resto.
-%El problema que nos planteamos es el de caracterizar a las operaciones 
-%PCE que satisfacen la condición de completa positividad para ser 
-%canales cuánticos. En las siguientes dos secciones vamos a profundizar
-%en las operaciones PCE de 1 qubit y establecer la ruta a seguir para
-%resolver el problema de un sistema de $n$ qubits.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 % }}}
 \section{1 qubit} % {{{
-\esqueleto{
-Idea central de esta sección: encontrar todos los canales cuánticos PCE 
-de 1 qubit.}
+%\esqueleto{
+%Idea central de esta sección: encontrar todos los canales cuánticos PCE 
+%de 1 qubit.}
+%
+%\esqueleto{
+%Para resolver el problema lo que haremos será encontrar los eigenvalores 
+%de la matriz de Choi del superoperador y así encontrar las condiciones 
+%que debe satisfacer una operación PCE de 1 qubit para ser un canal cuántico
+%en términos de las $\tau_i$. 
+%Escribir al superoperador, en su forma diagonal con las $\tau_i$, 
+%que actúa sobre la matriz de densidad de 1 qubit escrita en la base de Pauli. 
+%}
 
-\esqueleto{
-Para resolver el problema lo que haremos será encontrar los eigenvalores 
-de la matriz de Choi del superoperador y así encontrar las condiciones 
-que debe satisfacer una operación PCE de 1 qubit para ser un canal cuántico
-en términos de las $\tau_i$. 
-Escribir al superoperador, en su forma diagonal con las $\tau_i$, 
-que actúa sobre la matriz de densidad de 1 qubit escrita en la base de Pauli. 
-}
+El problema de los canales PCE de 1 qubit puede ser resuelto analíticamente
+y vamos a discutir cómo en esta sección. 
+Vamos a presentar nuestro procedimiento para evaluar analíticamente 
+la completa positividad de las operaciones PCE de 1 qubit.
+De acuerdo con el teorema \ref{thm:choi-CP}, podemos determinar si
+una operación es completamente positiva evaluando que su 
+matriz de Choi sea una matriz positiva semidefinida.
+Por lo tanto, vamos a buscar diagonalizar la matriz de Choi en 
+función de los elementos $\tau_i$ de la operación PCE. Así, evaluar
+que todos los eigenvalores sean no negativos para 
+cada uno de los arreglos de 1's y 0's de las $\tau_i$ que 
+caracteriza a las operaciones PCE de 1 qubit 
 
-\esqueleto{
-Aplicar el reshuffle para encontrar la matriz de Choi y calcular después 
-sus eigenvalores.
-}
+Enunciamos ahora nuestro algoritmo para evaluar la completa 
+positividad de una operación PCE de 1 qubit. 
+\begin{enumerate}
+	\item Escribir al superoperador de una operación PCE en 
+	la base de matrices de Pauli $\sigma_i$ (con $\sigma_0=\1$), 
+	base en la cual es diagonal. En general, en la base de Pauli
+	el superoperador de una 	operación PCE de 1 qubit se escribe
+	\begin{align} \label{eq:supOp_PCE_1q}
+		\Phi=\mqty(\dmat[0]{1,\tau_1,\tau_2,\tau_3}).
+	\end{align}
+	\item Hacer un cambio de base al superoperador \eqref{eq:supOp_PCE_1q}, 
+	de la base de matrices de Pauli a la base computacional, vía $P \Phi P^{-1}$, 
+	con
+	\begin{align}
+		P = \mqty(1&0&0&1\\ 0&1&-i&0\\ 0&1&i&0 \\ 1&0&0&-1).
+		%	\mqty(\dmat[0]{1,\tau_1,\tau_2,\tau_3})
+		%	\mqty(
+		% 	\frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+		% 	0 & \frac{1}{2} & \frac{1}{2} & 0 \\
+		% 	0 & \frac{i}{2} & -\frac{i}{2} & 0 \\
+		% 	\frac{1}{2} & 0 & 0 & -\frac{1}{2} \\
+		%	)
+		%	=
+		%	\mqty(
+		%	\frac{\tau _3}{2}+\frac{1}{2} & 0 & 0 & \frac{1}{2}-\frac{\tau _3}{2} \\
+		% 	0 & \frac{\tau _1}{2}+\frac{\tau _2}{2} & \frac{\tau _1}{2}-\frac{\tau _2}{2} & 0 \\
+		% 	0 & \frac{\tau _1}{2}-\frac{\tau _2}{2} & \frac{\tau _1}{2}+\frac{\tau _2}{2} & 0 \\
+		% 	\frac{1}{2}-\frac{\tau _3}{2} & 0 & 0 & \frac{\tau _3}{2}+\frac{1}{2} \\
+		%	)
+	\end{align}
+	Notemos que la matriz de cambio de base $P$ es una matriz 
+	que se construye yuxtaponiendo las matrices de Pauli 
+	vectorizadas $\vec{\sigma}_i$, 
+	siguiendo la vectorización de una matriz como se definió en 
+	\eqref{eq:matrix-to-vector}.
+	\item Aplicar la transformación de \textit{reshuffle} a $P\Phi P^{-1}$,  
+	según \eqref{eq:ChoiMatrix-via-reshuffle}, para 
+	determinar la matriz de Choi de la operación PCE,
+	\begin{align}\label{eq:choi_1q}
+		\qty(P \Phi P^{-1})^R=
+		\frac{1}{2}\mqty(
+		\tau _3+1 & 0 & 0 & \tau _1+\tau _2 \\
+		0 & 1-\tau _3 & \tau _1-\tau _2 & 0 \\
+		0 & \tau _1-\tau _2 & 1-\tau _3 & 0 \\
+		\tau _1+\tau _2 & 0 & 0 & \tau _3+1 
+		).
+	\end{align}
+	\item Por último, para evaluar si la matriz de Choi es positiva semidefinida, 
+	calcular los eigenvalores $\lambda_i$ de \eqref{eq:choi_1q} y revisar que 
+	todos sean 	iguales o mayores a cero,
+	\begin{subequations}\label{eq:eigv_1qubit_PCE}
+		\begin{align}
+			\lambda_0=\frac{1}{2}& \left(1+\tau _1+\tau _2+\tau _3\right)\geq0, \\
+			\lambda_1=\frac{1}{2}& \qty(1+\tau _1-\tau _2-\tau _3)\geq0, \\
+			\lambda_2=\frac{1}{2}& \left(1-\tau _1+\tau _2-\tau _3\right)\geq0, \\
+			\lambda_3=\frac{1}{2}& \left(1-\tau _1-\tau _2+\tau _3\right)\geq0.
+		\end{align}
+	\end{subequations}
+	Debemos remarcar que en ninguno de los pasos hemos utilizado el hecho de que
+	para una operación PCE las componentes $\tau_i$ sean iguales a cero o uno,
+	como está definido en \eqref{eq:PCE_definition}. Por lo tanto, las 
+	desigualdades en \eqref{eq:eigv_1qubit_PCE} caracterizan la completa 
+	positividad de una operación lineal de 1 qubit que actúa sobre las
+	componentes de Pauli como $r_i\longmapsto \tau_ir_i$, donde $\tau_i$
+	puede tomar cualquier valor. Considerando eso, 
+	las desiguladades en \eqref{eq:eigv_1qubit_PCE} coinciden con las 
+	que presentan 	Bengtsson y Życzkoski
+	 \cite[pág. 292]{bengtsson_zyczkowski_2017}.
+\end{enumerate}
 
-\esqueleto{
-Enunciar las desigualdades que deben satisfacer las $\tau_i$ para que 
-la operación sea un canal cuántico. Hacer referencia al resultado del
-Geometry of Quantum States en el que también llegan a esas desigualdades
-(tienen un nombre). Esto para hacerlo ver como un check de que no 
-estamos hablando paja aquí.
-}
+\begin{table}[] 
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+           & $\tau_1$ & $\tau_2$ & $\tau_3$ \\ \hline
+\textbf{1} & 1        & 1        & 1        \\ \hline
+\textbf{2} & 1        & 1        & 0        \\ \hline
+\textbf{3} & 1        & 0        & 1        \\ \hline
+\textbf{4} & 0        & 1        & 1        \\ \hline
+\textbf{5} & 1        & 0        & 0        \\ \hline
+\textbf{6} & 0        & 1        & 0        \\ \hline
+\textbf{7} & 0        & 0        & 1        \\ \hline
+\textbf{8} & 0        & 0        & 0        \\ \hline
+\end{tabular}
+\caption{Combinaciones de $\tau_i$ de todas las operaciones PCE de 1 qubit.}
+\label{tab:1qubit_PCE}
+\end{table}
 
-\esqueleto{
-Escribir las 8 operaciones PCE de 1 qubit y discutir sobre las operaciones 
-que sí satisfacen las desigualdades para ser canales cuánticos y las que no.
-Discutir que no hay nada fundalmente diferente entre las 3 operaciones
-que mapean la esfera de Bloch a una línea, igual que las 3 que mapean 
-la esfera de Bloch a un disco. Esto implica que hay una equivalencia
-entre esas operaciones. 
-Y fin. En conclusión, son canales cuánticos PCE solo los que dejan igual 
-la esfera de Bloch, mapean la esfera de Bloch a una línea o al origen de
-coordenadas. 
-}
+Previo a determinar los canales PCE de 1 qubit enunciamos en la Tabla
+\ref{tab:1qubit_PCE} todos los arreglos de 1's y 0's de las 
+componentes $\tau_i$ de cada una de las 8 operaciones PCE de 1 qubit. 
+Es útil que discutamos la acción geométrica sobre la esfera de Bloch de 
+cada una de las operaciones PCE de 1 qubit en la Tabla \ref{tab:1qubit_PCE}.
+El arreglo 1 es la operación identidad. Los arreglos 2-4 son operaciones
+que mapean la esfera de Bloch a un disco que es perpendicular 
+a cada uno de los ejes cartesianos. Los arreglos 
+5-7 son operaciones que mapean la esfera de Bloch a una línea sobre cada
+uno de los ejes cartesianos. Y, por último, el arreglo 8 es la operación 
+que mapea la esfera de Bloch a un punto sobre el origen de coordenadas. 
+
+Al evaluar la completa positividad de cada operación PCE en la Tabla
+\ref{tab:1qubit_PCE}, comprobando que cada arreglo $\tau_i$ 
+satisfaga las desigualdades en \eqref{eq:eigv_1qubit_PCE},
+encontramos que 5 de las 8 operaciones PCE de 1 qubit
+son canales cuánticos. Las matrices de Choi de las operaciones PCE 
+2, 3 y 4 de la Tabla \ref{tab:1qubit_PCE} tienen un eigenvalor que es negativo. 
+Por ejemplo, el eigenvalor $\lambda_3$ de la operación PCE 2 
+es igual $-1/2$. Es decir que, entonces, son canales PCE de 1 qubit 
+sólo la operación identidad, las operaciones que 
+mapean la esfera de Bloch a una línea sobre los ejes cartesianos y la 
+operación que mapea la esfera de Bloch al origen de coordenadas.
+
+%
+%\esqueleto{
+%Aplicar el reshuffle para encontrar la matriz de Choi y calcular después 
+%sus eigenvalores.
+%}
+%
+%\esqueleto{
+%Enunciar las desigualdades que deben satisfacer las $\tau_i$ para que 
+%la operación sea un canal cuántico. Hacer referencia al resultado del
+%Geometry of Quantum States en el que también llegan a esas desigualdades
+%(tienen un nombre). Esto para hacerlo ver como un check de que no 
+%estamos hablando paja aquí.
+%}
+%
+%\esqueleto{
+%Escribir las 8 operaciones PCE de 1 qubit y discutir sobre las operaciones 
+%que sí satisfacen las desigualdades para ser canales cuánticos y las que no.
+%Discutir que no hay nada fundalmente diferente entre las 3 operaciones
+%que mapean la esfera de Bloch a una línea, igual que las 3 que mapean 
+%la esfera de Bloch a un disco. Esto implica que hay una equivalencia
+%entre esas operaciones. 
+%Y fin. En conclusión, son canales cuánticos PCE solo los que dejan igual 
+%la esfera de Bloch, mapean la esfera de Bloch a una línea o al origen de
+%coordenadas. 
+%}
 
 %\esqueleto{
 %Resumen de los resultados de 1 qubit. Para seguir un orden lógico
@@ -447,118 +492,297 @@ coordenadas.
 %\end{itemize}
 %}
 % }}}
-\section{El problema de $\mathbf{n}$ qubits} % {{{
+\section{El problema de $\mathbf{n}$ qubits} % {{{ 
+\label{sec:n_qubits_problem}
 
-\esqueleto{
-La idea central de esta sección es que para el problema de n qubits la 
-solucion son los mismos pasos que para el problema de 1 qubit, pero
-la diagonalización exacta de la matriz de Choi no es así nomás. Por lo tanto, 
-hay que recurrir a otros métodos mientras no tengamos la diagonalización 
-para investigar sistemas de más de 1 qubit.\newline
-}
-
-\esqueleto{
-Repetir el procedimiento de la sección anterior: (1) escribir al 
-superoperador en la base que es diagonal, (2) reshuffle, pero al llegar al
-paso (3), la diagonalización, discutir que el problema de que la
-diagonalización exacta es un problema difícil y para este trabajo 
-preferimos explorar una solución numérica.\newline
-}
-
-\janote{La sección está va a ser cortita, pero ni modo, toca igual ponerla
-y tampoco quiero sacar más discusión donde no es necesaria para extenderla.
-\newline}
-
-%\esqueleto{ 
-%\begin{itemize}
-%\item Escribir a la matriz de densidad de $n$ qubits en la base 
-%de productos de las matrices de Pauli. Me gustó mucho la notación 
-%que usé en el último documento para escribir la expresión de los eigenvalores
-%de $n$ qubits, así que qué te parece escribirla de la siguiente manera?
-%\begin{align}
-%\rho = \frac{1}{2^n}\qty(
-%1
-%+
-%\sum_{\underset{(j_1,\ldots,j_n\neq0)}{j_1,\ldots,j_n=0}}^3
-%r_{j_1,\ldots,j_n}
-%\sigma_{j_1} \ot \ldots \ot \sigma_{j_n}
-%).
-%\end{align}
-%Yo la siento más sencilla de entender que como está en el Nielsen y Chuang.
-%\item Las operaciones PCE de $n$ qubits se definen entonces como 
-%las operaciones lineales que transforman a las componentes 
-%de la matriz de densidad como $r_{j_1,\ldots,j_n}\to
-%\tau_{j_1,\ldots,j_n}r_{j_1,\ldots,j_n}$ donde $\tau_{j_1,\ldots,j_n}=0,1$
-%son los elementos de la diagonal del superoperador $\E$.
-%\item Hacer énfasis que la única condición que debe satisfacer una operación
-%PCE para ser un canal cuántico es ser CP. Por lo cual, nuestro estudie 
-%se reduce a eso: estudiar la CP de las operaciones PCE.
-%\item Enunciar los pasos para verificar la CP para una operación de $n$ 
-%qubits verificando la positividad de la matriz de Choi 
-%a partir del superoperador $\E$ en la base que es diagonal
-%\item Concluir remarcando la idea clave de nuestro estudio que es investigar 
-%la CP de las operaciones PCE.
-%\end{itemize}
+%\esqueleto{
+%La idea central de esta sección es que para el problema de n qubits la 
+%solucion son los mismos pasos que para el problema de 1 qubit, pero
+%la diagonalización exacta de la matriz de Choi no es así nomás. Por lo tanto, 
+%hay que recurrir a otros métodos mientras no tengamos la diagonalización 
+%para investigar sistemas de más de 1 qubit.\newline
 %}
+%En principio, podríamos buscar extender el algoritmo que describimos 
+%para evaluar la completa positividad de las operaciones PCE de 1 qubit
+%para sistemas de $n$ qubits. No obstante, la diagonalización de la 
+%matriz de Choi 
+%La diagonalización exacta de la matriz de Choi de una operación 
+%PCE de $n$ qubits es un problema no trivial que nos obligó a
+%implementar un método numérico para buscar los canales PCE 
+%de 2 y 3 qubits.
 %
 %\esqueleto{
-%\hrule \vspace{10pt}
-%\h{Párrafos}
-%\begin{itemize}
-%\item Una operación PCE de $n$ qubits es una operación lineal que 
-%preserva la traza de la matriz de densidad y que transforma a las
-%componentes del vector de Bloch generalizado como 
-%$r_{j_1,\ldots,j_n}\to \tau_{j_1,\ldots,j_n}r_{j_1,\ldots,j_n}$,
-%donde $\tau_{j_1,\ldots,j_n}=0,1$.
-%\item La condición para que una operación PCE sea un canal cuántico
-%es que sea completamente positiva.
-%\item Una manera de verificar la completa positividad de una operación PCE
-%es verificar la positividad de su matriz de Choi.
-%\item El problema de las operaciones PCE consiste en investigar 
-%cuáles son las condiciones que se deben de satisfacer para que 
-%la operación sea completamente positiva.
-%\end{itemize}
+%Repetir el procedimiento de la sección anterior: (1) escribir al 
+%superoperador en la base que es diagonal, (2) reshuffle, pero al llegar al
+%paso (3), la diagonalización, discutir que el problema de que la
+%diagonalización exacta es un problema difícil y para este trabajo 
+%preferimos explorar una solución numérica.\newline
 %}
+
+El algoritmo que discutimos en la sección anterior, 
+para evaluar la completa positividad de las operaciones
+PCE de 1 qubit, se puede generalizar para $n$ qubits y es 
+el tema que discutiremos en esta sección. A diferencia 
+del problema de 1 qubit, en el problema de las operaciones PCE de $n$ qubits
+la diagonalización exacta de la matriz de Choi es un problema no trivial. 
+Por esa razón, decidimos explorar una alternativa para buscar 
+los canales PCE de 2 y 3 qubits.
+
+A continuación, discutimos la generalización de nuestro algoritmo 
+para evaluar la completa positividad de una operación PCE de $n$ qubits.  
+(1) Se escribe al superoperador $\Phi$
+de una operación PCE, en la base de productos 
+tensoriales de las matrices de Pauli, 
+\begin{align}
+\Phi=
+\mqty(1&0&0&\hdots&0\\ 0&\tau_{0,\ldots,0,1}&0&\hdots&0\\
+0&0&\tau_{0,\ldots,0,2}&\hdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\hdots&\tau_{1,\ldots,1,1}),
+\end{align}
+con $\tau_{j_1,\ldots,j_n}$ las componentes de la operación PCE como 
+se definió en \eqref{eq:PCE_definition}.
+(2)~Se hace el cambio de base $P\Phi P^{-1}$ para 
+escribir al superoperador $\Phi$ en la base computacional. 
+$P$ es la matriz de cambio de base y se construye yuxtaponiendo 
+las matrices 
+vectorizadas de los productos tensoriales de las matrices de Pauli.
+(3) Se determina la matriz de Choi según $D_{\Phi}=\qty(P\Phi P^{-1})^R$, 
+aplicando el \textit{reshuffle} a la matriz $P\Phi P^{-1}$. 
+(4) Por último, se calculan los eigenvalores de $D_{\Phi}$ y si
+todos son positivos o cero, entonces $\Phi$ es un canal cuántico. 
+Es este último paso el que supone una dificultad en la generalización 
+de nuestro algoritmo.
+La ecuación $\det\qty(D_{\Phi}-\lambda \1)=0$, que hay que resolver
+para determinar los eigenvalores $\lambda_{j_1\ldots,j_n}$,
+es una ecuación de grado $4^n$. Esto hace que la diagonalización 
+exacta de la matriz de Choi $D_{\Phi}$, de una operación PCE de $n$ 
+qubits, sea un problema algebraicamente complicado. 
+En vista de esta dificultad, decidimos utilizar herramientas computacionales
+para evaluar numéricamente la positividad de la matriz de Choi $D_{\Phi}$ 
+de las operaciones PCE de 2 y 3 qubits y así determinar los canales cuánticos.  
+
+\vfill
+
 % }}}
 \section{Solución numérica} % {{{
-\esqueleto{
-La idea central de esta sección es describir el método numérico para 
-resolver 2 y 3 qubits (hay que discutir qué y cómo vamos a escribir lo 
-de 3 qubits porque el primer método numérico de fuerza bruta no puede 
-resolver completo 3 qubits).\newline
-}
+%\esqueleto{
+%La idea central de esta sección es describir el método numérico para 
+%resolver 2 y 3 qubits (hay que discutir qué y cómo vamos a escribir lo 
+%de 3 qubits porque el primer método numérico de fuerza bruta no puede 
+%resolver completo 3 qubits).\newline
+%}
 
-\esqueleto{
-Para implementar el método numérico utilizamos el lenguaje de Wolfram 
-Alpha. El algoritmo implementado fue: 
+Propusimos evaluar numéricamente la completa positividad de las 
+operaciones PCE de 2 y 3 qubits para encontrar los  
+canales cuánticos, y en esta sección vamos a describir las herramientas
+computacionales que desarrollamos y la implementación 
+del método numérico. Para esto, diseñamos rutinas que 
+implementan el algoritmo descrito en la sección anterior.
+El método numérico consiste en generar todas 
+las operaciones PCE de 2 y 3 qubits, evaluar si son completamente positivas
+y, dependiendo de ello, agrupar a los canales cuánticos PCE para luego 
+analizar sus características en el próximo capítulo.
+
+Las rutinas se programaron en el lenguaje de Wolfram.
+Con estas rutinas, se pueden generar
+todos los diferentes arreglos de 1's y 0's, de los elementos de 
+transformación $\taus$,
+que definen a cada operación PCE y evaluar, una por una, si
+es completamente positiva.
+A continuación, describimos brevemente cada una de las rutinas que diseñamos.
 \begin{enumerate}
-\item Escribir una posible configuración de $\vec{\tau}$ de 1's y 0's.
-\item Aplicar la transformación de reshuffle.
-\item Calcular los eigenvalores de la matriz de Choi. 
-\item Revisar que todos los eigenvalores sean no negativos.
+	\item \textbf{Pauli[\texttt{Indices}]}: calcula el producto tensorial 
+	de las matrices 	de Pauli $\sigma_i$ con índices $i$ en el 
+	arreglo 1-D \texttt{Indices}\janote{Está bien este tipo de letra 
+	para cosas de 'código'?}.
+	\item \textbf{PCEsTauConfigurations[\textit{n}]}: devuelve todos
+	los arreglos de 1's y 0's de los elementos $\taus$
+	de todas las operaciones PCE de $n$ qubits.
+	\item \textbf{PCEsTauConfigurations[\textit{n,k}]}: devuelve todos 
+	los arreglos de 1's y 0's de los elementos $\taus$
+	de todas las operaciones PCE de $n$ qubits que dejan $k$ 
+	componentes de Pauli invariantes.
+	\item \textbf{PCESuperoperator[$\tau$]}: calcula el superoperador en 
+	la base computacional de una operación PCE, dados los elementos
+	$\tau_{j_1,\ldots,j_n}$	en el arreglo 1-D $\tau$.	
+	\item \textbf{Reshuffle[\textit{m}]}: aplica la transformación de 
+	\textit{reshuffle} a la matriz \textit{m} de dimensión $d^2\times d^2$.
+	Esta función implementa la definición \eqref{eq:Reshuffle_4-indices}.
+	\item \textbf{PositivityTest[\textit{m}]}: revisa si la matriz \textit{m}
+	es positiva semidefinida. Devuelve el valor \textit{True} si lo es y 
+	\textit{False} en caso contrario. 
+	\item \textbf{PCEFigures[$\boldsymbol{\tau}$]}: grafica la representación 
+	geométrica de los elementos $\tau_{j_1,\ldots,j_n}$ en el arreglo 
+	1-D $\tau$ de una operación PCE de 1, 2 o 3 qubits. 
+	\item \textbf{TausOfPCEQuantumChannels[$\boldsymbol{n}$]}: 
+	devuelve todos los arreglos de 1's y 0's de los elementos 
+	$\taus$ de los canales 	cuánticos PCE de $n$ qubits.
+	\item \textbf{TausOfPCEQuantumChannels[$\boldsymbol{n,k}$]}: 
+	devuelve todos los arreglos de 1's y 0's de los elementos 
+	$\taus$ de los canales cuánticos PCE de $n$ qubits que dejan $k$
+	componentes de Pauli invariantes.
+	\item \textbf{TausOfPCEQuantumChannels[$\boldsymbol{n,k_{min},
+	k_{max}}$]}: 
+	devuelve todos los arreglos de 1's y 0's de los elementos 
+	$\taus$ de los canales cuánticos PCE de $n$ qubits que dejan desde 
+	$k_{min}$ hasta $k_{max}$	componentes de Pauli invariantes.
+	\item \textbf{NumberOfPCEOperations[$\boldsymbol{n}$]}: calcula 
+	el número total de operaciones PCE de $n$ qubits. 
+	\item \textbf{NumberOfPCEOperations[$\boldsymbol{n,k}$]}: calcula 
+	el número total de operaciones PCE de $n$ qubits que dejan $k$
+	componentes de Pauli invariantes. 	
 \end{enumerate}
-}
+Todas estas rutinas las agrupamos en un paquete de Mathematica
+que se puede encontrar en un repositorio de libre acceso en 
+GitHub\footnote{Se puede encontrar en 
+\href{https://github.com/deleonja/projective_maps}
+{https://github.com/deleonja/projective\_maps} bajo 
+el nombre "pce.m".}. Específicamente, las rutinas 
+\textbf{Pauli}, \textbf{PCESuperoperator}, \textbf{Reshuffle} y 
+\textbf{PositivityTest} fueron diseñadas para reproducir los pasos 
+del algoritmo para evaluar la completa positividad de una operación 
+PCE de $n$ qubits de la sección \ref{sec:n_qubits_problem}.
+El algoritmo completo fue implementado en la rutina 
+\textbf{TausOfPCEQuantumChannels}. Debe notarse en la definición 
+\eqref{eq:PCE_definition}, de una operación PCE, que la lista de
+1's y 0's de los elementos de transformación $\taus$ caracteriza 
+por completo a la operación. Por ejemplo, la operación PCE de 1 qubit 
+que mapea la esfera de Bloch a un punto en el origen
+está completamente determinada por 
+los elementos $\tau_i$ $\{1,0,0,0\}$; esta lista de 
+1's y 0's es suficiente para encontrar al superoperador de la operación.
+Dicho esto, describimos con detalle la rutina 
+\textbf{TausOfPCEQuantumChannels} a continuación.
+%\esqueleto{
+%Para implementar el método numérico utilizamos el lenguaje de Wolfram 
+%Alpha. El algoritmo implementado fue: 
+%\begin{enumerate}
+%\item Escribir una posible configuración de $\vec{\tau}$ de 1's y 0's.
+%\item Aplicar la transformación de reshuffle.
+%\item Calcular los eigenvalores de la matriz de Choi. 
+%\item Revisar que todos los eigenvalores sean no negativos.
+%\end{enumerate}
+%}
 
-\esqueleto{
-Describir en un cuadro las rutinas que implementé (en un cuadro porque 
-creo que se puede ver más ordenado).\newline
-}
+%\noindent\rule{\textwidth}{1mm}
+%\textbf{Canales cuánticos PCE.} Algoritmo para determinar si una 
+%operación PCE es completamente positiva. \textbf{Entrada:} Arreglo 
+%1-D $\tau$ con los elementos $\tau_{j_1,\ldots,j_n}$ de la operación PCE. 
+%\textbf{Salida:} Valor booleano ``\textit{True}'' si la operación 
+%PCE es completamente positiva y ``\textit{False}'' en caso contrario. 
+%\textbf{Utiliza:} PCESuperoperator, Reshuffle y PositivityTest.
+%\begin{enumerate}
+%	\item Calcular el superoperador $\Phi$, en la base computacional, 
+%	de la operación PCE con PCESuperoperator[$\tau$].
+%	\item Calcular la matriz de Choi $D_{\Phi}$ de la operación PCE 
+%	aplicando la función Reshuffle[] a la matriz del paso 1.
+%	\item Calcular que la matriz del paso 2 sea positiva semidefinida 
+%	con PositivityTest[].
+%\end{enumerate}
+%
+%\noindent\rule{\textwidth}{1mm}
 
-\esqueleto{
-Colocar un hipervínculo al repositorio y quizás pondré las instrucciones para 
-probar las cosas. Haré un .nb igual que para las prácticas en donde 
-se muestra el uso de las funciones y luego cómo sacar los canales 
-PCE de 2 qubits en un enter.\newline
-}
+\noindent\rule{\textwidth}{1mm}
+\textbf{TausOfPCEQuantumChannels.} Rutina para determinar los 
+canales PCE de $n$ qubits que dejan $k$ componentes de Pauli
+invariantes. \textbf{Entrada:} Número $n$ de 
+qubits y número $k$ de componentes de Pauli invariantes (opcional). 
+\textbf{Salida:} Arreglos 1-D con los 
+arreglos de 1's y 0's de los elementos $\taus$ de 
+los canales PCE de $n$ qubits que dejan $k$ componentes de Pauli 
+invariantes.  
+\textbf{Utiliza:} PCEsTauConfigurations, PCESuperoperator, Reshuffle 
+y PositivityTest.
 
-\esqueleto{Discutiremos los resultados del método numérico 
-para 2 y 3 qubits en el próximo capítulo}
+Para cada arreglo $\tau$ generado por 
+\textbf{PCETausConfigurations[$\boldsymbol{n,k}$]}:
+\begin{enumerate}
+	\item Calcular el superoperador $\Phi$ en la base computacional
+	de la operación PCE con PCESuperoperator[$\tau$].
+	\item Calcular la matriz de Choi $D_{\Phi}$ de la operación PCE 
+	aplicando la función Reshuffle[] a la matriz del paso 1.
+	\item Evaluar si la matriz de Choi del paso 2 es positiva semidefinida con
+	\textbf{PositivityTest[]} (evaluación de la completa positividad 
+	de $\Phi$).
+	\item Si el resultado del paso 3 es verdadero, entonces guardar 
+	el arreglo $\tau$. De lo contrario, pasar al siguiente 
+	arreglo $\tau$ y repetir este procedimiento con todas 
+	los arreglos generados por \textbf{PCETausConfigurations[\textit{n,k}]}. 
+\end{enumerate}
 
-\janote{Te propongo que para resolver el problema de que 3 qubits no 
-se puede resolver completo numéricamente con este método coloque 
-las gráficas de tiempo y de uso de memoria para justificar que sólo 
-vamos a tener resultados parciales de ese caso. No sé si va mejor en este
-o en el próximo capítulo}
+\noindent\rule{\textwidth}{1mm}
+
+Por último, vamos a describir la rutina \textbf{NumberOfPCEOperations}
+ya que, dependiendo de cómo se use, se utilizan dos expresiones 
+diferentes. 
+
+\noindent\rule{\textwidth}{1mm}
+\textbf{NumberOfPCEOperations.} Rutina para calcular el número de 
+operaciones PCE por número $n$ de qubits y cantidad $k$ de componentes
+de Pauli invariantes. \textbf{Entrada:} Número de 
+qubits $n$ y número $k$ de componentes de Pauli invariantes (opcional). 
+\textbf{Salida:} Número total de operaciones PCE de $n$ qubits 
+que dejan $k$ componentes de Pauli invariantes.
+
+\begin{itemize}
+	\item Si el usuario solicita 
+	\textbf{NumberOfPCEOperations[$\boldsymbol{n}$]}
+	calcular $2^{4^n-1}$.
+	\item Si el usuario solicita 
+	\textbf{NumberOfPCEOperations[$\boldsymbol{n,k}$]} 
+	calcular el coeficiente binomial $\binom{n}{k}$.
+\end{itemize}
+
+\noindent\rule{\textwidth}{1mm}
+No vamos a describir de igual manera a las rutinas 
+\textbf{PCEsTauConfigurations} y \textbf{PCEFigures} porque los 
+detalles del algoritmo que reproducen no contribuyen a la intuición 
+sobre la física del problema de las operaciones PCE. Las
+descripciones de las rutinas en la lista es suficiente y si el lector desease 
+conocer los detalles de programación puede referirse al 
+repositorio antes mencionado. Por otro lado, en el próximo capítulo, 
+en el que presentamos los resultados, vamos a discutir la función
+que cumplen las figuras que grafica \textbf{PCEFigures} en la interpretación
+de las operaciones PCE.
+
+Para ilustrar el uso de nuestras herramientas computacionales para resolver
+numéricamente el problema de las operaciones PCE de 2 y 3 qubits diseñamos 
+un cuaderno de Wolfram Mathematica. El cuaderno contiene las 
+definiciones de todas las rutinas, mostramos cómo usarlas 
+y elaboramos el procedimiento para encontrar los canales PCE 
+de 2 qubits y algunos de los canales PCE de 3 qubits. Invitamos al 
+lector a revisar el cuaderno y jugar con nuestras rutinas\footnote{
+el archivo del cuaderno se encuentra en
+\href{https://github.com/deleonja/projective_maps}
+{https://github.com/deleonja/projective\_maps} bajo el nombre 
+``tesis.nb''. \janote{el nombre del archivo tendrá que cambiar 
+por algo más formal}}. En el próximo capítulo vamos a discutir 
+los resultados obtenidos con el método numérico que hemos 
+discutido en esta sección.
+
+\newpage
+
+%\esqueleto{
+%Describir en un cuadro las rutinas que implementé (en un cuadro porque 
+%creo que se puede ver más ordenado).\newline
+%}
+
+%\esqueleto{
+%Colocar un hipervínculo al repositorio y quizás pondré las instrucciones para 
+%probar las cosas. Haré un .nb igual que para las prácticas en donde 
+%se muestra el uso de las funciones y luego cómo sacar los canales 
+%PCE de 2 qubits en un enter.\newline
+%}
+%
+%\esqueleto{Discutiremos los resultados del método numérico 
+%para 2 y 3 qubits en el próximo capítulo}
+
+%\janote{Te propongo que para resolver el problema de que 3 qubits no 
+%se puede resolver completo numéricamente con este método coloque 
+%las gráficas de tiempo y de uso de memoria para justificar que sólo 
+%vamos a tener resultados parciales de ese caso. No sé si va mejor en este
+%o en el próximo capítulo}
 
 %\esqueleto{ 
 %\begin{itemize}
