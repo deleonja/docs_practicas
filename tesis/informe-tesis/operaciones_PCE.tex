@@ -565,7 +565,7 @@ de las operaciones PCE de 2 y 3 qubits y así determinar los canales cuánticos.
 \vfill
 
 % }}}
-\section{Solución numérica} % {{{
+\section{Solución numérica}\label{sec:ch2_solucionNumerica} % {{{
 %\esqueleto{
 %La idea central de esta sección es describir el método numérico para 
 %resolver 2 y 3 qubits (hay que discutir qué y cómo vamos a escribir lo 
@@ -595,7 +595,7 @@ A continuación, describimos brevemente cada una de las rutinas que diseñamos.
 	\item \textbf{Pauli[\texttt{Indices}]}: calcula el producto tensorial 
 	de las matrices 	de Pauli $\sigma_i$ con índices $i$ en el 
 	arreglo 1-D \texttt{Indices}\janote{Está bien este tipo de letra 
-	para cosas de 'código'?`}.
+	para cosas de 'código'?}.
 	\item \textbf{PCEsTauConfigurations[\textit{n}]}: devuelve todos
 	los arreglos de 1's y 0's de los elementos $\taus$
 	de todas las operaciones PCE de $n$ qubits.

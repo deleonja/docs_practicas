@@ -1,9 +1,100 @@
 \chapter{RESULTADOS DE 2 Y 3 QUBITS}
-
+\janote{\textbf{Idea principal del capítulo:} los resultados gritan que los 
+canales PCE sí se pueden caracterizar, pero nos hace falta LA idea (la de 
+Francois, jajaja) para poder formalizar la caracterización general. Para mientras,
+tenemos un listado de características que tienen sustento en los resultados
+numéricos.}
 \section{Introducción}
 
 \section{Resultados}
+\esqueleto{Con el método numérico descrito en la sección 
+\ref{sec:ch2_solucionNumerica} es posible analizar el caso de 2 qubits
+completo. Por otro lado, el caso de 3 qubits es imposible de resolver 
+completo a fuerza bruta.}
+
+\esqueleto{Los resultados de 2 qubits son... (una tabla con 
+las listas de 1's y 0's de $\tau_{ij}$ por número $k$ de componentes 
+de Pauli invariantes). «\textit{La idea con esta tabla es motivar las 
+figuritas de la siguiente sección porque las listas de 1's y 0's no dicen 
+ni madres.}»}
+
+\esqueleto{Con nuestro método numérico de fuerza bruta es posible 
+resolver el caso de 3 qubits hasta 4 componentes invariantes. Los resultados
+son.... «con 3 qubits está todavía más jalado inferir características de 
+los canales PCE a partir de los 1's y 0's»}
+
+\esqueleto{Para justificar que es computacionalmente imposible 
+resolver numéricamente el problema de las operaciones PCE de 3 qubits, 
+más allá de 4 componentes de Pauli invariantes, en el tiempo de este 
+trabajo de tesis mostramos gráficas del tiempo de 
+cómputo (tiempo vs. cantidad de operaciones PCE) y yo esperaría 
+mostrar, por lo menos, que esa curva no es lineal y que el ajuste a la curva 
+calcula un chingo de tiempo que no tenemos durante la tesis.}
 
 \section{Una representación geométrica}
+\esqueleto{Motivados en lo intricado de inferir qué características 
+comparten los canales PCE a partir de las listas de 1's y 0's, se nos ocurrió 
+una forma de representar geométricamente a las operaciones PCE que hace
+más sencillo el análisis de resultados.}
+
+\esqueleto{La figura asociada con una operación PCE de 1 qubit 
+es una columna de 
+cuadritos.. bla bla y con figuritas, haciendo referencia a lo que se resolvió 
+en el capítulo anterior, etc.}
+
+\esqueleto{Para una operación PCE de 2 qubits, los dos índices en las $\tau$
+sugieren que ahora la figura asociada debería ser de dos dimensiones. Así, 
+los tableritos representan a estas operaciones. Figuritas para explicar y demás.}
+
+\esqueleto{En este punto, ya es más o menos obvio cómo es la representación 
+geométrica de 3 qubits y que a partir de 4 qubits ya no podremos utilizar 
+esta herramienta geométrica. Mostrar algunas figuras de PCEs de 3 qubits
+y hablar de cómo hacer diferencia entre correlaciones y componentes 
+locales en esas figuras según los colores 
+(sólo para 3 qubits, porque las de 1 y 2 qubits 
+las voy a poner en negro).}
+
+\esqueleto{Armados con esta potente herramienta geométrica, ahora 
+es mucho más sencillo ganar intuición de las operaciones PCE e inferir 
+características de los canales PCE. Entonces ahora mostraré los resultados 
+de la sección anterior, pero usando las figuritas.}
 
 \section{Discusión de resultados}
+\janote{Con el fin de hacer más eficiente la redacción, voy a partir del 
+documento que preparamos para Sergey (justo coincide los resultados
+que iban ahí con lo que vamos a poner en la tesis) y voy a iterar.}
+
+\esqueleto{Esta sección es la que posee el contenido más importante 
+de este manuscrito, después de la motivación y planteamiento del 
+problema. Después de esta sección, lo único que haremos será 
+estudiar si las operaciones PCE son un subconjunto de otras operaciones 
+que fueron estudiadas por Ruskai.}
+
+\esqueleto{Las figuras de los canales PCE exhiben patrones que todos 
+comparten, parecen respetar alguna simetría...}
+
+\esqueleto{Todos los canales PCE obedecen la regla de $2^k$...}
+
+\esqueleto{Existen familias de canales PCE equivalentes. En las figuritas, 
+esto se ve como transposiciones y permutaciones de filas y columnas. 
+Físicamente, estos son swaps de partículas y cambios de base local.
+Aquí yo creería que vale la pena discutir en palabritas, como en el documento
+para sergey, pero también echarle algunas expresiones matemáticas como 
+la de aplicar un swap, el PCE, y otro swap, por ejemplo...}
+
+\esqueleto{La familia más sencilla de analizar es la de los PCE de 1 qubit
+que dejan dos componentes de Pauli invariantes. Todos se pueden entender 
+como la misma operación, pero conectados por rotaciones.}
+
+\esqueleto{Hay correspondencia en el número de canales PCE que 
+dejan $2^k$ y $2^{2n-k}$ componentes de Pauli invariantes.}
+
+\esqueleto{Amarrado a la correspondencia de ``arcoiris'' van las reglas 
+empíricas que formulamos con Alejo. Esta es otra prueba empírica que 
+respalda la hipótesis de una conexión/correspondencia entre canales PCE.}
+
+\esqueleto{Listo, hagamos un resumen de las características puntuales 
+que inferimos de los canales PCE: ta ta ta.... Ahora sólo nos hace falta 
+formalizar todo esto y hacer conexión formal entre todas las características. 
+Además, sería deseable buscar alternativas para poder 
+explorar numéricamente el caso completo de 3 e incluso de 4 qubits.}
