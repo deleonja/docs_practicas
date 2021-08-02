@@ -111,8 +111,8 @@ de \eqref{eq:rho-1qubit-ch2} como~\cite{nielsen_chuang_2011}
 \qty(1,r_1,r_2,r_3)\longmapsto \qty(1,r_1,(1-2p)r_2,(1-2p)r_3),
 \hspace{.5cm} 0\leq p\leq 1.
 \end{align}
-\cpnote{Para $p=-1$ si es un canal cuantico? no, hay algo acá que está mal.}
-\janote{Me confundí, pero corregido}
+% \cpnote{Para $p=-1$ si es un canal cuantico? no, hay algo acá que está mal.}
+% \janote{Me confundí, pero corregido}
 Similarmente, el canal \textit{defasing} actúa sobre las mismas
 componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}
 como~\cite{nielsen_chuang_2011}
@@ -155,10 +155,10 @@ Va a ser útil que interpretemos a estos canales cuánticos
 como operaciones que `borran' dos de las proyecciones
 $r_i$  de la matriz de densidad de 1 qubit sobre
 las matrices de Pauli y que dejan al resto de componentes $r_j$ invariantes.
-\cpnote{La redacción está como 
-chistosa. Por cierto lo de arrancar diciendo ``probara ser \ldots'' suena a 
-anglisismo. Porfa considera cambiar eso. } 
-\janote{Listo}
+% \cpnote{La redacción está como 
+% chistosa. Por cierto lo de arrancar diciendo ``probara ser \ldots'' suena a 
+% anglisismo. Porfa considera cambiar eso. } 
+% \janote{Listo}
 
 %\esqueleto{Conducir al lector a preguntarse: `bueno, entonces deplano
 %que puedo borrar cualquier cantidad de componentes de Pauli, ¿no? ¡¿NO?!', 
@@ -177,7 +177,8 @@ operaciones que borran cualesquiera de las componentes $r_i$
 de la matriz de densidad de 1 qubit 
 en \eqref{eq:rho-1qubit-ch2} son canales cuánticos.
 La pregunta es relevante porque la respuesta es
-que no. En el capítulo anterior, en la sección 
+que no\cpnote{Se me hace una justificación mala. Quiza podemos quitar
+esa frase}. En el capítulo anterior, en la sección 
 \ref{sec:qtm-channels}, elaboramos el ejemplo de la operación $\E_z$
 que borra la componente $r_3$ y demostramos que no es un canal 
 cuántico porque no es una operación completamente positiva. 
@@ -210,7 +211,8 @@ se escribe
 Hay 15 componentes $r_{ij}$ que se podrían borrar o dejar invariantes. 
 Por consiguiente, hay $32,768$ $(2^{15})$ operaciones distintas que borran las 
 componentes de la matriz de densidad \eqref{eq:rho_2qubits_cap2} de 2 qubits. 
-El número de operaciones de este tipo crece de manera exponencial 
+El número de operaciones de este tipo crece de manera \cpnote{de hecho doblemente
+exponencial} exponencial 
 como $2^{4^n-1}$, con $n$ el número de qubits. Sin embargo, no es 
 sólo el crecimiento exponencial en el número de operaciones de este tipo
 lo que hace interesante al problema, sino también el hecho de que en 
@@ -231,7 +233,7 @@ productos tensoriales de las matrices de Pauli, se escribe como
 r_{j_1,\ldots,j_n}\sigma_{j_1}\ot\ldots\ot\sigma_{j_n},
 \hspace{2cm} r_{0,\ldots,0}=1.
 \end{align}
-Vamos a llamar ``componentes de Pauli'' a las componentes $r_{j_1,\ldots,j_n}$
+Vamos a llamar ``componentes de Pauli'' a los coeficientes $r_{j_1,\ldots,j_n}$
 de \eqref{eq:rho_n_qubits}. Las componentes de Pauli son las proyecciones
 de la matriz de densidad de un sistema de $n$ qubits sobre los elementos
 de la base de productos tensoriales de las matrices de Pauli.
@@ -245,13 +247,10 @@ r_{j_1,\ldots,r_n}\longmapsto \tau_{j_1,\ldots,r_n}r_{j_1,\ldots,r_n},
 \hspace{1cm} \tau_{j_1,\ldots,r_n} = 0,1,
 \hspace{1cm} \tau_{0,\ldots,0}=1.
 \end{align}
-Una operación PCE es una operación lineal que actúa sobre la matriz 
-de densidad de $n$ qubits y que borra a algunas de las componentes de 
+En otras palabras, una operación PCE es una operación lineal que actúa sobre la
+matriz de densidad de $n$ qubits y que borra a algunas de las componentes de
 Pauli y deja invariantes al resto.
-\cpnote{redaccion}
-\janote{Quizás no entendí porqué la redacción estaba mal. Hice una 
-corrección, pero si igual sigue mal por favor dime qué es lo que estoy 
-diciendo mal.}. A las operaciones PCE que satisfacen 
+A las operaciones PCE que satisfacen 
 la condición de completa positividad y son, por ende, canales cuánticos,
 les llamaremos ``canales cuánticos PCE'' o sólamente ``canales PCE''.
 
@@ -820,3 +819,5 @@ discutido en esta sección.
 %\end{itemize}
 %}
 % }}}
+
+
