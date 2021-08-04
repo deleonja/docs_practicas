@@ -494,8 +494,7 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 %\end{itemize}
 %}
 % }}}
-\section{El problema de $\mathbf{n}$ \cpnote{No quedó bien la $n$, porfa 
-corrige} qubits} % {{{ 
+\section{El problema de $\mathbf{n}$ \cpnote{No quedó bien la $n$, porfa corrige} qubits} % {{{ 
 \label{sec:n_qubits_problem}
 
 %\esqueleto{
@@ -587,12 +586,14 @@ canales cuánticos, y en esta sección vamos a describir las herramientas
 computacionales que desarrollamos y la implementación 
 del método numérico. Para esto, diseñamos rutinas que 
 implementan el algoritmo descrito en la sección anterior.
-El método numérico consiste en generar todas 
+El método numérico consiste en generar todas \cpnote{Según entendí de hecho 
+no generamos todas. Afinar las palabras}
 las operaciones PCE de 2 y 3 qubits, evaluar si son completamente positivas
 y, dependiendo de ello, agrupar a los canales cuánticos PCE para luego 
 analizar sus características en el próximo capítulo.
 
-Las rutinas se programaron en el lenguaje de Wolfram.
+Las rutinas se programaron en el lenguaje de Wolfram\cpnote{No se que 
+tan preciso es eso. Mas bien se programan con Mathematica, no?}.
 Con estas rutinas, se pueden generar
 todos los diferentes arreglos de 1's y 0's, de los elementos de 
 transformación $\taus$,
@@ -603,7 +604,9 @@ A continuación, describimos brevemente cada una de las rutinas que diseñamos.
 	\item \textbf{Pauli[\texttt{Indices}]}: calcula el producto tensorial 
 	de las matrices 	de Pauli $\sigma_i$ con índices $i$ en el 
 	arreglo 1-D \texttt{Indices}\janote{Está bien este tipo de letra 
-	para cosas de 'código'?}.
+	para cosas de 'código'?}\cpnote{si, es el tipo de letrta que se usa
+para codigo, pero entonces usala consistentemente para todo el codigo, 
+incluyendo los nombres de las rutinas y las variables}.
 	\item \textbf{PCEsTauConfigurations[\textit{n}]}: devuelve todos
 	los arreglos de 1's y 0's de los elementos $\taus$
 	de todas las operaciones PCE de $n$ qubits.
@@ -652,14 +655,15 @@ el nombre "pce.m".}. Específicamente, las rutinas
 del algoritmo para evaluar la completa positividad de una operación 
 PCE de $n$ qubits de la sección \ref{sec:n_qubits_problem}.
 El algoritmo completo fue implementado en la rutina 
-\textbf{TausOfPCEQuantumChannels}. Debe notarse en la definición 
+\textbf{TausOfPCEQuantumChannels}\cpnote{todas estas tambien con el tipo de letra 
+apropiado}. Debe notarse en la definición 
 \eqref{eq:PCE_definition}, de una operación PCE, que la lista de
 1's y 0's de los elementos de transformación $\taus$ caracteriza 
 por completo a la operación. Por ejemplo, la operación PCE de 1 qubit 
 que mapea la esfera de Bloch a un punto en el origen
 está completamente determinada por 
 los elementos $\tau_i$ $\{1,0,0,0\}$; esta lista de 
-1's y 0's es suficiente para encontrar al superoperador de la operación.
+1's y 0's es suficiente para encontrar al correspondiente superoperador.
 Dicho esto, describimos con detalle la rutina 
 \textbf{TausOfPCEQuantumChannels} a continuación.
 %\esqueleto{
@@ -702,6 +706,9 @@ los canales PCE de $n$ qubits que dejan $k$ componentes de Pauli
 invariantes.  
 \textbf{Utiliza:} PCEsTauConfigurations, PCESuperoperator, Reshuffle 
 y PositivityTest.
+\cpnote{Sugiero poner como lineas nuevas para cada una de las
+partes de entradas, slaida y utiliza. Se ve un poco mas ordenado y
+es mas facil de leer si lo vas a usar.}
 
 Para cada arreglo $\tau$ generado por 
 \textbf{PCETausConfigurations[$\boldsymbol{n,k}$]}:
