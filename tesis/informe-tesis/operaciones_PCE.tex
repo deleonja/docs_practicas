@@ -359,7 +359,7 @@ positividad de una operación PCE de 1 qubit.
 	positividad de una operación lineal de 1 qubit que actúa sobre las
 	componentes de Pauli como $r_i\longmapsto \tau_ir_i$, donde $\tau_i$
 	puede tomar cualquier valor. Considerando eso, 
-	las desiguladades en \eqref{eq:eigv_1qubit_PCE} coinciden con las 
+	las desigualdades en \eqref{eq:eigv_1qubit_PCE} coinciden con las 
 	que presentan 	Bengtsson y Życzkoski
 	 \cite[pág. 292]{bengtsson_zyczkowski_2017}.
 \end{enumerate}
@@ -494,7 +494,8 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 %\end{itemize}
 %}
 % }}}
-\section{El problema de $\mathbf{n}$ qubits} % {{{ 
+\section{El problema de $\mathbf{n}$ \cpnote{No quedó bien la $n$, porfa 
+corrige} qubits} % {{{ 
 \label{sec:n_qubits_problem}
 
 %\esqueleto{
@@ -521,9 +522,9 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 %preferimos explorar una solución numérica.\newline
 %}
 
-El algoritmo que discutimos en la sección anterior, 
-para evaluar la completa positividad de las operaciones
-PCE de 1 qubit, se puede generalizar para $n$ qubits y es 
+El algoritmo  para evaluar la completa positividad de las operaciones PCE de 1
+qubit, que discutimos en la sección anterior, se puede generalizar para $n$
+qubits y es 
 el tema que discutiremos en esta sección. A diferencia 
 del problema de 1 qubit, en el problema de las operaciones PCE de $n$ qubits
 la diagonalización exacta de la matriz de Choi es un problema no trivial. 
@@ -532,6 +533,7 @@ los canales PCE de 2 y 3 qubits.
 
 A continuación, discutimos la generalización de nuestro algoritmo 
 para evaluar la completa positividad de una operación PCE de $n$ qubits.  
+\cpnote{Sugiero hacer una lista con los pasos. Es mas facil de leer}
 (1) Se escribe al superoperador $\Phi$
 de una operación PCE, en la base de productos 
 tensoriales de las matrices de Pauli, 
@@ -548,11 +550,15 @@ se definió en \eqref{eq:PCE_definition}.
 escribir al superoperador $\Phi$ en la base computacional. 
 $P$ es la matriz de cambio de base y se construye yuxtaponiendo 
 las matrices 
-vectorizadas de los productos tensoriales de las matrices de Pauli.
+vectorizadas de los productos tensoriales de las matrices de Pauli\cpnote{Puedes
+ser mucho mas explicito y dar la formula con productos tensoriales, o quizá
+ya la diste antes y la puedes referenciar}.
 (3) Se determina la matriz de Choi según $D_{\Phi}=\qty(P\Phi P^{-1})^R$, 
 aplicando el \textit{reshuffle} a la matriz $P\Phi P^{-1}$. 
 (4) Por último, se calculan los eigenvalores de $D_{\Phi}$ y si
-todos son positivos o cero, entonces $\Phi$ es un canal cuántico. 
+todos son positivos o cero, entonces $\Phi$ es un canal cuántico\cpnote{Ojo, 
+el algoritmo es para evaluar la completa positividad por lo que este ultimo 
+punto como qe no es parte del algoritmo sino una nota adicional}. 
 Es este último paso el que supone una dificultad en la generalización 
 de nuestro algoritmo.
 La ecuación $\det\qty(D_{\Phi}-\lambda \1)=0$, que hay que resolver
@@ -564,7 +570,7 @@ En vista de esta dificultad, decidimos utilizar herramientas computacionales
 para evaluar numéricamente la positividad de la matriz de Choi $D_{\Phi}$ 
 de las operaciones PCE de 2 y 3 qubits y así determinar los canales cuánticos.  
 
-\vfill
+% \vfill
 
 % }}}
 \section{Solución numérica}\label{sec:ch2_solucionNumerica} % {{{
