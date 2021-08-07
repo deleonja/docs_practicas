@@ -37,7 +37,9 @@
 \usepackage{ctable} % for \specialrule command
 \usepackage{bbold}
 
-\definecolor{mycolor}{RGB}{255,50,0}
+\usepackage{lscape}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{amssymb}
 
 \usepackage{physics}
 \usepackage{fancybox}
@@ -46,7 +48,7 @@
 \usepackage{float}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
-\FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+\definecolor{mycolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
 
 \usepackage{graphicx}
 \graphicspath{ {./img/} }
@@ -76,10 +78,12 @@
 \newcommand{\ind}[2]{{{}^{#1}_{#2}}}
 \newcommand{\rc}[1]{r_{#1}}
 \newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
-\newcommand{\esqueleto}[1]{\textcolor{mycolor}{\textbf{Esqueleto:} #1}}
+\newcommand{\esqueleto}[1]{\textcolor{mycolor}
+{\noindent\textbf{Esqueleto:} #1}}
 \newcommand{\ot}{\otimes}
 \newcommand{\m}{\textcolor{mycolor}{|}}
 \newcommand{\taus}{\tau_{j_1,\ldots ,j_n}}
+\newcommand{\tauij}[2]{\boldmath{$\tau_{#1#2}$}}
 
 % Para que funcione mejor la numeración {{{
 % https://tex.stackexchange.com/questions/43648/why-doesnt-lineno-number-a-paragraph-when-it-is-followed-by-an-align-equation

@@ -178,7 +178,18 @@ de la matriz de densidad de 1 qubit
 en \eqref{eq:rho-1qubit-ch2} son canales cuánticos.
 La pregunta es relevante porque la respuesta es
 que no\cpnote{Se me hace una justificación mala. Quiza podemos quitar
-esa frase}. En el capítulo anterior, en la sección 
+esa frase}\janote{Aquí quiero debatirte porque creo que redactado 
+de otra manera puedo convencerte (y porque así es cómo defendería
+la motivación del problema en la defensa de tesis). Preguntarnos si 
+las operaciones PCE de 1 qubit son trivialmente canales cuánticos y darnos cuenta
+que no, porque la CP no es trivialmente satisfecha, me 
+parece una motivación fuerte para proponer investigar operaciones 
+PCE de más qubits y buscar caracterizar a los canales cuánticos PCE.
+Supongamos por un momento que todas las operaciones PCE de 
+1 qubit son CP, intuitivamente entonces no habría razón para pensar que la 
+CP no es trivialmente satisfecha para los PCE de 2 qubits.
+En conclusión, que hayan operaciones PCE de 1 qubit no CP puede ser 
+un primer motivo para estudiar 2 qubits.}. En el capítulo anterior, en la sección 
 \ref{sec:qtm-channels}, elaboramos el ejemplo de la operación $\E_z$
 que borra la componente $r_3$ y demostramos que no es un canal 
 cuántico porque no es una operación completamente positiva. 
@@ -366,22 +377,27 @@ positividad de una operación PCE de 1 qubit.
 
 \begin{table}[] 
 \centering
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|P{.7cm}|P{1cm}|P{1cm}|P{1cm}|P{1cm}|P{2.5cm}|P{2.9cm}|}
 \hline
-           & $\tau_1$ & $\tau_2$ & $\tau_3$ \\ \hline
-\textbf{1} & 1        & 1        & 1        \\ \hline
-\textbf{2} & 1        & 1        & 0        \\ \hline
-\textbf{3} & 1        & 0        & 1        \\ \hline
-\textbf{4} & 0        & 1        & 1        \\ \hline
-\textbf{5} & 1        & 0        & 0        \\ \hline
-\textbf{6} & 0        & 1        & 0        \\ \hline
-\textbf{7} & 0        & 0        & 1        \\ \hline
-\textbf{8} & 0        & 0        & 0        \\ \hline
+\textbf{No.}           & \boldmath{$\tau_0$} & \boldmath{$\tau_1$} 
+& \boldmath{$\tau_2$} & \boldmath{$\tau_3$} 
+& \textbf{Canal cuántico} 
+& \bf{Componentes de Pauli \boldmath{$r_{i}$} invariantes} \\ \hline
+\textbf{1} & 1        & 1        & 1        & 1			& \checkmark		& 4       \\ \hline
+\textbf{2} & 1        & 1        & 1        & 0			&											& 3       \\ \hline
+\textbf{3} & 1        & 1        & 0        & 1			&    									& 3       \\ \hline
+\textbf{4} & 1        & 0        & 1        & 1			&    									& 3     	  \\ \hline
+\textbf{5} & 1        & 1        & 0        & 0			& \checkmark		& 2       \\ \hline
+\textbf{6} & 1        & 0        & 1        & 0			& \checkmark		& 2		    \\ \hline
+\textbf{7} & 1        & 0        & 0        & 1			& \checkmark   & 2       \\ \hline
+\textbf{8} & 1        & 0        & 0        & 0			& \checkmark		& 1       \\ \hline
 \end{tabular}
 \caption{Combinaciones de $\tau_i$ de todas las operaciones PCE de 1 qubit. 
 \cpnote{Creo que esta tabla podría ser mas completa. Podrías incluir la
 información de cuales son validas y quizá también un indicador del número de componentes
-que permanecen invariantes. }}
+que permanecen invariantes. }\janote{Si hubiere un símbolo de cruz
+se le podría poner a los PCEs malos. Conoces cómo ponerlo? Ya invertí 
+unos minutos pero San Google me falló esta vez.}}
 \label{tab:1qubit_PCE}
 \end{table}
 
@@ -494,9 +510,10 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 %\end{itemize}
 %}
 % }}}
-\section{El problema de $\mathbf{n}$ \cpnote{No quedó bien la $n$, porfa corrige} qubits} % {{{ 
+\section{El problema de \boldmath{$n$} qubits} % {{{ 
 \label{sec:n_qubits_problem}
-
+\janote{Ya quedó bien la \boldmath{$n$}? (borré tu comentario 
+del título de sección porque no compilaba)}
 %\esqueleto{
 %La idea central de esta sección es que para el problema de n qubits la 
 %solucion son los mismos pasos que para el problema de 1 qubit, pero
