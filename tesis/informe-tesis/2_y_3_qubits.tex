@@ -13,19 +13,21 @@ numéricos.}
 completo. Por otro lado, el caso de 3 qubits es imposible de resolver 
 completo a fuerza bruta.}
 
-Analizamos numéricamente la completa positividad de todas 
-las operaciones PCE de 2 qubits y parcialmente el caso de 3 qubits para 
-encontrar los canales cuánticos PCE.
+Para encontrar los canales cuánticos PCE de 2 y 3 qubits analizamos
+numéricamente la completa positividad de todas las operaciones PCE de 2
+qubits y parcialmente las de 3 qubits. 
 Por un lado, de las $32,768$ operaciones PCE de 2 qubits encontramos 
-$67$ canales cuánticos. La proporción~$67:31,768$, de canales cuánticos PCE
-a operaciones PCE, ya da una idea de lo restrictivo de la condición 
-de completa positividad. Por otro lado, para el caso de 3 qubits 
+$67$ canales cuánticos. La proporción de canales cuánticos PCE
+a operaciones PCE $67:31,768$ da una idea de lo restrictivo 
+que resulta que una operación PCE sea una operación físicamente 
+realizable. 
+Por otro lado, para el caso de 3 qubits 
 estudiamos las operaciones PCE que dejan invariantes 1, 2, 3 y 4 
-componentes de Pauli.
-Más adelante, en esta sección, mostraremos que el tiempo de cómputo 
-necesario para encontrar los canales PCE con nuestro método numérico
-excede por mucho el tiempo con el que contamos para realizar este 
-trabajo \janote{ojo}. 
+componentes de Pauli. No estudiamos más alla de 4 componentes de 
+Pauli¨ 
+invariantes porque el número de operaciones PCE es tan grande que 
+el tiempo de cómputo y uso de memoria por parte de las herramientas
+computacionales suponen un obstáculo. 
 
 \noindent
 \esqueleto{Los resultados de 2 qubits son... (una tabla con 
@@ -43,18 +45,18 @@ componentes de Pauli de la matriz de densidad de un sistema de
 2 qubits, y (2) el número de componentes de Pauli que el canal PCE
 deja invariante. 
 
-Muy poco se puede inferir de las características de los canales 
+Muy poco se puede inferir sobre las características de los canales 
 PCE de 2 qubits a partir 
 de la \Tref{tab:2qubitsPCEChannel1sAnd0s}. Las listas de 1's y 0's, 
 como se presentan en la tabla, no permiten identificar casi ninguna 
-propiedad de los canales PCE a excepción de la cantidad de componentes 
-de Pauli (cantidad de 1's) que el canal deja invariante. Además, por otro 
-lado, la acción de las operaciones PCE de 2 qubits no tiene una 
-interpretación geométrica como la de la esfera de Bloch para 
-el caso de 1 qubit. Por esa razón, en la sección 
+propiedad de los canales PCE, a excepción de la cantidad de componentes 
+de Pauli (cantidad de 1's) que el canal deja invariante. Además, a 
+diferencia de las operaciones PCE de 1 qubit, la acción de las operaciones PCE
+de 2 qubits no se pueden interpretar con ayuda de alguna herramienta 
+geométrica como la esfera de Bloch. Por esa razón, en la sección 
 \ref{sec:ch3_geometric_representation} discutiremos una 
-herramienta geométrica con la cual estudiar las listas de 1's 
-y 0's de los canales PCE de 1, 2 y 3 qubits.
+herramienta geométrica con la cual estudiar las características de 
+las listas de 1's y 0's de los canales PCE de 1, 2 y 3 qubits.
 \begin{table}[]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -145,12 +147,27 @@ tabla porque no cabe en una página.}}
 \textbf{67}                        & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 16                    \\ \hline
 \end{tabular}
 }
-
 \end{table}
+
+En las tablas \janote{tal y tal} mostramos los canales cuánticos de 3
+qubits que dejan 1, 2 y 4 componentes invariantes. \janote{bla bla bla...}
+ 
+Analizar numéricamente, una por una, todas las operaciones PCE de 3 qubits 
+es una tarea imposible. El número total de operaciones PCE para el caso 
+de 3 qubits es de alrededor de $9\times10^{18}$. Supongamos por un momento
+que contamos con una computadora promedio para un estudiante de física
+en Guatemala, pero con memoria ilimitada que puede analizar 
+la completa positividad de 100 operaciones PCE de 3 qubits por segundo. A esa 
+computadora le tomaría entre $1/4$ y $1/5$ de la edad del universo 
+($13.7\times10^9$ años) analizar todas las operaciones PCE de 3 qubits.
+Ahora bien, si consideramos una computadora real, con memoria limitada, 
+analizar todas las operaciones PCE de 3 qubits que dejan 
+5 componentes de Pauli invariantes supone un problema de memoria. En las
+tablas \janote{tal y tal} se muestran el uso de memoria y tiempo de cómputo.
 
 \noindent
 \esqueleto{Con nuestro método numérico de fuerza bruta es posible 
-resolver el caso de 3 qubits hasta 4 componentes invariantes. Los resultados
+resolver el caso de 3 qubits hasta 4 componentes invariantes. Los resultados   
 son.... «con 3 qubits está todavía más jalado inferir características de 
 los canales PCE a partir de los 1's y 0's»}
 
