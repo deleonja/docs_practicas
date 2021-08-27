@@ -9,7 +9,7 @@
 
 %%	NO OLVIDE INCLUIR FUENTE DE LAS TABLAS Y FIGURAS
 
-% Decomentar para anular recuadros en los hiperenlaces dentro del pdf
+% Descomentar para anular recuadros en los hiperenlaces dentro del pdf
 % \hypersetup{pdfborder={0 0 0}}
 
 % Teoremas ---------------------------------------------------------
@@ -29,63 +29,48 @@
 \theoremstyle{remark}
 \newtheorem{rem}{Nota}[chapter]
 
+% <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+% <<<<<<<<<<<<<<                                             >>>>>>>>>>>>>>>>>>
+%                 Inicio preámbulo de José Alfredo de León
+% <<<<<<<<<<<<<<                                             >>>>>>>>>>>>>>>>>>
+% <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-% --------------------------------------------------------------------------------------------------
-%                    Mi preámbulo usual (José Alfredo)
-% --------------------------------------------------------------------------------------------------
-\usepackage{natbib}
-\usepackage{ctable} % for \specialrule command
-\usepackage{bbold}
 
-\usepackage{lscape}
-\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}}
-\usepackage{amssymb}
 
-\usepackage{physics}
-\usepackage{fancybox}
-\usepackage{colortbl}
+\usepackage{lscape}		%% para poner tablas en orientación landscape
+\usepackage{array}		%% para modificar cosas de entorno 'tabular'
+\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}} %para que en las tablas quede centrado verticalmente el texto
+
+
+%% símbolos de mate y física --------------------------------------------------
+\usepackage{amssymb}	
 \usepackage{amsbsy}
-\usepackage{float}
+\usepackage{physics}
+%% ----------------------------------------------------------------------------
+
+
+\usepackage{longtable}	%% tablas en más de una página
+\usepackage{float}		%% para poder usar H, h! en entornos table y figure, por ej.
+
+
+%% para colocar comentarios dentro del documento ------------------------------
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
-\definecolor{mycolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+%% Mi comando para comentario *************************************************
+\definecolor{JAsColor}{RGB}{200,40,0} 			%% definición de mi color
+\FXRegisterAuthor{ja}{aja}{\color{JAsColor}JA}	%% comando 
+%% ----------------------------------------------------------------------------
+\usepackage[inline]{showlabels}		%% para mostrar labels en el PDF
+		
+			
+\usepackage{graphicx}			%% para colocar imágenes
+\graphicspath{ {./img/} }		%% ruta a carpeta con imágenes
 
-\usepackage{graphicx}
-\graphicspath{ {./img/} }
 
-
+%% Para enumerar las líneas del PDF -------------------------------------------
 \usepackage[]{lineno}  \linenumbers
 \setlength\linenumbersep{3pt}
-
-\newcommand{\fref}[1]{fig.~\ref{#1}}   \newcommand{\tref}[1]{tabla~\ref{#1}}
-\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Tabla~\ref{#1}}
-\newcommand{\Cref}[1]{Cuadro~\ref{#1}}
-
-\newcommand{\psii}{\psi_i}
-\newcommand{\Pk}[1]{\ket{\psi_{#1} }}
-\newcommand{\Pb}[1]{\bra{\psi_{#1} }}
-\newcommand{\pk}{\ket{\psi}}
-\newcommand{\M}{\mathcal{M}^{(N)}}
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\Erho}{\mathcal{E}(\rho)}
-\newcommand{\1}{\mathbb{1}}
-\newcommand{\ten}{\otimes}
-\newcommand{\h}[1]{\colorbox{yellow}{#1}}
-\newcommand{\hi}{\mathcal{H}}
-\newcommand{\txt}[1]{\text{#1}}
-\newcommand{\here}{\h{\hspace{15cm}} }
-\newcommand{\rhoi}{\dyad{\psii}{\psii}}
-\newcommand{\ind}[2]{{{}^{#1}_{#2}}}
-\newcommand{\rc}[1]{r_{#1}}
-\newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
-\newcommand{\esqueleto}[1]{\textcolor{mycolor}
-{\noindent\textbf{Esqueleto:} #1}}
-\newcommand{\ot}{\otimes}
-\newcommand{\m}{\textcolor{mycolor}{|}}
-\newcommand{\taus}{\tau_{j_1,\ldots ,j_n}}
-\newcommand{\tauij}[2]{\boldmath{$\tau_{#1#2}$}}
-
-% Para que funcione mejor la numeración {{{
+% para que funcione mejor la numeración {{{
 % https://tex.stackexchange.com/questions/43648/why-doesnt-lineno-number-a-paragraph-when-it-is-followed-by-an-align-equation
 \newcommand*\patchAmsMathEnvironmentForLineno[1]{%
   \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
@@ -105,9 +90,56 @@
 \patchBothAmsMathEnvironmentsForLineno{multline}%
 }
 % }}}	
+%% ----------------------------------------------------------------------------
 
-% --------------------------------------------------------------------------------------------------
-% --------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%   Inicio definición de comandos   %%%%%%%%%%%%%%%%
+\newcommand{\fref}[1]{fig.~\ref{#1}}   \newcommand{\tref}[1]{tabla~\ref{#1}}     
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  \newcommand{\Tref}[1]{Tabla~\ref{#1}}
+\newcommand{\Cref}[1]{Cuadro~\ref{#1}}
+\newcommand{\psii}{\psi_i}
+\newcommand{\Pk}[1]{\ket{\psi_{#1} }}
+\newcommand{\Pb}[1]{\bra{\psi_{#1} }}
+\newcommand{\pk}{\ket{\psi}}
+\newcommand{\M}{\mathcal{M}^{(N)}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Erho}{\mathcal{E}(\rho)}
+\newcommand{\1}{\mathbb{1}}
+\newcommand{\ten}{\otimes}
+\newcommand{\h}[1]{\colorbox{yellow}{#1}}
+\newcommand{\hi}{\mathcal{H}}
+\newcommand{\txt}[1]{\text{#1}}
+\newcommand{\here}{\h{\hspace{15cm}} }
+\newcommand{\rhoi}{\dyad{\psii}{\psii}}
+\newcommand{\ind}[2]{{{}^{#1}_{#2}}}
+\newcommand{\rc}[1]{r_{#1}}
+\newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
+\newcommand{\esqueleto}[1]{\textcolor{JAsColor}
+{\noindent\textbf{Esqueleto:} #1}}
+\newcommand{\ot}{\otimes}
+\newcommand{\m}{\textcolor{JAsColor}{|}}
+\newcommand{\taus}{\tau_{j_1,\ldots ,j_n}}
+\newcommand{\tauijk}[3]{\boldmath{$\tau_{#1#2#3}$}}
+\newcommand{\tauij}[2]{\boldmath{$\tau_{#1#2}$}}
+\newcommand{\ep}{\textbf{Fuente:} elaboración propia.}
+%%%%%%%%%%%   Fin definición de comandos   %%%%%%%%%%%%%%%%%%
+
+
+% Cosas que no sé porqué tengo ------------------------------------------------
+\usepackage{natbib}
+\usepackage{ctable} 
+\usepackage{bbold}
+\usepackage{fancybox}	
+\usepackage{colortbl}
+% -----------------------------------------------------------------------------
+
+
+
+% <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+% <<<<<<<<<<<<<<                                             >>>>>>>>>>>>>>>>>>
+%                   Fin preámbulo de José Alfredo de León
+% <<<<<<<<<<<<<<                                             >>>>>>>>>>>>>>>>>>
+% <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 
@@ -129,9 +161,9 @@ Pineda Zorrilla}%			% asesor
 \examenPrivado%
 {M.Sc. Jorge Marcelo Ixquiac Cabrera}%	% director ECFM
 {M.Sc. Edgar Anibal Cifuentes Anléu}%		% secretario académico
-{Perengano}%		% examinador 1
-{Zutano}%		% examinador 2
-{Fulano 2}%		% examinador 3
+{Dr. Ángel Giovanni Ramírez}%		% examinador 1
+{Dr. Juan Adolfo Ponciano}%		% examinador 2
+{Dr. José Rodrigo Sacahuí Reyes}%		% examinador 3
 
 {\onehalfspacing	% interlineado 1 1/2
 
