@@ -410,9 +410,7 @@ Tú qué dices?}
 \hline
 \end{tabular}
 }
-\caption{\janote{Esta gráfica no la terminé de escribir porque tomaría tiempo si 
-es necesario que ponga los 716 canales. Alguna sugerencia para evitarlo o
-deplano pongo todos los resultados así me tomen 10 páginas?}}
+\caption{Canales cuánticos PCE de 3 qubits.}
 \label{tab:3qubitsPCEChannel1sAnd0s}
 \end{table}
 \end{landscape}
@@ -423,15 +421,141 @@ comparten los canales PCE a partir de las listas de 1's y 0's, se nos ocurrió
 una forma de representar geométricamente a las operaciones PCE que hace
 más sencillo el análisis de resultados.}
 
+En la sección anterior vimos que los resultados crudos, las listas de 1's y 0's 
+de de los elementos $\taus$ de los canales PCE de 2 qubits y algunos de los 
+de 3 qubits de las tablas \ref{tab:2qubitsPCEChannel1sAnd0s} y 
+\ref{tab:3qubitsPCEChannel1sAnd0s}, no hacen sencilla la tarea de analizar 
+las propiedades que comparten los canales cuánticos PCE. En vista de ello, 
+buscamos una herramienta que nos permita visualizar y apreciar de una 
+manera visual las características de un canal PCE, de manera similar que es 
+la ayuda de la esfera de Bloch para 1 qubit.  Esta sección la dedicamos 
+exclusivamente para introducir y discutir la herramienta de \janote{será 
+que le ponemos nombre a esta onda?} para visualizar ''geométricamente``
+a una operación PCE. 
+
 \esqueleto{La figura asociada con una operación PCE de 1 qubit 
 es una columna de 
 cuadritos.. bla bla y con figuritas, haciendo referencia a lo que se resolvió 
 en el capítulo anterior, etc.}
 
+En la \Fref{fig:PCE_figs} introducimos las ``figuras PCE'' para representar 
+a las operaciones PCE. Mostramos la figura PCE de la operación identidad
+de 1, 2 y 3 qubits, una operación PCE con todos los elementos 
+$\tau_i$, $\tau_{ij}$ y $\tau_{ijk}$, respectivamente, iguales a 1. En una 
+figura PCE, la posición de cada cuadro o cubo está asociada con los índices 
+$j_1,\ldots,j_n$ de los elementos $\taus$ de una operación PCE. Además, 
+los cuadros pintados de color negro, en el caso de figuras PCE de 1 y 2 qubits, 
+o cubos pintados de color rojo, azul o verde, en el caso de una figura PCE de 
+3 qubits, están asociados con elementos $\tau_{k_1,\ldots,j_n}$ iguales a 1;
+los cuadros o cubos no pintados están asociados con $\tau_{l_1,\ldots,l_n}$
+iguales a 0. 
+Los colores de las figuras PCE de 3 qubits no son más que una ayuda para visualizar 
+mejor las operaciones PCE de 3 qubits. Los cubos con posiciones de la forma $(i,0,0)$,
+$(0,j,0)$ y $(0,0,k)$ se pintan de rojo. Los cubos con posiciones de la forma $(i,j,0)$,
+$(0,j,k)$ y $(i,0,k)$ se pintan de azul. Los cubos con posiciones de la forma $(i,j,k)$,
+se pintan de verde. 
+%\begin{figure} % {{{
+%	\centering
+%	\hfill \hfill
+%	\includegraphics[height=3cm]	{tablero_1qubit}
+%	\hspace{1.5cm}
+%	\includegraphics[height=3cm]{tablero_2qubits}
+%	\hspace{.9cm}
+%	\includegraphics[height=3.3cm]{cubo_3qubits}
+%	\hfill \hfill \hfill 
+%	\caption{De izquierda a derecha se muestran la representación de la operación
+%	identidad de 1, 2 y 3 qubits.  \ep}
+%	\label{fig:PCE_figs}
+%\end{figure} % }}}
+\begin{figure} % {{{
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[height=3cm]	{tablero_1qubit}
+		\caption{}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[height=3cm]{tablero_2qubits}
+		\caption{}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[height=3cm]{cubo_3qubits}
+		\caption{}
+	\end{subfigure}
+	\caption{De izquierda a derecha se muestra la representación de la operación
+	identidad de 1, 2 y 3 qubits. Llamaremos a esta representación las figuras PCE
+  las operaciones PCE. Cada posición de un cuadrito o cubo, en el caso de una
+  figura PCE de 3 qubits, está asociada con los subíndices $j_1,\ldots,j_n$ de 
+  los elementos $\taus$ de la operación PCE. Si la posición $j_1,\ldots,j_n$ en 
+  la figura PCE está pintado de color, entonces el elemento asociado $\taus$ es 
+  igual a 1, y si la posición no está pintada, entonces el elemento asociado $\taus$ 
+  es igual a 0. \ep}
+	\label{fig:PCE_figs}
+\end{figure} % }}}
+
 \esqueleto{Para una operación PCE de 2 qubits, los dos índices en las $\tau$
 sugieren que ahora la figura asociada debería ser de dos dimensiones. Así, 
 los tableritos representan a estas operaciones. Figuritas para explicar y demás.}
 
+En la \Fref{fig:PCE_figs_examples} mostramos algunos ejemplos de figuras PCE. 
+En la \Fref{fig:PCE_figs_examples_a} mostramos todas las figuras PCE de todas 
+las operaciones PCE de 1 qubit; de izquierda a derecha, la operación identidad, las 
+3 operaciones que mapean la esfera de Bloch a un disco perpendicular a cada
+eje rectangular, las 3 operaciones que mapean la esfera de Bloch a una linea
+sobre cada eje rectangular y la operación que mapea la esfera 
+de Bloch al origen de coordenadas. En la \Fref{fig:PCE_figs_examples_b}
+se muestran dos figuras PCE de operaciones que dejan invariantes
+los conjuntos de componentes de Pauli $\{r_{00},r_{12},r_{21},r_{33}\}$ y 
+$\{r_{00},r_{02},r_{10},r_{2,2},r_{32}\}$. Y en la 
+\Fref{fig:PCE_figs_examples_c} se muestran dos operaciones PCE de 3 qubits
+que dejan invariantes los conjuntos de componentes de Pauli $\{r_{000},
+r_{300}, r_{033}\}$ y $\{r_{000},r_{220},r_{122}, r_{331}\}$.
+Nótese que todas las figuras PCE que acabamos de discutir  
+tienen pintado el cuadro o cubo con la posición $(0)$, $(0,0)$ o $(0,0,0)$.
+Esto es así para todas las figuras PCE porque, de acuerdo con la definición 
+\eqref{eq:PCE_definition}, una operación PCE preserva la traza de 
+la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
+\begin{figure} % {{{
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[height=2.5cm]	{1qubit_PCEOperations}
+		\caption{}
+		\label{fig:PCE_figs_examples_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\hfill 
+		\includegraphics[height=2.3cm]{2qubits_pceChannel_example01} 
+		\hfill
+		\includegraphics[height=2.3cm]{2qubits_pce_example}		
+		\hfill \hfill
+		\caption{}
+		\label{fig:PCE_figs_examples_b}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}[c]{\textwidth}
+		\centering
+		\hspace*{\fill}
+		\includegraphics[width=4cm]{3qubits_PCE_ex1}
+		\includegraphics[width=4cm]{3qubits_PCE_ex2}
+		\hspace*{\fill}
+		\caption{}
+		\label{fig:PCE_figs_examples_c}
+	\end{subfigure}
+	\caption{(a) Figuras PCE de todas las operaciones PCE de 1 qubit. 
+	(b) Figuras PCE de 2 operaciones PCE de 2 qubits aleatorias. La primera 
+	figura PCE representa a un canal PCE y la segunda representa una operación 
+	PCE que no satisface la condición de completa positividad. \ep}
+	\label{fig:PCE_figs_examples}
+\end{figure} % }}}
+
+\noindent
 \esqueleto{En este punto, ya es más o menos obvio cómo es la representación 
 geométrica de 3 qubits y que a partir de 4 qubits ya no podremos utilizar 
 esta herramienta geométrica. Mostrar algunas figuras de PCEs de 3 qubits
@@ -445,6 +569,86 @@ las voy a poner en negro).}
 es mucho más sencillo ganar intuición de las operaciones PCE e inferir 
 características de los canales PCE. Entonces ahora mostraré los resultados 
 de la sección anterior, pero usando las figuritas.}
+
+Ahora mostramos de nuevo los resultados de los canales PCE de 2 qubits 
+que presentamos en la \Tref{tab:2qubitsPCEChannel1sAnd0s},pero utilizando 
+nuestra nueva representación de las figuras PCE, en la
+\Fref{fig:2qubits_PCEChannels_figs}.
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+		\includegraphics[height=1.4cm]{C1}
+		\caption{C$\subind{1}{}$}
+	\end{subfigure} \\
+	\begin{subfigure}[b]{0.49\textwidth}
+	\centering
+		\includegraphics[height=1.4cm]{C2_1}
+		\caption{C$\subind{2}{1}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[height=2.4cm]{C2_2}
+		\caption{C$\subind{2}{2}$}
+	\end{subfigure}
+	\begin{subfigure}[B]{0.49\textwidth}
+		\includegraphics[height=1.4cm]{C4_1}
+		\caption{C$\subind{4}{1}$}
+	\end{subfigure}
+	\begin{subfigure}[B][3.1cm]{0.49\textwidth}
+	\centering
+		\includegraphics[height=2.4cm]{C4_2}
+		\caption{C$\subind{4}{2}$}
+	\end{subfigure}
+	\begin{subfigure}[B]{0.49\textwidth}
+		\includegraphics[height=3.6cm]{C4_3}
+		\caption{C$\subind{4}{3}$}
+	\end{subfigure}
+	\begin{subfigure}[B][5.1cm]{0.49\textwidth}
+		\includegraphics[height=1.4cm]{C4_4}
+		\caption{C$\subind{4}{4}$}
+	\end{subfigure}
+	\begin{subfigure}[T]{0.49\textwidth}
+		\includegraphics[height=1.4cm]{C8_1}
+		\caption{C$\subind{8}{1}$}
+	\end{subfigure}
+	\begin{subfigure}[T][5.1cm]{0.49\textwidth}
+		\includegraphics[height=2.4cm]{C8_2}
+		\caption{C$\subind{8}{2}$}
+	\end{subfigure}
+	\begin{subfigure}[T]{0.49\textwidth}
+	\centering
+		\includegraphics[height=1.4cm]{C16}
+		\caption{C$\subind{16}{}$}
+	\end{subfigure}
+	\caption{Figuras PCE de los canales cuánticos PCE de 2 qubits ordenados por 
+	clases de equivalencia etiquetadas como C$\subind{k}{l}$, donde $k$ es el número 
+	de componentes de Pauli invariantes y $l$ es para diferenciar entre clases 
+	de equivalencia con el mismo número de componentes de Pauli invariantes.}
+	\label{fig:2qubits_PCEChannels_figs}
+\end{figure} \vfill
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[T]{\textwidth}
+		\centering
+		\includegraphics[width=4cm]{3q_2c_1} \hfill
+		\includegraphics[width=4cm]{3q_2c_2} \hfill
+		\includegraphics[width=4cm]{3q_2c_3}
+		\caption{Elementos representativos de las 3 clases de equivalencia.}
+	\end{subfigure}
+	\begin{subfigure}[T]{\textwidth}
+		\centering
+		\includegraphics[width=4cm]{3q_1} \hfill
+		\includegraphics[width=4cm]{3q_2} \hfill
+		\includegraphics[width=4cm]{3q_3} \hfill
+		\includegraphics[width=4cm]{3q_4} \hfill
+		\includegraphics[width=4cm]{3q_5} \hfill
+		\includegraphics[width=4cm]{3q_6} 
+		\caption{Canales PCE de 3 qubits que dejan invariantes 4 componentes de Pauli.}
+	\end{subfigure}
+	\caption{Figuras PCE de los canales cuánticos PCE de 3 qubits.}
+\end{figure}
 
 \section{Discusión de resultados}\label{sec:ch3_discussion}
 \janote{Con el fin de hacer más eficiente la redacción, voy a partir del 
