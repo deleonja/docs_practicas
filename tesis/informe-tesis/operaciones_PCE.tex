@@ -1,26 +1,26 @@
 \chapter{OPERACIONES PCE}
 
 \section{Introducción} % {{{
-\janote{La intro recién la escribí. No la has leído aún, Carlos.}
+% \janote{La intro recién la escribí. No la has leído aún, Carlos.}
 
 En este capítulo discutimos 
 una motivación para definir y estudiar las operaciones PCE de $n$ qubits en la 
 sección \ref{sec:PCE_operations}. Partimos de discutir algunos canales cuánticos 
 de 1 qubit como \textit{bit-flip} y \textit{defasing} 
-\cite{bengtsson_zyczkowski_2017,nielsen_chuang_2011},
-específicamente centramos nuestra atención en unos casos particulares
+\cite{bengtsson_zyczkowski_2017,nielsen_chuang_2011}. 
+Específicamente, centramos nuestra atención en unos casos particulares
 de estos canales para motivar la generalización
 de este tipo de operaciones para sistemas de $n$ qubits que bautizamos 
 con el nombre de \textit{Pauli component erasing} (PCE). 
 Luego, en la sección \ref{sec:1_qubit_problem} resolvemos analíticamente 
 el problema de encontrar los canales cuánticos PCE de 1 qubit, 
 y en la sección \ref{sec:n_qubits_problem} discutimos 
-el algoritmo para resolver el problema de $n$ qubits y la dificultad analítica, 
+el algoritmo para resolver el problema de $n$ qubits y la complejidad analítica, 
 en contraste con el problema de 1 qubit, que hace que el problema sea 
 difícil de resolver de manera exacta. Finalmente, en la sección 
 \ref{sec:ch2_solucionNumerica} presentamos las herramientas computacionales 
-para implementar un método numérico para encontrar los canales cuánticos 
-PCE de 2 qubits y parcialmente los de 3 qubits. 
+para implementar un método numérico para encontrar canales cuánticos 
+PCE de dos y tres qubits.
 
 % }}}
 \section{Operaciones PCE} % {{{ 
