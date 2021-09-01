@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     58644,       1495]
-NotebookOptionsPosition[     56922,       1457]
-NotebookOutlinePosition[     57312,       1473]
-CellTagsIndexPosition[     57269,       1470]
+NotebookDataLength[     77901,       1939]
+NotebookOptionsPosition[     75396,       1888]
+NotebookOutlinePosition[     75788,       1904]
+CellTagsIndexPosition[     75745,       1901]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1453,10 +1453,441 @@ Cell[BoxData[
  CellLabel->
   "Out[633]//MatrixForm=",ExpressionUUID->"94798173-9a31-4d56-a9d1-\
 ca887ef63f17"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  "\"\</home/jadeleon/Documents/projective_maps/pce.m\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.839359238493351*^9, 3.839359281751606*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"470a3de9-649b-495b-a466-60dfd36e75f6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"PCEFigures", "/@", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "1", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"Spacings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"30", ",", "0"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.839359253628871*^9, 3.839359364167336*^9}, {
+  3.8393594031543713`*^9, 3.839359431090136*^9}, {3.839359475140177*^9, 
+  3.839359483305496*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"80141207-13c5-47e3-ad7f-0e89c1bc6fb6"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[RasterBox[{{0}, {0}, {0}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {40, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{0}, {0}, {1}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {120, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{0}, {1}, {0}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {200, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{1}, {0}, {0}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {280, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{0}, {1}, {1}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {360, -100.}, ImageScaled[
+     {0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{1}, {0}, {1}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {440, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{1}, {1}, {0}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {520, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}], InsetBox[
+     GraphicsBox[RasterBox[{{1}, {1}, {1}, {0}}, {{0, 0}, {1, 4}}, {0, 1}],
+      DisplayFunction->Identity,
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0.5, 1.5}, {1.5, 0.5}},
+      ImageSize->50,
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {600, -100.}, 
+     ImageScaled[{0.5, 0.5}], {50, 200.}]}, {}},
+  ImageSize->{
+    UpTo[400], 
+    UpTo[194]},
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.83935933730875*^9, 3.839359364689721*^9}, {
+  3.839359413764207*^9, 3.839359431578721*^9}, {3.839359475777594*^9, 
+  3.839359483623989*^9}},
+ CellLabel->"Out[13]=",ExpressionUUID->"b0bf12f0-df9a-48c6-aba8-1e6941a64392"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Rotate", 
+   RowBox[{
+    RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+    RowBox[{"Table", "[", 
+     RowBox[{"0", ",", "14"}], "]"}], "~", "Join", "~", 
+    RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+    RowBox[{"Table", "[", 
+     RowBox[{"0", ",", "32"}], "]"}], "~", "Join", "~", 
+    RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+    RowBox[{"Table", "[", 
+     RowBox[{"0", ",", "15"}], "]"}]}]}], "//", "PCEFigures"}]], "Input",
+ CellChangeTimes->{{3.83936271993972*^9, 
+  3.839362921269717*^9}},ExpressionUUID->"1f1a5469-0532-4c80-b775-\
+347986147c51"],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {GrayLevel[0], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[-1, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[1, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[1, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[-1, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[-1, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[1, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[1, 2], Rational[-1, 2], Rational[1, 2]}, {
+          Rational[-1, 2], Rational[-1, 2], Rational[1, 2]}}, {{-0.5, 
+         0.5, -0.5}, {0.5, 0.5, -0.5}, {
+         0.5, -0.5, -0.5}, {-0.5, -0.5, -0.5}, {-0.5, 0.5, 0.5}, {0.5, 0.5, 
+         0.5}, {0.5, -0.5, 0.5}, {-0.5, -0.5, 0.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{0, 0, 0}]]}, 
+    {RGBColor[0., 0.2980392156862745, 0.6], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[-1, 2], Rational[7, 2], Rational[5, 2]}, {
+          Rational[1, 2], Rational[7, 2], Rational[5, 2]}, {
+          Rational[1, 2], Rational[5, 2], Rational[5, 2]}, {
+          Rational[-1, 2], Rational[5, 2], Rational[5, 2]}, {
+          Rational[-1, 2], Rational[7, 2], Rational[7, 2]}, {
+          Rational[1, 2], Rational[7, 2], Rational[7, 2]}, {
+          Rational[1, 2], Rational[5, 2], Rational[7, 2]}, {
+          Rational[-1, 2], Rational[5, 2], Rational[7, 2]}}, {{-0.5, 3.5, 
+         2.5}, {0.5, 3.5, 2.5}, {0.5, 2.5, 2.5}, {-0.5, 2.5, 2.5}, {-0.5, 3.5,
+          3.5}, {0.5, 3.5, 3.5}, {0.5, 2.5, 3.5}, {-0.5, 2.5, 3.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{0, 3, 3}]]}, 
+    {RGBColor[0.8, 0., 0.], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[5, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[7, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[7, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[5, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[5, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[7, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[7, 2], Rational[-1, 2], Rational[1, 2]}, {
+          Rational[5, 2], Rational[-1, 2], Rational[1, 2]}}, {{2.5, 
+         0.5, -0.5}, {3.5, 0.5, -0.5}, {3.5, -0.5, -0.5}, {2.5, -0.5, -0.5}, {
+         2.5, 0.5, 0.5}, {3.5, 0.5, 0.5}, {3.5, -0.5, 0.5}, {2.5, -0.5, 
+         0.5}}], Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 
+         8, 4, 3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{3, 0, 0}]]}}, 
+   {Thickness[0.012], Line3DBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAWImIAaxIeDBfuJoHgf6qCNWnJA6Qupx8ckVJ0RTag+x
+/iTVfYTU43YHAB6tRso=
+     "]]}},
+  Axes->False,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]},
+  AxesOrigin->{0.5, 0.5, 0.5},
+  AxesStyle->Thickness[0.005],
+  ImagePadding->45,
+  ImageSize->Small,
+  LabelStyle->Directive[Bold, Medium, 
+    GrayLevel[0]],
+  PlotRange->{{-0.5, 3.5}, {-0.5, 3.5}, {-0.5, 3.5}},
+  ViewPoint->{2.5107270650871523`, -1.1766841671545225`, -1.9395009604036633`},
+  ViewVertical->{
+   0.23835176404877706`, -0.9611009731148629, -0.1395469671920534}]], "Output",\
+
+ CellChangeTimes->{3.839362895932228*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"30b65f46-6bf9-473d-bec3-8a734c27acfc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "9"}], "]"}], "~", "Join", "~", 
+   RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "27"}], "]"}], "~", "Join", "~", 
+   RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "22"}], "]"}], "~", "Join", "~", 
+   RowBox[{"{", "1", "}"}], "~", "Join", "~", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "2"}], "]"}]}], "//", "PCEFigures"}]], "Input",
+ CellChangeTimes->{{3.839362834483491*^9, 3.8393628458062553`*^9}, {
+  3.839362949110899*^9, 3.83936303618159*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"555ef182-718b-4844-957d-228d45d65365"],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {GrayLevel[0], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[-1, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[1, 2], Rational[1, 2], Rational[-1, 2]}, {
+          Rational[1, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[-1, 2], Rational[-1, 2], Rational[-1, 2]}, {
+          Rational[-1, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[1, 2], Rational[1, 2], Rational[1, 2]}, {
+          Rational[1, 2], Rational[-1, 2], Rational[1, 2]}, {
+          Rational[-1, 2], Rational[-1, 2], Rational[1, 2]}}, {{-0.5, 
+         0.5, -0.5}, {0.5, 0.5, -0.5}, {
+         0.5, -0.5, -0.5}, {-0.5, -0.5, -0.5}, {-0.5, 0.5, 0.5}, {0.5, 0.5, 
+         0.5}, {0.5, -0.5, 0.5}, {-0.5, -0.5, 0.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{0, 0, 0}]]}, 
+    {RGBColor[0., 0.2980392156862745, 0.6], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[-1, 2], Rational[5, 2], Rational[3, 2]}, {
+          Rational[1, 2], Rational[5, 2], Rational[3, 2]}, {
+          Rational[1, 2], Rational[3, 2], Rational[3, 2]}, {
+          Rational[-1, 2], Rational[3, 2], Rational[3, 2]}, {
+          Rational[-1, 2], Rational[5, 2], Rational[5, 2]}, {
+          Rational[1, 2], Rational[5, 2], Rational[5, 2]}, {
+          Rational[1, 2], Rational[3, 2], Rational[5, 2]}, {
+          Rational[-1, 2], Rational[3, 2], Rational[5, 2]}}, {{-0.5, 2.5, 
+         1.5}, {0.5, 2.5, 1.5}, {0.5, 1.5, 1.5}, {-0.5, 1.5, 1.5}, {-0.5, 2.5,
+          2.5}, {0.5, 2.5, 2.5}, {0.5, 1.5, 2.5}, {-0.5, 1.5, 2.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{0, 2, 2}]]}, 
+    {RGBColor[0.6, 1., 0.2], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[3, 2], Rational[3, 2], Rational[3, 2]}, {
+          Rational[5, 2], Rational[3, 2], Rational[3, 2]}, {
+          Rational[5, 2], Rational[1, 2], Rational[3, 2]}, {
+          Rational[3, 2], Rational[1, 2], Rational[3, 2]}, {
+          Rational[3, 2], Rational[3, 2], Rational[5, 2]}, {
+          Rational[5, 2], Rational[3, 2], Rational[5, 2]}, {
+          Rational[5, 2], Rational[1, 2], Rational[5, 2]}, {
+          Rational[3, 2], Rational[1, 2], Rational[5, 2]}}, {{1.5, 1.5, 
+         1.5}, {2.5, 1.5, 1.5}, {2.5, 0.5, 1.5}, {1.5, 0.5, 1.5}, {1.5, 1.5, 
+         2.5}, {2.5, 1.5, 2.5}, {2.5, 0.5, 2.5}, {1.5, 0.5, 2.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{2, 1, 2}]]}, 
+    {RGBColor[0.6, 1., 0.2], 
+     InterpretationBox[
+      TagBox[
+       GraphicsComplex3DBox[
+        NCache[{{Rational[5, 2], Rational[7, 2], Rational[1, 2]}, {
+          Rational[7, 2], Rational[7, 2], Rational[1, 2]}, {
+          Rational[7, 2], Rational[5, 2], Rational[1, 2]}, {
+          Rational[5, 2], Rational[5, 2], Rational[1, 2]}, {
+          Rational[5, 2], Rational[7, 2], Rational[3, 2]}, {
+          Rational[7, 2], Rational[7, 2], Rational[3, 2]}, {
+          Rational[7, 2], Rational[5, 2], Rational[3, 2]}, {
+          Rational[5, 2], Rational[5, 2], Rational[3, 2]}}, {{2.5, 3.5, 
+         0.5}, {3.5, 3.5, 0.5}, {3.5, 2.5, 0.5}, {2.5, 2.5, 0.5}, {2.5, 3.5, 
+         1.5}, {3.5, 3.5, 1.5}, {3.5, 2.5, 1.5}, {2.5, 2.5, 1.5}}], 
+        Polygon3DBox[{{1, 2, 3, 4}, {5, 6, 2, 1}, {6, 7, 3, 2}, {7, 8, 4, 
+         3}, {8, 5, 1, 4}, {8, 7, 6, 5}}]],
+       "Polyhedron"],
+      Cube[{3, 3, 1}]]}}, 
+   {Thickness[0.012], Line3DBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAWImIAaxIeDBfuJoHgf6qCNWnJA6Qupx8ckVJ0RTag+x
+/iTVfYTU43YHAB6tRso=
+     "]]}},
+  Axes->False,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]},
+  AxesOrigin->{0.5, 0.5, 0.5},
+  AxesStyle->Thickness[0.005],
+  ImagePadding->45,
+  ImageSize->Small,
+  LabelStyle->Directive[Bold, Medium, 
+    GrayLevel[0]],
+  PlotRange->{{-0.5, 3.5}, {-0.5, 3.5}, {-0.5, 3.5}},
+  ViewPoint->{-1.956434342816074, 2.379273246500888, -1.4005082937044535`},
+  ViewVertical->{-0.12122520062707351`, 
+   0.16472556583526857`, -0.9788615523623228}]], "Output",
+ CellChangeTimes->{{3.839362979797971*^9, 3.839363036520537*^9}},
+ CellLabel->"Out[31]=",ExpressionUUID->"14fb6ae2-dd78-481c-8067-2811c65aaed6"]
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{337, Automatic}, {0, Automatic}},
+WindowMargins->{{Automatic, -899}, {77, Automatic}},
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (June 19, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"67b0e9e5-ec60-4388-bbb0-6c56049ef537"
@@ -1496,6 +1927,19 @@ Cell[54624, 1384, 713, 19, 34, "Output",ExpressionUUID->"bdc0ecdc-42d5-4a03-8e91
 Cell[CellGroupData[{
 Cell[55374, 1408, 696, 21, 30, "Input",ExpressionUUID->"be4c7d69-99fc-496d-86eb-1fbae991e269"],
 Cell[56073, 1431, 833, 23, 131, "Output",ExpressionUUID->"94798173-9a31-4d56-a9d1-ca887ef63f17"]
+}, Open  ]],
+Cell[56921, 1457, 259, 4, 30, "Input",ExpressionUUID->"470a3de9-649b-495b-a466-60dfd36e75f6"],
+Cell[CellGroupData[{
+Cell[57205, 1465, 1214, 30, 75, "Input",ExpressionUUID->"80141207-13c5-47e3-ad7f-0e89c1bc6fb6"],
+Cell[58422, 1497, 7286, 169, 155, "Output",ExpressionUUID->"b0bf12f0-df9a-48c6-aba8-1e6941a64392"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65745, 1671, 594, 15, 53, "Input",ExpressionUUID->"1f1a5469-0532-4c80-b775-347986147c51"],
+Cell[66342, 1688, 3659, 78, 196, "Output",ExpressionUUID->"30b65f46-6bf9-473d-bec3-8a734c27acfc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70038, 1771, 758, 17, 53, "Input",ExpressionUUID->"555ef182-718b-4844-957d-228d45d65365"],
+Cell[70799, 1790, 4581, 95, 198, "Output",ExpressionUUID->"14fb6ae2-dd78-481c-8067-2811c65aaed6"]
 }, Open  ]]
 }
 ]
