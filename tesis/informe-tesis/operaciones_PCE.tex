@@ -90,8 +90,6 @@ de \eqref{eq:rho-1qubit-ch2} como~\cite{nielsen_chuang_2011}
 \qty(1,r_1,r_2,r_3)\longmapsto \qty(1,r_1,(1-2p)r_2,(1-2p)r_3),
 \hspace{.5cm} 0\leq p\leq 1.
 \end{align}
-% \cpnote{Para $p=-1$ si es un canal cuantico? no, hay algo acá que está mal.}
-% \janote{Me confundí, pero corregido}
 Similarmente, el canal \textit{defasing} actúa sobre las mismas
 componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}
 como~\cite{nielsen_chuang_2011}
@@ -134,10 +132,6 @@ Va a ser útil que interpretemos a estos canales cuánticos
 como operaciones que `borran' dos de las proyecciones
 $r_i$  de la matriz de densidad de 1 qubit sobre
 las matrices de Pauli y que dejan al resto de componentes $r_j$ invariantes.
-% \cpnote{La redacción está como 
-% chistosa. Por cierto lo de arrancar diciendo ``probara ser \ldots'' suena a 
-% anglisismo. Porfa considera cambiar eso. } 
-% \janote{Listo}
 
 %\esqueleto{Conducir al lector a preguntarse: `bueno, entonces deplano
 %que puedo borrar cualquier cantidad de componentes de Pauli, ¿no? ¡¿NO?!', 
@@ -168,7 +162,8 @@ Supongamos por un momento que todas las operaciones PCE de
 1 qubit son CP, intuitivamente entonces no habría razón para pensar que la 
 CP no es trivialmente satisfecha para los PCE de 2 qubits.
 En conclusión, que hayan operaciones PCE de 1 qubit no CP puede ser 
-un primer motivo para estudiar 2 qubits.}. En el capítulo anterior, en la sección 
+un primer motivo para estudiar 2 qubits.}\cpnote{Creo que tienes razon, pero entonces
+sugeriria expandir un poco mas esta frase y la anterior}. En el capítulo anterior, en la sección 
 \ref{sec:qtm-channels}, elaboramos el ejemplo de la operación $\E_z$
 que borra la componente $r_3$ y demostramos que no es un canal 
 cuántico porque no es una operación completamente positiva. 
@@ -202,7 +197,6 @@ Hay 15 componentes $r_{ij}$ que se podrían borrar o dejar invariantes.
 Por consiguiente, hay $32,768$ $(2^{15})$ operaciones distintas que borran las 
 componentes de la matriz de densidad \eqref{eq:rho_2qubits_cap2} de 2 qubits. 
 El número de operaciones de este tipo crece de manera doblemente 
-\cpnote{de hecho doblemente exponencial} \janote{es cierto}
 exponencial 
 como $2^{4^n-1}$, con $n$ el número de qubits. Sin embargo, no es 
 sólo el crecimiento exponencial en el número de operaciones de este tipo
@@ -374,9 +368,7 @@ positividad de una operación PCE de 1 qubit.
 \textbf{8} & 1        & 0        & 0        & 0			& \checkmark		& 1       \\ \hline
 \end{tabular}
 \caption{Combinaciones de $\tau_i$ de todas las operaciones PCE de 1 qubit. \ep 
-\cpnote{Creo que esta tabla podría ser mas completa. Podrías incluir la
-información de cuales son validas y quizá también un indicador del número de componentes
-que permanecen invariantes. }\janote{listo.}}
+}
 \label{tab:1qubit_PCE}
 \end{table}
 
@@ -439,38 +431,6 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 %de los eigenvalores (el polihedro?).
 %}
 
-%\cpnote{Está bien. Acá antes de escribir quiero un esqueleto más detallado. Lo mismo para las siguientes secciones, 2.3, 2.4 y 2.5}
-%
-%\esqueleto{ 
-%\begin{itemize}
-%\item Escribir a $\rho$ de 1 qubit en la base de las matrices de Pauli.
-%\item Enunciar las 8 operaciones PCE de 1 qubit.
-%\item Desarrollar cómo verificar analíticamente si las operaciones PCE 
-%de 1 qubit son CP. Es decir, partir de 
-%\begin{align*}
-%\left(
-%\begin{array}{cccc}
-% 1 & 0 & 0 & 0 \\
-% 0 & \tau _1 & 0 & 0 \\
-% 0 & 0 & \tau _2 & 0 \\
-% 0 & 0 & 0 & \tau _3 \\
-%\end{array}
-%\right)
-%\end{align*}
-%calcular el estado de Jamiolkowsky y verificar si es positivo. Con esto llegaré 
-%a las desigualdades.
-%\item Con las desigualdades revisar los casos para sacar los 5 canales 
-%cuánticos PCE.
-%\item Discutir que las operaciones PCE que borran 1 y 2 componentes 
-%de Bloch (3 operaciones cada una) son equivalentes bajo permutación 
-%de los elementos de la base de las matrices de Pauli. Esto me servirá 
-%para retomarlo después con el argumento de que los canales cuánticos
-%son equivalentes con permutaciones locales de los elementos de la base 
-%y de los swaps de partículas. 
-%\item Final: resumencillo de que hay 8 operaciones PCE, pero sólo 5 son 
-%CP (y por tanto evoluciones físicas).
-%\end{itemize}
-%}
 
 %\esqueleto{
 %\hrule \vspace{10pt}
@@ -491,9 +451,6 @@ operación que mapea la esfera de Bloch al origen de coordenadas.
 % }}}
 \section{El problema de \boldmath{$n$} qubits} % {{{ 
 \label{sec:n_qubits_problem}
-\janote{Ya quedó bien la \boldmath{$n$}? (borré tu comentario 
-del título de sección porque no compilaba) Me habías puesto que la $n$ 
-estaba mal (el .tex)}
 %\esqueleto{
 %La idea central de esta sección es que para el problema de n qubits la 
 %solucion son los mismos pasos que para el problema de 1 qubit, pero
@@ -529,8 +486,6 @@ los canales PCE de 2 y 3 qubits.
 
 A continuación, discutimos la generalización de nuestro algoritmo 
 para evaluar la completa positividad de una operación PCE de $n$ qubits.  
-\cpnote{Sugiero hacer una lista con los pasos. Es mas facil de leer}
-\janote{De acuerdo. Qué bueno que ya lo tenía semi enlistado :p}
 \begin{enumerate}
 \item Se escribe al superoperador $\Phi$ de una operación PCE, 
 en la base de productos tensoriales de las matrices de Pauli, 
@@ -547,9 +502,6 @@ se definió en \eqref{eq:PCE_definition}.
 escribir al superoperador $\Phi$ en la base computacional. 
 $P$ es la matriz de cambio de base y se construye yuxtaponiendo 
 las matrices vectorizadas de los productos tensoriales de las matrices de Pauli,
-\cpnote{Puedes ser mucho mas explicito y dar la formula con productos tensoriales, o quizá
-ya la diste antes y la puedes referenciar}
-\janote{listo. Viene a continuación:}
 \begin{align}
 	P=\sum_{j_1,\ldots,j_n=0}^3
 	\dyad{\sigma_{j_1}\ot\ldots\ot\sigma_{j_n}}{\sigma_{j_1}\ot\ldots\ot\sigma_{j_n}},
@@ -562,11 +514,7 @@ $\sigma_{j_1}\ot\ldots\ot\sigma_{j_n}$.
 aplicando el \textit{reshuffle} a la matriz $P\Phi P^{-1}$. 
 
 \item Por último, se calculan los eigenvalores de $D_{\Phi}$ y si
-todos son positivos o cero, entonces $\Phi$ es un canal cuántico\cpnote{Ojo, 
-el algoritmo es para evaluar la completa positividad por lo que este ultimo 
-punto como qe no es parte del algoritmo sino una nota adicional}
-\janote{Supongo que te refieres a lo que escribí después de estos comentarios
-nuestros? Por eso lo voy a sacar del listado}. 
+todos son positivos o cero, entonces $\Phi$ es un canal cuántico. 
 \end{enumerate}
 Es el último paso el que supone una dificultad en la generalización 
 de nuestro algoritmo.
@@ -594,22 +542,17 @@ canales cuánticos, y en esta sección vamos a describir las herramientas
 computacionales que desarrollamos y la implementación 
 del método numérico. Para esto, diseñamos rutinas que 
 implementan el algoritmo descrito en la sección anterior.
-El método numérico consiste en generar todas \cpnote{Según entendí de hecho 
-no generamos todas. Afinar las palabras}\janote{jeje es cierto}
+El método numérico consiste en generar todas 
 las operaciones PCE de 2 y las operaciones PCE de 3 qubits que dejan invariantes 
 1, 2, 3, 4, 61, 62, 63 y 64 componentes de Pauli,
-\janote{Es también 61, 62, 63 y 64 porque son la misma cantidad 
-de operaciones que las de 1, 2, 3 y 4. Así que en principio, podemos 
-analizarlas.} 
+% \janote{Es también 61, 62, 63 y 64 porque son la misma cantidad 
+% de operaciones que las de 1, 2, 3 y 4. Así que en principio, podemos 
+% analizarlas.} 
 evaluar si son completamente positivas y, dependiendo de ello, agrupar a 
 los canales cuánticos PCE para luego analizar sus características 
 en el próximo capítulo.
 
-Las rutinas se programaron en Wolfram Mathematica\cpnote{No se que 
-tan preciso es eso. Mas bien se programan con Mathematica, no?}\janote{Para
-ser honesto, yo me hago bolas con la diferencia técnica entre wolfram y mathematica.
-Según yo, Mathematica es la interfaz y Wolfram el lenguaje que se utiliza. 
-Como python y los jupyter notebooks}.
+Las rutinas se programaron en Wolfram Mathematica.
 Con estas rutinas, se pueden generar
 todos los diferentes arreglos de 1's y 0's, de los elementos de 
 transformación $\taus$,
@@ -619,10 +562,7 @@ A continuación, describimos brevemente cada una de las rutinas que diseñamos.
 \begin{enumerate}
 	\item \textbf{\texttt{Pauli}}[\texttt{Indices}]: calcula el producto tensorial 
 	de las matrices 	de Pauli $\sigma_i$ con índices $i$ en el 
-	arreglo 1-D \texttt{Indices}\janote{Está bien este tipo de letra 
-	para cosas de 'código'?}\cpnote{si, es el tipo de letrta que se usa
-para codigo, pero entonces usala consistentemente para todo el codigo, 
-incluyendo los nombres de las rutinas y las variables}\janote{de acuerdo}.
+	arreglo 1-D \texttt{Indices}.
 	\item \texttt{PCEsTauConfigurations[n]}: devuelve todos
 	los arreglos de 1's y 0's de los elementos $\taus$
 	de todas las operaciones PCE de \texttt{n} qubits.
@@ -672,8 +612,7 @@ el nombre "pce.m".}. Específicamente, las rutinas
 del algoritmo para evaluar la completa positividad de una operación 
 PCE de $n$ qubits de la sección \ref{sec:n_qubits_problem}.
 El algoritmo completo fue implementado en la rutina 
-\texttt{TausOfPCEQuantumChannels}\cpnote{todas estas tambien con el tipo de letra 
-apropiado}\janote{listo. las cambié todas}. Debe notarse en la definición 
+\texttt{TausOfPCEQuantumChannels}. Debe notarse en la definición 
 \eqref{eq:PCE_definition}, de una operación PCE, que la lista de
 1's y 0's de los elementos de transformación $\taus$ caracteriza 
 por completo a la operación. Por ejemplo, la operación PCE de 1 qubit 
@@ -724,9 +663,6 @@ los canales PCE de \texttt{n} qubits que dejan \texttt{k} componentes de Pauli
 invariantes.  \newline
 \textbf{Utiliza:} \texttt{PCEsTauConfigurations},\texttt{PCESuperoperator}, 
 \texttt{Reshuffle}\\ y \texttt{PositivityTest}. \par
-\cpnote{Sugiero poner como lineas nuevas para cada una de las
-partes de entradas, slaida y utiliza. Se ve un poco mas ordenado y
-es mas facil de leer si lo vas a usar.}\janote{listo.}
 
 Para cada arreglo $\tau$ generado por 
 \texttt{PCETausConfigurations[n,k]}:
