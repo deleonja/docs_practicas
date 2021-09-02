@@ -7,191 +7,66 @@ numéricos.}
 \section{Introducción}
 
 \section{Resultados}
-%\noindent
-%\esqueleto{Con el método numérico descrito en la sección 
-%\ref{sec:ch2_solucionNumerica} es posible analizar el caso de 2 qubits
-%completo. Por otro lado, el caso de 3 qubits es imposible de resolver 
-%completo a fuerza bruta.}
-
-En esta sección vamos a presentar los canales cuánticos PCE de 2 y 3 qubits 
+En esta sección vamos a presentar los canales cuánticos PCE de 2 y,
+parcialmente, los de 3 qubits 
 encontrados con el método numérico descrito en la sección 
-\ref{sec:ch2_solucionNumerica}. 
-Por un lado, de las $32,768$ $(2^{15})$ operaciones PCE de 2 qubits, 
-$67$ son canales cuánticos. La proporción $67:32,768$, de canales cuánticos PCE
-a operaciones PCE, es evidencia de lo restrictivo
-que es la condición de completa positividad para que una operación PCE 
-sea una operación físicamente realizable. 
-Por otro lado, las operaciones PCE de 3 qubits las estudiamos parcialmente.
-Recordemos que el método numérico evalúa, una por una, la completa positividad 
-de cada operación PCE y que el número de operaciones PCE de $n$ qubits es igual
-a $2^{4^n-1}$. Discutiremos en esta sección cómo es que nuestro 
-método numérico necesitaría demasiado tiempo de cómputo y demasiada 
-memoria para analizar la completa positividad de las $2^{63}$ 
-operaciones PCE de 3 qubits.
+\ref{sec:ch2_solucionNumerica}; también vamos a discutir la complejidad 
+computacional del problema de 3 qubits y justificar porqué no lo estudiamos completo.
+Se encontraron las siguientes proporciones de canales cuánticos PCE a 
+operaciones PCE: $67:32,768$ para 2 qubits, y $716:83,456$ para 
+3 qubits. Recordemos que la diferencia entre una operación y un canal cuántico PCE
+es que el último satisface la condición de completa positividad y, por tanto, 
+es una operación que representa la evolución física de un sistema. 
+Las proporciones de canales cuánticos PCE a operaciones PCE son un indicio 
+de lo restrictiva que es la condición de completa positividad para que 
+una operación que borra las componentes de Pauli sea un canal cuántico.
 
-%\noindent
-%\esqueleto{Los resultados de 2 qubits son... (una tabla con 
-%las listas de 1's y 0's de $\tau_{ij}$ por número $k$ de componentes 
-%de Pauli invariantes). «\textit{La idea con esta tabla es motivar las 
-%figuritas de la siguiente sección porque las listas de 1's y 0's no dicen 
-%ni madres.}»}
-
-En la \Tref{tab:2qubitsPCEChannel1sAnd0s} mostramos los canales 
-cuánticos PCE de 2 qubits. En la tabla se muestran: 
-(1) los valores de los elementos $\tau_{ij}$ (1 o 0) que caracterizan 
-a una operación PCE, según la definición en \eqref{eq:PCE_definition},
-y (2) el número de componentes de Pauli que el canal PCE
-deja invariantes. Es difícil identificar características de los canales 
-PCE de 2 qubits a partir de las listas de 1's y 0's en la tabla. 
-Además, los sistemas de más de 1 qubit no cuentan con una herramienta 
-geométrica, como la esfera de Bloch para 1 qubit, 
-con la cual visualizar los estados del sistema y, en consecuencia, entender y 
-desarrollar intuición sobre la acción de las operaciones PCE. 
-En conclusión, es deseable elaborar una herramienta
-que permita visualizar los resultados de la \Tref{tab:2qubitsPCEChannel1sAnd0s}
-de una forma más sencilla. Hablaremos de una herramienta geométrica
-en la próxima sección.
-
-\begin{center}
-\tiny 
-\begin{longtable}{|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{0.3cm}|P{1.4cm}|}
-\hline
-\textbf{No.} 										 & \tauij{0}{0}		& \tauij{0}{1}   & \tauij{0}{2} 	 & \tauij{0}{3} 	& \tauij{1}{0}	 & \tauij{1}{1}		 & \tauij{1}{2} 	& \tauij{1}{3}	 & \tauij{2}{0}		& \tauij{2}{1} 		& \tauij{2}{2} 	 & \tauij{2}{3} 	& \tauij{3}{0} 	 & \tauij{3}{1}   & \tauij{3}{2}   & \tauij{3}{3} & \bf{Cantidad de \boldmath{$r_{ij}$} invariantes} \\ \hline
-\textbf{1}                         & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     \\ \hline
-\textbf{2}                         & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{3}                         & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{4}                         & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{5}                         & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{6}                         & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{7}                         & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{8}                         & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{9}                         & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{10}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{11}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{12}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{13}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{14}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 2                     \\ \hline
-\textbf{15}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 2                     \\ \hline
-\textbf{16}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 2                     \\ \hline
-\textbf{17}                        & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{18}                        & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{19}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{20}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{21}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{22}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{23}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 4                     \\ \hline
-\textbf{24}                        & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{25}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{26}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{27}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{28}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{29}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{30}                        & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{31}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{32}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{33}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{34}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{35}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{36}                        & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{37}                        & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{38}                        & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{39}                        & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{40}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{41}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{42}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{43}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{44}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{45}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{46}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{47}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{48}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 4                     \\ \hline
-\textbf{49}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 4                     \\ \hline
-\textbf{50}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{51}                        & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 4                     \\ \hline
-\textbf{52}                        & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 8                     \\ \hline
-\textbf{53}                        & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 8                     \\ \hline
-\textbf{54}                        & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 1                     & 1                     & 8                     \\ \hline
-\textbf{55}                        & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 8                     \\ \hline
-\textbf{56}                        & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 8                     \\ \hline
-\textbf{57}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 8                     \\ \hline
-\textbf{58}                        & 1                     & 1                     & 0                     & 0                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 1                     & 1                     & 0                     & 0                     & 8                     \\ \hline
-\textbf{59}                        & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 8                     \\ \hline
-\textbf{60}                        & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 8                     \\ \hline
-\textbf{61}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 8                     \\ \hline
-\textbf{62}                        & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 1                     & 0                     & 8                     \\ \hline
-\textbf{63}                        & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 8                     \\ \hline
-\textbf{64}                        & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 8                     \\ \hline
-\textbf{65}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 8                     \\ \hline
-\textbf{66}                        & 1                     & 0                     & 0                     & 1                     & 0                     & 1                     & 1                     & 0                     & 0                     & 1                     & 1                     & 0                     & 1                     & 0                     & 0                     & 1                     & 8                     \\ \hline
-\textbf{67}                        & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 1                     & 16                    \\ \hline
-\caption{Canales cuánticos PCE de 2 qubits. \ep}
-\label{tab:2qubitsPCEChannel1sAnd0s}
-\end{longtable}
-\end{center}
-\normalsize
-
-%\noindent
-%\esqueleto{Para justificar que es computacionalmente imposible 
-%resolver numéricamente el problema de las operaciones PCE de 3 qubits, 
-%más allá de 4 componentes de Pauli invariantes, en el tiempo de este 
-%trabajo de tesis mostramos gráficas del tiempo de 
-%cómputo (tiempo vs. cantidad de operaciones PCE) y yo esperaría 
-%mostrar, por lo menos, que esa curva no es lineal y que el ajuste a la curva 
-%calcula un chingo de tiempo que no tenemos durante la tesis.}
-
-Previo a mostrar los resultados que obtuvimos para los operaciones PCE 
-de 3 qubits, vamos a justificar la imposibilidad de estudiar los casos de 
-5 hasta 60 componentes de Pauli invariantes.
-Para ello, discutimos primero sobre el número de operaciones PCE 
-de $n$ qubits que dejan invariantes $k$ componentes de Pauli,
-que es igual al coeficiente binomial $\binom{4^n-1}{k-1}$. 
-Las operaciones PCE están caracterizadas 
-por los $4^n$ elementos $\taus$. Por definición, para 
-preservar la traza de la matriz de densidad, $\tau_{0,\ldots,0}=1$.
-Entonces, hay $4^n-1$ $\taus$ que pueden tomar los valores de 1 o 0.
+Para decidir qué subconjunto de las operaciones PCE de 3 qubits puede analizar
+nuestro método numérico también es necesario conocer el número 
+de operaciones PCE en función del número de componentes 
+de Pauli invariantes. Las operaciones PCE están caracterizadas 
+por los $4^n$ elementos $\taus$. No obstante, por definición, 
+para preservar la traza de la matriz de densidad, $\tau_{0,\ldots,0}=1$.
+Entonces hay sólo $4^n-1$ elementos $\taus$ que pueden tomar los valores de 1 o 0.
 La cantidad de operaciones PCE de $n$ qubits que dejan invariantes $k$ componentes 
 de Pauli es igual al número de formas distintas de asignar el valor 1
-a $k-1$ de las $4^n-1$ elementos $\taus$, y 0 al resto al resto de ellos. Es decir, 
-$\binom{4^n-1}{k-1}$.
+a $k-1$, de los $4^n-1$, elementos $\taus$, y 0 al resto al resto de ellos; 
+es decir, el coeficiente binomial $\binom{4^n-1}{k-1}$. Por las propiedades
+del coeficiente binomial, el número de operaciones PCE que dejan invariantes 
+$k$ componentes de Pauli es igual al número de operaciones que dejan $4^n-k$
+componentes de Pauli. 
 
-%Así vemos que el número de operaciones de 
-%3 qubits que dejan invariantes 5 componentes de Pauli es igual a $595,665$.
-%De la propiedad de simetría de filas del coeficiente binomial se tiene que 
-%$C(4^n,k-1)=C(4^n,4^n-k+1)$. Es decir, existe la misma cantidad de operaciones 
-%PCE de $n$ qubits que dejan invariantes $k$ y $4^n-k$ componentes de Pauli.
-
-La tarea de analizar la completa positividad de todas las operaciones
-PCE de 3 qubits es imposible con nuestro método numérico. 
+El tiempo de cómputo es el obstáculo que le impide a nuestro método numérico
+poder analizar todas las operaciones PCE de 3 qubits. 
 El número total de operaciones PCE para el caso 
-de 3 qubits es alrededor de $9\times10^{18}$. Supongamos por un momento
-que contamos con una computadora promedio de un estudiante de física
-en Guatemala, pero con memoria ilimitada, que puede analizar 
-la completa positividad de 1000 operaciones PCE de 3 qubits por segundo. A esa 
-computadora le tomaría aproximadamente $1/5$ de la edad del universo 
-(es decir, ¡¡$270$ millones de años!!) analizar todas las operaciones PCE de 
-3 qubits\footnote{ 
-La aproximación puede parecer muy burda, sin embargo, asumir que el tiempo
-de cómputo es lineal en el número de operaciones PCE es el mejor de los casos.
-En cualquier otro caso, el tiempo de cómputo sería una función no polinomial
-y, por ende, tomaría más tiempo analizar todas las operaciones PCE 
-de 3 qubits que nuestra estimación \textit{grosso modo}.}.
-Es más, aún delimitando la entrada del método numérico a sólo las operaciones
-PCE de 3 qubits que dejan invariantes $k$ componentes de Pauli supondría 
-un problema de memoria RAM a partir de $k=5$ hasta $k=60$.
+de 3 qubits es de alrededor de $9\times10^{18}$. Supongamos por un momento
+que contamos con una computadora promedio de un estudiante guatemalteco 
+de física que tiene memoria RAM ilimitada y que puede analizar 
+la completa positividad a una tasa de 1000 operaciones PCE de 
+3 qubits por segundo. Si además asumimos que la complejidad 
+algorítmica del problema es lineal, a esa computadora le tomaría, aproximadamente, 
+$1/5$ de la edad del universo (¡¡$270$ millones de años!!) 
+analizar todas las operaciones PCE de 3 qubits. En resumen, aunque 
+la memoria RAM disponible fuese infinita, es imposible encontrar con 
+nuestro método numérico todos los canales cuánticos PCE de 3 qubits
+por el tiempo de cómputo. 
 
+Por otra parte, aún delimitando la entrada del método numérico a 
+únicamente las operaciones PCE de 3 qubits que dejan invariantes 
+$k$ componentes de Pauli, para la computadora a nuestra disposición 
+supondría un problema de memoria RAM a partir de $k=5$ hasta $k=60$.
 En la gráfica de la \Fref{fig:memory_usage_3Q_5c} mostramos el uso de la 
-memoria RAM de nuestro método numérico, en función de la cantidad de matrices, 
-para analizar las operaciones PCE de 3 qubits que dejan invariantes 
-5 componentes de Pauli. Se realizó un ajuste lineal a los datos para estimar 
+memoria RAM de nuestro método numérico para analizar las operaciones 
+PCE de 3 qubits que dejan invariantes 5 componentes de Pauli, 
+en función de la cantidad de matrices. 
+Se realizó un ajuste lineal a los datos para estimar 
 el orden de magnitud de la cantidad de memoria necesaria para analizar todas 
 las operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
 La función $RAM(n)$ estima que se necesitan aproximadamente 
 $1.1$ TB de memoria para analizar las 595,665 operaciones. 
-Es por esta razón, y considerando que el número de operaciones PCE
-que dejan invariantes $k$ y $4^n-k$ componentes de Pauli 
-es igual, analizamos únicamente los casos de 3 qubits 
-de las operaciones PCE que dejan invariantes 1, 2, 3, 4, 61, 62, 63 y 64 
-componentes de Pauli. 
+Es por esta razón que, para 3 qubits, estudiamos sólo las operaciones PCE 
+que dejan invariantes desde 1 hasta 4 y desde 61 hasta 64 
+componentes de Pauli.
 \begin{figure}
   \includegraphics[width=\textwidth]{memory_usage_3Q_5c}
   \caption{Memoria RAM utilizada por el método numérico para analizar las
@@ -202,218 +77,29 @@ componentes de Pauli.
   \label{fig:memory_usage_3Q_5c}
 \end{figure}
 
-%\noindent
-%\esqueleto{Con nuestro método numérico de fuerza bruta es posible 
-%resolver el caso de 3 qubits hasta 4 componentes invariantes. Los resultados   
-%son.... «con 3 qubits está todavía más jalado inferir características de 
-%los canales PCE a partir de los 1's y 0's»}
-
-Un subconjunto de todos los canales cuánticos PCE de 3 qubits, que encontramos 
-de estudiar las operaciones PCE que dejan invariantes 1, 2, 3, 4, 61, 62, 63 y 64 
-componentes de Pauli, los mostramos en la 
-\Tref{tab:3qubitsPCEChannel1sAnd0s}. En total encontramos 716 canales cuánticos.
-También encontramos que no hay canales PCE que dejen 
-invariantes 3, 61, 62 o 63 componentes de Pauli. 
-Adicional a estas dos observaciones, analizar las listas de 1's y 0's 
-es todavía más enrevesado que las de los canales PCE de 2 qubits en la
-\Tref{tab:2qubitsPCEChannel1sAnd0s}.
-Con estos resultados de 3 qubits es indiscutible la necesidad de 
-una herramienta geométrica para visualizar las listas 
-de 1's y 0's de las operaciones PCE.
-
-%Colocar en la \Tref{tab:3qubitsPCEChannel1sAnd0s}
-%los 716 canales haría que la tabla ocupe algunas páginas y, al igual que para 2 
-%qubits o incluso peor, las listas de 1's y 0''s así crudas aportan poco para el análisis 
-%de las características que comparten los canales PCE. 
-
-\janote{Comentario sobre la \Tref{tab:3qubitsPCEChannel1sAnd0s}: te parece necesario 
-que ponga los casi 720 canales de 3 qubits que decimos aquí que pudimos
-encontrar? Pregunto porque son como 10 páginas de tablas y me tomaría como 
-1 hora dejarlas bonitas. Si no las ponemos, se dice que en el repositorio
-que citamos en el capítulo anterior están los resultados. Sin embargo, también 
-pienso que por el tipo de trabajo (una tesis) los resultados, así sean cochinamente largos,
-deberían de poderse revisar aquí mismo en el manuscrito. 
-Considera que en la siguiente sección que introduzco los tableritos no pretendo 
-hacer una lista de figuras de todos los canales PCE de 3 qubits, cuando mucho 
-sólo elementos representativos de familias de equivalencia.
-Tú qué dices?}
- 
-\begin{landscape}
-\begin{table}[]
-\centering
-\resizebox{0.82\paperheight}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|P{2.5cm}|}
-\hline
-\bf{No.} & \tauijk{0}{0}{0} & \tauijk{0}{0}{1} & \tauijk{0}{0}{2} & \tauijk{0}{0}{3} & \tauijk{0}{1}{0} & \tauijk{0}{1}{1} & \tauijk{0}{1}{2} & \tauijk{0}{1}{3} & \tauijk{0}{2}{0} & \tauijk{0}{2}{1} & \tauijk{0}{2}{2} & \tauijk{0}{2}{3} & \tauijk{0}{3}{0} & \tauijk{0}{3}{1} & \tauijk{0}{3}{2} & \tauijk{0}{3}{3} & \tauijk{1}{0}{0} & \tauijk{1}{0}{1} & \tauijk{1}{0}{2} & \tauijk{1}{0}{3} & \tauijk{1}{1}{0} & \tauijk{1}{1}{1} & \tauijk{1}{1}{2} & \tauijk{1}{1}{3} & \tauijk{1}{2}{0} & \tauijk{1}{2}{1} & \tauijk{1}{2}{2} & \tauijk{1}{2}{3} & \tauijk{1}{3}{0} & \tauijk{1}{3}{1} & \tauijk{1}{3}{2} & \tauijk{1}{3}{3} & \tauijk{2}{0}{0} & \tauijk{2}{0}{1} & \tauijk{2}{0}{2} & \tauijk{2}{0}{3} & \tauijk{2}{1}{0} & \tauijk{2}{1}{1} & \tauijk{2}{1}{2} & \tauijk{2}{1}{3} & \tauijk{2}{2}{0} & \tauijk{2}{2}{1} & \tauijk{2}{2}{2} & \tauijk{2}{2}{3} & \tauijk{2}{3}{0} & \tauijk{2}{3}{1} & \tauijk{2}{3}{2} & \tauijk{2}{3}{3} & \tauijk{3}{0}{0} & \tauijk{3}{0}{1} & \tauijk{3}{0}{2} & \tauijk{3}{0}{3} & \tauijk{3}{1}{0} & \tauijk{3}{1}{1} & \tauijk{3}{1}{2} & \tauijk{3}{1}{3} & \tauijk{3}{2}{0} & \tauijk{3}{2}{1} & \tauijk{3}{2}{2} & \tauijk{3}{2}{3} & \tauijk{3}{3}{0} & \tauijk{3}{3}{1} & \tauijk{3}{3}{2} & \tauijk{3}{3}{3} & \bf{Cantidad de \boldmath{$r_{ijk}$} invariantes} \\
-\hline
-\textbf{1}  & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{2}  & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{3}  & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{4}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{5}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{6}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{7}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{8}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{9}  & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{10} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{11} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{12} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{13} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{14} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{15} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{16} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{17} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{18} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{19} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{20} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{21} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{22} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{23} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{24} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{25} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{26} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{27} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{28} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{29} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{30} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
-\hline
-\textbf{31} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\
-\hline
-\textbf{32} & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{33} & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{34} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{35} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{36} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{37} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{38} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{39} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{40} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{41} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{42} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{43} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{44} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{45} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{46} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{47} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{48} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{49} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{50} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{51} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{52} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{53} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{54} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{55} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{56} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{57} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{58} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{59} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{60} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
-\hline
-\textbf{61} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
-\hline
-\textbf{62} & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{63} & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{64} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{65} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{66} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{67} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{68} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{69} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{70} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline 
-\textbf{60} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
-\hline
-\textbf{61} & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
-\hline
-\textbf{62} & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{63} & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{64} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{65} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{66} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{67} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{68} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{69} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{70} & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-}
-\caption{Canales cuánticos PCE de 3 qubits.}
-\label{tab:3qubitsPCEChannel1sAnd0s}
-\end{table}
-\end{landscape}
+En la \Tref{tab:2qubitsPCEChannel1sAnd0s} (ir al apéndice A) mostramos
+todos los canales cuánticos PCE de 2 qubits y en la tabla 
+\Tref{tab:3qubitsPCEChannel1sAnd0s} mostramos sólo 
+70 de los 716 canales cuánticos PCE de 3 qubits que dejan invariantes 
+1, 2, 4 y 64 componentes de Pauli. Poner todos los canales PCE de 3 
+qubits que se encontraron ocuparía demasiadas páginas y no aportan 
+información extra para fines de la discusión de resultados.
+Igualmente, al lector que interesado en los resultados completos,
+lo invitamos a revisar el archivo de Mathematica mencionado 
+al final de la sección \ref{sec:ch2_solucionNumerica}. 
+En las tablas del apéndice A se muestran
+(a) los valores de los elementos $\tau_{ij}$ o $\tau_{ijk}$ (1 o 0) que caracterizan 
+a una operación PCE, según la definición en \eqref{eq:PCE_definition},
+y (b) el número de componentes de Pauli que el canal PCE
+deja invariantes. Las listas de 1's y 0's hacen difícil de escudriñar
+las características que comparten todos los canales PCE.
+Además, hasta ahorita no contamos con una representación geométrica, 
+como la de la esfera de Bloch para 1 qubit, con la cual puedan visualizarse 
+las operaciones PCE y desarrollar intuición sobre ellas.
+Por lo tanto, es necesario introducir una herramienta
+que permita visualizar los resultados de la \Tref{tab:2qubitsPCEChannel1sAnd0s}
+de una forma más sencilla e intuitiva. Hablaremos de una herramienta geométrica
+en la próxima sección.
 
 \section{Una representación geométrica}\label{sec:ch3_geometric_representation}
 %\esqueleto{Motivados en lo intricado de inferir qué características 
@@ -456,7 +142,7 @@ qubits no, es únicamente para servir de ayuda visual.
 Los cubos con posiciones $(i,0,0)$, $(0,j,0)$ y $(0,0,k)$ se pintan de rojo; 
 los cubos con posiciones $(i,j,0)$, $(0,j,k)$ y $(i,0,k)$ se pintan de azul;
 y los cubos con posición $(i,j,k)$ se pintan de verde. 
-\begin{figure}[h] % {{{
+\begin{figure} % {{{
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -507,7 +193,7 @@ tienen pintado el cuadro o cubo con la posición $(0)$, $(0,0)$ o $(0,0,0)$.
 Esto es así para todas las figuras PCE porque, de acuerdo con la definición 
 \eqref{eq:PCE_definition}, una operación PCE preserva la traza de 
 la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
-\begin{figure}[t] % {{{
+\begin{figure} % {{{
 	\centering
 	\begin{subfigure}[b]{0.48\textwidth}
 		\centering
@@ -587,10 +273,10 @@ cuánticos PCE, como los patrones tan particulares que se obervan en la
 de este capítulo, vamos a discutir en profundidad la caracterización de los 
 canales cuánticos PCE que se evidencian en nuestros resultados de 2 y 3 qubits.
 
-\janote{Me tocó poner $\backslash$\texttt{newpage} aquí, y \texttt{[H]} 
+\janote{Me tocó poner \texttt{[H]} 
 en los siguientes dos entornos \texttt{figure} porque de lo contrario, 
 las figuras se iban hasta el final del capítulo, después de la última sección.}
-\newpage
+%\newpage
 \begin{figure}[H]
 \centering
 \begin{minipage}[t]{0.49\textwidth}

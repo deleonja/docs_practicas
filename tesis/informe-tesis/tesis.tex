@@ -56,7 +56,8 @@
 \usepackage{caption} 
 \usepackage{subcaption}
 
-\usepackage{lipsum}
+\usepackage{lipsum} % para poner texto equis
+\usepackage{rotating} % para poner tablas rotadas
 
 
 %% para colocar comentarios dentro del documento ------------------------------
@@ -138,6 +139,20 @@
 \usepackage{bbold}
 \usepackage{fancybox}	
 \usepackage{colortbl}
+
+\usepackage{everypage}
+\usepackage{lipsum}
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+  \dimendef\margin=0 %use \margin instead of \dimen0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+    \llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
 % -----------------------------------------------------------------------------
 
 
@@ -218,9 +233,9 @@ asdfds
 }
 
 % Descomentar en el caso de necesitar incluir apéndices
-%\appendix			% Apéndices
+\appendix			% Apéndices
 
-%\include{tch1}
+\include{apendice}
 
 \par}               % termina interlineado 1 1/2
 
