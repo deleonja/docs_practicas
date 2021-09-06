@@ -392,24 +392,30 @@ las figuras se iban hasta el final del capítulo, después de la última secció
 \end{figure}
 %  }}}
 \section{Discusión de resultados}\label{sec:ch3_discussion} % {{{
-\janote{Con el fin de hacer más eficiente la redacción, voy a partir del 
-documento que preparamos para Sergey (justo coincide los resultados
-que iban ahí con lo que vamos a poner en la tesis) y voy a iterar.}
+%\janote{Con el fin de hacer más eficiente la redacción, voy a partir del 
+%documento que preparamos para Sergey (justo coincide los resultados
+%que iban ahí con lo que vamos a poner en la tesis) y voy a iterar.}
+%
+%\esqueleto{Esta sección es la que posee el contenido más importante 
+%de este manuscrito, después de la motivación y planteamiento del 
+%problema. Después de esta sección, lo único que haremos será 
+%estudiar si las operaciones PCE son un subconjunto de otras operaciones 
+%que fueron estudiadas por Ruskai.}
 
-\esqueleto{Esta sección es la que posee el contenido más importante 
-de este manuscrito, después de la motivación y planteamiento del 
-problema. Después de esta sección, lo único que haremos será 
-estudiar si las operaciones PCE son un subconjunto de otras operaciones 
-que fueron estudiadas por Ruskai.}
+En esta sección discutiremos con detalle el análisis de los resultados 
+de los canales PCE de 2 y 3 qubits presentados en las dos secciones anteriores. 
+Vamos a hablar sobre las propiedades que nuestros resultados muestran 
+que una operación PCE debe tener para ser una operación completamente 
+positiva y, por lo tanto, ser un canal cuántico. 
+Utilizaremos de forma recurrente la representación de las figuras PCE 
+a lo largo de esta sección para hacer más intuitiva la discusión.
 
-Intro de la sección: la escribiré al terminar de redactar la sección.
-
-\esqueleto{Existen familias de canales PCE equivalentes. En las figuritas, 
-esto se ve como transposiciones y permutaciones de filas y columnas. 
-Físicamente, estos son swaps de partículas y cambios de base local.
-Aquí yo creería que vale la pena discutir en palabritas, como en el documento
-para sergey, pero también echarle algunas expresiones matemáticas como 
-la de aplicar un swap, el PCE, y otro swap, por ejemplo...}
+%\esqueleto{Existen familias de canales PCE equivalentes. En las figuritas, 
+%esto se ve como transposiciones y permutaciones de filas y columnas. 
+%Físicamente, estos son swaps de partículas y cambios de base local.
+%Aquí yo creería que vale la pena discutir en palabritas, como en el documento
+%para sergey, pero también echarle algunas expresiones matemáticas como 
+%la de aplicar un swap, el PCE, y otro swap, por ejemplo...}
 
 Los canales PCE pueden clasificarse en clases de equivalencia (como 
 mostramos en las Figs. \ref{fig:2qubits_PCEChannels_figs} y 
@@ -463,27 +469,27 @@ dos operaciones:
 %Lo cual, es evidencia numérica de una clasificación general que se puede aplicar 
 %a los canales PCE de sistemas de $n$ qubits. 
 
-\esqueleto{Las figuras de los canales PCE exhiben patrones que todos 
-comparten, parecen respetar alguna simetría...}
+%\esqueleto{Las figuras de los canales PCE exhiben patrones que todos 
+%comparten, parecen respetar alguna simetría...}
+%
+%\esqueleto{Todos los canales PCE obedecen la regla de $2^k$...}
+%
+%\esqueleto{Hay correspondencia en el número de canales PCE que 
+%dejan $2^k$ y $2^{2n-k}$ componentes de Pauli invariantes.} \janote{jm?}
+%
+%\esqueleto{Amarrado a la correspondencia de ``arcoiris'' van las reglas 
+%empíricas que formulamos con Alejo. Esta es otra prueba empírica que 
+%respalda la hipótesis de una conexión/correspondencia entre canales PCE.}
 
-\esqueleto{Todos los canales PCE obedecen la regla de $2^k$...}
-
-\esqueleto{Hay correspondencia en el número de canales PCE que 
-dejan $2^k$ y $2^{2n-k}$ componentes de Pauli invariantes.} \janote{jm?}
-
-\esqueleto{Amarrado a la correspondencia de ``arcoiris'' van las reglas 
-empíricas que formulamos con Alejo. Esta es otra prueba empírica que 
-respalda la hipótesis de una conexión/correspondencia entre canales PCE.}
-
-En general, nuestros resultados numéricos exhiben las siguientes 
-propiedades de los canales PCE:
+En general, nuestros resultados numéricos de los canales PCE 
+de 2 y 3 qubits exhiben las siguientes propiedades de los canales PCE:
 \begin{enumerate}
 	\item \textit{(Regla $2^k$)} Los canales PCE dejan invariantes una cantidad 
 	que es potencia de 2 de componentes de Pauli. No obstante, la regla $2^k$
 	no es la única que determina que una operación PCE sea completamente
 	positiva. Es decir, existen operaciones PCE que dejan invariantes $2^k$
-	componentes de Pauli que no son canales cuánticos, como es el caso 
-	de la operación PCE de la figura PCE que mostramos abajo. Esta operación 
+	componentes de Pauli y que no son canales cuánticos, como es el caso 
+	de la operación PCE representada por la figura PCE que mostramos abajo. Esta operación 
 	PCE deja invariantes 4 $(2^2)$ componentes de Pauli, pero no satisface 
 	la completa positividad y, por consiguiente, no es un canal cuántico.
 	\begin{center}
@@ -491,15 +497,15 @@ propiedades de los canales PCE:
 	\end{center}
 	
 	\item \textit{(Regla espejo)} El número de canales PCE de $n$ qubits 
-	como función de 	los exponentes $k$, del número $2^k$ de componentes de Pauli 
-	invariantes, es simétrico respecto a $n$. En la \Fref{fig:mirroring} mostramos 
-	las gráficas de el número de canales PCE de 1, 2 y 3 qubits 
-	en función del exponente $k$ del número $2^k$
-	de componentes de Pauli que dejan invariantes. Nótese la simetría respecto a 
+	como función del logaritmo de base 2 del número $2^k$ de componentes de Pauli 
+	invariantes, es simétrico respecto a $k=n$. En la \Fref{fig:mirroring} mostramos 
+	las gráficas del número de canales PCE de 1, 2 y 3 qubits 
+	en función de $\log_2(2^k)$. Nótese la simetría respecto a 
 	$k=n$ en las gráficas de las Figs. \ref{fig:mirroring_1qubit} y 
-	\ref{fig:mirroring_2qubits}. Es, a partir de estos resultados, que suponemos 
-	que los puntos en azul de la gráfica de la \Fref{fig:mirroring_3qubits}
-	también existen para que la gráfica también sea simétrica respecto a $k=3$.
+	\ref{fig:mirroring_2qubits}. Es a partir de estos resultados que suponemos 
+	que los puntos en azul de la gráfica de la \Fref{fig:mirroring_3qubits}, que no representan resultados nuestros,
+	también existen. De este modo la gráfica sería simétrica respecto a $k=3$, como
+	la regla espejo establece.
 	\begin{figure} % {{{
 	\centering
 	\begin{subfigure}[b]{0.48\textwidth}
@@ -535,107 +541,135 @@ propiedades de los canales PCE:
 	\label{fig:mirroring}
 \end{figure} % }}}
 \end{enumerate}
-Como una consecuencia de los sistemas multipartitos la acción de
-un canal PCE sobre cada subsistema debe ser otro canal PCE. Esto puede 
-interpretarse en las figuras PCE de la siguiente forma. En todas las figuras PCE
-de la \Fref{fig:2qubits_PCEChannels_figs} debe tenerse canales PCE de 1 qubit 
+
+La acción de un canal PCE sobre cualquier partición del sistema debe 
+ser otro canal PCE. Esta propiedad no la incluimos dentro del listado que 
+recién describimos porque es una consecuencia general 
+de los canales cuánticos, no específicamente de los canales PCE. Esto puede 
+visualizarse en las figuras PCE de la siguiente forma. En todas las figuras PCE
+de la \Fref{fig:2qubits_PCEChannels_figs} deben reconocerse canales PCE de 1 qubit 
 en la primera fila y en la primera columna, que representan la acción del 
-canal cuántico de 2 qubits sobre las componentes locales de cada uno de los dos 
-qubits. Por ejemplo, la operación que representa la figura PCE de abajo, aunque 
+canal PCE sobre cada qubit individualmente. Por ejemplo, la operación PCE 
+representada en la figura PCE de abajo, aunque 
 cumple la regla $2^k$, no puede ser un canal cuántico porque la acción 
-sobre el qubit 1 (primera fila) no es un canal cuántico. Sabemos que 
+sobre el qubit 1 (primera fila) no es un canal cuántico. Recordemos que 
 una operación PCE de 1 qubit que deja invariantes 3 componentes de Pauli
 no satisface la completa positividad (ver \Tref{tab:1qubit_PCE} y \Fref{fig:PCE_figs_examples}).
 \begin{center}
 	\includegraphics[width=2cm]{badPCE1}
 \end{center}
+De manera similar, en las figuras PCE de 3 qubits las 3 columnas con cubos rojos y
+los planos con cubos rojos y azuels en 3 de las 6 caras del cubo 
+(ver \Fref{fig:PCE_figs})
+deben representar
+canales PCE de 1 y 2 qubits, respectivamente. 
 
-\esqueleto{La familia más sencilla de analizar es la de los PCE de 1 qubit
-que dejan dos componentes de Pauli invariantes. Todos se pueden entender 
-como la misma operación, pero conectados por rotaciones.}
+%\esqueleto{La familia más sencilla de analizar es la de los PCE de 1 qubit
+%que dejan dos componentes de Pauli invariantes. Todos se pueden entender 
+%como la misma operación, pero conectados por rotaciones.}
 
-Vamos ahora, a partir de observaciones empíricas de las figuras PCE 
-de los canales PCE de 2 qubits (ver \Fref{fig:2qubits_PCEChannels_figs}) 
-y de las propiedades que recién mencionamos, a discutir 
+Vamos ahora a discutir, a partir de observaciones empíricas de las figuras PCE 
+de los canales PCE de 2 qubits (\Fref{fig:2qubits_PCEChannels_figs}) 
+y de las propiedades de los canales PCE que enlistamos antes,
 cómo construir canales PCE de 2 qubits utilizando sólo la representación
 de las figuras PCE.
 \begin{enumerate}
-	\item Consideramos el canal PCE con $\tau_{00}=1$ y el resto de elementos
-	iguales a cero. Podemos construir cualquiera de los canales PCE 
-	de 2 componentes de Pauli invariantes escogiendo cualquiera del resto de 
-	$\tau_{ij}$ igual a 1. 
+	\item Consideremos el canal PCE con $\tau_{00}=1$ y el resto de elementos
+	$\tau_{ij}$ iguales a cero. Podemos construir cualquiera de los canales PCE 
+	de 2 componentes de Pauli invariantes escogiendo un elemento cualquiera, del resto de 
+	$\tau_{ij}$, igual a 1. Según la clasificación en clases de equivalencia, 
+	podemos hacer la distinción entres dos opciones:
 	\begin{enumerate}
 		\item Escoger un elemento de la forma $\tau_{k 0}=1$. Supongamos, 
-		para ejemplificar, que escogemos $\tau_{20}=1$. Tenemos entonces 
-		el canal PCE: 
+		para ejemplificar, que escogemos $k=2$. Tenemos entonces 
+		al canal PCE: 
 		\begin{center}
 			\includegraphics[width=2cm]{11}
 		\end{center}
-		Para construir 
-		ahora otro canal PCE, pero ahora de 4 componentes de Pauli invariantes, hay
-		dos bifurcaciones según la selección de $\tau_{ij}$ iguales a 1:
+		Luego, para construir otro canal PCE, pero ahora de 4 componentes de Pauli invariantes, hay
+		dos bifurcaciones más, según la selección de $\tau_{ij}$ iguales a 1:
 		\begin{enumerate}
 			\item Escoger $\tau_{km}=\tau_{0m}=1$, con $m\in\{1,2,3\}$.
-			Siguiendo nuestro ejemplo, tendríamos el canal PCE:
+			Siguiendo nuestro ejemplo ($k=2$) y escogiendo $m=1$, tendríamos el canal PCE:
 			\begin{center}
 				\includegraphics[width=2cm]{111}
 			\end{center}
 			\item Escoger $\tau_{m_1l}=\tau_{m_2l}=1$, con 
 			$\{m_1,m_2\}= \{1,2,3\}\backslash\{k\}$ y $l\in \{1,2,3\}$. 
-			Siguiendo nuestro ejemplo y si escogemos $l=3$:
+			Siguiendo nuestro ejemplo ($k=2$) y si escogemos $l=3$:
 			\begin{center}
 				\includegraphics[width=2cm]{112}
 			\end{center}
 		\end{enumerate}
 		
 		\item Escoger $\tau_{km}=\tau_{k0}=\tau_{0m}=1$ con $k,m\in\{1,2,3\}$.
-		Partimos, una vez más del ejemplo propuesto en 1.1 y escogemos $m=3$:
+		Si partimos una vez más del ejemplo propuesto en 1.1 ($k=2$), y 
+		escogemos $m=3$:
 		\begin{center}
 				\includegraphics[width=2cm]{12}
 			\end{center}
 	\end{enumerate}
-	Nótese que los canales PCE que se construyen en 1.1.1 y 1.2 son canales 
+	Nótese que, en general, los canales PCE que se construyen en 1.1.1 y 1.2 son canales 
 	que pertenecen a la misma clase de equivalencia.
 
-	\item Supongamos que partimos de un canal PCE construído con las reglas 
+	\item Para construir un canal PCE de 8 componentes de Pauli invairantes, 
+	supongamos que partimos de un canal PCE construído con las reglas 
 	del item 1.1.1, es decir un canal PCE con 
-	$\tau_{00}=\tau_{kl}=\tau_{k0}=\tau_{0l}=1$.
-	Podemos construir ahora un canal PCE de 8 componentes de Pauli invariantes si 
-	escogemos algunas de las siguientes dos opcionesm
+	$\tau_{00}=\tau_{km}=\tau_{k0}=\tau_{0m}=1$.
+	De nuevo, tenemos dos opciones para construir canales PCE de 8 componentes 
+	de Pauli invariantes, para cada opción 
+	elementos de cada una de las dos clases de equivalencia 
+	de C${}_8$ (ver \Fref{fig:2qubits_PCEChannels_figs});
 	\begin{enumerate}	
-	\item $\tau_{m_1,0}=\tau_{m_2,0}=\tau_{m_1,l}=\tau_{m_2,l}=1$
-	con $\{m_1,m_2\}= \{1,2,3 \}\backslash\{k \}$. Continuando el ejemplo de 1.1.1, 
+	\item Escoger $\tau_{l_1,0}=\tau_{l_2,0}=\tau_{l_1,m}=\tau_{l_2,m}=1$
+	con $\{l_1,l_2\}= \{1,2,3 \}\backslash\{k \}$. Si retomamos el ejemplo en 1.1.1
+	($k=2$, $m=1$), 
 	esto nos lleva al siguiente canal PCE:
 	\begin{center}
 				\includegraphics[width=2cm]{21}
 			\end{center}
-	\item $\tau_{m_1,0}=\tau_{m_2,0}=\tau_{k,m_1}=\tau_{k,m_2}=1$
-	con $\{m_1,m_2\}=\{1,2,3 \}\backslash\{l \}$. Una última vez, del ejemplo 
-	del canal PCE en 1.1.1, esta regla nos conduce a:
+	\item Escoger $\tau_{l_1,0}=\tau_{l_2,0}=\tau_{k,l_1}=\tau_{k,l_2}=1$
+	con $\{l_1,l_2\}=\{1,2,3 \}\backslash\{m \}$. Una última vez, del ejemplo 
+	del canal PCE en 1.1.1 ($k=2$, $m=1$), esta regla nos conduce a:
 	\end{enumerate}
 	\begin{center}
 			\includegraphics[width=2cm]{22}
 	\end{center}
-	Podríamos discutir cuáles son las reglas construir un canal PCE de 8 componentes 
+	Se pueden discutir cuáles son las reglas para construir un canal PCE de 8 componentes 
 	de Pauli invariantes a partir de un canal generado en el item 1.1.2, pero no es 
-	necesario, pues los canales PCE construidos con las reglas en 2.1 y 2.2 es 
-	suficiente para encontrar el resto de canales PCE de 8 componentes de Pauli 
+	necesario. Los canales PCE construidos con las reglas en 2.1 y 2.2 son 
+	suficientes para encontrar todos los canales PCE de 8 componentes de Pauli 
 	invariantes mediante intercambios de partículas y de etiquetas de los ejes.
 \end{enumerate}
-Con esta conjunto de reglas empíricas es posible construir todos
-los canales PCE de 2 qubits, excepto la los canales que pertenecen
+Con este conjunto de reglas empíricas es posible construir todos
+los canales PCE de 2 qubits excepto los canales que pertenecen
 a la clase de equivalencia C${}_4^4$. Reglas empíricas similares pueden 
-observarse para los canales PCE de 3 qubits, pero no vale la pena discutirlo.
-De hecho, el objetivo de discutir las reglas empíricas observadas para los 
-canales PCE de 2 qubits es para hacer remarcar, a partir de las figuras PCE,
-los indicios de una estructura matemática que obedecen los canales PCE. 
+derivarse para los canales PCE de 3 qubits, pero no vale la pena hacerlo.
+El objetivo de discutir las reglas empíricas para los canales PCE de 2 qubits 
+es proporcionar intuición, a partir de las figuras PCE, de que los canales PCE
+obedecen alguna estructura matemática. 
 
-\esqueleto{Listo, hagamos un resumen de las características puntuales 
-que inferimos de los canales PCE: ta ta ta.... Ahora sólo nos hace falta 
-formalizar todo esto y hacer conexión formal entre todas las características. 
-Además, sería deseable buscar alternativas para poder 
-explorar numéricamente el caso completo de 3 e incluso de 4 qubits.}
+%\esqueleto{Listo, hagamos un resumen de las características puntuales 
+%que inferimos de los canales PCE: ta ta ta.... Ahora sólo nos hace falta 
+%formalizar todo esto y hacer conexión formal entre todas las características. 
+%Además, sería deseable buscar alternativas para poder 
+%explorar numéricamente el caso completo de 3 e incluso de 4 qubits.}
 
+En resumen, en este capítulo presentamos los canales PCE de 2 y, parcialmente, de 
+3 qubits encontrados con el método numérico descrito en la sección 
+\ref{sec:ch2_solucionNumerica}. Introdujimos la herramienta 
+geométrica de las figuras PCE para visualizar las operaciones PCE y, en particular,
+para analizar las características en común de los canales PCE. 
+Vimos que los canales PCE pueden clasificarse en clases de equivalencia,
+cuyos elementos están conectados vía intercambios de partículas y permutaciones 
+de elementos de una base local. Nuestros resultados numéricos
+muestran que los canales PCE obedecen dos reglas. Por un lado, la regla $2^k$ para el número de 
+componentes de Pauli que dejan invariantes. Por otro lado, la regla espejo sobre 
+la simetría del número de canales PCE, en función del logaritmo de base 2
+del número $2^k$ de componentes de Pauli invariantes, respecto a $k=n$. 
+Estas propiedades, junto con la discusión de las reglas empíricas para construir canales PCE 
+de 2 qubits en esta sección, son prueba de una estructura matemática 
+de los canales PCE.  
 
 % }}}
 
