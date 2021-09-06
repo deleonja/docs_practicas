@@ -409,21 +409,20 @@ la de aplicar un swap, el PCE, y otro swap, por ejemplo...}
 Los canales PCE pueden clasificarse en clases de equivalencia (como 
 mostramos en las Figs. \ref{fig:2qubits_PCEChannels_figs} y 
 \ref{fig:3qubits_PCEChannels_figs}). 
-Los canales PCE pueden clasificarse en subconjuntos dentro los cuales todos 
-los elementos son equivalentes bajo dos operaciones diferentes. 
-Nuestros resultados muestran que los canales PCE que pertenecen a 
-una misma clase de equivalencia están conectados vía 
+Nuestros resultados muestran que los canales PCE pueden 
+clasificarse en subconjuntos dentro los cuales todos 
+los elementos son equivalentes vía las siguientes 
+dos operaciones: 
 \begin{enumerate}
 	\item Intercambios de partículas. Los qubits en un sistema pueden 
 	intercambiarse. Por lo tanto, si una operación PCE es un canal cuántico 
 	para alguna configuración de los qubits en el sistema, entonces existen canales 
 	PCE equivalentes que actúan sobre todas las posibles configuraciones 
-	de qubits de un sistema. En las figuras PCE de los canales PCE de 2 qubits 
-	de la \Fref{fig:2qubits_PCEChannels_figs} 
-	se puede visualizar esta equivalencia como transposiciones. A continuación,
-	como un ejemplo, 
-	mostramos cuál es el canal PCE equivalente, mediante intercambio
-	de partículas, del primer elemento de C${}_4^3$ en la \Fref{fig:C_4^3}.
+	de qubits de un sistema. Para los canales PCE de 2 qubits 
+	esto puede verse como transposiciones de las figuras PCE 
+	de la \Fref{fig:2qubits_PCEChannels_figs}. A continuación,
+	mostramos cuál es el canal PCE equivalente al primer elemento 
+	de C${}_4^3$ en la \Fref{fig:C_4^3}, mediante intercambio 	de partículas.
 	\begin{center}
 	\begin{tabular}{P{2cm} P{1.5cm} P{2cm}}
 		\includegraphics[width=2cm]{particle_swap_1}
@@ -432,13 +431,14 @@ una misma clase de equivalencia están conectados vía
 	\end{tabular}
 	\end{center}
 	
-	\item Intercambio de etiquetas de los ejes\janote{permutaciones de elementos de una base local}. Estas operaciones corresponden 
+	\item Permutaciones de elementos de una base local. 
+	Estas operaciones corresponden 
 	a permutaciones de filas y/o columnas en las figuras PCE de 2 qubits 
-	en \Fref{fig:2qubits_PCEChannels_figs}. En general, la permutación de los 
+	en la \Fref{fig:2qubits_PCEChannels_figs}. En general, la permutación de los 
 	elementos $\sigma_1^{(i)},\sigma_2^{(i)}$ y $\sigma_3^{(i)}$ de la 
-	base local de la $i$-ésima partícula del sistema resulta en una \janote{rotación} 
+	base local de la $i$-ésima partícula del sistema resulta en rotaciones 
 	de la esfera de Bloch de la $i$-ésima particula. Veamos abajo un 
-	ejemplo del canal PCE equivalente del primer elemento de C${}_8^2$
+	ejemplo de un canal PCE equivalente al primer elemento de C${}_8^2$
 	en la \Fref{fig:C_8^2} cuando se hace la transformación
 	$\{\sigma_0^{(2)},\sigma_1^{(2)},\sigma_2^{(2)},\sigma_3^{(2)}\}\mapsto
 	\{\sigma_0^{(2)},\sigma_3^{(2)},\sigma_1^{(2)},\sigma_2^{(2)}\}$
@@ -451,12 +451,12 @@ una misma clase de equivalencia están conectados vía
 	\end{tabular}
 	\end{center}
 \end{enumerate}
-Si bien hemos enunciado ejemplos de canales PCE de 2 qubits para 
-proporcionar intuición al lector, no debe olvidarse que nuestros resultados 
-muestran que los canales PCE de 1, 2 y 3 qubits pueden clasificarse 
-según las operaciones de intercambios de partículas y de etiquetas de los ejes.
-Lo cual, es evidencia numérica de una clasificación general que se puede aplicar 
-a los canales PCE de sistemas de $n$ qubits. 
+%Si bien hemos enunciado ejemplos de canales PCE de 2 qubits para 
+%proporcionar intuición al lector, no debe olvidarse que nuestros resultados 
+%muestran que los canales PCE de 1, 2 y 3 qubits pueden clasificarse 
+%según las operaciones de intercambios de partículas y de etiquetas de los ejes.
+%Lo cual, es evidencia numérica de una clasificación general que se puede aplicar 
+%a los canales PCE de sistemas de $n$ qubits. 
 
 \esqueleto{Las figuras de los canales PCE exhiben patrones que todos 
 comparten, parecen respetar alguna simetría...}
