@@ -5,18 +5,173 @@ SOBRE LOS EJES}
 \esqueleto{Para de último. Cuando estén escritas las secciones.}
 
 \section{Canales diagonales de Pauli constantes sobre los ejes}
-\esqueleto{Introducir la definición de una MUB (es necesario para la definición de 
-mapa de Ruskai) y dar un ejemplos de dos bases que sean MUB, sólo 
-para aterrizar la idea.}
+%\esqueleto{Introducir la definición de una MUB (es necesario para la definición de 
+%mapa de Ruskai) y dar un ejemplos de dos bases que sean MUB, sólo 
+%para aterrizar la idea.}
 
-\esqueleto{Introducir qué es un mapa de Ruskai (definición que pusimos 
-en el documento para Sergei y para Francois).}
+Dos bases ortonormales $\{\ket{\psi_m^J}\}_{m=0}^{d-1}$
+y $\{\ket{\psi_n^K}\}_{m=0}^{d-1}$ de un espacio de Hilbert
+de dimensión $d$ se dice que son \textit{mutuamente 
+imparciales} si se satisface la 
+condición~\cite{bengtsson_zyczkowski_2017,nathanson2007pauli}
+\begin{align}\label{eq:mub_definition}
+	\abs{\braket{\psi_m^J}{\psi_n^K}}^2=
+	\left\{ \begin{array}{lcc}
+             \frac{1}{d} & si & J\ne K \\
+             \delta_{mn} & si & J=K,
+             \end{array}
+   \right.
+\end{align}
+para todo $m$ y $n$. Cuando la dimensión $d$  es una potencia de un 
+número primo el espacio de Hilbert cuenta hasta con $d+1$ bases mutuamente
+imparciales. Ya que los sistemas cuánticos de nuestro interés son qubits, 
+sistemas de $2^n$ niveles, vamos a suponer de aquí en adelante que 
+siempre siempre existen $d+1$ bases mutuamente imparciales. 
+Existen operadores unitarios $W_J$, definidos como~\cite{nathanson2007pauli}
+\begin{align}\label{eq:W_J}
+	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
+\end{align}
+que son generadores de las $d+1$
+bases mutuamente imparciales. El conjunto de las potencias de los 
+generadores de las bases mutuamete imparciales $W_J^m$,
+desde $m=0$ hasta $d-1$, más la identidad forman una base ortogonal
+de unitarias del espacio $\mathcal{M}_d$ de matrices de 
+de dimensión $d\times d$ con norma $\sqrt{d}$
+en el sentido de Hilbert-Schmidt. Por lo tanto, la matriz de densidad
+de un sistema de $d$ niveles puede escribirse como
+\begin{align}\label{eq:rho_mub}
+\rho=\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j),
+\end{align}
+con $v_{Jj}$ las proyecciones de $\rho$ sobre cada uno de los 
+operadores $W_J^j$.
 
-\esqueleto{Dar algunos ejemplos de mapas de Ruskai}
+Dado un conjunto de bases ortonormales mutuamente imparciales se
+puede definir un canal diagonal de Pauli constante sobre los ejes $\E$ 
+según el efecto sobre una matriz de densidad como en \eqref{eq:rho_mub}
+\cite{nathanson2007pauli},
+\begin{align}\label{eq:ruskai_definition}
+	\E :  \frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j)
+	\longmapsto 
+	\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\lambda_J\sum_{j=1}^{d-1} v_{Jj}W_J^j),
+\end{align}
+tal que las componentes $v_{Jj}$ de $\rho$ se transforman como 
+$v_{Jj}\mapsto\lambda_Jv_{Jj}$, donde $\lambda_J:=s+t_J$
+\begin{align}\label{eq:cptp_conditions_ruskai}
+	s+\sum_{J}t_J=1, && t_J\geq0 && \text{y} && s\geq\frac{-1}{d-1}.
+\end{align}
+Se sigue que $\lambda_J$ son los 
+eigenvalores de un canal diagonal de Pauli constante sobre los ejes $\E$.
+Nótese la similitud entre la definición de un canal diagonal de Pauli constante
+sobre los ejes, según cómo transforma a $v_{Jj}$, y 
+la definición de una operación PCE, de acuerdo a cómo transforma a las 
+componentes de Pauli de la matriz de densidad de un sistema de qubits.
+Claro que la definición de los \ruskai es más general porque es para
+operaciones que actúan sobre sistemas de $d$ niveles en general y porque 
+$\lambda_J$ no está restringido a 0 o 1, como en el caso de los 
+elementos $\taus$ las operaciones PCE. De hecho, es esta definición 
+más general de lso \ruskai la que nos hace preguntarnos si los canales cuánticos 
+PCE son un subconjunto de los \ruskai.
+
+En el caso de 1 qubit, los canales PCE sí son \ruskai{}. Para $d=2$,
+los eigenvectores de las matrices de Pauli $\sigma_1$, $\sigma_2$ y $\sigma_3$ 
+satisfacen \eqref{eq:mub_definition} y, por ende, son un conjunto 
+de bases mutuamente imparciales. Por lo tanto, se dice que las 
+matrices de Pauli $\sigma_J$ son las generadoras de un conjunto de
+bases mutuamente imparciales para el espacio de Hilbert de 1 qubit.
+Es decir, $W_J=\sigma_J$ y la matriz de densidad se escribe como
+\begin{align} \label{eq:rho_1_qubit_ruskai}
+	\rho=\frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J),
+\end{align}
+donde $v_J$ son las componentes de Pauli.
+De acuerdo con \eqref{eq:ruskai_definition}, 
+un canal diagonal de Pauli constante sobre los ejes de 1 qubit transforma 
+a $\rho$ en \eqref{eq:rho_1_qubit_ruskai} como
+\begin{align}
+	\E :  \frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J)
+	\longmapsto 
+	\frac{1}{2}\qty(\1+\sum_{J=1}^3\lambda_J v_J\sigma_J).
+\end{align}
+Si $\lambda_J$ se restringe a los valores de 0 o 1, entonces se recupera 
+la definición de un operación PCE de 1 qubit. De esta cuenta, 
+en la siguiente sección discutiremos sin los canales cuáncitos
+PCE de $n$ qubits son un subconjunto contenido dentro de los \ruskai{}.
+
+%Los \ruskai pueden escribirse en la forma
+%\begin{align}
+%	\E=s\1 + \sum_{L}t_L\sum 
+%\end{align}
+%
+%Para $d=2^k$ se ha mostrado que existen $d+1$ bases mutuamente imparciales 
+%del espacio de Hilbert. 
+%
+%Para cualquier base 
+%\begin{align}
+%	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
+%\end{align}
+%con $i$ la unidad imaginaria. Se sigue que
+%\begin{align}
+%	\dyad{\psi_k^K}{\psi_k^K} = \frac{1}{d}\sum_{j=0}^{d-1}e^{-2\pi n j i/d}W_J^j 
+%	= \frac{1}{d}\qty[\1 + \sum_{j=1}^{d-1}e^{-2\pi n j i/d}W_J^j]
+%\end{align}
+%
+%Bla bla bla... toda la casaca para llegar a que la matriz de densidad se puede 
+%escribir como 
+%\begin{align}
+%\rho=\frac{1}{d}\qty[\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j],
+%\end{align}
+
+
+%donde $W_J$ son operadores unitarios que generan a $d+1$ bases  
+%$\{\ket{\psi_m^J}\}_{m=0}^{d-1}$
+%mutuamente imparciales y que se definen como
+%\begin{align}
+%	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
+%\end{align}
+%La identidad $\1$ junto con los operadores $\{ W_J^j\}$ forman 
+%una base ortogonal de unitarias
+%del espacio $\mathcal{M}_d$ de las matrices de $d\times d$ \janote{revisar 
+%notación con el cap 1} que satisfacen la relación de ortogonalidad, 
+%en el sentido de Hilbert-Schmidt, $\Tr(W_J^{d-m}W_K^n)=d\delta_{JK}\delta_{mn}$.
+%
+%%\esqueleto{Introducir qué es un mapa de Ruskai (definición que pusimos 
+%%en el documento para Sergei y para Francois).}
+%%
+%%La acción de un canal de Pauli constante sobre los ejes $\Phi$ se define 
+%%como~\cite{nathanson2007pauli}
+%%\begin{align}
+%%	\Phi :  \frac{1}{d}\qty[\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j
+%%	\longmapsto 
+%%	\1+\sum_{J=1}^{d+1}\lambda_J\sum_{j=1}^{d-1} v_{Jj}W_J^j],
+%%\end{align}
+%%de tal forma que $v_{Jj}\mapsto \lambda_Jv_{Jj}$ y $\lambda_J$ los eigenvalores 
+%%de la operación $\Phi$.
+%
+%\esqueleto{Dar algunos ejemplos de mapas de Ruskai}
+%
+%Los canales PCE de 1 qubit son Ruskai. Las matrices de Pauli son generadores 
+%de 3 bases ortonormales mutuamente imparciales.
+%
+%También hay algunos PCE de 2 qubits que son claramente Ruskai \janote{será??}
 
 \section{Relación con canales cuánticos PCE}
 \esqueleto{Queremos estudiar si los canales PCE son un subconjunto 
 de los mapas de Ruskai.}
+
+Nos interesa comprobar o refutar la hipótesis de que los canales PCE sean 
+un subconjunto de los \ruskai. Sin embargo, no lo son. Nuestra prueba 
+viene después. 
+
+De los eigenvalores de los mapas de Ruksai, se deduce que el rango de un 
+mapa de Ruskai es $1+k(2^n-1)$. Los PCE tienen rango $2^n$.
+\begin{align}
+2^k=1+l(2^n-1)\\
+l=\frac{2^k-1}{2^n-1},\\
+l=\frac{2^k-1}{2^n-1}
+\end{align}
+En general, este número es un número racional y, por lo tanto, no es 
+posible que los canales PCE sean un subconjunto de los Ruskai o viceversa.
+
+Hay 15 canales cuánticos que son intersección entre los PCE y los de Ruskai.
 
 \esqueleto{Pues nel. Escribir la demostración que pusimos en el 
 documento para Francois pero un poco más digerida. En nuestra prueba
