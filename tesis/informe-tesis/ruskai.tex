@@ -22,22 +22,27 @@ condición~\cite{bengtsson_zyczkowski_2017,nathanson2007pauli}
              \end{array}
    \right.
 \end{align}
-para todo $m$ y $n$. Cuando la dimensión $d$  es una potencia de un 
+para todo $m$ y $n$. Cuando $d$  es una potencia de un 
 número primo el espacio de Hilbert cuenta hasta con $d+1$ bases mutuamente
-imparciales. Ya que los sistemas cuánticos de nuestro interés son qubits, 
-sistemas de $2^n$ niveles, vamos a suponer de aquí en adelante que 
-siempre siempre existen $d+1$ bases mutuamente imparciales. 
-Existen operadores unitarios $W_J$, definidos como~\cite{nathanson2007pauli}
+imparciales \cite{durt2010mutually}. 
+Dado que los sistemas cuánticos de nuestro interés en este trabajo son qubits 
+(sistemas de $2^n$ niveles) no vamos a considerar los casos de sistemas que 
+no posean $d+1$ bases mutuamente imparciales. 
+
+La matriz de densidad de un sistema de qubits puede escribirse en términos 
+de operadores que generan a un conjunto de bases mutuamente imparciales.
+Es posible definir, a partir de un conjunto de bases mutuamente imparciales,
+$d+1$ operadores unitarios $W_J$ como~\cite{nathanson2007pauli}
 \begin{align}\label{eq:W_J}
-	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
+	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^J}{\psi_k^J}, 
 \end{align}
-que son generadores de las $d+1$
-bases mutuamente imparciales. El conjunto de las potencias de los 
-generadores de las bases mutuamete imparciales $W_J^m$,
-desde $m=0$ hasta $d-1$, más la identidad forman una base ortogonal
+para cada $J$-ésima base $\ket{\psi_k^J}$. Se dice que los operadores 
+$W^J$ son generadores del conjunto de bases $\ket{\psi_k^J}$ mutuamente 
+imparciales. El conjunto de las $d^2-1$ potencias $\{W_J^m\}_{m=1,\ldots,d-1,
+J=1,\ldots,d+1}$ más la identidad forman una base ortogonal
 de unitarias del espacio $\mathcal{M}_d$ de matrices de 
 de dimensión $d\times d$ con norma $\sqrt{d}$
-en el sentido de Hilbert-Schmidt. Por lo tanto, la matriz de densidad
+(en el sentido de Hilbert-Schmidt). Por lo tanto, la matriz de densidad
 de un sistema de $d$ niveles puede escribirse como
 \begin{align}\label{eq:rho_mub}
 \rho=\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j),
@@ -45,60 +50,45 @@ de un sistema de $d$ niveles puede escribirse como
 con $v_{Jj}$ las proyecciones de $\rho$ sobre cada uno de los 
 operadores $W_J^j$.
 
-Dado un conjunto de bases ortonormales mutuamente imparciales se
-puede definir un canal diagonal de Pauli constante sobre los ejes $\E$ 
-según el efecto sobre una matriz de densidad como en \eqref{eq:rho_mub}
-\cite{nathanson2007pauli},
+Dado un conjunto de bases ortonormales mutuamente imparciales del 
+espacio de estados de un sistema de $d$ niveles se
+puede definir a un canal diagonal de Pauli constante sobre los ejes $\E$ 
+según la acción sobre una matriz de densidad como 
+en~\eqref{eq:rho_mub}~\cite{nathanson2007pauli},
 \begin{align}\label{eq:ruskai_definition}
 	\E :  \frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j)
 	\longmapsto 
-	\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\lambda_J\sum_{j=1}^{d-1} v_{Jj}W_J^j),
+	\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\lambda_J\sum_{j=1}^{d-1} v_{Jj}W_J^j).
 \end{align}
-tal que las componentes $v_{Jj}$ de $\rho$ se transforman como 
-$v_{Jj}\mapsto\lambda_Jv_{Jj}$, donde $\lambda_J:=s+t_J$. Las 
-condiciones para que un \ruskaiMap{} sea completamente positivo 
-y que preserve la traza de la matriz de densidad (CPTP) son
+Es decir que las componentes $v_{Jj}$ de $\rho$ se transforman como 
+$v_{Jj}\mapsto\lambda_Jv_{Jj}$, donde $\lambda_0=1$ más $\lambda_J:=s+t_J$ son
+los eigenvalores de $\E$. Las 
+condiciones para que un \ruskai{}{}{}Map{} sea una operación 
+completamente positiva que preserva la traza (CPTP), \textit{i.e.} un canal cuántico,
+son
 \begin{align}\label{eq:cptp_conditions_ruskai}
 	s+\sum_{J}t_J=1, && t_J\geq0 && \text{y} && s\geq\frac{-1}{d-1}.
 \end{align}
-Se sigue que $\lambda_J$ son los 
-eigenvalores de un canal diagonal de Pauli constante sobre los ejes $\E$.
-Nótese la similitud entre la definición de un canal diagonal de Pauli constante
-sobre los ejes, según cómo transforma a $v_{Jj}$, y 
-la definición de una operación PCE, de acuerdo a cómo transforma a las 
-componentes de Pauli de la matriz de densidad de un sistema de qubits.
-Claro que la definición de los \ruskai es más general porque es para
-operaciones que actúan sobre sistemas de $d$ niveles en general y porque 
-$\lambda_J$ no está restringido a 0 o 1, como en el caso de los 
-elementos $\taus$ las operaciones PCE. De hecho, es esta definición 
-más general de lso \ruskai la que nos hace preguntarnos si los canales cuánticos 
-PCE son un subconjunto de los \ruskai.
+La primera condición asegura que la operación preserva la traza de la matriz 
+de densidad y las últimas dos que la operación sea completamente positiva
+\cite{nathanson2007pauli}.
 
-En el caso de 1 qubit, los canales PCE sí son \ruskai{}. Para $d=2$,
-los eigenvectores de las matrices de Pauli $\sigma_1$, $\sigma_2$ y $\sigma_3$ 
-satisfacen \eqref{eq:mub_definition} y, por ende, son un conjunto 
-de bases mutuamente imparciales. Por lo tanto, se dice que las 
-matrices de Pauli $\sigma_J$ son las generadoras de un conjunto de
-bases mutuamente imparciales para el espacio de Hilbert de 1 qubit.
-Es decir, $W_J=\sigma_J$ y la matriz de densidad se escribe como
-\begin{align} \label{eq:rho_1_qubit_ruskai}
-	\rho=\frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J),
-\end{align}
-donde $v_J$ son las componentes de Pauli.
-De acuerdo con \eqref{eq:ruskai_definition}, 
-un canal diagonal de Pauli constante sobre los ejes de 1 qubit transforma 
-a $\rho$ en \eqref{eq:rho_1_qubit_ruskai} como
-\begin{align}
-	\E :  \frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J)
-	\longmapsto 
-	\frac{1}{2}\qty(\1+\sum_{J=1}^3\lambda_J v_J\sigma_J).
-\end{align}
-Si $\lambda_J$ se restringe a los valores de 0 o 1, entonces se recupera 
-la definición de un operación PCE de 1 qubit. De esta cuenta, 
-en la siguiente sección discutiremos sin los canales cuáncitos
-PCE de $n$ qubits son un subconjunto contenido dentro de los \ruskai{}.
+Nótese la similitud entre la definición en \eqref{eq:ruskai_definition} 
+de un canal diagonal de Pauli constante
+sobre los ejes y la definición en \eqref{eq:PCE_definition} 
+de una operación PCE. Los dos tipos de operaciones transforman de 
+un modo similar a las componentes de la matriz de densidad en una 
+base dada del espacio $\mathcal{M}_d$.
+No obstante, los \ruskai{} son más generales, en el sentido que son
+operaciones que actúan sobre sistemas de $d$ niveles (las 
+operaciones PCE actúan sobre sistemas de $2^n$ niveles) y porque 
+las $\lambda_J$, para los \ruskai{}, puede tomar cualquier valor real que 
+satisfaga las condiciones en \eqref{eq:cptp_conditions_ruskai}, a diferencia
+de las operaciones PCE en las que los $\taus$ restringido a los valores 0 o 1.
+De hecho, es esta definición más general de los \ruskai{} la que motiva a
+investigar si los canales cuánticos PCE están contenidos dentro de ellos.
 
-%Los \ruskai pueden escribirse en la forma
+%Los \ruskai{} pueden escribirse en la forma
 %\begin{align}
 %	\E=s\1 + \sum_{L}t_L\sum 
 %\end{align}
@@ -156,27 +146,64 @@ PCE de $n$ qubits son un subconjunto contenido dentro de los \ruskai{}.
 %También hay algunos PCE de 2 qubits que son claramente Ruskai \janote{será??}
 
 \section{Relación con canales cuánticos PCE}
-\esqueleto{Queremos estudiar si los canales PCE son un subconjunto 
-de los mapas de Ruskai.}
+%\esqueleto{Queremos estudiar si los canales PCE son un subconjunto 
+%de los mapas de Ruskai.}
 
-Nos interesa comprobar o refutar la hipótesis de que los canales PCE sean 
-un subconjunto de los \ruskai. Sin embargo, no lo son. Nuestra prueba 
-viene después. 
-
-De los eigenvalores de los mapas de Ruksai, se deduce que el rango de un 
-mapa de Ruskai es $1+k(2^n-1)$. Los PCE tienen rango $2^n$.
-\begin{align}
-2^k=1+l(2^n-1)\\
-l=\frac{2^k-1}{2^n-1},\\
-l=\frac{2^k-1}{2^n-1}
+En el caso de 1 qubit, los canales PCE sí son un subconjutno de los \ruskai{}. Para $d=2$,
+los eigenvectores de las matrices de Pauli $\sigma_1$, $\sigma_2$ y $\sigma_3$ 
+satisfacen \eqref{eq:mub_definition} y, por ende, son un conjunto 
+de bases mutuamente imparciales. Por lo tanto, siguiendo \eqref{eq:rho_mub}
+e identificando $W_J=\sigma_J$, la matriz de densidad de 1 qubit se escribe como
+\begin{align} \label{eq:rho_1_qubit_ruskai}
+	\rho=\frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J),
 \end{align}
-En general, este número es un número racional y, por lo tanto, no es 
-posible que los canales PCE sean un subconjunto de los Ruskai o viceversa.
+donde $v_J$ son lo que hemos llamado a lo largo de este trabajo 
+las componentes de Pauli.
+De acuerdo con \eqref{eq:ruskai_definition}, 
+un canal diagonal de Pauli constante sobre los ejes de 1 qubit transforma 
+a la matriz de densidad $\rho$ en \eqref{eq:rho_1_qubit_ruskai} como
+\begin{align}
+	\E :  \frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J)
+	\longmapsto 
+	\frac{1}{2}\qty(\1+\sum_{J=1}^3\lambda_J v_J\sigma_J).
+\end{align}
+Si $\lambda_J$ se restringe a los valores de 0 o 1, entonces se recupera 
+la definición de un operación PCE de 1 qubit. Por lo tanto, los canales PCE 
+de 1 qubit son un caso particular de los \ruskai{} cuando $d=2$.
 
-Hay 15 canales cuánticos que son intersección entre los PCE y los de Ruskai.
+Sin embargo, en general, no existe relación de contención entre los canales cuánticos PCE 
+y los \ruskai{}. Para demostrar esta proposición vamos a utilizar como 
+argumento la incompatibilidad entre los rangos de los canales PCE
+y de los \ruskai{}. Recordemos que el rango de una matriz es igual 
+al número de eigenvalores distintos de cero 
+\cite{axler1997linear,lang2012introduction}.
+Además, de los teoremas elementales de álgebra lineal se puede mostrar que 
+rango de una matriz es invariante ante cambios de base \cite{axler1997linear}.
 
-\esqueleto{Pues nel. Escribir la demostración que pusimos en el 
-documento para Francois pero un poco más digerida. En nuestra prueba
-mostramos que el rango de los mapas de Ruskai no es $2^k$, como en los PCE, 
-razón por la cual queda descartado que los PCE estén completamente 
-contenidos dentro de los mapas de Ruskai.}
+Por un lado, de la definición en \eqref{eq:ruskai_definition} es claro que un \ruskaiMap{}
+tiene hasta $d+1$ eigenvalores $\lambda_J$ distintos de cero 
+con degeneración $d-1$. Por lo tanto,
+el rango de un \ruskaiMap{} $1+l(d-1)$. Por otro lado, 
+de la regla $2^k$ discutida en la sección \ref{sec:ch3_discussion},
+los canales cuánticos PCE son matrices de rango $2^k$. Para que los canales PCE
+y los \ruskai{} tengan el mismo rango se debe cumplir 
+\begin{align}\label{eq:ruskai_fucked_up}
+2^k=1+l(2^n-1),\quad \forall \ k=0,1,\ldots,2n; l=0,1,2,\ldots,2^n+1.
+\end{align}
+Sin embargo, es fácil encontrar un contraejemplo para mostrar que esta
+ecuación no siempre se satisface. Veamos por ejemplo, para $n=2$ y $k=3$
+(2 qubits y 8 componentes de Pauli invariantes),
+\begin{align}
+l=\frac{2^3-1}{2^2-1}=\frac{7}{3},
+\end{align}
+lo que contradice los posibles valores que puede tomar $l$ 
+en \eqref{eq:ruskai_fucked_up}. De hecho, la ecuación sólo se cumple 
+para $k=0,n,2n$. En conclusión, la intersección de los \ruskai{}
+y los canales PCE contiene al canal depolatizante, la identidad y canales 
+que dejan invariantes $2^n$ componentes de Pauli. En particular, para 2 qubits 
+los canales que son intersección entre los \ruskai{} y los canales PCE son los 
+elementos de las clases de equivalencia C${}_4^2$ y C${}_4^4$
+(ver \Fref{fig:2qubits_PCEChannels_figs}). Ya que probamos que los 
+rangos de los \ruskai{} y de los canales cuánticos PCE son incompatibles, 
+se sigue que los canales PCE no son un subconjunto dentro de los 
+\ruskai{}, ni viceversa.
