@@ -4,19 +4,23 @@
 En esta sección vamos a presentar los canales cuánticos PCE de 2 y,
 parcialmente, los de 3 qubits, 
 encontrados con el método numérico descrito en la sección 
-\ref{sec:ch2_solucionNumerica}; también vamos a discutir la complejidad 
+\ref{sec:ch2_solucionNumerica}. También vamos a discutir la complejidad 
 computacional del problema de 3 qubits y justificar porqué no lo estudiamos completo.
 \cpnote{Nota que el parrafo tiene dos partes no conexas. Separa de alguna manera. 
 Quizá funcione un simple punto y aparte. El titulo de la seccion no me gusta, pues
 entonces uno pensaría que para que mas secciones (si el titulo del caputolo es resultados
 y el capitulo de la seccion es resultados, tonces para que mas secciones)}
+\janote{El punto y aparte nos hace la tarea :P}
+\janote{Ya que ese título de sección fue el que me aprobaron en el 
+protocolo de Tesis no lo podemos cambiar :S}
+
 Se encontraron las siguientes proporciones de canales cuánticos PCE a 
 operaciones PCE: $67:32,768$ para 2 qubits, y $716:83,456$ para 
 3 qubits. Recordemos que la diferencia entre una operación y un canal cuántico PCE
 es que el último satisface la condición de completa positividad y, por tanto, 
 es una operación que representa la evolución física de un sistema. 
 Las proporciones de canales cuánticos PCE a operaciones PCE son un indicio 
-de lo restrictiva que es la condición de completa positividad para que 
+de lo restrictiva que resulta la condición de completa positividad para que 
 una operación que borra las componentes de Pauli sea un canal cuántico.
 
 Para decidir qué subconjunto de las operaciones PCE de 3 qubits puede analizar
@@ -38,49 +42,58 @@ El tiempo de cómputo es el obstáculo que le impide a nuestro método numérico
 poder analizar todas las operaciones PCE de 3 qubits. 
 El número total de operaciones PCE para el caso 
 de 3 qubits es de alrededor de $9\times10^{18}$. Supongamos por un momento
-que contamos con una computadora promedio de un estudiante guatemalteco 
-de física que tiene memoria RAM ilimitada y que puede analizar 
-la completa positividad a una tasa de 1000 operaciones PCE de 
+que contamos con una supercomputadora
+%computadora promedio de un estudiante guatemalteco 
+%de física que tiene memoria RAM ilimitada y 
+que puede analizar la completa positividad a una tasa de $10^9$ operaciones PCE de 
 3 qubits por segundo. Si además asumimos que la complejidad 
-algorítmica del problema es lineal, a esa computadora le tomaría, aproximadamente, 
-$1/5$ de la edad del universo (¡¡$270$ millones de años!!) 
-analizar todas las operaciones PCE de 3 qubits\cpnote{Usa los signos de excalmación 
+algorítmica del problema es lineal, a la supercomputadora le tomaría, 
+aproximadamente, 300 años analizar todas las operaciones PCE de 3 qubits.
+Sin embargo, ni tenemos acceso a una supercomputadora
+ni nos alcanzaría la vida para esperar los resultados completos. 
+Por esta razón, se decidió que estudiaríamos numéricamente 
+las operaciones PCE de 3 qubits que dejan invariantes 1, 2, 3, 4, 61, 62, 63 y 64
+componentes de Pauli.
+\cpnote{Usa los signos de excalmación 
 formales, es decir solo uno a cada lado. Por otro lado, creo qeupuedes hacer el calculo 
 asumiendo una supercomputadora y no cambiaría mucho. Quizá en vez de 1/5 de la edad 
 del universo, tengas muchas veces la edad de la tierra o algun otro dato 
-asi diverido.}. En resumen, aunque 
-la memoria RAM disponible fuese infinita, es imposible encontrar con 
-nuestro método numérico todos los canales cuánticos PCE de 3 qubits
-por el tiempo de cómputo. \cpnote{La ram realmente no es un factor aca. Creo qe 
+asi diverido.}. 
+\cpnote{La ram realmente no es un factor aca. Creo qe 
 podrías organizarte y ocupar una cantidad de ram muy razonable. Si no es asi, 
 me gustaría entender por qué. }
+\janote{Listo. La tasa de operaciones PCE por segundo la propuse de 
+investigar en wikipedia los flop/s de una supercomputadora. Si te parece 
+muy bestia propónme una tasa más razonable, por favor, y hago en breve el cálculo 
+de nuevo. Nota que quité el párrafo y figura sobre la discusión que hacía 
+sobre la RAM.}
 
-Por otra parte, aún delimitando la entrada del método numérico a 
-únicamente las operaciones PCE de 3 qubits que dejan invariantes 
-$k$ componentes de Pauli, para la computadora a nuestra disposición 
-supondría un problema de memoria RAM a partir de $k=5$ hasta $k=60$.
-En la gráfica de la \Fref{fig:memory_usage_3Q_5c} mostramos el uso de la 
-memoria RAM de nuestro método numérico para analizar las operaciones 
-PCE de 3 qubits que dejan invariantes 5 componentes de Pauli, 
-en función de la cantidad de matrices. 
-Se realizó un ajuste lineal a los datos para estimar 
-el orden de magnitud de la cantidad de memoria necesaria para analizar todas 
-las operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
-La función $RAM(n)$ estima que se necesitan aproximadamente 
-$1.1$ TB de memoria para analizar las 595,665 operaciones. 
-Es por esta razón que, para 3 qubits, estudiamos sólo las operaciones PCE 
-que dejan invariantes desde 1 hasta 4 y desde 61 hasta 64 
-componentes de Pauli. \cpnote{quizá debemos quitar este parrafo y la
-correspondiente figra}
-\begin{figure}
-  \includegraphics[width=\textwidth]{memory_usage_3Q_5c}
-  \caption{Memoria RAM utilizada por el método numérico para analizar las
-  operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
-  El método numérico fue ejecutado en Wolfram Mathematica 12.1, operando
-  en una PC con procesador Intel® Xeon(R) E-2246G~@~3.60GHz×12 
-  y sistema operativo Ubuntu 20.04.3 LTS. \ep}
-  \label{fig:memory_usage_3Q_5c}
-\end{figure}
+%Por otra parte, aún delimitando la entrada del método numérico a 
+%únicamente las operaciones PCE de 3 qubits que dejan invariantes 
+%$k$ componentes de Pauli, para la computadora a nuestra disposición 
+%supondría un problema de memoria RAM a partir de $k=5$ hasta $k=60$.
+%En la gráfica de la \Fref{fig:memory_usage_3Q_5c} mostramos el uso de la 
+%memoria RAM de nuestro método numérico para analizar las operaciones 
+%PCE de 3 qubits que dejan invariantes 5 componentes de Pauli, 
+%en función de la cantidad de matrices. 
+%Se realizó un ajuste lineal a los datos para estimar 
+%el orden de magnitud de la cantidad de memoria necesaria para analizar todas 
+%las operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
+%La función $RAM(n)$ estima que se necesitan aproximadamente 
+%$1.1$ TB de memoria para analizar las 595,665 operaciones. 
+%Es por esta razón que, para 3 qubits, estudiamos sólo las operaciones PCE 
+%que dejan invariantes desde 1 hasta 4 y desde 61 hasta 64 
+%componentes de Pauli. \cpnote{quizá debemos quitar este parrafo y la
+%correspondiente figra}
+%\begin{figure}
+%  \includegraphics[width=\textwidth]{memory_usage_3Q_5c}
+%  \caption{Memoria RAM utilizada por el método numérico para analizar las
+%  operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
+%  El método numérico fue ejecutado en Wolfram Mathematica 12.1, operando
+%  en una PC con procesador Intel® Xeon(R) E-2246G~@~3.60GHz×12 
+%  y sistema operativo Ubuntu 20.04.3 LTS. \ep}
+%  \label{fig:memory_usage_3Q_5c}
+%\end{figure}
 
 En la \Tref{tab:2qubitsPCEChannel1sAnd0s} (ir al apéndice A) mostramos
 todos los canales cuánticos PCE de 2 qubits y en la tabla 
@@ -198,50 +211,6 @@ tienen pintado el cuadro o cubo con la posición $(0)$, $(0,0)$ o $(0,0,0)$.
 Esto es así para todas las figuras PCE porque, de acuerdo con la definición 
 \eqref{eq:PCE_definition}, una operación PCE preserva la traza de 
 la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
-\begin{figure} % {{{
-	\centering
-	\begin{subfigure}[b]{0.48\textwidth}
-		\centering
-		\includegraphics[height=2.5cm]	{1qubit_PCEOperations}
-		\caption{}
-		\label{fig:PCE_figs_examples_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.48\textwidth}
-		\centering
-		\hfill 
-		\includegraphics[height=2.3cm]{2qubits_pceChannel_example01} 
-		\hfill
-		\includegraphics[height=2.3cm]{2qubits_pce_example}		
-		\hfill \hfill
-		\caption{}
-		\label{fig:PCE_figs_examples_b}
-	\end{subfigure}
-	\newline
-	\begin{subfigure}[c]{0.6\textwidth}
-		\centering
-		\vspace{-.7cm}
-		\hspace*{\fill}
-		\includegraphics[width=4cm]{3qubits_PCE_ex1}
-		\includegraphics[width=4cm]{3qubits_PCE_ex2}
-		\hspace*{\fill}
-		\vspace{-.7cm}
-		\caption{}
-		\label{fig:PCE_figs_examples_c}
-	\end{subfigure}
-%	\begin{subfigure}[b]{0.38\textwidth}
-%		\centering
-%		\includegraphics[height=2.5cm]	{1qubit_PCEChannels}
-%		\caption{}
-%		\label{fig:PCE_figs_examples_a}
-%	\end{subfigure}
-	\caption{\textbf{(a)} Figuras PCE de todas las operaciones PCE de 1 qubit. 
-	\textbf{(b)} Figuras PCE de 2 operaciones PCE de 2 qubits aleatorias. La primera 
-	figura PCE representa a un canal PCE y la segunda representa una operación 
-	PCE que no satisface la condición de completa positividad. 
-	\textbf{(c)} Figuras PCE de dos operaciones PCE aleatorias de 3 qubits. \ep}
-	\label{fig:PCE_figs_examples}
-\end{figure} % }}}
 
 %\noindent
 %\esqueleto{En este punto, ya es más o menos obvio cómo es la representación 
@@ -252,8 +221,8 @@ la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
 %(sólo para 3 qubits, porque las de 1 y 2 qubits 
 %las voy a poner en negro).}
 
-La representación de las figuras PCE puede utilizarse para representar 
-operaciones PCE hasta de 3 qubits\cpnote{Representar represetnar}. En este punto, esta afirmación puede 
+La representación de las figuras PCE puede utilizarse para visualizar geométricamente 
+operaciones PCE hasta de 3 qubits\cpnote{Representar represetnar}\janote{jeje ya}. En este punto, esta afirmación puede 
 ser más o menos obvia, pero es importante dejar claro las limitaciones de 
 la representación de las figuras PCE. 
 Ya que los índices $j_1,\ldots,j_n$ están asociados a las posiciones 
@@ -285,10 +254,54 @@ cuánticos PCE, como los patrones tan particulares que se obervan en la
 de este capítulo, vamos a discutir en profundidad la caracterización de los 
 canales cuánticos PCE que se evidencian en nuestros resultados de 2 y 3 qubits.
 
-\janote{Me tocó poner \texttt{[H]} 
-en los siguientes dos entornos \texttt{figure} porque de lo contrario, 
-las figuras se iban hasta el final del capítulo, después de la última sección.}
-%\newpage
+%\janote{Me tocó poner \texttt{[H]} 
+%en los siguientes dos entornos \texttt{figure} porque de lo contrario, 
+%las figuras se iban hasta el final del capítulo, después de la última sección.}
+
+\newpage
+
+\begin{figure}[t!] % {{{
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[height=2.5cm]	{1qubit_PCEOperations}
+		\caption{}
+		\label{fig:PCE_figs_examples_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\hfill 
+		\includegraphics[height=2.3cm]{2qubits_pceChannel_example01} 
+		\hfill
+		\includegraphics[height=2.3cm]{2qubits_pce_example}		
+		\hfill \hfill
+		\caption{}
+		\label{fig:PCE_figs_examples_b}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}[c]{0.6\textwidth}
+		\centering
+		\vspace{-.7cm}
+		\hspace*{\fill}
+		\includegraphics[width=4cm]{3qubits_PCE_ex1}
+		\includegraphics[width=4cm]{3qubits_PCE_ex2}
+		\hspace*{\fill}
+		\vspace{-.7cm}
+		\caption{}
+		\label{fig:PCE_figs_examples_c}
+	\end{subfigure}
+	\caption{\textbf{(a)} Figuras PCE de todas las operaciones PCE de 1 qubit. 
+	\textbf{(b)} Figuras PCE de 2 operaciones PCE de 2 qubits aleatorias. La primera 
+	figura PCE representa a un canal PCE y la segunda representa una operación 
+	PCE que no satisface la condición de completa positividad. 
+	\textbf{(c)} Figuras PCE de dos operaciones PCE aleatorias de 3 qubits. \ep}
+	\label{fig:PCE_figs_examples}
+\end{figure} % }}} 
+
+\clearpage
+
+\newpage
 \begin{figure}[H]
 \centering
 \begin{minipage}[t]{0.49\textwidth}
