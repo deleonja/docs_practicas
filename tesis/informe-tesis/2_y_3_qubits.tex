@@ -6,13 +6,14 @@ parcialmente, los de 3 qubits,
 encontrados con el método numérico descrito en la sección 
 \ref{sec:ch2_solucionNumerica}. También vamos a discutir la complejidad 
 computacional del problema de 3 qubits y justificar porqué no lo estudiamos completo.
-\cpnote{Nota que el parrafo tiene dos partes no conexas. Separa de alguna manera. 
-Quizá funcione un simple punto y aparte. El titulo de la seccion no me gusta, pues
-entonces uno pensaría que para que mas secciones (si el titulo del caputolo es resultados
-y el capitulo de la seccion es resultados, tonces para que mas secciones)}
-\janote{El punto y aparte nos hace la tarea :P}
+% \cpnote{Nota que el parrafo tiene dos partes no conexas. Separa de alguna manera. 
+% Quizá funcione un simple punto y aparte. El titulo de la seccion no me gusta, pues
+% entonces uno pensaría que para que mas secciones (si el titulo del caputolo es resultados
+% y el capitulo de la seccion es resultados, tonces para que mas secciones)}
+% \janote{El punto y aparte nos hace la tarea :P}
 \janote{Ya que ese título de sección fue el que me aprobaron en el 
 protocolo de Tesis no lo podemos cambiar :S}
+\cpnote{El titulo del capitulo o de la seccion?}
 
 Se encontraron las siguientes proporciones de canales cuánticos PCE a 
 operaciones PCE: $67:32,768$ para 2 qubits, y $716:83,456$ para 
@@ -54,19 +55,22 @@ ni nos alcanzaría la vida para esperar los resultados completos.
 Por esta razón, se decidió que estudiaríamos numéricamente 
 las operaciones PCE de 3 qubits que dejan invariantes 1, 2, 3, 4, 61, 62, 63 y 64
 componentes de Pauli.
-\cpnote{Usa los signos de excalmación 
-formales, es decir solo uno a cada lado. Por otro lado, creo qeupuedes hacer el calculo 
-asumiendo una supercomputadora y no cambiaría mucho. Quizá en vez de 1/5 de la edad 
-del universo, tengas muchas veces la edad de la tierra o algun otro dato 
-asi diverido.}. 
-\cpnote{La ram realmente no es un factor aca. Creo qe 
-podrías organizarte y ocupar una cantidad de ram muy razonable. Si no es asi, 
-me gustaría entender por qué. }
+% \cpnote{Usa los signos de excalmación 
+% formales, es decir solo uno a cada lado. Por otro lado, creo qeupuedes hacer el calculo 
+% asumiendo una supercomputadora y no cambiaría mucho. Quizá en vez de 1/5 de la edad 
+% del universo, tengas muchas veces la edad de la tierra o algun otro dato 
+% asi diverido.}. 
+% \cpnote{La ram realmente no es un factor aca. Creo qe 
+% podrías organizarte y ocupar una cantidad de ram muy razonable. Si no es asi, 
+% me gustaría entender por qué. }
 \janote{Listo. La tasa de operaciones PCE por segundo la propuse de 
 investigar en wikipedia los flop/s de una supercomputadora. Si te parece 
 muy bestia propónme una tasa más razonable, por favor, y hago en breve el cálculo 
 de nuevo. Nota que quité el párrafo y figura sobre la discusión que hacía 
 sobre la RAM.}
+\cpnote{Buen calculo!! Pero entonces pon la referencia de la supercomputadora. Asi 
+la gente puede pensar que en la mejor supercomputadora no se podría ahcer. Si quieres
+lo platicamos tantito}
 
 %Por otra parte, aún delimitando la entrada del método numérico a 
 %únicamente las operaciones PCE de 3 qubits que dejan invariantes 
@@ -118,8 +122,7 @@ Por lo tanto, es necesario introducir una herramienta
 que permita visualizar los resultados de la \Tref{tab:2qubitsPCEChannel1sAnd0s}
 de una forma más sencilla e intuitiva. Hablaremos de una herramienta geométrica
 en la próxima sección.
-% }}}
-\section{Una representación geométrica}\label{sec:ch3_geometric_representation} % {{{
+
 %\esqueleto{Motivados en lo intricado de inferir qué características 
 %comparten los canales PCE a partir de las listas de 1's y 0's, se nos ocurrió 
 %una forma de representar geométricamente a las operaciones PCE que hace
@@ -222,7 +225,7 @@ la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
 %las voy a poner en negro).}
 
 La representación de las figuras PCE puede utilizarse para visualizar geométricamente 
-operaciones PCE hasta de 3 qubits\cpnote{Representar represetnar}\janote{jeje ya}. En este punto, esta afirmación puede 
+operaciones PCE hasta de 3 qubits. En este punto, esta afirmación puede 
 ser más o menos obvia, pero es importante dejar claro las limitaciones de 
 la representación de las figuras PCE. 
 Ya que los índices $j_1,\ldots,j_n$ están asociados a las posiciones 
@@ -407,14 +410,17 @@ canales cuánticos PCE que se evidencian en nuestros resultados de 2 y 3 qubits.
 \section{Discusión de resultados}\label{sec:ch3_discussion} % {{{
 En esta sección vamos a discutir sobre la clasificación y propiedades 
 en común de los canales PCE que obtuvimos numéricamente para 1, 2 y 3 qubits.
-Los canales PCE pueden ordenarse en subconjuntos cuyos elementos 
+En particular, veremos que 
+los canales PCE pueden ordenarse en subconjuntos cuyos elementos 
 están conectados vía dos operaciones. En la \Fref{fig:2qubits_PCEChannels_figs} 
 estas dos operaciones se pueden visualizar en las figuras PCE de 2 qubits 
 como permutaciones de las filas y columnas, y transposiciones. Por otro lado, 
-nuestros resultados muestran que los canales PCE dejan invariantes
+notaremos que los canales PCE dejan invariantes
 sólo cantidades de componentes de Pauli que son potencias de 2, y que 
 el número de canales cuánticos que dejan invariantes $2^k$ y $2^{2n-k}$ 
 componentes de Pauli es el mismo. 
+\cpnote{Cambie tantito la redacción para que quede claro que lo vamos a desarrollar en 
+la seccion}
 
 %obedecen una regla 
 %para el número de componentes de Pauli que dejan invariantes y para la
