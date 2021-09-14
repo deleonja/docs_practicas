@@ -6,11 +6,6 @@ parcialmente, los de 3 qubits,
 encontrados con el método numérico descrito en la sección 
 \ref{sec:ch2_solucionNumerica}. También vamos a discutir la complejidad 
 computacional del problema de 3 qubits y justificar porqué no lo estudiamos completo.
-% \cpnote{Nota que el parrafo tiene dos partes no conexas. Separa de alguna manera. 
-% Quizá funcione un simple punto y aparte. El titulo de la seccion no me gusta, pues
-% entonces uno pensaría que para que mas secciones (si el titulo del caputolo es resultados
-% y el capitulo de la seccion es resultados, tonces para que mas secciones)}
-% \janote{El punto y aparte nos hace la tarea :P}
 \janote{Ya que ese título de sección fue el que me aprobaron en el 
 protocolo de Tesis no lo podemos cambiar :S}
 \cpnote{El titulo del capitulo o de la seccion?}
@@ -55,14 +50,6 @@ ni nos alcanzaría la vida para esperar los resultados completos.
 Por esta razón, se decidió que estudiaríamos numéricamente 
 las operaciones PCE de 3 qubits que dejan invariantes 1, 2, 3, 4, 61, 62, 63 y 64
 componentes de Pauli.
-% \cpnote{Usa los signos de excalmación 
-% formales, es decir solo uno a cada lado. Por otro lado, creo qeupuedes hacer el calculo 
-% asumiendo una supercomputadora y no cambiaría mucho. Quizá en vez de 1/5 de la edad 
-% del universo, tengas muchas veces la edad de la tierra o algun otro dato 
-% asi diverido.}. 
-% \cpnote{La ram realmente no es un factor aca. Creo qe 
-% podrías organizarte y ocupar una cantidad de ram muy razonable. Si no es asi, 
-% me gustaría entender por qué. }
 \janote{Listo. La tasa de operaciones PCE por segundo la propuse de 
 investigar en wikipedia los flop/s de una supercomputadora. Si te parece 
 muy bestia propónme una tasa más razonable, por favor, y hago en breve el cálculo 
@@ -72,32 +59,6 @@ sobre la RAM.}
 la gente puede pensar que en la mejor supercomputadora no se podría ahcer. Si quieres
 lo platicamos tantito}
 
-%Por otra parte, aún delimitando la entrada del método numérico a 
-%únicamente las operaciones PCE de 3 qubits que dejan invariantes 
-%$k$ componentes de Pauli, para la computadora a nuestra disposición 
-%supondría un problema de memoria RAM a partir de $k=5$ hasta $k=60$.
-%En la gráfica de la \Fref{fig:memory_usage_3Q_5c} mostramos el uso de la 
-%memoria RAM de nuestro método numérico para analizar las operaciones 
-%PCE de 3 qubits que dejan invariantes 5 componentes de Pauli, 
-%en función de la cantidad de matrices. 
-%Se realizó un ajuste lineal a los datos para estimar 
-%el orden de magnitud de la cantidad de memoria necesaria para analizar todas 
-%las operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
-%La función $RAM(n)$ estima que se necesitan aproximadamente 
-%$1.1$ TB de memoria para analizar las 595,665 operaciones. 
-%Es por esta razón que, para 3 qubits, estudiamos sólo las operaciones PCE 
-%que dejan invariantes desde 1 hasta 4 y desde 61 hasta 64 
-%componentes de Pauli. \cpnote{quizá debemos quitar este parrafo y la
-%correspondiente figra}
-%\begin{figure}
-%  \includegraphics[width=\textwidth]{memory_usage_3Q_5c}
-%  \caption{Memoria RAM utilizada por el método numérico para analizar las
-%  operaciones PCE de 3 qubits que dejan invariantes 5 componentes de Pauli.
-%  El método numérico fue ejecutado en Wolfram Mathematica 12.1, operando
-%  en una PC con procesador Intel® Xeon(R) E-2246G~@~3.60GHz×12 
-%  y sistema operativo Ubuntu 20.04.3 LTS. \ep}
-%  \label{fig:memory_usage_3Q_5c}
-%\end{figure}
 
 En la \Tref{tab:2qubitsPCEChannel1sAnd0s} (ir al apéndice A) mostramos
 todos los canales cuánticos PCE de 2 qubits y en la tabla 
@@ -431,9 +392,6 @@ la seccion}
 %Vamos a discutir cómo clasificar a los canales PCE y sobre las propiedades 
 %que comparten. 
 %
-%\cpnote{no entiendo esta frase}. 
-%Utilizaremos de forma recurrente la representación de las figuras PCE 
-%a lo largo de esta sección para hacer más intuitiva la discusión.
 
 %\esqueleto{Existen familias de canales PCE equivalentes. En las figuritas, 
 %esto se ve como transposiciones y permutaciones de filas y columnas. 
@@ -514,10 +472,6 @@ de uno de los subconjuntos maximales y el resto de canales se
 generarían mediante intercambios de partículas y permutaciones locales 
 de los elementos de la base. 
 
-\cpnote{Siento que acá frenas en seco. Tienes dos pequeños resultados que leugo no 
-capitalizas. Qeu hacemos con esas permutacion? Puedes mostrar todos los elementos que
-caen en una clase? Para que nos sirve este resultado?}
-\janote{Cierto. Agregué el párrafo que está antes de tu comentario.}
 
 %Si bien hemos enunciado ejemplos de canales PCE de 2 qubits para 
 %proporcionar intuición al lector, no debe olvidarse que nuestros resultados 
@@ -540,9 +494,6 @@ caen en una clase? Para que nos sirve este resultado?}
 
 Nuestros resultados de 2 y 3 qubits muestran que, en general, los canales 
 PCE siguen dos reglas:
-\cpnote{PCE y PCE repetido. creo que la calidad de la redaccion está bajando.}
-\janote{Parece que sí estaba cansado... creo que ya estaba harto (mamado
-en colombiano, a verga en chapín) de escribir XD}
 \begin{enumerate}
 	\item \textit{(Regla $2^k$)} Los canales PCE dejan invariantes una cantidad 
 	que es potencia de 2 de componentes de Pauli. No obstante, la regla $2^k$
@@ -558,8 +509,7 @@ en colombiano, a verga en chapín) de escribir XD}
 	
 	\item \textit{(Regla espejo)} El número de canales PCE de $n$ qubits
 	en función del exponente $k$, de las $2^k$ componentes de Pauli 
-	invariantes por el canal, es simétrico respecto a $k=n$\cpnote{No se entiende. Que tal si le das una revisada a la redaccion cuando andes descansado a lo que queda de esta seccion?}
-	\janote{Ahora mejor?}. 
+	invariantes por el canal, es simétrico respecto a $k=n$. 
 	En la \Fref{fig:mirroring} mostramos 
 	las gráficas del número de canales PCE de 1, 2 y 3 qubits 
 	en función de $k$, según el número de componente de Pauli 
