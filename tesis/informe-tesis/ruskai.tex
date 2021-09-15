@@ -1,14 +1,26 @@
 \chapter{CANALES DIAGONALES DE PAULI CONSTANTES SOBRE LOS EJES}
 
 \section{Introducción} % {{{
-\esqueleto{Para de último. Cuando estén escritas las secciones.}
+Todos los canales PCE de 1 qubit y algunos de 2 qubits pueden identificarse como
+casos particulares de un tipo de canales cuánticos que han sido 
+estudiados antes, llamados
+\ruskai{} \cite{nathanson2007pauli}. Por esta razón, es de nuestro interés,
+mirando en dirección al estudio analítico de los canales PCE, investigar antes
+si, en general, los canales PCE son subconjunto contenido dentro de los 
+\ruskai{}, o si, por el contrario, la relación de contención es a la inversa.
+
+La extensión de este capítulo es corta para dirigirnos rápidamente 
+hacia la conclusión. En la sección \ref{sec:ch4_ruskai} vamos a introducir la 
+definición de bases \textit{mutuamente imparciales}, su relación con un
+conjunto de operadores que forman una base del espacio $\mathcal{M}_d$ y,
+en función de cómo modifican a las componentes de la matriz de densidad 
+en esta base particular, la definición de un \ruskaiMap{}. Por útlimo, en la sección 
+\ref{sec:ch4_PCEnotRuskai} vamos a elaborar un argumento para mostrar 
+que no existe una relación de contención entre los canales PCE y los \ruskai{}.
 
 % }}}
-\section{Canales diagonales de Pauli constantes sobre los ejes} % {{{
-%\esqueleto{Introducir la definición de una MUB (es necesario para la definición de 
-%mapa de Ruskai) y dar un ejemplos de dos bases que sean MUB, sólo 
-%para aterrizar la idea.}
-
+\section{Canales diagonales de Pauli constantes sobre los ejes}
+\label{sec:ch4_ruskai} % {{{
 Dos bases ortonormales $\{\ket{\psi_m^J}\}_{m=0}^{d-1}$
 y $\{\ket{\psi_n^K}\}_{m=0}^{d-1}$ de un espacio de Hilbert
 de dimensión $d$ se dice que son \textit{mutuamente 
@@ -30,16 +42,7 @@ Dado que los sistemas cuánticos de nuestro interés en este trabajo son qubits
 no posean $d+1$ bases mutuamente imparciales. 
 
 La matriz de densidad de un sistema de qubits puede escribirse en términos 
-de operadores que generan a un conjunto de bases mutuamente imparciales
-%\cpnote{No 
-%entiendo que tiene que ver las MUBS aca. Con que se tenga una base ya se 
-%puede escribir una matriz de densidad. No entiendo esta anotación}
-%\janote{La idea principal de este párrafo es enfatizar que a partir 
-%de un conjunto de bases que son MUB puedes escribir a la matriz de 
-%densidad en una base particular. No es obvio que una MUB defina 
-%a los $W_J^m$ que formen una base de $\mathcal{M}_d$. Estoy 
-%como tratando de conectar para qué definí MUB en el párrafo anterior.}
-.
+de operadores que generan a un conjunto de bases mutuamente imparciales.
 Es posible definir, a partir de un conjunto de bases mutuamente imparciales,
 $d+1$ operadores unitarios $W_J$ como~\cite{nathanson2007pauli}
 \begin{align}\label{eq:W_J}
@@ -84,6 +87,8 @@ de densidad y las últimas dos que la operación sea completamente positiva
 \cpnote{Croe qe es necesario contextualizar un poco mejor estas operaciones. Aca
 aparecen como de manera magica. Quizá decir que se han estudiaro y el porque. 
 Te toca hacer una buena introduccion, porque por ahora parece raro}
+\janote{Listo. Nota que corté la introducción en dos párrafos porque un sólo párrafo se 
+iba a sentir discontinuo.}
 
 Nótese la similitud entre la definición en \eqref{eq:ruskai_definition} 
 de un canal diagonal de Pauli constante
@@ -100,65 +105,9 @@ de las operaciones PCE en las que los $\taus$ restringido a los valores 0 o 1.
 De hecho, es esta definición más general de los \ruskai{} la que motiva a
 investigar si los canales cuánticos PCE están contenidos dentro de ellos.
 
-%Los \ruskai{} pueden escribirse en la forma
-%\begin{align}
-%	\E=s\1 + \sum_{L}t_L\sum 
-%\end{align}
-%
-%Para $d=2^k$ se ha mostrado que existen $d+1$ bases mutuamente imparciales 
-%del espacio de Hilbert. 
-%
-%Para cualquier base 
-%\begin{align}
-%	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
-%\end{align}
-%con $i$ la unidad imaginaria. Se sigue que
-%\begin{align}
-%	\dyad{\psi_k^K}{\psi_k^K} = \frac{1}{d}\sum_{j=0}^{d-1}e^{-2\pi n j i/d}W_J^j 
-%	= \frac{1}{d}\qty[\1 + \sum_{j=1}^{d-1}e^{-2\pi n j i/d}W_J^j]
-%\end{align}
-%
-%Bla bla bla... toda la casaca para llegar a que la matriz de densidad se puede 
-%escribir como 
-%\begin{align}
-%\rho=\frac{1}{d}\qty[\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j],
-%\end{align}
-
-
-%donde $W_J$ son operadores unitarios que generan a $d+1$ bases  
-%$\{\ket{\psi_m^J}\}_{m=0}^{d-1}$
-%mutuamente imparciales y que se definen como
-%\begin{align}
-%	W_J=\sum_{k=1}^d e^{2\pi k i/d} \dyad{\psi_k^K}{\psi_k^K}, 
-%\end{align}
-%La identidad $\1$ junto con los operadores $\{ W_J^j\}$ forman 
-%una base ortogonal de unitarias
-%del espacio $\mathcal{M}_d$ de las matrices de $d\times d$ \janote{revisar 
-%notación con el cap 1} que satisfacen la relación de ortogonalidad, 
-%en el sentido de Hilbert-Schmidt, $\Tr(W_J^{d-m}W_K^n)=d\delta_{JK}\delta_{mn}$.
-%
-%%\esqueleto{Introducir qué es un mapa de Ruskai (definición que pusimos 
-%%en el documento para Sergei y para Francois).}
-%%
-%%La acción de un canal de Pauli constante sobre los ejes $\Phi$ se define 
-%%como~\cite{nathanson2007pauli}
-%%\begin{align}
-%%	\Phi :  \frac{1}{d}\qty[\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j
-%%	\longmapsto 
-%%	\1+\sum_{J=1}^{d+1}\lambda_J\sum_{j=1}^{d-1} v_{Jj}W_J^j],
-%%\end{align}
-%%de tal forma que $v_{Jj}\mapsto \lambda_Jv_{Jj}$ y $\lambda_J$ los eigenvalores 
-%%de la operación $\Phi$.
-%
-%\esqueleto{Dar algunos ejemplos de mapas de Ruskai}
-%
-%Los canales PCE de 1 qubit son Ruskai. Las matrices de Pauli son generadores 
-%de 3 bases ortonormales mutuamente imparciales.
-%
-%También hay algunos PCE de 2 qubits que son claramente Ruskai \janote{será??}
-
 % }}}
-\section{Relación con canales cuánticos PCE} % {{{
+\section{Relación con canales cuánticos PCE} 
+\label{sec:ch4_PCEnotRuskai}% {{{
 %\esqueleto{Queremos estudiar si los canales PCE son un subconjunto 
 %de los mapas de Ruskai.}
 
@@ -187,13 +136,14 @@ de 1 qubit son un caso particular de los \ruskai{} cuando $d=2$.
 Sin embargo, en general, no existe relación de contención entre los canales cuánticos PCE 
 y los \ruskai{}. Para demostrar esta proposición vamos a utilizar como 
 argumento la incompatibilidad entre los rangos de los canales PCE
-y de los \ruskai{}. Recordemos que el rango de una matriz es igual 
-al número de eigenvalores distintos de cero 
-\cite{axler1997linear,lang2012introduction}.
-Además, de los teoremas elementales de álgebra lineal se puede mostrar que 
-rango de una matriz es invariante ante cambios de base \cite{axler1997linear}.
+y de los \ruskai{}. 
+De las definiciones y teoremas elementales de álgebra lineal será útil 
+recordar que el rango de 
+una matriz es igual al número de eigenvalores distintos de cero, y los eigenvalores
+son invariantes ante cambios de base \cite{axler1997linear,lang2012introduction}. 
 \cpnote{Es mucho mas simple. Los eigenvalores no cambian con 
 un cambio de base. Simplifica el argumento.}
+\janote{listo}
 
 Por un lado, de la definición en \eqref{eq:ruskai_definition} es claro que un \ruskaiMap{}
 tiene hasta $d+1$ eigenvalores $\lambda_J$ distintos de cero 
