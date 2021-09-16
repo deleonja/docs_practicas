@@ -12,15 +12,19 @@ si, en general, los canales PCE son subconjunto contenido dentro de los
 La extensión de este capítulo es corta para dirigirnos rápidamente 
 hacia la conclusión. En la sección \ref{sec:ch4_ruskai} vamos a introducir la 
 definición de bases \textit{mutuamente imparciales}, su relación con un
-conjunto de operadores que forman una base del espacio $\mathcal{M}_d$ y,
+conjunto de operadores que forman una base del espacio $\mathcal{M}_d$ \cpnote{no
+creo qeu el lector se acuerde de que es ese conjunto. Quiza lo puedes referenciar 
+por nombre aca y luego en el cuerpo del capitulo mencionar el simbolo y el espacio, 
+o referenciar donde se introdujo} y,
 en función de cómo modifican a las componentes de la matriz de densidad 
 en esta base particular, la definición de un \ruskaiMap{}. Por útlimo, en la sección 
 \ref{sec:ch4_PCEnotRuskai} vamos a elaborar un argumento para mostrar 
 que no existe una relación de contención entre los canales PCE y los \ruskai{}.
 
+
+\cpnote{Me gusto mucho mas esta intro que la de la 3. }
 % }}}
-\section{Canales diagonales de Pauli constantes sobre los ejes}
-\label{sec:ch4_ruskai} % {{{
+\section{Canales diagonales de Pauli constantes sobre los ejes} \label{sec:ch4_ruskai} % {{{
 Dos bases ortonormales $\{\ket{\psi_m^J}\}_{m=0}^{d-1}$
 y $\{\ket{\psi_n^K}\}_{m=0}^{d-1}$ de un espacio de Hilbert
 de dimensión $d$ se dice que son \textit{mutuamente 
@@ -84,11 +88,6 @@ son
 La primera condición asegura que la operación preserva la traza de la matriz 
 de densidad y las últimas dos que la operación sea completamente positiva
 \cite{nathanson2007pauli}.
-\cpnote{Croe qe es necesario contextualizar un poco mejor estas operaciones. Aca
-aparecen como de manera magica. Quizá decir que se han estudiaro y el porque. 
-Te toca hacer una buena introduccion, porque por ahora parece raro}
-\janote{Listo. Nota que corté la introducción en dos párrafos porque un sólo párrafo se 
-iba a sentir discontinuo.}
 
 Nótese la similitud entre la definición en \eqref{eq:ruskai_definition} 
 de un canal diagonal de Pauli constante
@@ -106,8 +105,7 @@ De hecho, es esta definición más general de los \ruskai{} la que motiva a
 investigar si los canales cuánticos PCE están contenidos dentro de ellos.
 
 % }}}
-\section{Relación con canales cuánticos PCE} 
-\label{sec:ch4_PCEnotRuskai}% {{{
+\section{Relación con canales cuánticos PCE} \label{sec:ch4_PCEnotRuskai}% {{{
 %\esqueleto{Queremos estudiar si los canales PCE son un subconjunto 
 %de los mapas de Ruskai.}
 
@@ -141,9 +139,9 @@ De las definiciones y teoremas elementales de álgebra lineal será útil
 recordar que el rango de 
 una matriz es igual al número de eigenvalores distintos de cero, y los eigenvalores
 son invariantes ante cambios de base \cite{axler1997linear,lang2012introduction}. 
-\cpnote{Es mucho mas simple. Los eigenvalores no cambian con 
-un cambio de base. Simplifica el argumento.}
-\janote{listo}
+% \cpnote{Es mucho mas simple. Los eigenvalores no cambian con 
+% un cambio de base. Simplifica el argumento.}
+% \janote{listo}
 
 Por un lado, de la definición en \eqref{eq:ruskai_definition} es claro que un \ruskaiMap{}
 tiene hasta $d+1$ eigenvalores $\lambda_J$ distintos de cero 
