@@ -81,7 +81,7 @@ Para entender algebraicamente cómo actúan estos canales cuánticos
 recordemos que la matriz de densidad de 1 qubit se escribe en la 
 base de matrices de Pauli como
 \begin{align}\label{eq:rho-1qubit-ch2}
-\rho=\frac{1}{2}\sum_{i=0}^3r_i\sigma_i,\hspace{2cm}r_0=1,
+\rho=\frac{1}{2}\sum_{i=0}^3r_i\sigma_i,\qquad r_0=1,
 \end{align}
 donde $r_1$, $r_2$ y $r_3$ especifican las coordenadas $\qty(x,y,z)$ 
 del vector de Bloch. El canal \textit{bit-flip} transforma a las componentes 
@@ -119,19 +119,19 @@ esfera de Bloch, para $p=0.3$. \ep}
 %casos particulares de otros que son canales. Introducir el punto de vista
 %de esos canales como operaciones que borran componentes.}
 Vamos a detenernos a analizar qué ocurre cuando $p=1/2$. 
-En este caso, \eqref{eq:bit-flip-transformation} y
+Las expresiones \eqref{eq:bit-flip-transformation} y
 \eqref{eq:defasing-transformation} se escriben
 \begin{align}\label{eq:bit-flip_p=0.5}
 \qty(1,r_1,r_2,r_3)&\longmapsto \qty(1,r_1,0,0),\\
 \qty(1,r_1,r_2,r_3)&\longmapsto \qty(1,0,0,r_3).\label{eq:defasing_p=0.5}
 \end{align}
-Es decir que, el \textit{bit-flip} y \textit{defasing} cuando $p=1/2$
+Es decir que, los canales \textit{bit-flip} y \textit{defasing} cuando $p=1/2$
 son operaciones que mapean la esfera de Bloch a una línea sobre 
 el eje mayor de los elipsoides en las Figs. \ref{fig:bit-flip} y \ref{fig:phase-flip}.
-Va a ser útil que interpretemos a estos canales cuánticos 
-como operaciones que `borran' dos de las proyecciones
+Va a ser práctico referirnos a estos canales cuánticos 
+como operaciones que \textit{borran} dos de las proyecciones
 $r_i$  de la matriz de densidad de 1 qubit sobre
-las matrices de Pauli y que dejan al resto de componentes $r_j$ invariantes.
+las matrices de Pauli, y que \textit{preservan} al resto de las $r_j$.
 
 %\esqueleto{Conducir al lector a preguntarse: `bueno, entonces deplano
 %que puedo borrar cualquier cantidad de componentes de Pauli, ¿no? ¡¿NO?!', 
@@ -144,52 +144,37 @@ las matrices de Pauli y que dejan al resto de componentes $r_j$ invariantes.
 %existe por lo menos un estado entrelazado en el espacio de 2 qubits 
 %que se mapea a un no estado.}
 
-Las operaciones 	que se describen en \eqref{eq:bit-flip_p=0.5}
-y \eqref{eq:defasing_p=0.5} sugieren preguntarse si todas las
-operaciones que borran cualesquiera de las componentes $r_i$ 
-de la matriz de densidad de 1 qubit 
-en \eqref{eq:rho-1qubit-ch2} son canales cuánticos.
-%La pregunta es relevante porque la respuesta es
-%que no.
-La pregunta tiene relevancia porque tiene una respuesta no trivial.
-Si consideráramos este tipo de operaciones para sistemas 
-cerrados, entonces la condición de completa positividad no es necesaria. 
-y sería suficiente que las propiedades de la matriz de densidad de 1 
-qubit se preserven. Es evidente que la traza y positividad de la matriz de 
-densidad se preservan, dado que la imagen de estas operaciones son estados que se encuentran dentro de la esfera 
-de Bloch. Sin embargo, es en el contexto de los sistemas
-abiertos que este tipo de operaciones no satisfacen trivialmente
-las condiciones para representar la evolución de un sistema físico, derivado 
-de requerir también la completa positividad. 
+%Las operaciones descritas en las expresiones \eqref{eq:bit-flip_p=0.5}
+%y \eqref{eq:defasing_p=0.5} sugieren preguntarse si son canales cuánticos
+%todas las operaciones que borran cualquier subconjunto $\{r_i\}$ 
+%de la matriz de densidad \eqref{eq:rho-1qubit-ch2} de 1 qubit.
+
+Operaciones como las descritas en las expresiones \eqref{eq:bit-flip_p=0.5}
+y \eqref{eq:defasing_p=0.5} son interesantes porque modelan
+un tipo de decoherencia en un sistema de dos niveles.
+La decoherencia es el proceso mediante el cual un sistema 
+pasa de encontrarse en una superposición de estados a sólo
+uno de los estados de la superposición \cite{zeh1970interpretation}. 
+En consecuencia, vale la pena preguntarse si son canales cuánticos
+todas las operaciones que borran cualquier subconjunto $\{r_i\}$ 
+de la matriz de densidad \eqref{eq:rho-1qubit-ch2} de 1 qubit.
+Sin embargo, en el capítulo anterior discutimos una operación de 
+este tipo que no satisface la completa positividad.
+En la sección \ref{sec:qtm-channels} elaboramos el ejemplo de la operación $\E_z$,
+que borra la componente $r_3$, y mostramos que no es un canal 
+cuántico porque $\E_z\ot\1_2$, que actúa sobre una matriz de densidad de 2 qubits,
+no transforma a la matriz de densidad del estado máximamente entrelazado 
+en una matriz positiva.
+En resumen, $\E_z$ es un ejemplo de que no todas las operaciones 
+que borran las componentes $r_i$ de la matriz de densidad de 1 qubit
+son canales cuánticos.
 \cpnote{Sigo no satisfecho. Decir que algo es relevante porque no es trivial
 no es un buen motivo. Hay muchas cosas no triviales aburridas.}
-% \cpnote{Se me hace una justificación mala. Quiza podemos quitar
-% esa frase}\janote{Aquí quiero debatirte porque creo que redactado 
-% de otra manera puedo convencerte (y porque así es cómo defendería
-% la motivación del problema en la defensa de tesis). Preguntarnos si 
-% las operaciones PCE de 1 qubit son trivialmente canales cuánticos y darnos cuenta
-% que no, porque la CP no es trivialmente satisfecha, me 
-% parece una motivación fuerte para proponer investigar operaciones 
-% PCE de más qubits y buscar caracterizar a los canales cuánticos PCE.
-% Supongamos por un momento que todas las operaciones PCE de 
-% 1 qubit son CP, intuitivamente entonces no habría razón para pensar que la 
-% CP no es trivialmente satisfecha para los PCE de 2 qubits.
-% En conclusión, que hayan operaciones PCE de 1 qubit no CP puede ser 
-% un primer motivo para estudiar 2 qubits.}\cpnote{Creo que tienes razon, pero entonces
-% sugeriria expandir un poco mas esta frase y la anterior}
-% \janote{Listo}
-En el capítulo anterior, en la sección 
-\ref{sec:qtm-channels}, elaboramos el ejemplo de la operación $\E_z$
-que borra la componente $r_3$ y demostramos que no es un canal 
-cuántico porque no es una operación completamente positiva. 
-Vimos que no satisfacer esta condición implica que la operación 
-$\E_z\ot\1$, que actúa sobre una matriz de densidad de 2 qubits,
-no transforma a la matriz 
-de densidad del estado máximamente entrelazado en otra 
-matriz de densidad.
-Es decir, la operación $\E_z$ es un ejemplo de una 
-operación de 1 qubit que borra un subconjunto de las componentes $r_i$ de 
-la matriz de densidad \eqref{eq:rho-1qubit-ch2} y que no es canal cuántico.
+\janote{Hice una reestructuración un tanto mayor del párrafo completo. 
+Por favor ten en mente que
+este párrafo no hace referencia a por qué es interesante el problema 
+de $n$ qubits, sólo el de 1 qubit. En este párrafo sólo estoy queriendo 
+justificar porqué estudiar las operaciones PCE de 1 qubit.}
 
 %\esqueleto{Motivar a pensar que si la CP ya impide que algunas 
 %operaciones que borran componentes de Pauli de 1 qubit no sean
@@ -199,39 +184,51 @@ la matriz de densidad \eqref{eq:rho-1qubit-ch2} y que no es canal cuántico.
 %va a importar cuáles componentes se borran y en este punto debería 
 %ser una pregunta importante para quien no sepa la respuesta)}
 
-La restricción que impone la completa positividad a un canal cuántico 
-vuelve interesante estudiar a los canales cuánticos que borran las componentes 
-de la matriz de densidad de un sistema de qubits en la base de matrices 
-de Pauli. Revisemos el problema de 2 qubits. La matriz de densidad
-se escribe
+La extensión de este tipo de canales cuánticos para sistemas de más qubits no es 
+trivial de inferir a partir del caso de 1 qubit. 
+Vamos a elaborar esta idea discutiendo el problema de 2 qubits.
+La matriz de densidad para un sistema de 2 qubits se puede escribir,
+utilizando la base de productos tensoriales de las matrices de Pauli, como
 \begin{align}\label{eq:rho_2qubits_cap2}
 \rho = \frac{1}{4}\sum_{i,j=0}^3r_{ij}\sigma_i\ot\sigma_j, 
-\hspace{2cm} r_{0,0}=1.
+\qquad r_{0,0}=1.
 \end{align}
-Hay 15 componentes $r_{ij}$ que se podrían borrar o dejar invariantes. 
-Por consiguiente, hay $32,768$ $(2^{15})$ operaciones distintas que borran las 
-componentes de la matriz de densidad \eqref{eq:rho_2qubits_cap2} de 2 qubits. 
-El número de operaciones de este tipo crece de manera doblemente 
-exponencial 
-como $2^{4^n-1}$, con $n$ el número de qubits. Sin embargo, no es 
-sólo el crecimiento exponencial en el número de operaciones de este tipo
-lo que hace interesante al problema, sino también el hecho de que en 
-sistemas de más de 1 qubit aparecen correlaciones cuánticas entre 
-las particiones del sistema. Por consiguiente, no es trivial inferir cuáles son los 
-canales cuánticos que borran las componentes $r_{ij}$ de 
-\eqref{eq:rho_2qubits_cap2} a partir de los canales cuánticos 
-de 1 qubit que borran las componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}.
+Recordemos de la expresión \eqref{eq:defasing_p=0.5} que la operación de 1 qubit
+que preserva $r_3$ es un canal cuántico. Seguidamente, uno podría preguntarse
+si existe una operación de 2 qubits que preserve
+$r_{30}$ y $r_{03}$, o sea, la componente $r_3$ local de cada qubit. 
+Lo único que podemos contestar es que debe existir una o varias operaciones
+de 2 qubits que, del subconjunto de componentes de la forma $r_{i0}$ y $r_{0j}$,
+preserven únicamente a $r_{30}$ y $r_{03}$, pero nada podemos inferir 
+sobre cómo se transforman las componentes $r_{ij}$ $(i,j\ne 0)$, 
+las correlaciones cuánticas entre los dos qubits. 
+En general, para un sistema de $n$ qubits, si conociéramos todos los canales cuánticos
+de $n-1$ qubits de este tipo, sólo podríamos inferir cómo se transforman las componentes 
+de todas las posibles particiones de $n-1$ qubits, pero seguiríamos sin poder inferir
+cómo se transforman las correlaciones cuánticas $r_{j_1,\ldots,j_n}$ 
+que comparten los $n$ qubits.
 
-%\esqueleto{Ya, no más rodeos y finiquitar con la expresión de $\rho$ para 
-%$n$ qubits en la base de Pauli y definir formalmente una operación PCE.}
+%Hay 15 componentes $r_{ij}$ que podrían ser preservadas o borradas por completo.
+%Por consiguiente, hay $2^{15}$ operaciones distintas que borran las 
+%componentes de la matriz de densidad \eqref{eq:rho_2qubits_cap2} de 2 qubits. 
+%Para $n$ qubits, el número de operaciones de este tipo crece de manera doblemente 
+%exponencial como $2^{4^n-1}$. 
+%También hace interesante el estudio de este tipo de canales cuánticos 
+%preguntarse cómo actúan estos canales sobre las correlaciones cuánticas 
+%entre las particiones del sistema. Es decir, supongamos un sistema de 2 qubits.
+%No es obvio inferir cuáles son los canales cuánticos que borran las componentes 
+%$r_{ij}$ de \eqref{eq:rho_2qubits_cap2} a partir únicamente de los canales cuánticos 
+%de 1 qubit que borran las componentes $r_i$ de \eqref{eq:rho-1qubit-ch2}.
+%En conclusión, el estudio de este tipo de canales cuánticos para sistemas de $n$
+%qubits es un problema rico desde el punto de vista matemático.
 
-Sin más, introducimos ahora la definición de una operación PCE de 
+Vamos a introducir ahora la definición de una operación PCE de 
 $n$ qubits. La matriz de densidad de un sistema de $n$ qubits, en la base de
 productos tensoriales de las matrices de Pauli, se escribe como
 \begin{align}\label{eq:rho_n_qubits}
 \rho=\frac{1}{2^n}\sum_{j_1,\ldots,j_n=0}^3
 r_{j_1,\ldots,j_n}\sigma_{j_1}\ot\ldots\ot\sigma_{j_n},
-\hspace{2cm} r_{0,\ldots,0}=1.
+\qquad r_{0,\ldots,0}=1.
 \end{align}
 Vamos a llamar ``componentes de Pauli'' a los coeficientes $r_{j_1,\ldots,j_n}$
 de \eqref{eq:rho_n_qubits}. Las componentes de Pauli son las proyecciones
