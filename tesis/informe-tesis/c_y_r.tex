@@ -63,9 +63,41 @@ para sistemas de $n$ qubits}
 % \end{itemize}
 % }
 
-\chapter{RECOMENDACIONES}
-\begin{enumerate}
-	\item Recomendación 1.
-	\item Recomendación 2.
-	\item Recomendación 3.
-\end{enumerate}
+\chapter{TRABAJO FUTURO}
+La evidencia que muestran nuestros resultados sobre una estructura 
+matemática de los canales cuánticos PCE apunta hacia una dirección 
+muy clara para el trabajo futuro inmediato: estudiar analíticamente la caracterización 
+general de los canales cuánticos PCE de $n$ qubits. Específicamente, hay algunas 
+tareas que proponemos realizar:
+\begin{itemize}
+\item Estudiar la diagonalización exacta de la matriz de Choi de las operaciones 
+PCE de $n$ qubits. Los eigenvectores de la matriz de Choi $D_{\E}$
+son un conjunto de operadores de Kraus del canal cuántico $\E$ 
+\cite{bengtsson_zyczkowski_2017}. Por lo tanto, 
+estudiar la representación de Kraus de los canales cuánticos PCE de 1, 2 y 3 qubits,
+que encontramos en este trabajo, podría proporcionar intuición 
+sobre los operadores de Kraus en el caso general y, por consiguiente, 
+sobre los eigenvectores de la matriz de Choi $D_{\E}$. 
+\item Estudiar la relación entre los conjuntos de índices $j_1,\ldots,j_n$
+de los $\taus=1$ de los canales cuánticos PCE. Esto fue lo que comenzamos 
+a hacer al elaborar las \textit{reglas empíricas} para construir canales PCE de 2 qubits
+al final de la sección \ref{sec:ch3_discussion}. Dado que un canal cuántico PCE 
+está completamente caracterizado por los valores 1's y 0's del conjunto $\qty{\taus}$, 
+entonces vale la pena explorar si existe alguna conexión entre los índices $j_1,\ldots,j_n$. de los 
+elementos $\taus=1$, y las características de los canales 
+cuánticos PCE discutidas en la sección \ref{sec:ch3_discussion}.
+\item Investigar la existencia de un conjunto generador de canales cuánticos 
+PCE. En la \Fref{fig:2qubits_PCEChannels_figs} es sencillo ver que la superposición
+de las dos primeras figuras PCE de la clase C${}_8^1$ dan como resultado 
+la primera figura PCE de la clase C${}_4^1$. Esto se traduce a que la 
+concatenación de dos canales PCE da como resultado otro canal PCE. Por lo tanto,
+sería interesante explorar más a fondo esta idea para investigar la existencia 
+de algún conjunto cuyos elementos generen al resto de canales cuánticos PCE 
+mediante alguna operación como la concatenación.
+\end{itemize}
+Por otro lado, a más largo plazo, otra línea futura de investigación puede ser 
+la de estudiar una generalización de los canales cuánticos PCE para sistemas 
+de $d$ niveles. Existen otras bases del espacio $\mathcal{M}_d$ de las matrices de 
+$d\times d$, como las matrices de GellMann o de Weyl, 
+que podrían utilizarse para estudiar operaciones proyectivas, es decir
+del tipo \textit{component erasing}, que actúan sobre sistemas de $d$ niveles.
