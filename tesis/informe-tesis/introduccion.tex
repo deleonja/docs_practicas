@@ -1,30 +1,43 @@
 %%% Haga el diseño que más le guste
 \chapter{INTRODUCCIÓN}
-\cpnote{Me parece un poco desproporcionado el manejo de los diferentes temas y creo que no llegas donde uno quiere llegar. Lo platicamos. }
+\esqueleto{Sistemas abiertos}
 
+Una descripción completa de un sistema cuántico requiere incluir la interacción
+con su entorno, otro sistema cuántico externo. Se conoce a estos sistemas 
+como sistemas cuánticos abiertos. Ningún sistema cuántico en la
+naturaleza está completamente aislado del resto del universo.  
+Por ejemplo, para describir con mayor generalidad a un átomo en una red óptica, se debe
+considerar que el átomo fue inicialmente preparado en un estado \textit{compartido} 
+con los demás átomos de la red. En consecuencia,
+la evolución de este tipo de sistemas no es unitaria, en general, como 
+la evolución de los sistemas ideales que no interactúan con su entorno. En ese sentido, 
+los canales cuánticos proporcionan una teoría que captura esta propiedad de 
+los sistemas abiertos. 
 
-\esqueleto{Ningún sistema cuántico en la vida real es un sistema completamente
-aislado del resto del universo. En realidad, todos los sistemas cuánticos interactúan,
-en menor o mayor grado, con un sistema cuántico externo que se conoce 
-como entorno.}
+\esqueleto{Qubits y decoherencia de 1 qubit}
 
+La decoherencia es un proceso al que irremediablemente están sujetos los 
+sistemas cuánticos abiertos. 
+Este fenómeno es el proceso mediante 
+el cual la superposición de estados en el que se encuentra un sistema colapsa a 
+sólo uno de los estados de la superposición (pierde su coherencia cuántica)
+a causa de la interacción con su entorno. 
+Los sistemas de dos niveles son 
+los más sencillos y con mucho interés teórico como para estudiar 
+la decoherencia de este tipo de sistemas. En información y computación 
+cuántica se conoce a estos sistemas como qubits, y son de gran importancia 
+porque son el análogo cuántico de los bits clásicos en 
+la implementación de la computación cuántica. 
+Algunos ejemplos de sistemas físicos que implementan a un qubit son el espín
+del electrón o la polarización de un fotón. Para un qubit,
+un tipo de decoherencia se puede entender como el colapso de su 
+estado cuántico $\ket{\psi}$ 
+%que en general es una superposición de dos 
+%estados ortonormales 
+%($\ket{0}$ y $\ket{1}$, o $\ket{+}$ y $\ket{-}$, etc),
+a un estado de alguna base ortonormal de un espacio complejo de dimensión dos. 
 
-\esqueleto{La decoherencia es un proceso al que irremediablemente están 
-sujetos los sistemas cuánticos abiertos. La decoherencia es el colapso de
-la superposición de estados de un sistema a sólo uno de los estados de la 
-superposición.}
+\esqueleto{Operaciones PCE}
 
-
-\esqueleto{La teoría de los canales cuánticos en un marco conceptual que puede  
-capturar la dinámica de los sistemas abiertos. Un canal cuántico
-es una operación que modela un Hamiltoniano o un circuito cuántico. Así mismo, 
-el proceso de decoherencia puede modelarse con canales cuánticos.}
-
-\esqueleto{Los sistemas de dos niveles son por excelencia los sistemas cuánticos
-más sencillos. Esto los hace los sistemas perfectos para comenzar a estudiar
-herramientas para describir la decoherencia. Para 1 qubit, la decoherencia
-puede modelarse con canales cuánticos de 1 qubit que han sido ampliamente 
-estudiados en el pasado.}
-
-\esqueleto{En este trabajo nuestro objetivo es estudia los canales cuánticos 
-que modelan la decoherencia de sistemas de $n$ qubits.}
+En este trabajo queremos estudiar una generalización para sistemas de varios 
+qubits de las operaciones que modelan el proceso de decoherencia de 1 qubit. 
