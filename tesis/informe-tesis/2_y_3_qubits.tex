@@ -1,32 +1,47 @@
 \chapter{RESULTADOS DE 2 Y 3 QUBITS}
 \section{Introducción} % {{{
-Este capítulo es el corazón de este manuscrito de tesis. 
-Vamos a presentar los resultados numéricos  de la búsqueda de 
-canales cuánticos PCE para 2 y, parcialmente, 3 qubits,
-y discutiremos cómo clasificarlos en subconjuntos y las propiedades que 
-inferimos de este tipo de canales cuánticos, en general.
-En la sección \ref{sec:ch3_resultados}, vamos a presentar 
-las listas de 1's y 0's, de los elementos $\tau_{ij}$ y $\tau_{ijk}$,
-que caracterizan a los canales cuánticos PCE,
-de forma similar como hicimos para los canales PCE de 1 qubit 
-en la \Tref{tab:1qubit_PCE}. Motivados en lo intricado de analizar a 
-las operaciones PCE a partir de las 
-listas de 1's y 0's, vamos a introducir en la sección 
-\ref{sec:ch3_geometric_representation}
-la representación geométrica de las figuras PCE, que permiten visualizar
-de manera intuitiva a estas operaciones. Con esta
-nueva representación vamos a presentar de nuevo nuestros resultados
-para discutir, en la sección \ref{sec:ch3_discussion}, cómo ordenarlos 
-en clases de equivalencia y comentar sobre las 
-propiedades que tienen en común los canales cuánticos PCE, en general. 
-Al final de este capítulo, 
-habremos presentado suficiente evidencia que apunta a que los canales PCE
-poseen una estructura matemática.
+Las características que muestran nuestros resultados de los 
+canales cuánticos de 2 y 3 qubits son muy específicas, 
+que al examinar el caso de 1 qubit no parecen obvias ni, mucho menos, 
+particulares de los canales PCE en general. Quizás el rasgo menos evidente 
+en el caso de 1 qubit es la clasificación que se puede hacer en
+subconjuntos cuyos elementos son equivalentes vía dos operaciones unitarias. 
+Por otro lado, otra característica de los canales PCE es que obedecen dos reglas, 
+una específica que un canal PCE debe preserva sólo potencias de dos 
+componentes de Pauli invariantes, y la otra regla establece una simetría,
+respecto a $k=n$, del número de canales PCE en función del exponente $k$
+de las $2^k$ componentes de Pauli que deja invariantes. Al examinar 
+de nuevo la \Tref{tab:1qubit_PCE} comprobamos que, efectivamente, 
+los canales PCE de 1 qubit tienen estas características. Sin embargo, 
+no habrían podido ser evidentes sino hasta examinar los casos de 2 y 3 qubits
+las características propias de los canales PCE. 
+
+La estructura de este capítulo es la siguiente.
+Recordemos que los elementos $\taus=0,1$ caracterizan por completo a una 
+operación PCE. De esa manera, en la sección \ref{sec:ch3_resultados} vamos a presentar
+las listas de 1's y 0's de los canales PCE de 2 y 3 qubits. En principio, las 
+listas con los valores de los $\taus$ son todo lo que necesitamos para investigar las características de 
+los canales cuánticos PCE. Sin embargo, aportan nula intuición para entender
+a los canales cuánticos PCE. Por lo tanto,
+vamos a introducir a las figuras PCE en la sección 
+\ref{sec:ch3_geometric_representation}, y veremos cómo las listas de 1's y 0's,
+aburridas y engorrosas de analizar, se vuelven emocionantes con esta 
+nueva herramienta, especialmente las figuras PCE de los canales 
+PCE de 2 qubits. Es como si los canales PCE, en esta representación
+geométrica, gritasen por si solos que obedecen una estructura matemática.
+Finalmente, en la sección \ref{sec:ch3_discussion} vamos a discutir 
+todas las observaciones que se pueden deducir de los canales cuánticos PCE
+de nuestros resultados. Vamos a discutir cómo ordenarlos, dos reglas 
+que obedecen las operaciones PCE para ser canales cuánticos y unas 
+reglas, basadas en observaciones empíricas de las figuras PCE, para 
+construir a casi todos los canales cuánticos de 2 qubits de este tipo. 
+
 \cpnote{Se me hace un poco seca la intro, pero que le vamos a hacer. Por ahi 
 para futuro me gustaría hacer algo un poco mas elaborado. Quizá por ejemplo algo acá
 presentando los resultados como tal de manera muy resumida. Si te da chance, y quieres
 mejorar esta intro, puedes partir en dos este parrafo. Uno donde discutas los resultados, 
 como un resumen, y otro donde discutas la estructura, esa parte esta bien. }
+\janote{listo}
 % }}}
 \section{Resultados}\label{sec:ch3_resultados} % {{{
 En esta sección vamos a presentar los canales cuánticos PCE de 2 y,
