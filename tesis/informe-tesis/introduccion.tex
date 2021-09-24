@@ -64,7 +64,7 @@
 %una estructura matemática. 
 
 
-\esqueleto{Por qué y cómo estudiar a los sistemas abiertos}
+% \esqueleto{Por qué y cómo estudiar a los sistemas abiertos}
 
 Para hacer una descripción completa de los sistemas cuánticos 
 con frecuencia se debe considerar la interacción con su entorno. Por un lado, 
@@ -77,17 +77,21 @@ Por ejemplo, para hacer una descripción más precisa de un átomo en el laborat
 necesita considerar su interacción con la radiación de fondo, 
 o para describir a un átomo atrapado en una red óptica se debe considerar, 
 en una primera aproximación, la interacción con sus próximos vecinos.
-Los canales cuánticos y la ecuación máster en la forma de Lindblad son algunas de las herramientas 
+Los canales cuánticos y la ecuación máster \cpnote{ecuación maestra. al menos asi
+le decimos en mexico.} en la forma de Lindblad son algunas
+de las herramientas 
 disponibles para describir la evolución de la matriz de densidad de
 los sistemas abiertos~\cite{nielsen_chuang_2011}. 
 
 
-\esqueleto{La decoherencia es un problema de interés.}
+% \esqueleto{La decoherencia es un problema de interés.}
 
 
 La decoherencia es un fenómeno con mucho interés por entender. 
 Ha sido un problema activo de estudio desde que 
 fue introducido por H. Dieter Zeh en 1970~\cite{zeh1970interpretation}.
+\cpnote{debatible. vreo que asi está en la wikipedia, pero buscaria una 
+redaccion mas conservadora}
 De manera muy general, la decoherencia es un proceso mediante el cual 
 un sistema pierde su coherencia cuántica. 
 Algunos ejemplos son el colapso de 
@@ -99,6 +103,7 @@ como una explicación para el colapso de la función de onda en la que el
 colapso es aparente y el 
 sistema en realidad sólo se desacopla de un sistema coherente más grande
 en el que interactúa con su entorno~\cite{schlosshauer2007decoherence}.
+\cpnote{Problematico. Lo platicamos}
 Por otro lado, en un sentido práctico y de aplicación, 
 el estudio y caracterización de la decoherencia 
 ayuda a entender el impacto que tiene en los protocolos de información 
@@ -124,27 +129,28 @@ cuántica~\cite{pepino2011open}.
 
 \esqueleto{operaciones PCE}
 
-En este trabajo introducimos las operaciones PCE 
-(por sus siglas en inglés, \textit{Pauli componente erasing}) que generalizan 
-las decoherencias de una partícula de dos niveles (qubits) para sistemas 
-de $n$ qubits. 
-Para evaluar si una operación PCE es un canal cuántico, i.e. si modela una evolución
-física de un sistema abierto, la operación debe ser completamente positiva
-y preservar las propiedades de la matriz de densidad~\citep{bengtsson_zyczkowski_2017}.
-El caso de 1 qubit es sencillo e ilustrativo para entender el punto de partida de nuestro problema. 
-Las operaciones PCE de 1 qubit borran 
-o preservan las componentes del vector de Bloch, y, de todas, son canales 
-cuánticos sólo aquellas que mapean 
-la esfera de Bloch al origen de coordenadas, a una línea sobre 
-los ejes cartesianos y a sí misma (la operación
-identidad). Estos canales cuánticos modelan la decoherencia de un
-sistema de dos niveles cuando su estado se transforma al estado máximamente 
-mixto, cuando colapsa a alguno de los eigenestados
-de las matrices de Pauli y cuando el estado no se modifica. 
-Específicamente, en este trabajo buscamos numéricamente las operaciones 
-PCE de 2 y, parcialmente, de 3 qubits que satisfacen la completa positividad 
-y analizamos las características en común para buscar pistas de 
-una caracterización general de este tipo de canales cuánticos. Además, estudiamos
-los canales de Pauli constantes sobre los ejes, de Nathanson y Ruskai~\cite{nathanson2007pauli},
-para investigar si los canales cuánticos PCE pudieran ser un subconjunto que pertenece
-a otros canales de Pauli que ya han sido estudiados. 
+En este trabajo introducimos las operaciones PCE (por sus siglas en inglés,
+\textit{Pauli componente erasing}) que generalizan las decoherencias de una
+partícula de dos niveles (qubits) para sistemas de $n$ qubits.  Para evaluar si
+una operación PCE es un canal cuántico, i.e. si modela una evolución física de
+un sistema abierto, la operación debe ser completamente positiva y preservar
+las propiedades de la matriz de densidad~\citep{bengtsson_zyczkowski_2017}.  El
+caso de 1 qubit es sencillo e ilustrativo para entender el punto de partida de
+nuestro problema.  Las operaciones PCE de 1 qubit borran o preservan las
+componentes del vector de Bloch, y, de todas, son canales cuánticos sólo
+aquellas que mapean la esfera de Bloch al origen de coordenadas, a una línea
+sobre los ejes cartesianos y a sí misma (la operación identidad). Estos canales
+cuánticos modelan la decoherencia de un sistema de dos niveles cuando su estado
+se transforma al estado máximamente mixto, cuando colapsa a alguno de los
+eigenestados de las matrices de Pauli y cuando el estado no se modifica.
+Específicamente, en este trabajo buscamos numéricamente las operaciones PCE de
+2 y, parcialmente, de 3 qubits que satisfacen la completa positividad y
+analizamos las características en común para buscar pistas de una
+caracterización general de este tipo de canales cuánticos. Además, estudiamos
+los canales de Pauli constantes sobre los ejes, de Nathanson y
+Ruskai~\cite{nathanson2007pauli}, para investigar si los canales cuánticos PCE
+pudieran ser un subconjunto que pertenece a otros canales de Pauli que ya han
+sido estudiados. 
+
+
+
