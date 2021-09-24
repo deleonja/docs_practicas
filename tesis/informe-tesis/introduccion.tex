@@ -64,39 +64,87 @@
 %una estructura matemática. 
 
 
-\esqueleto{El estudio de los sistemas cuánticos abiertos }
+\esqueleto{Por qué y cómo estudiar a los sistemas abiertos}
 
-Una descripción completa de los sistemas cuánticos debe, a menudo, considerar
-que los sistemas están abiertos a interactuar con su entorno. Por un lado, 
-en la naturelaza no existe tal cosa como un sistema cuántico ideal que 
-se encuentre aislado por completo del resto del universo. Por el otro, 
-el estudio de los sistemas que hacen parte de un sistema más grande 
-de muchos cuerpos requiere herramientas que capturen las interacciones, 
-deseadas o no, entre el sistema completo. Por ejemplo, una descripción más
-precisa de un átomo \textit{aislado} en el laboratorio requiere considerar 
-su interación con la radiación de fondo o para describir un átomo atrapado 
-en una red óptica es evidente que es necesario, por lo menos, considerar 
-su interacción con los átomos que se encuentran en su vecindad.
+Para hacer una descripción completa de los sistemas cuánticos 
+con frecuencia se debe considerar la interacción con su entorno. Por un lado, 
+en la naturelaza no existen los sistemas cuánticos ideales que 
+están completamente aislados del resto del universo. 
+Por el otro, en sistemas de muchos cuerpos es necesario un formalismo
+con el que se pueda describir la evolución de un subsistema considerando
+que en general interactúa con la partición restante del sistema.
+Por ejemplo, para hacer una descripción más precisa de un átomo en el laboratorio se
+necesita considerar su interacción con la radiación de fondo, 
+o para describir a un átomo atrapado en una red óptica se debe considerar, 
+en una primera aproximación, la interacción con sus próximos vecinos.
+Los canales cuánticos y la ecuación máster en la forma de Lindblad son algunas de las herramientas 
+disponibles para describir la evolución de la matriz de densidad de
+los sistemas abiertos~\cite{nielsen_chuang_2011}. 
 
-\esqueleto{El fenómeno mediante el que los sistemas de dos niveles 
-pierden su coherencia cuántica es de suficiente interés.}
 
-La decoherencia de sistemas de dos niveles (qubits) es un problema amplio 
-y con mucho interés por entender. 
-Existen distintos modelos de decoherencia como el colapso de la función 
-de onda, la disipación de energía de un sistema hasta llevarlo a su estado 
-fundamental y el mapeo de los estados puros a estados mixtos, entre otros.
+\esqueleto{La decoherencia es un problema de interés.}
+
+
+La decoherencia es un fenómeno con mucho interés por entender. 
+Ha sido un problema activo de estudio desde que 
+fue introducido por H. Dieter Zeh en 1970~\cite{zeh1970interpretation}.
+De manera muy general, la decoherencia es un proceso mediante el cual 
+un sistema pierde su coherencia cuántica. 
+Algunos ejemplos son el colapso de 
+la función de onda, la disipación de energía 
+de un sistema hasta llevarlo a su estado fundamental y la transformación de los 
+estados puros a estados mixtos, entre otros.
+Desde un punto de vista teórico, se ha propuesto la decoherencia 
+como una explicación para el colapso de la función de onda en la que el 
+colapso es aparente y el 
+sistema en realidad sólo se desacopla de un sistema coherente más grande
+en el que interactúa con su entorno~\cite{schlosshauer2007decoherence}.
+Por otro lado, en un sentido práctico y de aplicación, 
+el estudio y caracterización de la decoherencia 
+ayuda a entender el impacto que tiene en los protocolos de información 
+cuántica~\cite{pepino2011open}. 
+
+%La decoherencia de sistemas de dos niveles (qubits) es un problema amplio 
+%y con mucho interés por entender. 
+%Existen distintos modelos de decoherencia como el colapso de la función 
+%de onda, la disipación de energía de un sistema hasta llevarlo a su estado 
+%fundamental y el mapeo de los estados puros a estados mixtos, entre otros.
 %   
 %Los sistemas cuánticos
 %abiertos son sistemas que están sujetos irremediablemente a la decoherencia. 
 %Algunos de los fenómenos de decoherencia para 1 qubit son el proceso mediante
 %el cual el estado del sistema, una superposición de dos estados, 
-La coherencia cuántica de los estados de los qubits es fundamental 
-para realizar computación cuántica. En información cuántica existe un interés por 
-entender el impacto de los fenómenos de decoherencia 
-en los protocolos de información cuántica.  
-Por su relevancia en la implementación y por su sencillez matemática 
-los sistemas de qubits son un excelente punto de partida para investigar la
-decoherencia.
+%La coherencia cuántica de los estados de los qubits es fundamental 
+%para realizar computación cuántica. En información cuántica existe un interés por 
+%entender el impacto de los fenómenos de decoherencia 
+%en los protocolos de información cuántica.  
+%Por su relevancia en la implementación y por su sencillez matemática 
+%los sistemas de qubits son un excelente punto de partida para investigar la
+%decoherencia.
 
 \esqueleto{operaciones PCE}
+
+En este trabajo introducimos las operaciones PCE 
+(por sus siglas en inglés, \textit{Pauli componente erasing}) que generalizan 
+las decoherencias de una partícula de dos niveles (qubits) para sistemas 
+de $n$ qubits. 
+Para evaluar si una operación PCE es un canal cuántico, i.e. si modela una evolución
+física de un sistema abierto, la operación debe ser completamente positiva
+y preservar las propiedades de la matriz de densidad~\citep{bengtsson_zyczkowski_2017}.
+El caso de 1 qubit es sencillo e ilustrativo para entender el punto de partida de nuestro problema. 
+Las operaciones PCE de 1 qubit borran 
+o preservan las componentes del vector de Bloch, y, de todas, son canales 
+cuánticos sólo aquellas que mapean 
+la esfera de Bloch al origen de coordenadas, a una línea sobre 
+los ejes cartesianos y a sí misma (la operación
+identidad). Estos canales cuánticos modelan la decoherencia de un
+sistema de dos niveles cuando su estado se transforma al estado máximamente 
+mixto, cuando colapsa a alguno de los eigenestados
+de las matrices de Pauli y cuando el estado no se modifica. 
+Específicamente, en este trabajo buscamos numéricamente las operaciones 
+PCE de 2 y, parcialmente, de 3 qubits que satisfacen la completa positividad 
+y analizamos las características en común para buscar pistas de 
+una caracterización general de este tipo de canales cuánticos. Además, estudiamos
+los canales de Pauli constantes sobre los ejes, de Nathanson y Ruskai~\cite{nathanson2007pauli},
+para investigar si los canales cuánticos PCE pudieran ser un subconjunto que pertenece
+a otros canales de Pauli que ya han sido estudiados. 
