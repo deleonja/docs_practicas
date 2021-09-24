@@ -264,35 +264,6 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 	Los estados del sistema total están descritos por las matrices de 
 	densidad que actúan sobre $\hi _{\text{total}}$.
 \end{itemize}
-
-% Respecto al último postulado debemos resaltar que no todos 
-% los estados del sistema total son de la forma $\rho=\rho_1
-% \ot \ldots \ot \rho_N$. Es decir, no todos los estados del sistema 
-% total son factorizables \cpnote{Acá tenemos que hablar. Hay varios tipos de estados, 
-% los factorizables, los separables y los enlazados. Siento que no conoces la diferencia 
-% entre los primeros dos. Hablamos y corriges este parrafo por favor}
-% \janote{Ve directo al siguiente comentario}, pues el
-% conjunto de los estados del sistema total también está compuesto por estados 
-% no factorizables, también llamados entrelazados.
-% Son justo los estados entrelazados los que conducen a hacernos preguntas
-% como ¿cuál es el estado en el que se encuentra sólo una parte del sistema total?
-% Seremos más claros con un ejemplo. Si un sistema bipartito 
-% se encuentra en un estado factorizable $\rho\ot \sigma$ sabemos 
-% que una parte del sistema se encuentra en el estado $\rho$ y la otra 
-% en el estado $\sigma$. No obstante, ¿cuál es el estado
-% de bipartición del sistema cuando el estado total es uno entrelazado
-% ($\rho_{\text{total}}\neq\rho\ot \sigma$)? O,
-% al menos, es deseable conocer cuál es la información accesible 
-% para un observable de sólo una parte del sistema. Para responder a 
-% estas preguntas revisaremos en lo que resta de esta sección
-% la matriz de densidad reducida. Esta aplicación de la matriz de densidad 
-% proporciona una herramienta para la descripción de subsistemas 
-% de sistemas cuánticos compuestos~\cite{nielsen_chuang_2011}.
-% \cpnote{Creo que igual este párrafo sobra. De nuevo, lo platicamos}
-% \janote{Quisiera mantenerlo porque hace una transición de hablar 
-% de los postulados a la matriz de densidad reducida. Lo iteré y es 
-% el párrafo nuevo que le sigue a este comentario:}
-
 Debemos resaltar que aunque el espacio de Hilbert de muchas partículas 
 es de la forma \eqref{eq:postulado4} no todas las matrices de densidad
 que actúan sobre son de la forma 
@@ -306,9 +277,6 @@ Por esta razón, para averiguar cómo describir a los subsistemas con
 el formalismo de la matriz de densidad es que vamos a revisar a continuación
 cómo introducir la matriz de densidad reducida utilizando una herramienta
 conocida como la traza parcial \cite{nielsen_chuang_2011}. 
-% \janote{Si este párrafo te pareció bien habría que borrar el anterior.}
-
-
 
 Supongamos dos subsistemas $A$ y $B$ cuyo estado total es 
 $\rho^{AB}$ (en general $\rho^{AB}\neq \rho^A\ot \rho^B$). 
@@ -336,16 +304,15 @@ $\expval{\Omega_A\ot \1}$, utilizando~\eqref{eq:Tr(rhoLambda)},~es
 	\qty(\Omega_A\ot \mathbb{1})\ket{\psi_i} \ket{\phi_j}\nonumber\\
 	&= \sum _{i,j,k,l} 
 	\bra{\psi_i} \bra{\phi_j}\rho^{AB}\ket{\psi_k} \ket{\phi_l}
-	\matrixel{\psi_k}{\Omega_A}{\psi_i}\delta _{lj}\nonumber\\
-	&= \sum_{i,k}\qty(\sum _j 
+	\matrixel{\psi_k}{\Omega_A}{\psi_i}\delta _{lj}\nonumber
+\end{align}
+\begin{align}
+	\hspace{1.81cm}
+	\Tr \qty(\rho^{AB}\qty(\Omega_A\ot \mathbb{1}))&= \sum_{i,k}\qty(\sum _j 
 	\bra{\psi_i} \bra{\phi_j}\rho^{AB}\ket{\psi_k} \ket{\phi_j})
 	\matrixel{\psi_k}{\Omega_A}{\psi_i}.
 	\label{eq:almost-reducedRho}
 \end{align}
-% donde hemos utilizado $\ket{\psi}\ot\ket{\phi}=\ket{\psi}\ket{\phi}$\cpnote{Esto
-% es mas bien una definicipon que de hecho puedes hacer más arriba}
-% \janote{Listo. Lo definí después de la ecuación 1.13. Si te parece bien 
-% porfa lo que sigue aquí}.
 La matriz entre paréntesis define a la matriz de densidad
 reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}

@@ -1,71 +1,5 @@
 %%% Haga el diseño que más le guste
 \chapter{INTRODUCCIÓN}
-%%\esqueleto{Sistemas abiertos}
-%
-%Una descripción completa \cpnote{exacta?} de un sistema cuántico requiere
-%\cpnote{con frecuencia?}
-%incluir la interacción
-%con su entorno, es decir, considerar a los sistemas como 
-%abiertos~\cite{breuer2002theory}. Ningún sistema cuántico en la
-%naturaleza está completamente aislado del resto del universo\cpnote{Es repetitiva
-%esta frase con respecto a la primera. Es basicamente la misma idea}.  
-%Por ejemplo, para describir con generalidad a un átomo en una red óptica, se debe
-%considerar que el átomo se encuentra inicialmente en un estado \textit{compartido} 
-%\cpnote{que es un estado compartido??}
-%con los demás átomos de la red~\cite{pepino2011open}. 
-%\textbf{Átomo aislado con radiación de fondo}
-%En consecuencia,
-%la evolución de este tipo de sistemas no es unitaria, en general, como 
-%la de los sistemas ideales que no interactúan con su entorno~\cite{preskill1998lecture}. 
-%\cpnote{Argh aca hay impresiciones.}
-%En ese sentido, los canales cuánticos proporcionan una herramienta que captura 
-%la no unitariedad de la dinámica de los sistemas abiertos~\cite{nielsen_chuang_2011}.
-%
-%%\esqueleto{Qubits y decoherencia de 1 qubit}
-%
-%La decoherencia es un proceso al que irremediablemente están sujetos los 
-%sistemas cuánticos abiertos. \cpnote{En el fondo, cual es el mensaje que 
-%quieres dar en este parrafo? Eso define la primera frase del parrafo. Como veo, 
-%no esta aun bien pensado}
-%Este fenómeno es el proceso mediante 
-%el cual la superposición de estados en el que se encuentra un sistema colapsa a 
-%sólo uno de los estados de la superposición (pierde su coherencia cuántica)
-%a causa de la interacción con su entorno~\cite{breuer2002theory}. 
-%\cpnote{Esta no es la definicion mas general de decoherencia. La podemos discutir.}
-%Los sistemas de dos niveles son 
-%los más sencillos y con mucho interés teórico como para estudiar 
-%la decoherencia de este tipo de sistemas. 
-%\cpnote{Finalmente de que setrata este parrafo? Mejor vemos primero este parrafo y luego 
-%sigo leyendo la intro.}
-%En información y computación 
-%cuántica se conoce a estos sistemas como qubits, y son de gran importancia 
-%porque son el análogo cuántico de los bits clásicos en 
-%la implementación de la computación cuántica~\cite{nielsen_chuang_2011}. 
-%Algunos ejemplos de sistemas físicos que implementan a un qubit son el espín
-%del electrón o la polarización de un fotón. 
-%Existe un tipo de decoherencia de 1 qubit que se puede entender como 
-%el colapso de su estado cuántico $\ket{\psi}$ a alguno de los dos eigenestados
-%del operador de espín en la dirección \textit{z}.
-%
-%%\esqueleto{Operaciones PCE}
-%
-%Nuestro interés se enfoca en entender la generalización
-%para sistemas de $n$ qubits de las operaciones que modelan el proceso de 
-%decoherencia de 1 qubit. Para esto, introduciremos la definición de una 
-%operación que borra las componentes de Pauli, PCE por sus siglas en inglés
-%(\textit{Pauli component erasing}). Una operación PCE es una operación lineal 
-%que preserva o borra por completo las proyecciones de la matriz de densidad de $n$ qubits
-%sobre la base de productos tensoriales de las matrices de Pauli. Vamos a investigar 
-%las características en común del subconjunto de las operaciones PCE que son 
-%completamente positivas y, por consiguiente, canales cuánticos que describen
-%diferentes tipos de decoherencia de un sistema de $n$ qubits. Vamos a 
-%discutir cómo nuestros resultados muestran que este tipo particular de 
-%canales cuánticos, los \textit{canales cuánticos PCE}, podrían poseer 
-%una estructura matemática. 
-
-
-% \esqueleto{Por qué y cómo estudiar a los sistemas abiertos}
-
 Para hacer una descripción completa de los sistemas cuánticos 
 con frecuencia se debe considerar la interacción con su entorno. Por un lado, 
 en la naturelaza no existen los sistemas cuánticos ideales que 
@@ -81,10 +15,6 @@ Los canales cuánticos y la ecuación maestra en la forma de Lindblad son alguna
 de las herramientas disponibles para describir la evolución de la 
 matriz de densidad de los sistemas abiertos~\cite{nielsen_chuang_2011}. 
 
-
-% \esqueleto{La decoherencia es un problema de interés.}
-
-
 La decoherencia es un fenómeno con mucho interés por entender. 
 Este fenómeno ha sido discutido desde los inicios de la mecánica cuántica,
 en la década de 1930, por físicos como
@@ -92,8 +22,6 @@ Von Neumann~\cite{von2018mathematical} y Heisenberg~\cite{bacciagaluppi2003role}
 No obstante, los fundamentos modernos de los modelos
 de decoherencia fueron introducidos en las décadas de 1970 y 1980 
 por H. Dieter Zeh~\cite{zeh1970interpretation}  y W. Zurek~\cite{zurek1981pointer}. 
-\cpnote{debatible. vreo que asi está en la wikipedia, pero buscaria una 
-redaccion mas conservadora} \janote{listo}
 De manera muy general, la decoherencia es un proceso mediante el cual 
 un sistema pierde su coherencia cuántica. 
 Algunos ejemplos son el colapso de 
@@ -103,31 +31,10 @@ estados puros a estados mixtos, entre otros.
 Desde un punto de vista teórico, ha habido un debate y acerca de la afirmación
 que la decoherencia resuelve el problema de la medida en 
 la mecánica cuántica~\cite{bacciagaluppi2003role}.
-\cpnote{Problematico. Lo platicamos}\janote{listo}
 Por otro lado, en un sentido práctico y de aplicación, 
 el estudio y caracterización de la decoherencia 
 ayuda a entender el impacto que tiene en los protocolos de información 
 cuántica~\cite{pepino2011open}. 
-
-%La decoherencia de sistemas de dos niveles (qubits) es un problema amplio 
-%y con mucho interés por entender. 
-%Existen distintos modelos de decoherencia como el colapso de la función 
-%de onda, la disipación de energía de un sistema hasta llevarlo a su estado 
-%fundamental y el mapeo de los estados puros a estados mixtos, entre otros.
-%   
-%Los sistemas cuánticos
-%abiertos son sistemas que están sujetos irremediablemente a la decoherencia. 
-%Algunos de los fenómenos de decoherencia para 1 qubit son el proceso mediante
-%el cual el estado del sistema, una superposición de dos estados, 
-%La coherencia cuántica de los estados de los qubits es fundamental 
-%para realizar computación cuántica. En información cuántica existe un interés por 
-%entender el impacto de los fenómenos de decoherencia 
-%en los protocolos de información cuántica.  
-%Por su relevancia en la implementación y por su sencillez matemática 
-%los sistemas de qubits son un excelente punto de partida para investigar la
-%decoherencia.
-
-\esqueleto{operaciones PCE}
 
 En este trabajo introducimos las operaciones PCE (por sus siglas en inglés,
 \textit{Pauli componente erasing}) que generalizan las decoherencias de una
