@@ -1,3 +1,4 @@
+
 %%
 %%	AVISO IMPORTANTE
 %%	Formato optimizado para el sistema operativo GNU/Linux 64 bits
@@ -142,27 +143,11 @@
 \usepackage{fancybox}	
 \usepackage{colortbl}
 
-\usepackage{everypage}
-\usepackage{lipsum}
-
-\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
-  \dimendef\margin=0 %use \margin instead of \dimen0
-  \ifodd\value{page}\margin=\oddsidemargin
-  \else\margin=\evensidemargin
-  \fi
-  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
-    \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
-    \llap{\rotatebox{90}{\thepage}}}}%
-\egroup\fi}
-\AddEverypageHook{\Lpagenumber}%
-
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-% -----------------------------------------------------------------------------
-
 
 
 % <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -184,7 +169,7 @@
 {José Alfredo de León Garrido}%			% autor
 {M.Sc. Juan Diego Chang\\y Dr. Carlos Francisco
 Pineda Zorrilla}%			% asesor
-{\janote{mes} de 2021}		% mes y año de la orden de impresión
+{septiembre de 2021}		% mes y año de la orden de impresión
 {2}							% femenino 1; masculino 2
 
 %% Datos generales del examen general privado
