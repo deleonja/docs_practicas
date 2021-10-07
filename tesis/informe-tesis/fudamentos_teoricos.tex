@@ -12,8 +12,6 @@ sistemas cuánticos abiertos será útil revisar un formalismo distinto
 al del vector de estado para describir a los estados cuánticos. 
 Este formalismo es el de la matriz densidad y tiene la ventaja 
 de describir de manera más apropiada a los estados mixtos. 
-\janote{Los siguientes dos enunciados fueron los que agregué para
-aclarar lo de la matriz de densidad}
 La interpretación de la matriz densidad como la representación de los 
 estados cuánticos es utilizada en información cuántica, computación cuántica, 
 sistemas abiertos y otros campos en los que la preparación del estado es 
@@ -101,9 +99,6 @@ matriz densidad de un sistema.
 % \janote{De acuerdo. En la última iteración que hice de la introducción
 % tome en cuenta este comentario tuyo.}
 % 
-% \janote{Me habías dejado los siguientes dos comentarios entre el texto
-% que tenía antes. Así que opté por reescribir el desarrollo de la evolución
-% dinámica de una vez con el operador $U$.}
 % \cpnote{En aras de la simplicidad, 
 % yo formularía el ejemplo directamente con al $U$. No hay necesidad de traer el 
 % Hamiltoniano acá.}
@@ -192,11 +187,6 @@ utilizando la matriz densidad. Por último, vamos a estudiar la
 matriz densidad reducida, la manera para describir a los
 subsistemas de sistemas compuestos con el formalismo 
 de la matriz densidad.
-% \cpnote{La matriz densidad es una
-% matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
-% quieras referir a la traza parcial?}\janote{No. Me refiero a una 
-% aplicación del formalismo de la matriz densidad. Reformulé 
-% esa frase.}
 
 Las propiedades que una matriz debe tener para que esta represente al 
 estado físico de un sistema se establecen a 
@@ -221,11 +211,6 @@ $\{\lambda_i, \ket{\psi_i} \}$ del sistema. Entonces,
 la condición de positividad de la matriz densidad asegura que las
 probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
 son cero o positivas, como esperaríamos que fuese. 
-% \cpnote{Siengo que la notación
-% $A\ge 0$ no es obvia. Quizá quieras decir en este párrafo que es. Lo dices 
-% implicitamente, pero creo qe hay que ser tantito mas explicito.}\janote{Qué
-% tal mejor sólo modificar la notación para la positividad en el teorema 1.3.1
-% así como lo hice?}
 
 Ahora que que ya contamos con una definición de la matriz densidad 
 que no parte de conocer \textit{apriori} el ensamble de estados del sistema
@@ -239,11 +224,14 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 	de matrices de densidad que actúan sobre $\hi$.
 	\item[] \textbf{Postulado 2.} \textit{Evolución unitaria.}
 	La evolución de un sistema cuántico cerrado, en un intervalo 
-	de tiempo $[t_1,t_2]$, está descrita	por una transformación unitaria $U$
+	de tiempo $[t_1,t_2]$, está descrita por una transformación unitaria $U(t_1,t_2)$
 	de la siguiente manera 
 	\begin{equation} \label{eq:postulate-ClosedEvolution}
-	\rho(t_1)\longrightarrow U(t)\rho(t_1) U^{\dagger}(t)=\rho(t_2).
-	\end{equation}\janote{ojo aquí agregué la dependencia temporal de $U$}
+% 	\rho(t_1)\longrightarrow U(t)\rho(t_1) U^{\dagger}(t)=\rho(t_2).
+	\rho(t_1)\longrightarrow U(t_1,t_2)\rho(t_1) U^{\dagger}(t_1,t_2)=\rho(t_2).
+	\end{equation}
+\janote{ojo aquí agregué la dependencia temporal de $U$}
+\cpnote{La cambie un poco}
 	\item[] \textbf{Postulado 3.} \textit{Medición.}
 	Las mediciones sobre el estado $\rho$ de un sistema 
 	están descritas por un conjunto de operadores $\{M_m\}$. 
