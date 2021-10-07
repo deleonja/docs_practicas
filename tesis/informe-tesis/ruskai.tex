@@ -19,7 +19,7 @@ de las matrices de dimensión $d\times d$
 % por nombre aca y luego en el cuerpo del capitulo mencionar el simbolo y el espacio, 
 % o referenciar donde se introdujo} \janote{Cierto. Mejor le pongo nombre y apellido
 % porque sería impráctico hacer la referencia hasta el capítulo 1.}
-y, en función de la acción sobre las componentes de la matriz de densidad 
+y, en función de la acción sobre las componentes de la matriz densidad 
 en esta base particular, la definición de un \ruskaiMap{}. Por útlimo, en la sección 
 \ref{sec:ch4_PCEnotRuskai} vamos a elaborar un argumento para mostrar 
 que no existe una relación de contención entre los canales PCE y los \ruskai{}.
@@ -48,7 +48,7 @@ Dado que los sistemas cuánticos de nuestro interés en este trabajo son qubits
 (sistemas de $2^n$ niveles) no vamos a considerar los casos de sistemas que 
 no posean $d+1$ bases mutuamente imparciales. 
 
-La matriz de densidad de un sistema de qubits puede escribirse en términos 
+La matriz densidad de un sistema de qubits puede escribirse en términos 
 de operadores que generan a un conjunto de bases mutuamente imparciales.
 Es posible definir, a partir de un conjunto de bases mutuamente imparciales,
 $d+1$ operadores unitarios $W_J$ como~\cite{nathanson2007pauli}
@@ -61,7 +61,7 @@ imparciales. El conjunto de las $d^2-1$ potencias $\{W_J^m\}_{m=1,\ldots,d-1,
 J=1,\ldots,d+1}$ más la identidad forman una base ortogonal
 de unitarias del espacio vectorial $\mathcal{M}_d$ de matrices 
 de dimensión $d\times d$ con norma $\sqrt{d}$
-(en el sentido de Hilbert-Schmidt). Por lo tanto, la matriz de densidad
+(en el sentido de Hilbert-Schmidt). Por lo tanto, la matriz densidad
 de un sistema de $d$ niveles puede escribirse como
 \begin{align}\label{eq:rho_mub}
 \rho=\frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j),
@@ -72,7 +72,7 @@ operadores $W_J^j$.
 Dado un conjunto de bases ortonormales mutuamente imparciales del 
 espacio de estados de un sistema de $d$ niveles se
 puede definir a un canal diagonal de Pauli constante sobre los ejes $\E$ 
-según la acción sobre una matriz de densidad como 
+según la acción sobre una matriz densidad como 
 en~\eqref{eq:rho_mub}~\cite{nathanson2007pauli},
 \begin{align}\label{eq:ruskai_definition}
 	\E :  \frac{1}{d}\qty(\1+\sum_{J=1}^{d+1}\sum_{j=1}^{d-1} v_{Jj}W_J^j)
@@ -96,7 +96,7 @@ Nótese la similitud entre la definición en \eqref{eq:ruskai_definition}
 de un canal diagonal de Pauli constante
 sobre los ejes y la definición de una operación PCE, \eqref{eq:PCE_definition}.
 Los dos tipos de operaciones transforman de 
-un modo similar a las componentes de la matriz de densidad en una 
+un modo similar a las componentes de la matriz densidad en una 
 base dada del espacio $\mathcal{M}_d$.
 No obstante, los \ruskai{} son más generales, en el sentido que son
 operaciones que actúan sobre sistemas de $d$ niveles (las 
@@ -116,7 +116,7 @@ En el caso de 1 qubit, los canales PCE sí son un subconjunto de los \ruskai{}. 
 los eigenvectores de las matrices de Pauli $\sigma_1$, $\sigma_2$ y $\sigma_3$ 
 satisfacen \eqref{eq:mub_definition} y, por ende, son un conjunto 
 de bases mutuamente imparciales. Por lo tanto, siguiendo \eqref{eq:rho_mub}
-e identificando $W_J=\sigma_J$, la matriz de densidad de 1 qubit se escribe como
+e identificando $W_J=\sigma_J$, la matriz densidad de 1 qubit se escribe como
 \begin{align} \label{eq:rho_1_qubit_ruskai}
 	\rho=\frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J),
 \end{align}
@@ -124,7 +124,7 @@ donde $v_J$ son lo que hemos llamado a lo largo de este trabajo
 las componentes de Pauli.
 De acuerdo con \eqref{eq:ruskai_definition}, 
 un canal diagonal de Pauli constante sobre los ejes de 1 qubit transforma 
-a la matriz de densidad $\rho$ en \eqref{eq:rho_1_qubit_ruskai} como
+a la matriz densidad $\rho$ en \eqref{eq:rho_1_qubit_ruskai} como
 \begin{align}
 	\E :  \frac{1}{2}\qty(\1+\sum_{J=1}^3v_J\sigma_J)
 	\longmapsto 

@@ -31,13 +31,13 @@ es el caso y que, además, los canales cuánticos PCE se pueden ordenar.
 En este capitulo presentaremos los resultados anteriores.
 Recordemos que los elementos $\taus=0,1$ caracterizan por completo a una 
 operación PCE. De esa manera, en la sección \ref{sec:ch3_resultados} vamos a presentar
-las listas de 1's y 0's de los canales PCE de 2 y 3 qubits. En principio, las 
+las listas de 1 y 0 de los canales PCE de 2 y 3 qubits. En principio, las 
 listas con los valores de los $\taus$ son todo lo que necesitamos para investigar las características de 
 los canales cuánticos PCE. Sin embargo, aportan nula intuición para entender
 a los canales cuánticos PCE. Por lo tanto,
 vamos a introducir a las figuras PCE en la sección 
-\ref{sec:ch3_geometric_representation}, y veremos cómo las listas de 1's y 0's,
-aburridas y engorrosas de analizar, se vuelven emocionante1s con esta 
+\ref{sec:ch3_geometric_representation}, y veremos cómo las listas de 1 y 0,
+poco claras para el análisis, se vuelven más claras con esta 
 nueva herramienta, especialmente las figuras PCE de los canales 
 PCE de 2 qubits.
 Vamos a ver que la representación geométrica de las figuras PCE de 
@@ -84,7 +84,7 @@ nuestro método numérico también es necesario conocer el número
 de operaciones PCE en función del número de componentes 
 de Pauli invariantes. Las operaciones PCE están caracterizadas 
 por los $4^n$ elementos $\taus$. No obstante, por definición, 
-para preservar la traza de la matriz de densidad, $\tau_{0,\ldots,0}=1$.
+para preservar la traza de la matriz densidad, $\tau_{0,\ldots,0}=1$.
 Entonces hay sólo $4^n-1$ elementos $\taus$ que pueden tomar los valores de 1 o 0.
 La cantidad de operaciones PCE de $n$ qubits que dejan invariantes $k$ componentes 
 de Pauli es igual al número de formas distintas de asignar el valor 1
@@ -138,7 +138,7 @@ En las tablas del apéndice A se muestran
 (a) los valores de los elementos $\tau_{ij}$ o $\tau_{ijk}$ (1 o 0) que caracterizan 
 a una operación PCE, según la definición en \eqref{eq:PCE_definition},
 y (b) el número de componentes de Pauli que el canal PCE
-deja invariantes. Las listas de 1's y 0's hacen difícil de escudriñar
+deja invariantes. Las listas de 1 y 0 hacen difícil de escudriñar
 las características que comparten todos los canales PCE.
 Además, hasta ahorita no contamos con una representación geométrica, 
 como la de la esfera de Bloch para 1 qubit, con la cual puedan visualizarse 
@@ -149,7 +149,7 @@ de una forma más sencilla e intuitiva. Hablaremos de una herramienta geométric
 en la próxima sección.
 
 %\esqueleto{Motivados en lo intricado de inferir qué características 
-%comparten los canales PCE a partir de las listas de 1's y 0's, se nos ocurrió 
+%comparten los canales PCE a partir de las listas de 1 y 0, se nos ocurrió 
 %una forma de representar geométricamente a las operaciones PCE que hace
 %más sencillo el análisis de resultados.}
 
@@ -157,7 +157,7 @@ en la próxima sección.
 \section{Una representación geométrica}\label{sec:ch3_geometric_representation} % {{{
 
 En la sección anterior vimos que los resultados de los canales PCE,
-presentados como listas de 1's y 0's 
+presentados como listas de 1 y 0 
 de de los elementos $\taus$ en las tablas \ref{tab:2qubitsPCEChannel1sAnd0s} y 
 \ref{tab:3qubitsPCEChannel1sAnd0s}, no hacen sencilla la tarea de analizar 
 las propiedades que comparten los canales cuánticos PCE. Por eso, 
@@ -165,7 +165,7 @@ buscamos una representación de las operaciones PCE que haga más fácil
 e intuitiva la identificación de las características de un canal PCE. 
 Lo que buscamos es una herramienta como la esfera de Bloch, 
 una representación geométrica con la cual es posible asimilar las listas 
-de 1's y 0's de los canales PCE de 1 qubit en la \Tref{tab:1qubit_PCE}.  
+de 1 y 0 de los canales PCE de 1 qubit en la \Tref{tab:1qubit_PCE}.  
 En esta sección vamos introducir la representación de las figuras PCE 
 y a presentar de nuevo los resultados de la sección anterior 
 utilizando esta nueva representación de las operaciones PCE.
@@ -241,7 +241,7 @@ Nótese que todas las figuras PCE que acabamos de discutir
 tienen pintado el cuadro o cubo con la posición $(0)$, $(0,0)$ o $(0,0,0)$.
 Esto es así para todas las figuras PCE porque, de acuerdo con la definición 
 \eqref{eq:PCE_definition}, una operación PCE preserva la traza de 
-la matriz de densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
+la matriz densidad (\textit{i.e.} $\tau_{0,\ldots,0}=1$).
 
 %\noindent
 %\esqueleto{En este punto, ya es más o menos obvio cómo es la representación 
@@ -278,7 +278,7 @@ mostramos sólo canales cuánticos PCE de 3 qubits representativos. En la siguie
 sección vamos a discutir detenidamente a qué nos referimos por representativos.
 No colocamos todas las figuras PCE de los canales PCE de 3 qubits que 
 encontramos porque ocuparían demasiadas páginas.
-En contraste con las listas de 1's y 0's, las figuras PCE proporcionan mucha 
+En contraste con las listas de 1 y 0, las figuras PCE proporcionan mucha 
 más intuición de que sí existen características en común de los canales 
 cuánticos PCE, como los patrones tan particulares que se obervan en la
 \Fref{fig:2qubits_PCEChannels_figs}. En la siguiente y última sección 
@@ -609,7 +609,7 @@ Los canales PCE tienen otra propiedad que es consecuencia de satisfacer
 las condicones para ser canales cuánticos que actúan sobre sistemas 
 multipartitos. La acción de un canal PCE sobre cualquier partición del sistema debe 
 ser otro canal PCE. Un canal cuántico también debe preservar las propiedades
-de la matriz de densidad de la matriz de densidad reducida de cualquier
+de la matriz densidad de la matriz densidad reducida de cualquier
 partición del sistema. Esta propiedad puede visualizarse en las figuras PCE
 de 2 y 3 qubits. En todas las figuras PCE
 de la \Fref{fig:2qubits_PCEChannels_figs} deben identificarse canales PCE de 1 qubit 

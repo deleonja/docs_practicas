@@ -1,22 +1,32 @@
 \chapter{FUNDAMENTOS TEÓRICOS}
 \section{Introducción} % {{{
-El estudio de los sistemas cuánticos cerrados, es decir sistemas que no
+El estudio de los sistemas cuánticos cerrados, es decir, sistemas que no
 interactúan con su entorno, nos ha permitido entender bastante bien muchos
-fenómenos cuánticos. No obstante, una descripción más precisa 
+fenómenos cuánticos. 
+%Este tipo de sistemas suponen el límite de validez para la ecuación de 
+%Schrödinger~\janote{cita}.
+No obstante, una descripción más precisa 
 requiere de considerar que los sistemas cuánticos reales son sistemas abiertos
 que interactúan con su entorno. Para estudiar los 
 sistemas cuánticos abiertos será útil revisar un formalismo distinto
 al del vector de estado para describir a los estados cuánticos. 
-Este formalismo es el de la matriz de densidad y tiene la ventaja 
+Este formalismo es el de la matriz densidad y tiene la ventaja 
 de describir de manera más apropiada a los estados mixtos. 
+\janote{Los siguientes dos enunciados fueron los que agregué para
+aclarar lo de la matriz de densidad}
+La interpretación de la matriz densidad como la representación de los 
+estados cuánticos es utilizada en información cuántica, computación cuántica, 
+sistemas abiertos y otros campos en los que la preparación del estado es 
+ruidoso y puede ocurrir decoherencia \cite{fano1957description,nielsen_chuang_2011,wilde2013quantum}. Nosotros adoptaremos esta interpretación
+de la matriz densidad a lo largo de este texto. 
 Para la descripción de la evolución dinámica  
 vamos a estudiar la teoría de los canales cuánticos, 
 que es un marco teórico en el cual se considera que los estados 
-cuánticos (matriz de densidad) evolucionan de forma discreta.
+cuánticos (matriz densidad) evolucionan de forma discreta.
 
 La estructura de este capítulo es la siguiente.
 En la sección \ref{sec:ensambles} revisaremos una motivación para introducir 
-a la matriz de densidad a partir de un ensamble de estados. 
+a la matriz densidad a partir de un ensamble de estados. 
 Seguidamente, en la sección \ref{sec:density-matrices-properties},
 estudiaremos las propiedades que debe cumplir una matriz 
 de densidad para representar un estado cuántico
@@ -34,7 +44,7 @@ la representación de superoperador y de Kraus de un canal cuántico.
 % prácticas. Voy a retocar alguna parte si fuera necesario, como ser
 % más formal o agregar alguna prueba.}
 
-Para introducir la definición de la matriz de densidad presentamos la 
+Para introducir la definición de la matriz densidad presentamos la 
 motivación que exponen Sakurai y Napolitano \cite{sakurai_napolitano_2017}.
 Consideremos un sistema cuántico que se encuentra en alguno de los estados 
 $\Pk{i}$ con probabilidad $p_i$. Esto induce naturalmente el 
@@ -51,13 +61,13 @@ con $\ket{\phi_j}$ es una base ortonormal del
 espacio de Hilbert del sistema. Si se reordena
 \eqref{eq:expVal-expanded-Lambda} de manera apropiada
 se obtiene una expresión 
-que motiva claramente la definición de la matriz de densidad $\rho$,
+que motiva claramente la definición de la matriz densidad $\rho$,
 \begin{align}\label{eq:expVa-Lambda-wRho}
 	\expval{\Lambda}&= \sum _{j,k}\bra{\phi_k}\qty(\sum_ip_i \dyad{\psii}{\psii} 
 	)\ket{\phi_j}	\matrixel{\phi_j}{\Lambda}{\phi_k}.
 \end{align}
 La matriz que se encuentra entre paréntesis se define como 
-la matriz de densidad 
+la matriz densidad 
 $\rho$~\cite{nielsen_chuang_2011, sakurai_napolitano_2017}
 \begin{equation}\label{eq:rho_def}
 	\rho \equiv \sum _i p_i\dyad{\psi_i}{\psi_i}.
@@ -74,15 +84,15 @@ se tiene que el valor promedio del observable $\Lambda$ es
 	\expval{\Lambda}=\sum _k \matrixel{\phi_k}{\rho \Lambda}{\phi_k} 
 	= \Tr \qty(\rho\Lambda).
 \end{align} 
-%Este resultado muestra cómo a partir de la matriz de densidad $\rho$ 
+%Este resultado muestra cómo a partir de la matriz densidad $\rho$ 
 %se puede calcular toda la información física disponible de un sistema al 
 %realizar una medición. 
 Este resultado es interesante porque muestra que es posible 
 calcular el valor promedio de un observable utilizando la 
-matriz de densidad del sistema. En virtud de este resultado
+matriz densidad del sistema. En virtud de este resultado
 vale la pena investigar a continuación cómo evoluciona la 
-matriz de densidad de un sistema.
-%Desde luego la matriz de densidad es una herramienta con la que
+matriz densidad de un sistema.
+%Desde luego la matriz densidad es una herramienta con la que
 %se puede formular matemáticamente la mecánica cuántica como 
 %con el vector de estado.
 % \cpnote{Esta frase la pondría
@@ -115,14 +125,14 @@ densidad $\rho(t)$ del sistema será
 	\nonumber\\
 	&= U(t)\rho(0)U^{\dagger}(t),
 \end{align}
-donde $\rho(0)$ es la matriz de densidad del ensamble 
+donde $\rho(0)$ es la matriz densidad del ensamble 
 de estados inicial $\{p_i, \ket{\psii(0)}\}$. Hemos probado así
 que la descripción dinámica de un sistema que evoluciona 
 según un operador unitario puede hacerse utilizando 
-su matriz de densidad. En la sección que sigue 
+su matriz densidad. En la sección que sigue 
 estudiaremos las propiedades que deben satisfacer 
 las matrices de densidad en general y revisaremos cómo 
-formular los postulados de la mecánica cuántica con la matriz de densidad.
+formular los postulados de la mecánica cuántica con la matriz densidad.
 
 %
 %Por ejemplo, veamos a continuación cómo 
@@ -135,14 +145,14 @@ formular los postulados de la mecánica cuántica con la matriz de densidad.
 %en un ensamble de estados $\{p_i, \ket{\psii(0)}\}$, por lo cual
 %el estado final del sistema será 
 %$\{p_i, \ket{\psii(t)}\}$.
-%Por consiguiente, el matriz de densidad final $\rho(t)$  es 
+%Por consiguiente, el matriz densidad final $\rho(t)$  es 
 %\begin{align} \label{eq:Rho-evolution-H}
 %	\rho(t) &= \sum_j p_j\dyad{\psi_j(t)}{\psi_j(t)}\nonumber\\
 %	&= \sum_j p_j U(t) \dyad{\psi_j(0)}{\psi_j(0)}U^{\dagger}(t)
 %	\nonumber\\
 %	&= e^{-iHt}\rho(0)e^{iHt},
 %\end{align}
-%donde $\rho(0)$ es la matriz de densidad que describe al ensamble 
+%donde $\rho(0)$ es la matriz densidad que describe al ensamble 
 %de estados inicial $\{p_i, \ket{\psii(0)}\}$.	 Aunque hemos desarrollado 
 %un ejemplo para la evolución de un sistema cuyo Hamiltoniano es 
 %independiente del tiempo, es sencillo de ver que en general la dinámica  
@@ -151,41 +161,41 @@ formular los postulados de la mecánica cuántica con la matriz de densidad.
 %\rho(0) \longrightarrow U\rho(0)U^{\dagger}.
 %\end{align}
 %Con esto, se ha asegurado que la dinámica de un sistema cuántico puede 
-%describirse utilizando su matriz de densidad. 
+%describirse utilizando su matriz densidad. 
 
 
 %Las ecuaciones \eqref{eq:Tr(rhoLambda)} y \eqref{eq:rho-ClosedEvolution}
-%muestran que la matriz de densidad puede utilizarse para la descripción 
+%muestran que la matriz densidad puede utilizarse para la descripción 
 %de la medición y la evolución de los estados cuánticos. 
 %En la siguiente sección veremos la formulación de los postulados 
-%de la mecánica cuántica utilizando la matriz de densidad. 
+%de la mecánica cuántica utilizando la matriz densidad. 
 
 
 % }}}
-\section{Propiedades de la matriz de densidad} % {{{
+\section{Propiedades de la matriz densidad} % {{{
 % \cpnote{Aca voy. Lo anterior ya queda listo}
 \label{sec:density-matrices-properties}
 % \esqueleto{Revisando esta sección en el informe de prácticas 
 % veo que me gustaría ir aquí más al grano y mandar al lector 
 % a las pruebas en el Chuang (para no copiar otra vez las pruebas
-% aquí). Puntualizaré: (1) caracterización de la matriz de densidad, (2)
-% postulados de la mecánica cuántica usando la matriz de densidad y
-% (3) matriz de densidad reducida.}
+% aquí). Puntualizaré: (1) caracterización de la matriz densidad, (2)
+% postulados de la mecánica cuántica usando la matriz densidad y
+% (3) matriz densidad reducida.}
 
 
 A pesar de que contamos con la definición \eqref{eq:rho_def} de 
-la matriz de densidad dado un ensamble de estados, será útil 
+la matriz densidad dado un ensamble de estados, será útil 
 estudiar cuáles son las condiciones que una matriz debe cumplir 
-para ser una matriz de densidad. Luego de esto, estamos listos 
+para ser una matriz densidad. Luego de esto, estamos listos 
 para revisar la formulación de los postulados de la mecánica cuántica
-utilizando la matriz de densidad. Por último, vamos a estudiar la
-matriz de densidad reducida, la manera para describir a los
+utilizando la matriz densidad. Por último, vamos a estudiar la
+matriz densidad reducida, la manera para describir a los
 subsistemas de sistemas compuestos con el formalismo 
-de la matriz de densidad.
-% \cpnote{La matriz de densidad es una
+de la matriz densidad.
+% \cpnote{La matriz densidad es una
 % matriz, no una aplicación (en su manera más simple\ldots). Quizá te 
 % quieras referir a la traza parcial?}\janote{No. Me refiero a una 
-% aplicación del formalismo de la matriz de densidad. Reformulé 
+% aplicación del formalismo de la matriz densidad. Reformulé 
 % esa frase.}
 
 Las propiedades que una matriz debe tener para que esta represente al 
@@ -193,7 +203,7 @@ estado físico de un sistema se establecen a
 continuación~\cite{nielsen_chuang_2011}:
 \begin{thm}\label{teo:density-matrix}
 Una matriz $\rho$  que actúa sobre el espacio de Hilbert de un sistema 
-es la matriz de densidad asociada a algún ensamble 
+es la matriz densidad asociada a algún ensamble 
 $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \begin{enumerate}
 \item $\Tr \rho = 1$.
@@ -202,13 +212,13 @@ $\{p_i, \ket{\psi _i} \}$ si y sólo si satisface las condiciones:
 \end{thm} 
 \begin{proof} Consultar~\cite[p.~101]{nielsen_chuang_2011} \end{proof}
 
-La condición de traza unitaria de la matriz de densidad es análoga
+La condición de traza unitaria de la matriz densidad es análoga
 a la condición de normalización de la función de onda, las probabilidades
 de medir al sistema en un estado u otro deben sumar uno. 
 Por otro lado, los eigenvalores $\lambda_i$ y eigenvectores $\ket{\psi_i}$ de la 
-matriz de densidad definen a uno de los posibles ensambles de estados
+matriz densidad definen a uno de los posibles ensambles de estados
 $\{\lambda_i, \ket{\psi_i} \}$ del sistema. Entonces,
-la condición de positividad de la matriz de densidad asegura que las
+la condición de positividad de la matriz densidad asegura que las
 probabilidades $\lambda_i$ de encontrar al sistema en el estado $\ket{\psi_i}$
 son cero o positivas, como esperaríamos que fuese. 
 % \cpnote{Siengo que la notación
@@ -217,7 +227,7 @@ son cero o positivas, como esperaríamos que fuese.
 % tal mejor sólo modificar la notación para la positividad en el teorema 1.3.1
 % así como lo hice?}
 
-Ahora que que ya contamos con una definición de la matriz de densidad 
+Ahora que que ya contamos con una definición de la matriz densidad 
 que no parte de conocer \textit{apriori} el ensamble de estados del sistema
 nos ocupamos de la formulación de los postulados de la mecánica cuántica 
 utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
@@ -232,8 +242,8 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 	de tiempo $[t_1,t_2]$, está descrita	por una transformación unitaria $U$
 	de la siguiente manera 
 	\begin{equation} \label{eq:postulate-ClosedEvolution}
-	\rho(t_1)\longrightarrow U\rho(t_1) U^{\dagger}=\rho(t_2).
-	\end{equation}
+	\rho(t_1)\longrightarrow U(t)\rho(t_1) U^{\dagger}(t)=\rho(t_2).
+	\end{equation}\janote{ojo aquí agregué la dependencia temporal de $U$}
 	\item[] \textbf{Postulado 3.} \textit{Medición.}
 	Las mediciones sobre el estado $\rho$ de un sistema 
 	están descritas por un conjunto de operadores $\{M_m\}$. 
@@ -267,15 +277,15 @@ utilizando este nuevo formalismo~\cite[p.~102]{nielsen_chuang_2011}.
 Debemos resaltar que aunque el espacio de Hilbert de muchas partículas 
 es de la forma \eqref{eq:postulado4} no todas las matrices de densidad
 que actúan sobre son de la forma 
-\begin{align}
-\rho_{\text{total}}=\rho_1\ot \rho_2\ot \ldots\ot \rho_n,
-\end{align}
-lo cual nos conduce a preguntarnos que dada una matriz de densidad de
+$\rho_{\text{total}}=\rho_1\ot \rho_2\ot \ldots\ot \rho_n,$ \janote{aquí JD
+dijo que como decimos que la expresión no es la más general, entonces
+mejor no enumerar la ecuación}
+lo cual nos conduce a preguntarnos que dada una matriz densidad de
 un sistema compuesto $\rho_{\text{total}}$, ¿cuál es el estado 
 en el que se encuentra cada uno de los subsistemas que lo componen?
 Por esta razón, para averiguar cómo describir a los subsistemas con 
-el formalismo de la matriz de densidad es que vamos a revisar a continuación
-cómo introducir la matriz de densidad reducida utilizando una herramienta
+el formalismo de la matriz densidad es que vamos a revisar a continuación
+cómo introducir la matriz densidad reducida utilizando una herramienta
 conocida como la traza parcial \cite{nielsen_chuang_2011}. 
 
 Supongamos dos subsistemas $A$ y $B$ cuyo estado total es 
@@ -313,7 +323,7 @@ $\expval{\Omega_A\ot \1}$, utilizando~\eqref{eq:Tr(rhoLambda)},~es
 	\matrixel{\psi_k}{\Omega_A}{\psi_i}.
 	\label{eq:almost-reducedRho}
 \end{align}
-La matriz entre paréntesis define a la matriz de densidad
+La matriz entre paréntesis define a la matriz densidad
 reducida $\rho^A$ del subsistema $A$ como~\cite{chandra2013quantum}
 \begin{align}
 	\sum _j \bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_j}
@@ -334,13 +344,13 @@ Notemos la similitud de este resultado con el que se obtuvo en la ecuación
 sobre sólo uno de los subsistemas puede calcularse con su matriz de 
 densidad reducida.
 
-Ya que mostramos la utilidad que puede tener la matriz de densidad
+Una vez discutida la utilidad que puede tener la matriz densidad
 reducida, ahora vamos a discutir con detalle la operación que 
 la define en \eqref{eq:reducedRho-def1}. 
-Esta operación se conoce como traza parcial. El adjetivo `parcial'
+Esta operación se conoce como traza parcial. El adjetivo ``parcial''
 es porque la operación de traza se realiza sólo sobre los grados 
 de libertad de alguno de los subsistemas. En la ecuación 
-\eqref{eq:reducedRho-def1} denotamos a la matriz de densidad 
+\eqref{eq:reducedRho-def1} denotamos a la matriz densidad 
 reducida $\rho^A$ como la traza parcial sobre $B$ de $\rho^{AB}$,
 \begin{align} 
 	\sum _j \bra{\psi_i}\bra{\phi_j}\rho^{AB}\ket{\psi_k}\ket{\phi_j}
@@ -359,12 +369,12 @@ que se define mediante la relación~\cite{nielsen_chuang_2011}
 donde $\ket{\alpha_i}$ son vectores ortonormales del subespacio $\hi_A$
 y $\ket{\beta_j}$ del resto del espacio de Hilbert total.
 
-Ahora que contamos con las propiedades de la matriz de densidad, 
+Ahora que contamos con las propiedades de la matriz densidad, 
 los postulados reescritos con este formalismo y la aplicación de la matriz
 de densidad reducida para describir subsistemas ya disponemos de
 las herramientas adecuadas para describir a los estados cuánticos 
-utilizando a la matriz de densidad. En la siguiente sección continuamos 
-con la evolución de la matriz de densidad utilizando la teoría de los 
+utilizando a la matriz densidad. En la siguiente sección continuamos 
+con la evolución de la matriz densidad utilizando la teoría de los 
 canales cuánticos.
 
 % }}}
@@ -373,10 +383,10 @@ canales cuánticos.
 La teoría de los canales cuánticos es un marco teórico con el cual 
 se puede describir la evolución de los sistemas cuánticos abiertos.
 Un canal cuántico es una operación lineal que debe preservar las 
-propiedades de la matriz de densidad y que, cuando el sistema forma
+propiedades de la matriz densidad y que, cuando el sistema forma
 parte de un sistema más grande junto con un \textit{ancilla}, la
 extensión del canal que actúa sobre el sistema total debe también 
-de preservar la traza y positividad de la matriz de densidad total.
+de preservar la traza y positividad de la matriz densidad total.
 
 Matemáticamente se escribe la acción de un canal cuántico $\E$ 
 sobre un estado $\rho$ como
@@ -398,18 +408,18 @@ un estado físico. La operación que consideraremos
 actúa sobre partículas de espín 1/2, i.e. sistemas cuánticos de
 dos niveles. En computación e información cuántica
 se conoce a estos sistemas como qubits. Una manera
-de escribir a la matriz de densidad de 1 qubit es
+de escribir a la matriz densidad de 1 qubit es
 \begin{align}
 \rho&=\frac{1}{2}\sum_{i=0}^{3} r_i\sigma_i,
 \label{eq:rho-1qubit}
 \end{align}
 donde $\sigma_0=\1$ y el resto de $\sigma_i$ las 3 matrices de Pauli.
 Imponemos que $r_0=1$ para que $\Tr(\rho)=1$.
-Esta forma de escribir a la matriz de densidad de 1 qubit es útil porque
+Esta forma de escribir a la matriz densidad de 1 qubit es útil porque
 las componentes $r_1$, $r_2$ y $r_3$ especifican las coordenadas 
 cartesianas de un punto en la esfera de Bloch, esfera unitaria que 
 se utiliza para representar a los estados de 1 qubit. Similarmente, 
-la matriz de densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
+la matriz densidad de 2 qubits se escribe como~\cite{nielsen_chuang_2011}
 \begin{align}\label{eq:rho-2qubits}
 \rho=\frac{1}{4}\sum _{i,j=0}^{3}r_{ij}\sigma_i\otimes\sigma_j,
 \end{align}
@@ -418,7 +428,7 @@ Consideremos entonces la operación lineal $\E_z$ de 1 qubit
 que mapea la esfera de Bloch a un disco sobre el plano $x$-$y$ 
 como se muestra en la \Fref{fig:qtm-op-motivation}.
 En términos de las componentes $r_i$, la operación $\E_z$ 
-transforma a una matriz de densidad $\rho$ como en 
+transforma a una matriz densidad $\rho$ como en 
 \eqref{eq:rho-1qubit} de la siguiente manera
 \begin{align}
 \qty(1,r_1,r_2,r_3)\mapsto\qty(1,r_1,r_2,0).
@@ -441,29 +451,29 @@ Aunque podemos revisar explícitamente que las propiedades
 de traza unitaria y positividad de $\rho$ en \eqref{eq:rho-1qubit}
 se preservan, también podemos argumentar geométricamente
 que, dado que el disco final se contiene en la esfera de Bloch, 
-las propiedades de la matriz de densidad de 1 qubit se preservan.
+las propiedades de la matriz densidad de 1 qubit se preservan.
 Sin embargo, veremos que la acción de $\E_z\ot \1$ 
 sobre el estado máximamente entrelazado de 2 qubits 
 se transforma en una matriz no positiva.
 
-El estado máximamente entrelazado de 2 qubits es
-$\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$~\cite{bengtsson_zyczkowski_2017}.
-Dado que conocemos cómo transforma $\E_z$ a la matriz de densidad 
+Para 2 qubits, $\ket{\phi}=\qty(\ket{00}+\ket{11})/\sqrt{2}$ es el
+estado máximamente entrelazado~\cite{bengtsson_zyczkowski_2017}.
+Dado que conocemos cómo transforma $\E_z$ a la matriz densidad 
 escrita en la base de matrices de Pauli será necesario calcular 
 la representación de $\dyad{\phi}{\phi}$ escrita como en \eqref{eq:rho-2qubits}
 para luego calcular $\E_z\ot \1(\dyad{\phi}{\phi})$.
 Las componentes $r_{ij}$ se calculan usando el producto interno
-de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$.
+de Hilbert-Schmidt $\Tr\qty(\pauli{i}{j}\dyad{\phi}{\phi})$~\cite{bengtsson_zyczkowski_2017}.
 Así encontramos 
 \begin{align}
 \dyad{\phi}{\phi}=\frac{1}{4}\qty(
 \pauli{0}{0}+\pauli{1}{1}-\pauli{2}{2}+\pauli{3}{3}).
 \end{align}
 Recordemos que $\E_z$ borra la componente $r_3$ de la
-matriz de densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
+matriz densidad de 1 qubit en \eqref{eq:rho-1qubit}. 
 Al calcular el superoperador $\E_z\ot  \1$, la representación matricial de 
 un canal cuántico que veremos en la próxima sección, se encuentra
-que $\E_z\otimes\1$ actuando sobre una matriz de densidad de 2 qubits
+que $\E_z\otimes\1$ actuando sobre una matriz densidad de 2 qubits
 escrita como en \eqref{eq:rho-2qubits} borra
 las componentes de la forma $r_{3j}$. Por consiguiente
 \begin{align}
@@ -483,7 +493,7 @@ que al calcular su representación matricial se tiene
 
 La matriz  $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ tiene un 
 eigenvalor igual a $-1/4$ y, por lo tanto, no satisface la condición 
-de positividad para ser una matriz de densidad.  
+de positividad para ser una matriz densidad.  
 En otras palabras, $\E_z\otimes\1\qty(\dyad{\phi}{\phi})$ 
 no representa a un estado físico de 2 qubits y 
 se dice entonces que $\E_z$ no es una operación completamente 
@@ -504,11 +514,15 @@ Con esta definición hemos terminado de revisar las dos condiciones que
 debe de satisfacer una operación lineal para ser un 
 canal cuántico.
 
-Un canal cuántico es un mapeo lineal  (1) que preserva las características
-de la matriz de densidad y (2) que es completamente positivo. 
+Un canal cuántico es un mapeo lineal que
+\begin{enumerate} 
+\item Preserva las características de la matriz densidad.
+\item Es completamente positivo.
+\end{enumerate}
 En la literatura se suele utilizar el término operaciones 
 completamente positivas que preservan la traza 
-(CPTP) para referirse a los canales 
+(CPTP por sus siglas en ingles, \textit{Completely Positive and
+Trace-Preserving}) para referirse a los canales 
 cuánticos~\cite{bengtsson_zyczkowski_2017}. 
 En la siguiente y última sección de este capítulo estudiaremos 
 algunas representaciones de canales cuánticos. 
@@ -528,7 +542,7 @@ la última parte de esta sección a estudiarlos.
 
 Los canales cuánticos pueden entenderse como operadores 
 que actúan sobre otros operadores. 
-La matriz de densidad actúa sobre 
+La matriz densidad actúa sobre 
 el espacio de Hilbert y un canal cuántico actúa sobre las matrices de 
 densidad, que forman parte del espacio de Hilbert-Schmidt. 
 La diferencia es entonces que las matrices de densidad 
@@ -538,10 +552,10 @@ de Hilbert-Schmidt. Para hacer una diferencia en
 la naturaleza de los dos tipos de operadores, los canales cuánticos 
 pueden recibir el nombre de superoperadores~\cite{preskill1998lecture}.
 
-Vamos a revisar primero cómo `vectorizar' a la matriz de densidad 
+Vamos a revisar primero un cambio de notación que \textit{vectoriza} a la matriz densidad 
 para después exponer cómo es la representación matricial de
 un canal cuántico como un superoperador.
-Consideremos una matriz de densidad $\rho$ de dimensión $d\times d$.
+Consideremos una matriz densidad $\rho$ de dimensión $d\times d$.
 Para vectorizar a $\rho$, los elementos de matriz $\rho_{ij}$ 
 se deben acomodar en un vector columna $\vec{\rho}$, con componentes 
 $\rho_k$, siguiendo la ecuación~\citep{bengtsson_zyczkowski_2017}
@@ -549,7 +563,7 @@ $\rho_k$, siguiendo la ecuación~\citep{bengtsson_zyczkowski_2017}
 \rho_k=\rho_{ij};\hspace{2cm} k=\qty(i-1)d+j,
 \label{eq:matrix-to-vector}
 \end{align}
-donde $i,j=,1,\ldots,d$. Por ejemplo, la matriz de densidad
+donde $i,j=,1,\ldots,d$. Por ejemplo, la matriz densidad
 \begin{align}
 \rho=\mqty(\rho_{00}&\rho_{01}\\ \rho_{10}&\rho_{11})
 \end{align}
@@ -557,7 +571,7 @@ que actúa sobre un espacio de Hilbert de dimensión 2 se vectoriza como
 \begin{align}
 \vec{\rho}=\mqty(\rho_{00}\\ \rho_{01}\\ \rho_{10}\\ \rho_{11}).
 \end{align}
-En general, una matriz de densidad $\rho$ que actúa 
+En general, una matriz densidad $\rho$ que actúa 
 sobre un espacio de Hilbert de dimensión $d$ es 
 una matriz de dimensión $d\times d$. Si se vectoriza a $\rho$, la matriz 
 de densidad se transforma en un vector $\vec{\rho}$ de $d^2$ 
@@ -644,17 +658,17 @@ Ahora que ya contamos con las herramientas algebraicas necesarias
 estamos listos para enunciar las condiciones que debe cumplir un 
 superoperador $\E$ para ser un canal cuántico. 
 %Un superoperador 
-%$\E$ es una matriz que actúa sobre una matriz de densidad vectorizada
+%$\E$ es una matriz que actúa sobre una matriz densidad vectorizada
 %$\vec{\rho}$\cpnote{Quitaría esta frase. Para ser superoperador, actua sobre cualquier
 %operador. Ya lo dijiste arriba y creo que acá no mas estas metiendo ruido}.
 Recordemos de la sección anterior que un canal cuántico 
-es una operación lineal que actúa sobre una matriz de densidad 
+es una operación lineal que actúa sobre una matriz densidad 
 como en \eqref{eq:E(rho)}, donde $\rho'$
-es una matriz de densidad y $\E$ es una operación completamente positiva.
-La condición de positividad con la que debe cumplir la matriz de densidad 
+es una matriz densidad y $\E$ es una operación completamente positiva.
+La condición de positividad con la que debe cumplir la matriz densidad 
 implica que además es una matriz Hermítica. 
 Por lo tanto, que un canal cuántico preserve la Hermiticidad, traza unitaria 
-y positividad de la matriz de densidad impone tres condiciones 
+y positividad de la matriz densidad impone tres condiciones 
 sobre el superoperador $\E$~\cite{bengtsson_zyczkowski_2017}:
 % \janote{Sobre la hermiticidad de $\rho$: es una propiedad que se puede 
 % deducir de la positividad: si $\rho$ es positiva tiene descomposición 
@@ -662,7 +676,7 @@ sobre el superoperador $\E$~\cite{bengtsson_zyczkowski_2017}:
 % entonces se sigue que $\rho=\rho^{\dagger}$. Por eso, arreglé este
 % párrafo que acabas de terminar de leer para introducir la Hermiticidad
 % como una propiedad que se deduce de las características de la 
-% matriz de densidad que establece el teorema \ref{teo:density-matrix}.}
+% matriz densidad que establece el teorema \ref{teo:density-matrix}.}
 % \cpnote{No has definido rho prima (al menos no cerca), para que tngan sntido
 % estas definiciones, tienes que decir de neuvo que rho prima es E sobre rho}
 % \janote{Listo. Leete de nuevo este párrafo. Borré el enunciado que 
@@ -679,7 +693,7 @@ sobre el superoperador $\E$~\cite{bengtsson_zyczkowski_2017}:
     & \rho>0.
     \label{eq:positivity-condition}
 \end{align}
-De esta manera, sólo nos hace falta revisar la condición que debe cumplir
+De esta manera, solo nos hace falta revisar la condición que debe cumplir
 un superoperador $\E$ para ser una operación completamente positiva.
 % \cpnote{no entiendo esta frase en este contexto. estamos evaluando algo? Ya
 % evaluamos algo? Además creo que aca conviene separar parrafo pues pasas
@@ -702,7 +716,7 @@ su matriz de Choi asociada $D_{\E}$ es positiva semidefinida.
 Vamos a presentar la demostración expuesta por Bengtsson
 en~\cite[p. 281]{bengtsson_zyczkowski_2017}.
 La matriz de Choi $D_{\E}$ de un 
-canal cuántico $\E$ es una matriz Hermítica que 
+canal cuántico $\E$ es una matriz hermítica que 
 actúa sobre el espacio de Hilbert-Schmidt $\mathcal{H}_{N^2}$
 (espacio de las matrices de dimensión $N^2\times N^2$). 
 Por el teorema de descomposición espectral, 
@@ -789,8 +803,8 @@ y \eqref{eq:positivity-condition}, además de lo que establece
 el teorema \ref{thm:choi-CP}, que su matriz de Choi sea 
 positiva semidefinida. 
 
-Como prometimos al inicio de esta sección, vamos a terminar 
-este primer capítulo con la representación en operadores de Kraus 
+Vamos a terminar este primer capítulo presentando 
+brevemente la representación en operadores de Kraus 
 de un canal cuántico. Los operadores de Kraus fueron 
 introducidos por Karl Kraus en 1971 como una consecuencia
 deducida por él del teorema de Stinespring para las operaciones 
@@ -844,7 +858,7 @@ la condición
   \label{eq:Tr-Kraus-canonical}
 \end{align}
 Por último, ya que $\E$ es una operación que preserva la traza de 
-la matriz de densidad, debe imponerse la ecuación de completitud 
+la matriz densidad, debe imponerse la ecuación de completitud 
 sobre los operadores canónicos de Kraus,
 \begin{align}
   \sum_kE_k^{\dagger}E_k=\1.
@@ -864,20 +878,20 @@ siempre que los operadores canónicos de Kraus cumplan con
 la condiciones en \eqref{eq:Tr-Kraus-canonical} y 
 \eqref{eq:completeness-Kraus-canonical}. 
 
-En este capítulo introdujimos brevemente 
+Resumiendo, introdujimos brevemente 
 % \cpnote{Creo que es un poco mucho decir que 
 % revisamos esos formalismos. Mas bine se introdujeron brevemente o algo así.}
 % \janote{Jajaja sí, estoy de acuerdo. Apenas y escupí la representación de Kraus.} 
-el formalismo de la matriz de densidad
-y la teoría de los canales cuánticos. Por un lado, la matriz de densidad es una 
+el formalismo de la matriz densidad
+y la teoría de los canales cuánticos. Por un lado, la matriz densidad es una 
 matriz positiva de traza unitaria que sirve de herramienta para 
 representar a los estados cuánticos. 
 Por otro lado, la teoría de los canales cuánticos es un marco teórico 
 para describir la evolución discreta de los sistemas cuánticos abiertos. 
 Un canal cuántico es una operación completamente positiva que 
-preserva la traza de la matriz de densidad y se puede representar 
+preserva la traza de la matriz densidad y se puede representar 
 como superoperador o en la representación de 
-suma de operadores de Kraus. La matriz de densidad y los canales 
+suma de operadores de Kraus. La matriz densidad y los canales 
 cuánticos son el marco teórico dentro del cual estudiaremos, en 
 el resto de este trabajo, un tipo de operaciones muy particulares 
 que actúan sobre sistemas de qubits, operaciones que hemos bautizado 
