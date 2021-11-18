@@ -1,9 +1,8 @@
 # Documentos de Prácticas Finales y Tesis
 ### Autor: José Alfredo de León
-### Licenciatura en Física Aplicada
-### Escuela de Ciencias Físicas y Matemáticas, USAC
+### Licenciatura en Física Aplicada, Escuela de Ciencias Físicas y Matemáticas - USAC
 
-### **Descripción**
+## **Descripción**
 En este repositorio encontrarás mis siguientes documentos `Tex`: 
 1. Anteproyecto de Prácticas Finales 
 2. Informe final de Prácticas Finales 
