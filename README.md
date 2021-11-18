@@ -1,7 +1,7 @@
-# **LÉEME**: Documentos de Prácticas Finales y Tesis
-## Licenciatura en Física Aplicada
-## Escuela de Ciencias Físicas y Matemáticas, USAC
-## Autor: José Alfredo de León
+# Documentos de Prácticas Finales y Tesis
+### Autor: José Alfredo de León
+### Licenciatura en Física Aplicada
+### Escuela de Ciencias Físicas y Matemáticas, USAC
 
 ### **Descripción**
 En este repositorio encontrarás mis siguientes documentos `Tex`: 
