@@ -9,7 +9,7 @@ En este repositorio encontrarás mis siguientes documentos `Tex`:
 2. Informe final de Prácticas Finales 
 3. Protocolo de tesis 
 4. Tesis 
-5. Diapositivas de la presentación "Mapeos proyectivos en sistemas de varios qubits" en el Congreso Estudiantil de Física y Matemática 2020
+5. Diapositivas de la presentación "Mapeos proyectivos en sistemas de varios qubits" para el Congreso Estudiantil de Física y Matemática 2020
 6. Diapositivas de la presentación del Examen General Público (presentación de la tesis)
 
 Ya que no encontrarás los PDFs de los documentos necesitarás compilar los archivos .tex principales de cada documento mencionado arriba. El nombre de los archivos .tex y la dirección en este respositorio son, respectivamente, 
