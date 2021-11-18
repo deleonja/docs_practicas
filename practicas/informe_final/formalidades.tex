@@ -1,0 +1,114 @@
+\section*{Objetivo General}
+Identificar los mapeos CP  que preservan la traza que borran
+componentes arbitrarias de la matriz de densidad $\rho$ de 
+un sistema de $n$ qubits. 	
+
+\section*{Objetivos Específicos}
+\begin{itemize}
+\item Entender la definición y propiedades de la matriz de densidad, así como
+	  los fundamentos de la mecánica cuántica utilizando este lenguaje.
+\item Entender la condición de completa positividad con la que deben cumplir 
+	  los mapeos que actúan sobre matrices de densidad para asegurar que estos 
+	  transforman estados cuánticos válidos en estados válidos de sistemas 
+	  cuánticos abiertos.
+\item Entender los mapeos que borran componentes de la matriz de densidad
+	  de un sistema de 1 qubit.
+\item Escribir un programa que construya de numéricamente los mapeos que
+	  borran componentes arbitrarias de la matriz de densidad de un sistema 
+	  de $n$ qubits.
+\item Discriminar numéricamente los mapeos no físicos del conjunto de mapeos
+	  que borran componentes de la matriz de densidad verificando 
+	  la condición de completa positividad mediante el uso del teorema de Choi. 
+\end{itemize}
+
+\section*{Introducción}
+Durante la licenciatura, los cursos de mecánica cuántica se limitan a 
+tratar la descripción matemática de los sistemas cuánticos cerrados,
+sin embargo, los sistemas abiertos son de gran interés teórico
+y experimental para la investigación actual. Los sistemas cuánticos 
+reales son sistemas que están en alguna medida abiertos a 
+interacciones con su entorno. Por tal la razón, la descripción 
+completa de un sistema cuántico requiere incluir a su entorno 
+y considerar que este sistema secundario es inaccesible parcial 
+o totalmente, o que no es de interés para el observador 
+\cite{schlosshauer2007decoherence}.
+
+La teoría de las operaciones cuánticas propone un formalismo para
+describir la evolución de los sistemas abiertos de manera discreta
+\cite{nielsen_chuang_2011}. 
+Quizás un nombre más descriptivo para este formalismo es 
+``operaciones completamente positivas que preservan la traza",
+pues la condición de completa positividad (CP) es el rasgo característico 
+de una operación cuántica. La CP es una condición más fuerte  
+a la de la positividad y que, en el contexto de la
+mecánica cuántica y los sistemas abiertos, asegura que, aún 
+cuando el sistema principal se encuentre inicialmente enlazado 
+con un sistema secundario, una operación cuántica preservará 
+la positividad del estado del sistema. Las operaciones cuánticas 
+son una herramienta que permiten ir más allá de la descripción 
+de la evolución los sistemas ideales. 
+
+El problema que nos interesa estudiar en el marco de la teoría de 
+las operaciones cuánticas es el de caracterizar a las
+operaciones que borran componentes de la matriz de densidad
+de un sistema de qubits escrita en la base de los productos 
+tensoriales de las matrices de Pauli. Un qubit es un sistema cuántico de dos niveles, 
+como una partícula de espín 1/2 o la polarización de la luz. 
+Durante este trabajo de prácticas se estudió el caso de 1 qubit de las 
+operaciones que borran las componentes del vector de Bloch. Esto 
+servirá como preámbulo y preparación de un estudio posterior 
+de sistemas de más qubits y la caracterización general que este
+tipo de operaciones debe cumplir para ser canales cuánticos.
+Uno de los objetivos para este trabajo fue reproducir los
+resultados para el caso de 1 qubit que fueran 
+consistentes con la caracterización general de 
+los canales cuánticos de 1 qubit que otros autores han 
+estudiado previamente 
+\cite{bengtsson_zyczkowski_2017,nielsen_chuang_2011}.
+
+La estructura de este informe es la siguiente. En el capítulo 1
+se presenta la revisión y estudio de la bibliografía que se realizó 
+sobre el formalismo de la matriz de densidad de la mecánica cuántica, 
+herramienta utilizada para describir 
+al estado de un sistema cuántico. En el capítulo 2 se expone 
+la revisión y estudio bibliográfico del formalismo de las 
+operaciones cuánticas. Se estudió la completa positividad, 
+dos representaciones distintas y los ejemplos más relevantes 
+de 1 qubit de las operaciones cuánticas. En el último capítulo
+se formula el enunciado del problema de las operaciones que borran 
+componentes (información) de la matriz de densidad de un sistema de 
+qubits. Luego, se presentan los métodos analítico y numérico 
+para resolver el problema de 1 qubit, así como los resultados 
+que se obtuvieron, y se comparan con lo que se encuentra actualmente
+en la literatura de las operaciones cuánticas. Este trabajo 
+es el preludio de la tesis de licenciatura, en la que se continuará 
+estudiando este problema para sistemas de más de 1 qubit.
+
+
+\section*{Justificación}
+Estudiar los conceptos de la matriz de densidad y de las operaciones completamente
+positivas que preservan la traza constituye una herramienta que permite 
+entender la teoría cuántica desde un punto de vista distinto al que se estudia
+en los cursos de licenciatura y, al mismo tiempo, comprender los fundamentos 
+para estudiar los sistemas cuánticos abiertos. 
+
+Por otra parte, este proyecto ofrece la oportunidad de poner en práctica habilidades
+computacionales aprendidas en cursos de licenciatura, así como de 
+aprender nuevas habilidades que sean necesarias para cumplir con los objetivos
+de este trabajo. La adquisición de este tipo de habilidades son de provecho para la formación 
+profesional en diversas áreas de investigación en física. 
+
+El trabajo propuesto para estas prácticas finales es el inicio del proyecto
+que se busca continuar en el trabajo de graduación de licenciatura. 
+Estas prácticas servirán de preparación teórica y, al mismo tiempo, 
+para investigar el caso más sencillo del estudio de las operaciones 
+que borran componentes de la matriz de densidad de un sistema 
+de qubits.
+
+En fin, este proyecto es importante para estudiar los fundamentos teóricos
+de un área de investigación importante en información cuántica. 
+Por otro lado, este proyecto servirá como un preludio para un futuro trabajo de
+tesis de graduación y un proyecto de investigación, cuya experiencia a adquirir durante
+dicho proyecto complementaría la formación de un estudiante de licenciatura. 
+
+

@@ -1,0 +1,68 @@
+[duration]
+20
+[last_minutes]
+3
+[font_size]
+13
+[notes]
+### 1
+FIGURITAS!!!! FUERON FUNDAMENTALES
+
+### 2
+- Familia: mi papá QEPD, mi abuelita, los Mazariegos, mis tías, primo Rodrigo
+- Mamá: Por todos los sacrificios que hizo para darme las mejores condiciones para mi bienestar personal y académico, por enseñarme y motivarme a soñar en grande y por todas las lecciones de vida que me han hecho la persona que soy el día de hoy
+- Carlos: dirección de este trabajo, paciencia, buena voluntad para guiarme y oportunidades que me ha abierto en investigación
+- Juan Diego: por todo su apoyo en mi desarrollo académico desde que tomé cuánticas y durante mis prácticas y tesis
+- A Alejo y D. Dávalos: contribuciones roles clave en el progreso de este trabajo
+- Ing. Samayoa: ayuda, apoyo y motivación durante toda la licenciatura, desde que me instó a tomar su curso de Física 1 aquel primer día de clases en el 2016
+- Profesores ECFM: Rodrigo, Giovanni, Damián, Mapache, Ronald, Héctor
+y Maynor, por su dedicación y paciencia
+- Claudia y Norma: buena voluntad de siempre apoyarme con todos los trámites
+- A quienes les guardo cariño y estima por diferentes razones: Cindy, Benja, Gómez, Papaya, José Guillermo, Elser, Félix, Subadra y todos los que me están acompañando el día de hoy
+### 5
+
+
+- interacción con el entorno modifica la dinámica del sistema principal
+
+-problema: no siempre se puede separar la descripción del sistema principal y el entorno
+
+- de hecho, esto conduce a fenómenos que no sufren los sistemas cerrados, como la decoherencia.. 
+
+### 6
+
+
+- decoherencia de un sistema de 2 niveles: átomo de dos niveles, espín del electrón, polarización de un fotón
+
+- decoherencia: pérdida de la información del estado
+
+### 8
+
+
+¿cómo describir a los estados cuánticos de un sistema abierto? 
+
+### 9
+
+
+qubits: nuestros sitemas de interés
+
+### 10
+
+
+¿cómo describir la evolución de los sistemas abiertos? 
+
+CP: la extensión del canal con una ancilla de dimensión arbitraria también...
+
+### 12
+
+
+1. establecer el problema de las operaciones PCE
+2. contarles qué hicimos y cómo
+3. resultados
+
+### 17
+
+
+- intercambios de partículas: si una operación es física para una
+configuración de las partículas en el sistema, también debe serlo para cualquier configuración. Transposiciones de las figuras PCE
+
+- permutación de elementos de una base local: x,y,z -> z,x,y

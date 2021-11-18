@@ -1,0 +1,17 @@
+2: typo prefesores 
+
+5: uno nunca hace una red de átomos de hidrógeno. Iones de calcio, potasio, rubidio
+
+8: traza unitaria no, traza uno
+
+9: decir que las sigmas son matrices de pauli 
+
+11: cualquier operación unitaria es una rotación. El bit-flip es no unitaria. Utilizar pause para hacer más detenida
+
+14: figuras con la esfera de Bloch
+
+17: decir por qué nos interesa ordenar los PCE 
+
+20: Ruskai son de Pauli? imagen contenida dentro de todos los canales de Pauli
+
+22: MUCHO TEXTO. Más al grano los items. quizás la 23 también?

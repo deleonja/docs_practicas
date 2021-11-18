@@ -1,0 +1,491 @@
+\chapter{Mapeos proyectivos}  
+% Intro {{{
+% \janote{Introducción. Motivar y justificar el estudio de las operaciones
+% que borran componentes de la matriz de densidad de un 1 qubit. Discutir
+% que entender los canales cuánticos que borran componentes de la 
+% matriz de densidad ayudaría a entender mejor la teoría 
+% de las operaciones CPTP y, también, la mecánica cuántica porque al fin y al 
+% cabo estamos estudiando qué permite y qué no la mecánica 
+% cuántica.}
+% 
+% \cpnote{La justificacion me gustaria ver en pseudocodigo antes de que la afines. 
+% Menciona un poco también la relación con los otros mapeos, pero muy por encima, como 
+% los de Ruskai}
+
+En la sección 2.1 utilizamos el
+ejemplo de una operación lineal 
+de 1 qubit que borra una componente del vector de Bloch para motivar
+la condición de completa positividad. 
+Revisamos que esa operación no es completamente positiva.
+Por otro lado, en la sección 2.4.2 revisamos el 
+canal depolarizante, un operación cuántica que para $p=1$
+borra las 3 componentes del vector de Bloch. En vista de esto, 
+inevitablemente salta la pregunta acerca de cuántas (y cuáles) 
+componentes del vector de Bloch puede borrar una operación 
+de 1 qubit y ser completamente positiva.
+Debe hacerse hincapié que las operaciones que borran componentes 
+del vector de Bloch son operaciones lineales que 
+preservan la traza y la Hermiticidad de la 
+matriz de densidad de 1 qubit, por lo que la completa positividad 
+es la única condición restante para determinar si la operación 
+es un canal cuántico.
+
+%Si bien los canales cuánticos de 1 qubit han sido estudiados y 
+%están completamente caracterizados por otros autores
+%los canales cuánticos de $n$ qubits aún no~\cite{nielsen_chuang_2011}
+%\cite{bengtsson_zyczkowski_2017}\cpnote{Normalmente las citas se ponen al final
+%de la frase, menos que no se entienda. Un ejemplo donde toca ponerlas 
+%a la mitad de la frase es Hay muchas formas de preparar tacos. La forma
+%del norte [1], la del centro [2] y la del sur[3] son cada una diferentes. }. En
+%ese sentido \cpnote{Por qué ``en ese sentido?''}, proponemos estudiar las
+%operaciones
+%que borran componentes del vector de Bloch (generalizado, para el 
+%caso de $n$ qubits). Por lo cual, este capítulo se enfoca en  
+%estudiar, reproducir y entender las operaciones de 1 qubit 
+%que borran componentes del vector de Bloch. \cpnote{Este parrafo siento 
+%que no tiene estructura. De que se trata? Hemos hablado de como se estructura 
+%típicamente un parrafo? Si no lo hemos hecho, dime y te mando una referencia. Si lo 
+%hemos hecho, trata de iterarlo. Se para acá el parrafo anterior de lo que viene 
+%explicando la estructura.} En la sección 3.1
+%se establece el problema y una solución analítica.
+%Por último, en la sección 3.2 se presenta el método numérico que 
+%propusimos, así como las herramientas que se utilizaron y 
+%los resultados.
+
+En este capítulo comenzaremos el estudio de las operaciones que 
+borran componentes del vector de Bloch con el caso más sencillo de 
+1 qubit. Entender por completo el caso de 1 qubits nos proporcionará 
+de intuición para empezar a entender las características de las operaciones
+de nuestro interés, y también para diseñar una forma de investigar
+el caso de sistemas de más qubits. Por otro lado, Bengtsson y Zyczkowski
+\cite{bengtsson_zyczkowski_2017} estudiaron 
+una caracterización general de los canales cuánticos de 
+1 qubit con la cual se puede comparar los resultados de este capítulo. El caso
+de 1 qubit es importante y es el punto de partida para investigar sistemas de
+más qubits.
+
+La estructura de este capítulo es la siguiente. 
+En la sección \ref{sec:caso-1-qubit} vamos a establecer el problema 
+de las operaciones que borran componentes del vector de Bloch y 
+vamos a revisar un procedimiento analítico para verificar 
+la completa positividad de estas operaciones.  
+Luego, en la sección \ref{sec:metodo-num},
+discutiremos el diseño del método numérico, los resultados y 
+una comparación de ellos con la caracterización de los canales 
+cuánticos de 1 qubit de Bengtsson y Zyczkowski 
+\cite{bengtsson_zyczkowski_2017}.
+
+% }}}
+\section{El caso de 1 qubit} \label{sec:caso-1-qubit} % {{{
+% \janote{Introducción sobre los canales cuánticos de 1 qubit. Recordar 
+% la forma de la matriz de densidad escrita en la representación 
+% de Pauli y su asociación con la esfera de Bloch.}
+
+% \janote{Establecer el problema que nos interesa para 1 qubit:
+% mapeos que borran y dejan invariantes todas las combinaciones 
+% posibles de las componentes del vector de Bloch. 
+% Discutir que la componente $r_0$ la dejamos intacta para 
+% preservar la traza. Hablar de la representación geométrica 
+% de las operaciones que estudiamos.}
+% 
+% \janote{Presentar la forma analítica de calcular la representación
+% en forma de superoperador de alguno de los 8 mapeos posibles. 
+% A diferencia de lo que ya se hizo en el capítulo anterior, voy a presentar
+% el cálculo a partir de la forma diagonal del mapeo (también para ir 
+% dando las herramientas para el algoritmo numérico)}
+% 
+% \janote{Concluir presentando las 8 operaciones de 1 qubit que nos intersan.}
+% \cpnote{Me parece bien, pero porfa no te extiendas de más en este capitulo}
+
+Los canales cuánticos de 1 qubit son especialmente interesantes porque 
+son fáciles de visualizar en la esfera de Bloch, como se presentó
+en la sección \ref{sec:CC's-1q-ejemplos}. Esto hace que 
+aporten mucha intuición física para entender la teoría de
+las operaciones cuánticas. 
+Particularmente, recordemos 
+las operaciones $\E_z$ y $\E_{xz}$ (Figs. \ref{fig:qtm-op-motivation}
+y \ref{fig:QC-ex2}) que borran las componentes en $z$, y 
+$x$ y $z$ del vector de Bloch, respectivamente. Ambas operaciones
+transforman estados de 1 qubit en estados de 1 qubit. No obstante, 
+vimos que $\E_z$ no es una operación completamente positiva porque 
+$\E_z\otimes\1 _2$ transforma al estado máximamente entrelazado de 
+dos qubits en una matriz que no es una matriz de densidad;
+por consiguiente, $\E_z$ no es un canal cuántico. 
+Motivados por estas dos operaciones, nos parece interesante 
+estudiar las operaciones que borran las componentes del 
+vector de Bloch de la matriz de densidad de 1 qubit.
+
+Para ser más precisos, el problema que abordaremos es
+el siguiente: determinar el subconjunto de canales cuánticos
+del conjunto de operaciones lineales que borran componentes 
+del vector de Bloch de la matriz de densidad de 1 qubit.
+Para esto, es necesario recordar que la matriz de densidad 
+de 1 qubit se puede representar en la base de las matrices 
+de Pauli como
+\begin{align}
+\rho = \frac{\1}{2}+\sum_{i=1}^{3}r_i\sigma_i,
+\label{eq:ch3-rho-1q}
+\end{align}
+con $r_i$ las componentes del vector de Bloch y $\sigma_i$ las 
+matrices de Pauli. Por lo tanto, nuestro objetivo es encontrar
+las operaciones CP que borran un número arbitrario de 
+$r_i$ de \eqref{eq:ch3-rho-1q}. Puesto que una matriz 
+$\rho$, de la forma \eqref{eq:ch3-rho-1q} con cualquier
+conjunto de $r_i$ iguales a cero, satisface
+(i) $\Tr(\rho)$, (ii) $\rho=\rho^{\dagger}$ y (iii) $\rho\geq0$,
+entonces la única condición que resta por 
+evaluar para determinar si las operaciones de nuestro estudio
+son canales cuánticos es la completa positividad. 
+En el resto de esta sección presentaremos una manera 
+analítica y sistemática de calcular la forma matricial de una operación
+y evaluar si es completamente positiva.
+%
+%
+%Los mapeos que deseamos estudiar son especialmente sencillos
+%de visualizar en la esfera de Bloch: mapeos que borran componentes
+%arbitrarias del vector de Bloch de una matriz de densidad $\rho$ 
+%de la forma \eqref{eq:ch3-rho-1q}. Explotando la representación 
+%de la esfera de Bloch los mapeos de nuestro interés son cuatro:
+%\begin{enumerate}
+%\item La identidad, una operación que deja intacta a la esfera de Bloch.
+%\item Tres mapeos que colapsa una dimensión de la esfera de Bloch. Es decir,
+%la esfera de Bloch la deforma a un disco. 
+%\item Tres mapeos que colapsan dos dimensiones. Es decir, la esfera
+%de Bloch se deforma a una línea sobre uno de los ejes. 
+%\item Un mapeo que colapsa las tres dimensiones. La esfera de Bloch
+%colapsa a un punto en el origen. Este canal se conoce como el 
+%completamente depolarizante, dado que es el caso límite $(p=1)$
+%del canal depolarizante que presentamos en la sección 2.4.2.
+%\end{enumerate}
+
+%\subsection{Cálculo analítico}
+%\begin{enumerate}
+%\item Se calcula la forma matricial $\qty[\E]_{\sigma}$
+%de la operación en la base de las matrices de Pauli, base en 
+%la cual la operación es diagonal. 
+%\item Se hace un cambio de base $P\qty[\E]_{\sigma}P^{-1}$ 
+%para encontrar la forma matricial $\E$ de la operación 
+%en la base computacional.
+%\item Se calcula $\E^R$ para calcular la matriz de Choi $D_{\E}$
+%de la operación.
+%\item Se evalúa la positividad semidefinida de $D_{\E}$; si cumple,
+%entonces se concluye que $\E$ es un canal cuántico. 
+%\end{enumerate}
+%Debe notarse que la clase de operaciones
+%que estamos estudiando mantiene invariante la traza unitaria,
+%Hermiticidad y positividad de la matriz de densidad del sistema de 
+%qubits que se está considerando. La única condición que resta 
+%evaluar a las operaciones es la de completa positividad. Por
+%ejemplo, las operaciones que borran componentes de la matriz 
+%de densidad de 1 qubit es un mapeo afín de matrices de 
+%densidad de 1 qubit, pero no todas son CP.
+
+Vamos a abordar una vez más la operación $\E_z$
+para mostrar el procedimiento análitico para 
+calcular la forma matricial de una operación 
+y evaluar su completa positividad. La diferencia 
+de este procedimiento con lo que mostramos en el
+capítulo anterior es que está formulado para 
+poderse implementar de manera numérica.
+Recordemos que $\E_z$ transforma a las componentes 
+de la matriz de densidad de 1 qubit como
+\begin{align}
+\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,r_1,r_2,0),
+\end{align}
+por lo que la forma matricial de $\E_z$ debe ser diagonal 
+en la base de Pauli 
+$\{ \vec{\sigma}_0,\vec{\sigma}_1,\vec{\sigma}_2,\vec{\sigma}_3\}$, 
+que son las matrices de Pauli y $\sigma_0=\1$ como matrices vectorizadas.
+Denotemos $\qty[\E_z]_{\sigma}$ a la forma matricial de
+$\E_z$ en la base de Pauli. 
+%Los elementos de la diagonal $(\qty[\E_{z}]_{\sigma})_{ii}$ 
+%deben satisfacer la ecuación $r_i'=(\qty[\E_{z}]_{\sigma})_{ii}r_i$, 
+%con $r_0=1$; así se determina 
+En general, este tipo de operaciones transforman al vector de Bloch
+como $r_i\longmapsto \tau_ir_i$, con $\tau_i=0,1$, donde $\tau_i$ son 
+los elementos de la diagonal de la forma matricial de la operación 
+en la base de Pauli. Por lo tanto,
+\begin{align}
+\qty[\E_z]_{\sigma}=
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 0 
+).
+\end{align}
+El siguiente paso es hacer un cambio de base para escribir
+a $\qty[\E_z]_{\sigma}$ en la base computacional.
+Para ello, construimos a la matriz de cambio de base $P$
+yuxtaponiendo a los vectores en la base de Pauli,
+\begin{align}
+P=\mqty(
+ 1 & 0 & 0 & 1 \\
+ 0 & 1 & -i & 0 \\
+ 0 & 1 & i & 0 \\
+ 1 & 0 & 0 & -1 
+).
+\end{align}
+Se efectúa el cambio de base, siguiendo la expresión 
+$P\qty[\E_z]_{\vec{\sigma}}P^{-1}$, y tenemos
+\begin{align}
+\mqty(
+ 1 & 0 & 0 & 1 \\
+ 0 & 1 & -i & 0 \\
+ 0 & 1 & i & 0 \\
+ 1 & 0 & 0 & -1 
+)
+\mqty(
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 0 
+)
+\mqty(
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+ 0 & \frac{1}{2} & \frac{1}{2} & 0 \\
+ 0 & \frac{i}{2} & -\frac{i}{2} & 0 \\
+ \frac{1}{2} & 0 & 0 & -\frac{1}{2} 
+)
+&=
+\mqty(
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ \frac{1}{2} & 0 & 0 & \frac{1}{2} 
+).
+\end{align}
+De esta manera, hemos llegado a la misma forma matricial de $\E_z$
+en \eqref{eq:Ez-matrix} (sección \ref{sec:ch2-matrixForm}). 
+Lo que falta por hacer es determinar si $\E_z$ es CP, 
+para ello, necesitamos calcular la matriz
+de Choi $D_{\E_z}$, siguiendo la ecuación \eqref{eq:R-4ind}, y 
+evaluar si es positiva. La manera en la que evaluaremos 
+si $D_{\E_z}$ es positiva será calculando los eigenvalores 
+y evaluando que todos sean no negativos. 
+De hecho, esto fue lo que hicimos en 
+la ecuación \eqref{eq:ch2-Choi-Ez},
+calculamos los eigenvalores de $D_{\E_z}$ y  
+encontramos que uno de ellos es igual a $-1/2$, 
+por lo cual se concluye que $\E_z$ no es un canal cuántico.
+
+Para ser prácticos vamos a introducir un nombre para
+las operaciones de estudio: ``Operaciones
+que borran componentes de Pauli'', u ``operaciones PCE",
+por su nombre en inglés (\textit{Pauli components erasing}). 
+Las operaciones PCE de 1 qubit que vamos a estudiar 
+se muestran en el \Cref{cuadro:operacionesPCE-1q}.
+\begin{table}
+\centering
+\begin{tabular}{|c|l|} 
+\hline
+\textbf{Operación PCE} & 
+\textbf{Transformación de las componentes} $\mathbf{r_i}$ \\
+\hline
+$\E_{}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,r_1,r_2,r_3)$ \\ 
+\hline 
+$\E_{x}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,0,r_2,r_3)$ \\ 
+\hline 
+$\E_{y}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,r_1,0,r_3)$ \\ 
+\hline 
+$\E_{z}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,r_1,r_2,0)$ \\ 
+\hline 
+$\E_{yz}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,r_1,0,0)$ \\ 
+\hline 
+$\E_{xz}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,0,r_2,0)$ \\ 
+\hline 
+$\E_{xy}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,0,0,r_3)$ \\ 
+\hline 
+$\E_{xyz}$ & \hspace{1.2cm}$\qty(1,r_1,r_2,r_3)\longrightarrow\qty(1,0,0,0)$ \\ 
+\hline
+\end{tabular}   
+\caption{Operaciones PCE de 1 qubit. 
+Los subíndices de $\E$ indican las componentes $r_i$ 
+del vector de Bloch que la operación borra.}
+\label{cuadro:operacionesPCE-1q}
+\end{table}
+
+Hemos establecido que el problema que vamos a 
+estudiar es el de determinar los canales cuánticos 
+del conjunto de las operaciones PCE de 1 qubit. 
+Por esa razón, mostramos un procedimiento analítico
+y sistemático para determinar si una operación PCE 
+es completamente positiva. 
+En la siguiente sección presentaremos el método 
+numérico que implementamos para resolver problema.
+
+% }}}
+\section{Método numérico} \label{sec:metodo-num} % {{{
+% \janote{Introducción para justificar porqué nos interesa reproducir
+% lo de 1 qubit de forma numérica (porque queremos estudiar 2+ qubits).}
+% 
+% \janote{Enunciar el algoritmo.}
+% 
+% \janote{Hablar de que se implementó en Mathematica y por 
+% aquí meter la info al repositorio y añadir la idea que tienes 
+% con eso.}
+% 
+% \janote{Concluir con los resultados del numérico.}
+% 
+% \janote{En el siguiente capítulo (último último) hablamos sobre
+% seguir trabajando en este proyecto para la tesis, 
+% pero ahora con más qubits, y concluir discutiendo 
+% que se cumplieron con los objetivos planteados
+% para este trabajo de prácticas.}
+% \cpnote{Si, todo bien}
+
+En la sección anterior se enunció que las operaciones
+PCE de 1 qubit son 8. Un poco de paciencia y tiempo es lo que 
+se requeriría para encontrar, a papel y lápiz, cuáles de esas operaciones son
+canales cuánticos. Sin embargo, es de nuestro interés estudiar las 
+operaciones PCE de sistemas de más de 1 qubit en el futuro. 
+Por ese motivo, se diseñó un método numérico para resolver 
+el problema para un sistema de $n$ qubits.
+En principio, esto apuntaría a que con el método numérico 
+diseñado, el problema está resuelto; sin embargo, 
+el número de operaciones PCE, según el número $n$ de qubits
+en el sistema, es $2^{4^n-1}$ y la dimensión de las matrices 
+a manipular es $4^n\times4^n$. Apenas para 3 qubits, el método numérico
+tendría que manipular $\sim 9\times10^{18}$ matrices de 
+dimensión $64\times64$, por lo cual esto impone desde 
+ya una restricción sobre la capacidad del método numérico. 
+
+Se utilizó el lenguaje de Wolfram para implementar 
+rutinas numéricas que construyan la forma matricial 
+de las operaciones PCE de 1 qubit y evalúen si son CP,
+reproduciendo el procedimiento analítico de la sección anterior. 
+Por consiguiente, se programaron las siguientes funciones:
+\begin{enumerate}
+\item PauliToComp: construye la matriz de cambio de base $P$
+para transformar a una matriz de la base de Pauli
+a la base computacional.
+\item PCE: calcula la forma matricial de una operación PCE en la
+base computacional, a partir de las componentes $r_i'$ 
+de la matriz de densidad transformada por la operación.
+\item Reshuffle: realiza el reordenamiento de \textit{reshuffle} de una matriz.
+\item PTest: determina la positividad semidefinida de una matriz 
+a partir de sus eigenvalores.
+\end{enumerate}
+Estas funciones se escribieron en un paquete llamado ``quantumJA.m".
+
+Ya que contamos con las funciones necesarias, mostramos
+a continuación el algoritmo que se debe seguir para construir 
+una operación PCE y determinar si es CP.
+
+\vspace{1em} \hrule \vspace{1em}
+\textbf{Canales cuánticos PCE}.
+Algoritmo para construir la forma matricial de una operación 
+PCE y determinar si es CP.
+\textbf{Entrada:} Elementos de la diagonal de $\qty[\E]_{\sigma}$
+(1 si $r_i$ se mantiene invariante, 0 si se borra). 
+\textbf{Salida:} ``\textit{True}'' si la operación $\E$ es un canal cuántico,
+``\textit{False}'' si no.
+\textbf{Utiliza:} PCE, Reshuffle y PTest.
+\begin{enumerate}
+\item Calcular la forma matricial de $\E$ en la base computacional.
+\item Efectuar el \textit{reshuffle} de $\E$ para determinar $D_{\E}$.
+\item Determinar si $D_{\E}$ es positiva semidefinida.
+\end{enumerate}
+\hrule \vspace{1em}
+
+\textbf{Para revisar las funciones implementadas y 
+un archivo de ejemplo de la rutina empleada haga click 
+\href{https://github.com/deleonja/projective_maps.git}
+{\textit{aquí}}\footnote{
+https://github.com/deleonja/projective$\_$maps.git}}.
+
+Se ejecutó el método numérico y se encontraron los
+resultados que se muestran en el \Cref{c:resultados-1q}.
+De las 8 operaciones PCE se encontraron 5 canales cuánticos:
+(1) la identidad, (2) las tres operaciones 
+que deforman la esfera de Bloch a una línea sobre cada uno 
+de los ejes, y (3) el canal completamente depolarizante, 
+que colapsa la esfera de Bloch a un punto en el origen.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{No. de $\mathbf{r_i}$ invariantes} & \textbf{1} & \textbf{2} &  \textbf{4}\\
+\hline 
+ & $\E_{xyz}$ & $\E_{xy}$ & $\E_{\{\}}$ \\ 
+\textbf{Canales PCE} &  & $\E_{yz}$ &  \\ 
+ & & $\E_{xz}$ &  \\ 
+\hline
+\textbf{Cantidad de canales PCE} & 1 & 3 & 1 \\
+\hline
+\end{tabular} 
+\caption{Canales PCE de 1 qubit. Resultados
+obtenidos con el método numérico.}
+\label{c:resultados-1q}
+\end{table}
+
+Nuestros resultados coinciden con lo que se encuentra 
+en la literatura sobre los canales cuánticos 
+de 1 qubit \cite{bengtsson_zyczkowski_2017}
+\cite{nielsen_chuang_2011}. Bengtsson y 
+Źyczkowski exponen que si un canal cuántico $\E$, de 1 qubit,
+transforma la esfera de Bloch a un elipsoide, de
+tal manera que el vector de Bloch $\vec{r}$ 
+se transforma según  
+\begin{align}
+\vec{r}\ '=\vec{\eta}\cdot\vec{r}+\vec{\kappa},
+\end{align}
+donde las componentes de $\vec{\eta}$ determinan 
+la forma del elipsoide y $\vec{\kappa}$ las coordenadas del 
+centro geométrico del elipsoide, entonces
+la forma matricial de $\E$ es, en general,
+\begin{align}
+\E =
+\mqty(
+1+\eta_z+\kappa_z & 0 & 0 & 1-\eta_z+\kappa_z \\
+\kappa_x+i\kappa_y & \eta_x+\eta_y & \eta_x-\eta_y & \kappa_x+i\kappa_y\\
+\kappa_x-i\kappa_y & \eta_x-\eta_y & \eta_x+\eta_y & \kappa_x-i\kappa_y\\
+1-\eta_z-\kappa_z & 0 & 0 & 1+\eta_z-\kappa_z
+).
+\end{align}
+
+Similar a nuestro trabajo, ellos estudian el caso en el que 
+$\vec{\kappa}=0$, en el que se deben satisfacer 
+las condiciones de Fujiwara-Algoet
+\begin{align}
+\qty(1\pm\eta_z)^2\geq\qty(\eta_x\pm\eta_y)^2,
+\label{eq:fujiwara-algoet}
+\end{align}
+para que la operación $\E$ sea completamente positiva. En el 
+caso particular de las operaciones PCE las 
+componentes $\eta_i$ deben ser iguales a 1 o 0. 
+El subconjunto de los canales PCE está caracterizado por
+0, 1 o 3 componentes $\eta_i$ iguales a 1. Por ejemplo, 
+cuando $\eta_x=1$ y $\eta_y=\eta_z=0$ se tiene,
+sustituyendo en \eqref{eq:fujiwara-algoet}, $1\geq\eta_x^2$. 
+Por consiguiente, se puede concluir que
+la operación PCE que deforma  a la esfera de 
+Bloch a una línea sobre el eje $x$ es un canal cuántico. Por otro lado, 
+cuando $\eta_x=\eta_z=1$ y $\eta_y=0$ y se sustituye 
+en \eqref{eq:fujiwara-algoet} se tiene $\qty(1\pm\eta_z)^2\geq\eta_x^2$. 
+Para la condición en la que se restan los términos dentro 
+del paréntesis, en el lado izquierdo de la desigualdad, se obtiene que
+es falsa, por lo tanto la operación PCE que deforma a la esfera de 
+Bloch a un disco sobre los ejes $x$ y $z$ no es CP. De manera
+similar, se puede revisar que el resto de nuestros
+resultados (\Cref{c:resultados-1q}) satisfacen las condiciones
+de Fujiwara-Algoet.
+
+En resumen, se estudiaron las operaciones PCE de 1 qubit, que son operaciones 
+que borran las componentes $r_i$ de la matriz de densidad 
+escrita en la representación de las matrices de Pauli. 
+Se implementó un método numérico para evaluar
+numéricamente la CP de estas operaciones. 
+El método se diseñó para resolver el problema de sistemas con más de 1 qubit.
+Se encontró que 5 de las 8 operaciones PCE son canales cuánticos.
+Son canales PCE la identidad, el canal completamente depolarizante 
+y los canales que transforman a la esfera de Bloch a una línea sobre 
+cualquiera de los 3 ejes. Estos resultados son compatibles con lo 
+que se encuentra en la bibliografía acerca de los canales cuánticos
+de 1 qubit. En el futuro, nuestro objetivo es
+caracterizar a los canales PCE de sistemas de $n$ qubits.
+% }}}
+
+
+
