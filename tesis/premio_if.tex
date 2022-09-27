@@ -1,0 +1,102 @@
+%---------------------------------------------------------------------------%
+
+% Letter class
+\documentclass[letterpaper, 11pt]{letter}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+% Name of sender
+\name{Joe Fox}
+
+% Signature of sender
+%\signature{José Alfredo de León}
+\signature{
+\begin{tabular}{c p{5.1cm} c}
+~ & ~ & ~ \\
+~ & ~ & ~ \\
+José Alfredo de León Garrido & ~ & Vo.Bo. \\
+~ & ~ & Dr. Carlos Francisco Pineda Zorrilla\\
+\end{tabular}}
+
+%% Address of sender
+%\address
+%{
+%    Fox Books,\\
+%    Times Square, NYC.
+%}
+
+%-----------------------------------------------------------------------------%
+\date{Ciudad de México, \today}
+\begin{document}
+
+% Name and address of receiver
+\begin{letter}
+{}
+
+% Opening statement
+\opening{
+Comité Evaluador,\\
+Premio 2022 ``Juan Manuel Lozano Mejía",\\
+}
+
+% Letter body
+
+Reciban un cordial saludo. Me dirijo a ustedes para postularme como candidato
+para medalla o diploma al premio 2022 ``Juan Manuel Lozano Mejía'' en el nivel
+de licenciatura. El trabajo con el que deseo concursar es mi tesis de 
+licenciatura. El trabajo se titula ``Mapeos proyectos en sistemas de varios qubits'' y
+estuvo bajo la dirección del Dr. Carlos Francisco Pineda Zorrilla del Insituto
+de Física. 
+
+Permítanme elaborar un breve resumen de la tesis.
+La motivación de este trabajo fue estudiar, con la teoría 
+de los canales cuánticos, aquellos procesos  
+de decoherencia y disipación de sistemas de muchos qubits que se pueden describir 
+como proyecciones de la matriz de densidad a las matrices de Pauli. 
+En el caso de 1 qubit estas transformaciones, que han sido extensamente estudiadas en la literatura, son las proyecciones de la esfera de Bloch a un plano,
+a un eje o al origen de coordenadas. 
+
+Para generalizar las proyecciones de la esfera de Bloch
+a muchas partículas introdujimos 
+los mapeos \textit{Pauli component erasing} (PCE), mapeos que preservan o borran
+por completo las componentes de la matriz de densidad en la base de las 
+matrices de Pauli. Introdujimos diagramas para representar a los mapeos 
+PCE y estudiamos numéricamente 
+el subconjunto de los canales cuánticos de 1, 2 y 3 qubits, es decir, 
+el subconjunto de los mapeos PCE que son completamente positivos y, por tanto,
+describen evoluciones físicas.
+
+Por otro lado, también estudiamos la propuesta de Nathanson y Ruskai de los 
+canales diagonales de Pauli constantes sobre los ejes para investigar la 
+intersección entre estos canales cuánticos y los canales cuánticos PCE.
+Los canales diagonales de Pauli constantes sobre los
+ejes son canales que actúan sobre las componentes de la matriz de densidad
+de un sistema de qubits, escrita en una base de operadores unitarios que
+se definen a partir de bases \textit{mutuamente imparciales} del espacio de Hilbert del sistema. En el manuscrito
+discutimos cuál es el subconjunto que se construye de la intersección entre 
+los canales cuánticos PCE y los canales diagonales de Pauli constantes sobre 
+los ejes. 
+
+Para este trabajo se diseñaron e implementaron varias herramientas computacionales en Mathamatica, que ahora se encuentran disponibles een línea en \href{https://github.com/deleonja/projective_maps}{https://github.com/deleonja/projective\_maps}.
+
+Además, vale la pena resaltar que los resultados que se consiguieron
+en este trabajo fueron la piedra angular para la solución analítica 
+de los canales cuánticos PCE, en la que continuamos trabajando después.
+Sobre estos resultados escribimos un artículo en el cual, dada mi contribución, 
+soy el primer autor. Este manuscrito puede encontrarse en línea como \href{https://arxiv.org/abs/2205.05808}{arXiv:2205.05808} y está \href{https://journals.aps.org/pra/accepted/b5079Nf1F601ce2282552ec77ee4339c9ce815341}{aceptado para publicarse en Physical Review A} (adjunto documento probatorio). 
+
+% Closing statement
+\closing{Sin más, me despido.}
+
+\end{letter}
+\end{document}
